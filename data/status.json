@@ -1,0 +1,29 @@
+{
+  "fixtureDateRange": [
+    "2026-10-15",
+    "2026-10-19"
+  ],
+  "refreshed": "2026-10-17T00:16:08.903637+01:00",
+  "resultsByLeague": {
+    "E0": 60,
+    "E1": 119,
+    "E2": 102,
+    "E3": 114,
+    "EC": 155
+  },
+  "resultsCount": 550,
+  "sources": [
+    "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+    "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
+    "https://www.football-data.co.uk/mmz4281/2526/E2.csv",
+    "https://www.football-data.co.uk/mmz4281/2526/E3.csv",
+    "https://www.football-data.co.uk/mmz4281/2526/EC.csv",
+    "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+    "https://www.football-data.co.uk/mmz4281/2627/E1.csv",
+    "https://www.football-data.co.uk/mmz4281/2627/E2.csv",
+    "https://www.football-data.co.uk/mmz4281/2627/E3.csv",
+    "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
+    "https://www.football-data.co.uk/fixtures.csv"
+  ],
+  "warnings": []
+}

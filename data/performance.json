@@ -1,0 +1,10 @@
+{
+  "b31FrozenMarkets": {},
+  "b31Note": "B3.1 records include only dated imported/frozen qualifiers; do not mix with independent model totals.",
+  "byDivision": {},
+  "markets": {},
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "totalSettledGames": 0,
+  "totalSnapshots": 1,
+  "updated": "2026-10-17T00:16:08.903637+01:00"
+}
