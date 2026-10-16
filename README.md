@@ -31,13 +31,9 @@ No betting odds, private tokens, personal information or paid API feeds are used
 
 ## Publish the website
 
-In [Settings > Pages](../../settings/pages), choose:
-- **Source:** Deploy from a branch
-- **Branch:** main
-- **Folder:** /(root)
-- **Save**
+In [Settings > Pages](https://github.com/SteveP1111/football-prediction-board/settings/pages), choose:\n- **Source:** GitHub Actions\n- **Save if shown.** The `Publish Football Website` workflow deploys initially on push and again after each successful `Daily English Football Predictions` refresh, including when that refresh commits data using GitHub's bot token.
 
-GitHub Pages should then serve https://stevep1111.github.io/football-prediction-board/ . Check deployment status in repository Actions or Pages before treating that URL as operational.
+After a successful `Publish Football Website` deployment, GitHub Pages should serve https://stevep1111.github.io/football-prediction-board/ . Monitor the Pages workflow in repository Actions or Settings > Pages; treat the site as live only once deployment succeeds.
 
 This repository is **independent of** `nfl-prediction-board`. Copying the source did not change or disable any NFL files, data, or workflows.
 

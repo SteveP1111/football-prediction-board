@@ -1,0 +1,58 @@
+name: Publish Football Website
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '.github/workflows/pages.yml'
+      - '.nojekyll'
+  workflow_run:
+    workflows: ["Daily English Football Predictions"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: football-github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout newest public football snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Check data files and build minimal public site
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for x in ("data/latest.json","data/history.json","data/performance.json","data/status.json"):
+              json.loads(Path(x).read_text(encoding="utf-8"))
+          html=Path("index.html").read_text(encoding="utf-8")
+          assert "Football Prediction Board" in html
+          PY
+          mkdir -p _site
+          cp index.html _site/index.html
+          cp .nojekyll _site/.nojekyll
+          cp -R data _site/data
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload public site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4
