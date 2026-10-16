@@ -1,0 +1,2801 @@
+{
+  "date": "2026-10-17",
+  "capturedAt": "2026-10-16T16:19:00+01:00",
+  "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+  "games": [
+    {
+      "id": "2026-10-17|E0|everton|chelsea",
+      "date": "2026-10-17",
+      "division": "E0",
+      "league": "Premier League",
+      "home": "Everton",
+      "away": "Chelsea",
+      "homeKey": "everton",
+      "awayKey": "chelsea",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.7034,
+        "expectedAway": 1.4364,
+        "expectedTotal": 3.1398,
+        "modalScore": "1-1",
+        "modalProbability": 0.105925,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.105925
+          },
+          {
+            "score": "2-1",
+            "p": 0.090216
+          },
+          {
+            "score": "1-2",
+            "p": 0.076074
+          },
+          {
+            "score": "1-0",
+            "p": 0.073744
+          },
+          {
+            "score": "2-2",
+            "p": 0.064792
+          }
+        ],
+        "goalBands": {
+          "2": 0.21339109509504112,
+          "3": 0.22333512012646997,
+          "0-1": 0.17921802117882896,
+          "4+": 0.3840557635996602
+        },
+        "markets": {
+          "btts": 0.6571,
+          "over25": 0.61267,
+          "over35": 0.39654,
+          "under25": 0.38733,
+          "home_win": 0.44007,
+          "draw": 0.2346,
+          "away_win": 0.32533,
+          "no_btts": 0.3429
+        },
+        "cleanSheetRisk": 0.23778518666048365,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 69.95,
+            "likelihood": 59.93,
+            "confidence": 84
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E0|brentford|liverpool",
+      "date": "2026-10-17",
+      "division": "E0",
+      "league": "Premier League",
+      "home": "Brentford",
+      "away": "Liverpool",
+      "homeKey": "brentford",
+      "awayKey": "liverpool",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.5956,
+        "expectedAway": 1.075,
+        "expectedTotal": 2.6706,
+        "modalScore": "1-1",
+        "modalProbability": 0.118717,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.118717
+          },
+          {
+            "score": "1-0",
+            "p": 0.110438
+          },
+          {
+            "score": "2-1",
+            "p": 0.09471
+          },
+          {
+            "score": "2-0",
+            "p": 0.088106
+          },
+          {
+            "score": "0-1",
+            "p": 0.074404
+          }
+        ],
+        "goalBands": {
+          "2": 0.24680895209663153,
+          "3": 0.21970932915642138,
+          "0-1": 0.2540447794473652,
+          "4+": 0.2794369392995818
+        },
+        "markets": {
+          "btts": 0.58268,
+          "over25": 0.53606,
+          "over35": 0.32176,
+          "under25": 0.46394,
+          "home_win": 0.49436,
+          "draw": 0.24965,
+          "away_win": 0.25598,
+          "no_btts": 0.41732
+        },
+        "cleanSheetRisk": 0.34131227067670095,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E0|fulham|hull city",
+      "date": "2026-10-17",
+      "division": "E0",
+      "league": "Premier League",
+      "home": "Fulham",
+      "away": "Hull City",
+      "homeKey": "fulham",
+      "awayKey": "hull city",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.0515,
+        "expectedAway": 1.1826,
+        "expectedTotal": 2.2341,
+        "modalScore": "1-1",
+        "modalProbability": 0.133165,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.133165
+          },
+          {
+            "score": "0-1",
+            "p": 0.126637
+          },
+          {
+            "score": "1-0",
+            "p": 0.112605
+          },
+          {
+            "score": "0-0",
+            "p": 0.107085
+          },
+          {
+            "score": "1-2",
+            "p": 0.078739
+          }
+        ],
+        "goalBands": {
+          "2": 0.26725012828922395,
+          "3": 0.1990211705369851,
+          "0-1": 0.3463348105865404,
+          "4+": 0.18739389058725053
+        },
+        "markets": {
+          "btts": 0.52531,
+          "over25": 0.45434,
+          "over35": 0.24932,
+          "under25": 0.54566,
+          "home_win": 0.32334,
+          "draw": 0.28784,
+          "away_win": 0.38882,
+          "no_btts": 0.47469
+        },
+        "cleanSheetRisk": 0.3493960701464212,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 72.16,
+            "likelihood": 63.83,
+            "confidence": 83
+          },
+          {
+            "key": "Over 2.5",
+            "score": 71.89,
+            "likelihood": 62.84,
+            "confidence": 84
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E0|manchester city|ipswich town",
+      "date": "2026-10-17",
+      "division": "E0",
+      "league": "Premier League",
+      "home": "Manchester City",
+      "away": "Ipswich Town",
+      "homeKey": "manchester city",
+      "awayKey": "ipswich town",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 3.019,
+        "expectedAway": 0.9958,
+        "expectedTotal": 4.0148,
+        "modalScore": "3-0",
+        "modalProbability": 0.08277,
+        "topScores": [
+          {
+            "score": "3-0",
+            "p": 0.08277
+          },
+          {
+            "score": "3-1",
+            "p": 0.082421
+          },
+          {
+            "score": "2-0",
+            "p": 0.082248
+          },
+          {
+            "score": "2-1",
+            "p": 0.081901
+          },
+          {
+            "score": "4-0",
+            "p": 0.062471
+          }
+        ],
+        "goalBands": {
+          "2": 0.14545385092552104,
+          "3": 0.1946560402319273,
+          "0-1": 0.09050675741031755,
+          "4+": 0.5693833514322336
+        },
+        "markets": {
+          "btts": 0.63927,
+          "over25": 0.72829,
+          "over35": 0.52394,
+          "under25": 0.27171,
+          "home_win": 0.77828,
+          "draw": 0.1296,
+          "away_win": 0.09212,
+          "no_btts": 0.36073
+        },
+        "cleanSheetRisk": 0.3694337464217096,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 37%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 72.11,
+            "likelihood": 65.64,
+            "confidence": 80
+          },
+          {
+            "key": "Over 2.5",
+            "score": 73.68,
+            "likelihood": 72.41,
+            "confidence": 75
+          },
+          {
+            "key": "Home Win",
+            "score": 68.41,
+            "likelihood": 60.32,
+            "confidence": 79
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E0|newcastle united|aston villa",
+      "date": "2026-10-17",
+      "division": "E0",
+      "league": "Premier League",
+      "home": "Newcastle United",
+      "away": "Aston Villa",
+      "homeKey": "newcastle united",
+      "awayKey": "aston villa",
+      "kickoff": "17:30",
+      "scoreline": {
+        "expectedHome": 1.7659,
+        "expectedAway": 1.6062,
+        "expectedTotal": 3.3721,
+        "modalScore": "1-1",
+        "modalProbability": 0.09734,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.09734
+          },
+          {
+            "score": "2-1",
+            "p": 0.085944
+          },
+          {
+            "score": "1-2",
+            "p": 0.078173
+          },
+          {
+            "score": "2-2",
+            "p": 0.069021
+          },
+          {
+            "score": "1-0",
+            "p": 0.060603
+          }
+        ],
+        "goalBands": {
+          "2": 0.1951132208574341,
+          "3": 0.21931376401778452,
+          "0-1": 0.15003959739765113,
+          "4+": 0.43553341772713033
+        },
+        "markets": {
+          "btts": 0.68663,
+          "over25": 0.64662,
+          "over35": 0.43198,
+          "under25": 0.35338,
+          "home_win": 0.4199,
+          "draw": 0.22676,
+          "away_win": 0.35334,
+          "no_btts": 0.31337
+        },
+        "cleanSheetRisk": 0.2006517189339554,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 71.29,
+            "likelihood": 64.29,
+            "confidence": 80
+          },
+          {
+            "key": "Over 2.5",
+            "score": 73.15,
+            "likelihood": 65.38,
+            "confidence": 83
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E1|middlesbrough|cardiff city",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Middlesbrough",
+      "away": "Cardiff City",
+      "homeKey": "middlesbrough",
+      "awayKey": "cardiff city",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 2.1278,
+        "expectedAway": 1.3418,
+        "expectedTotal": 3.4696,
+        "modalScore": "2-1",
+        "modalProbability": 0.094558,
+        "topScores": [
+          {
+            "score": "2-1",
+            "p": 0.094558
+          },
+          {
+            "score": "1-1",
+            "p": 0.088879
+          },
+          {
+            "score": "2-0",
+            "p": 0.070473
+          },
+          {
+            "score": "3-1",
+            "p": 0.067066
+          },
+          {
+            "score": "1-0",
+            "p": 0.066241
+          }
+        ],
+        "goalBands": {
+          "2": 0.18737075486369986,
+          "3": 0.2167005236916977,
+          "0-1": 0.13913668189625863,
+          "4+": 0.4567920395483438
+        },
+        "markets": {
+          "btts": 0.67759,
+          "over25": 0.66014,
+          "over35": 0.44652,
+          "under25": 0.33986,
+          "home_win": 0.55457,
+          "draw": 0.20761,
+          "away_win": 0.23783,
+          "no_btts": 0.32241
+        },
+        "cleanSheetRisk": 0.2613860262835272,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "Home Win",
+            "score": 71.26,
+            "likelihood": 60.34,
+            "confidence": 87
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E1|millwall|lincoln city",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Millwall",
+      "away": "Lincoln City",
+      "homeKey": "millwall",
+      "awayKey": "lincoln city",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.6854,
+        "expectedAway": 0.8958,
+        "expectedTotal": 2.5812,
+        "modalScore": "1-0",
+        "modalProbability": 0.127557,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.127557
+          },
+          {
+            "score": "1-1",
+            "p": 0.114267
+          },
+          {
+            "score": "2-0",
+            "p": 0.10749
+          },
+          {
+            "score": "2-1",
+            "p": 0.09629
+          },
+          {
+            "score": "0-0",
+            "p": 0.075686
+          }
+        ],
+        "goalBands": {
+          "2": 0.25212302077115256,
+          "3": 0.21692664707149967,
+          "0-1": 0.2710364875530066,
+          "4+": 0.2599138446043411
+        },
+        "markets": {
+          "btts": 0.54947,
+          "over25": 0.52018,
+          "over35": 0.3071,
+          "under25": 0.47982,
+          "home_win": 0.56018,
+          "draw": 0.24104,
+          "away_win": 0.19878,
+          "no_btts": 0.45053
+        },
+        "cleanSheetRisk": 0.4082764509362278,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 41%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E1|watford|charlton athletic",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Watford",
+      "away": "Charlton Athletic",
+      "homeKey": "watford",
+      "awayKey": "charlton athletic",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.0172,
+        "expectedAway": 1.1707,
+        "expectedTotal": 2.1879,
+        "modalScore": "1-1",
+        "modalProbability": 0.133555,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.133555
+          },
+          {
+            "score": "0-1",
+            "p": 0.131295
+          },
+          {
+            "score": "1-0",
+            "p": 0.114085
+          },
+          {
+            "score": "0-0",
+            "p": 0.112155
+          },
+          {
+            "score": "1-2",
+            "p": 0.078174
+          }
+        ],
+        "goalBands": {
+          "2": 0.26843061501891297,
+          "3": 0.19576644753329323,
+          "0-1": 0.35752942895693357,
+          "4+": 0.1782735084908603
+        },
+        "markets": {
+          "btts": 0.51675,
+          "over25": 0.44505,
+          "over35": 0.24156,
+          "under25": 0.55495,
+          "home_win": 0.31576,
+          "draw": 0.29114,
+          "away_win": 0.3931,
+          "no_btts": 0.48325
+        },
+        "cleanSheetRisk": 0.36160147540593696,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Home blank 36%",
+          "Home side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 72.39,
+            "likelihood": 61,
+            "confidence": 89
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E1|birmingham city|queens park rangers",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Birmingham City",
+      "away": "Queens Park Rangers",
+      "homeKey": "birmingham city",
+      "awayKey": "queens park rangers",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.3567,
+        "expectedAway": 1.1132,
+        "expectedTotal": 2.4699,
+        "modalScore": "1-1",
+        "modalProbability": 0.127758,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.127758
+          },
+          {
+            "score": "1-0",
+            "p": 0.114764
+          },
+          {
+            "score": "0-1",
+            "p": 0.094165
+          },
+          {
+            "score": "2-1",
+            "p": 0.086667
+          },
+          {
+            "score": "0-0",
+            "p": 0.084588
+          }
+        ],
+        "goalBands": {
+          "2": 0.25802679921073995,
+          "3": 0.2124334637902022,
+          "0-1": 0.2935303614591208,
+          "4+": 0.23600937553993687
+        },
+        "markets": {
+          "btts": 0.5623,
+          "over25": 0.49982,
+          "over35": 0.28872,
+          "under25": 0.50018,
+          "home_win": 0.42344,
+          "draw": 0.26949,
+          "away_win": 0.30707,
+          "no_btts": 0.4377
+        },
+        "cleanSheetRisk": 0.32849802359143004,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E1|bristol city|sheffield united",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Bristol City",
+      "away": "Sheffield United",
+      "homeKey": "bristol city",
+      "awayKey": "sheffield united",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.3765,
+        "expectedAway": 1.2603,
+        "expectedTotal": 2.6368,
+        "modalScore": "1-1",
+        "modalProbability": 0.124194,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.124194
+          },
+          {
+            "score": "1-0",
+            "p": 0.098539
+          },
+          {
+            "score": "0-1",
+            "p": 0.090225
+          },
+          {
+            "score": "2-1",
+            "p": 0.085475
+          },
+          {
+            "score": "1-2",
+            "p": 0.078264
+          }
+        ],
+        "goalBands": {
+          "2": 0.24887238564945308,
+          "3": 0.21874223549349264,
+          "0-1": 0.26035849047923215,
+          "4+": 0.2720268883778222
+        },
+        "markets": {
+          "btts": 0.59066,
+          "over25": 0.53013,
+          "over35": 0.31624,
+          "under25": 0.46987,
+          "home_win": 0.39641,
+          "draw": 0.26124,
+          "away_win": 0.34236,
+          "no_btts": 0.40934
+        },
+        "cleanSheetRisk": 0.2835554190308531,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E1|derby county|stoke city",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Derby County",
+      "away": "Stoke City",
+      "homeKey": "derby county",
+      "awayKey": "stoke city",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.3503,
+        "expectedAway": 1.4418,
+        "expectedTotal": 2.7921,
+        "modalScore": "1-1",
+        "modalProbability": 0.119327,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.119327
+          },
+          {
+            "score": "0-1",
+            "p": 0.088372
+          },
+          {
+            "score": "1-2",
+            "p": 0.086025
+          },
+          {
+            "score": "1-0",
+            "p": 0.08276
+          },
+          {
+            "score": "2-1",
+            "p": 0.080562
+          }
+        ],
+        "goalBands": {
+          "2": 0.2389122111537862,
+          "3": 0.2223555949208288,
+          "0-1": 0.2324267917530134,
+          "4+": 0.3063054021723714
+        },
+        "markets": {
+          "btts": 0.6135,
+          "over25": 0.55699,
+          "over35": 0.3415,
+          "under25": 0.44301,
+          "home_win": 0.35276,
+          "draw": 0.25292,
+          "away_win": 0.39432,
+          "no_btts": 0.3865
+        },
+        "cleanSheetRisk": 0.2591670634828814,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E1|norwich city|portsmouth",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Norwich City",
+      "away": "Portsmouth",
+      "homeKey": "norwich city",
+      "awayKey": "portsmouth",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.7414,
+        "expectedAway": 1.3094,
+        "expectedTotal": 3.0508,
+        "modalScore": "1-1",
+        "modalProbability": 0.1079,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.1079
+          },
+          {
+            "score": "2-1",
+            "p": 0.09395
+          },
+          {
+            "score": "1-0",
+            "p": 0.082404
+          },
+          {
+            "score": "2-0",
+            "p": 0.07175
+          },
+          {
+            "score": "1-2",
+            "p": 0.070642
+          }
+        ],
+        "goalBands": {
+          "2": 0.22021759923844425,
+          "3": 0.22394661725221524,
+          "0-1": 0.19168818500047724,
+          "4+": 0.36414759850886336
+        },
+        "markets": {
+          "btts": 0.641,
+          "over25": 0.59899,
+          "over35": 0.38267,
+          "under25": 0.40101,
+          "home_win": 0.47624,
+          "draw": 0.23475,
+          "away_win": 0.28901,
+          "no_btts": 0.359
+        },
+        "cleanSheetRisk": 0.26998193547310434,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E1|southampton|bolton",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Southampton",
+      "away": "Bolton Wanderers",
+      "homeKey": "southampton",
+      "awayKey": "bolton",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 2.2138,
+        "expectedAway": 1.1687,
+        "expectedTotal": 3.3825,
+        "modalScore": "2-1",
+        "modalProbability": 0.097263,
+        "topScores": [
+          {
+            "score": "2-1",
+            "p": 0.097263
+          },
+          {
+            "score": "1-1",
+            "p": 0.087871
+          },
+          {
+            "score": "2-0",
+            "p": 0.083221
+          },
+          {
+            "score": "1-0",
+            "p": 0.075185
+          },
+          {
+            "score": "3-1",
+            "p": 0.071773
+          }
+        ],
+        "goalBands": {
+          "2": 0.19428809138313383,
+          "3": 0.21905982303448335,
+          "0-1": 0.1488409700573453,
+          "4+": 0.4378111155250377
+        },
+        "markets": {
+          "btts": 0.64993,
+          "over25": 0.64809,
+          "over35": 0.43356,
+          "under25": 0.35191,
+          "home_win": 0.61039,
+          "draw": 0.19795,
+          "away_win": 0.19166,
+          "no_btts": 0.35007
+        },
+        "cleanSheetRisk": 0.3107588211154871,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 73.24,
+            "likelihood": 61.29,
+            "confidence": 91
+          },
+          {
+            "key": "Over 2.5",
+            "score": 79.68,
+            "likelihood": 69.14,
+            "confidence": 94
+          },
+          {
+            "key": "Home Win",
+            "score": 69.64,
+            "likelihood": 58.06,
+            "confidence": 87
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E1|swansea city|west ham united",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Swansea City",
+      "away": "West Ham United",
+      "homeKey": "swansea city",
+      "awayKey": "west ham united",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.4393,
+        "expectedAway": 1.5771,
+        "expectedTotal": 3.0164,
+        "modalScore": "1-1",
+        "modalProbability": 0.111175,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.111175
+          },
+          {
+            "score": "1-2",
+            "p": 0.087668
+          },
+          {
+            "score": "2-1",
+            "p": 0.080005
+          },
+          {
+            "score": "0-1",
+            "p": 0.077244
+          },
+          {
+            "score": "1-0",
+            "p": 0.070492
+          }
+        ],
+        "goalBands": {
+          "2": 0.22281378841697969,
+          "3": 0.2240318371269925,
+          "0-1": 0.19671213530950515,
+          "4+": 0.3564422391465226
+        },
+        "markets": {
+          "btts": 0.64344,
+          "over25": 0.59359,
+          "over35": 0.37727,
+          "under25": 0.40641,
+          "home_win": 0.34896,
+          "draw": 0.24163,
+          "away_win": 0.40941,
+          "no_btts": 0.35656
+        },
+        "cleanSheetRisk": 0.23710326639309234,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 73.65,
+            "likelihood": 60.96,
+            "confidence": 93
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E1|west bromwich albion|blackburn rovers",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "West Bromwich Albion",
+      "away": "Blackburn Rovers",
+      "homeKey": "west bromwich albion",
+      "awayKey": "blackburn rovers",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.2069,
+        "expectedAway": 0.9882,
+        "expectedTotal": 2.1951,
+        "modalScore": "1-0",
+        "modalProbability": 0.134381,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.134381
+          },
+          {
+            "score": "1-1",
+            "p": 0.132798
+          },
+          {
+            "score": "0-0",
+            "p": 0.11134
+          },
+          {
+            "score": "0-1",
+            "p": 0.110028
+          },
+          {
+            "score": "2-0",
+            "p": 0.081096
+          }
+        ],
+        "goalBands": {
+          "2": 0.26826178484682245,
+          "3": 0.19628714797241997,
+          "0-1": 0.35576616406608064,
+          "4+": 0.17968490311467702
+        },
+        "markets": {
+          "btts": 0.51643,
+          "over25": 0.44652,
+          "over35": 0.24278,
+          "under25": 0.55348,
+          "home_win": 0.41028,
+          "draw": 0.28939,
+          "away_win": 0.30032,
+          "no_btts": 0.48357
+        },
+        "cleanSheetRisk": 0.37223802700594383,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 37%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E1|wrexham|preston north end",
+      "date": "2026-10-17",
+      "division": "E1",
+      "league": "Championship",
+      "home": "Wrexham",
+      "away": "Preston North End",
+      "homeKey": "wrexham",
+      "awayKey": "preston north end",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.7121,
+        "expectedAway": 0.9774,
+        "expectedTotal": 2.6895,
+        "modalScore": "1-0",
+        "modalProbability": 0.116283,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.116283
+          },
+          {
+            "score": "1-1",
+            "p": 0.11365
+          },
+          {
+            "score": "2-0",
+            "p": 0.099543
+          },
+          {
+            "score": "2-1",
+            "p": 0.097289
+          },
+          {
+            "score": "0-0",
+            "p": 0.067919
+          }
+        ],
+        "goalBands": {
+          "2": 0.24562819235016464,
+          "3": 0.22020567444192263,
+          "0-1": 0.2505720495186714,
+          "4+": 0.2835940836892414
+        },
+        "markets": {
+          "btts": 0.57196,
+          "over25": 0.53937,
+          "over35": 0.32484,
+          "under25": 0.46063,
+          "home_win": 0.54637,
+          "draw": 0.23894,
+          "away_win": 0.21469,
+          "no_btts": 0.42804
+        },
+        "cleanSheetRisk": 0.3763031943085591,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 38%",
+          "Away side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 73.37,
+            "likelihood": 61.93,
+            "confidence": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E2|milton keynes dons|luton town",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Milton Keynes Dons",
+      "away": "Luton Town",
+      "homeKey": "milton keynes dons",
+      "awayKey": "luton town",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.3892,
+        "expectedAway": 2.0853,
+        "expectedTotal": 3.4745,
+        "modalScore": "1-2",
+        "modalProbability": 0.093565,
+        "topScores": [
+          {
+            "score": "1-2",
+            "p": 0.093565
+          },
+          {
+            "score": "1-1",
+            "p": 0.089736
+          },
+          {
+            "score": "0-2",
+            "p": 0.067351
+          },
+          {
+            "score": "1-3",
+            "p": 0.065038
+          },
+          {
+            "score": "2-2",
+            "p": 0.064991
+          }
+        ],
+        "goalBands": {
+          "2": 0.18698181761071028,
+          "3": 0.21655610842947098,
+          "0-1": 0.13860830516073525,
+          "4+": 0.4578537687990832
+        },
+        "markets": {
+          "btts": 0.68271,
+          "over25": 0.66083,
+          "over35": 0.44727,
+          "under25": 0.33917,
+          "home_win": 0.25373,
+          "draw": 0.21089,
+          "away_win": 0.53538,
+          "no_btts": 0.31729
+        },
+        "cleanSheetRisk": 0.24926907502702836,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 78.5,
+            "likelihood": 69.61,
+            "confidence": 90
+          },
+          {
+            "key": "Over 2.5",
+            "score": 75.98,
+            "likelihood": 68.06,
+            "confidence": 86
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E2|peterborough united|burton",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Peterborough United",
+      "away": "Burton Albion",
+      "homeKey": "peterborough united",
+      "awayKey": "burton",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.3218,
+        "expectedAway": 1.293,
+        "expectedTotal": 2.6148,
+        "modalScore": "1-1",
+        "modalProbability": 0.125076,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.125076
+          },
+          {
+            "score": "1-0",
+            "p": 0.096731
+          },
+          {
+            "score": "0-1",
+            "p": 0.094628
+          },
+          {
+            "score": "2-1",
+            "p": 0.08266
+          },
+          {
+            "score": "1-2",
+            "p": 0.080863
+          }
+        ],
+        "goalBands": {
+          "2": 0.25018067464652055,
+          "3": 0.21805747602190728,
+          "0-1": 0.264539833583835,
+          "4+": 0.2672220157477373
+        },
+        "markets": {
+          "btts": 0.588,
+          "over25": 0.52621,
+          "over35": 0.31263,
+          "under25": 0.47379,
+          "home_win": 0.37521,
+          "draw": 0.26301,
+          "away_win": 0.36178,
+          "no_btts": 0.412
+        },
+        "cleanSheetRisk": 0.27443814748306333,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|barnsley|cambridge united",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Barnsley",
+      "away": "Cambridge United",
+      "homeKey": "barnsley",
+      "awayKey": "cambridge united",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.2393,
+        "expectedAway": 1.6795,
+        "expectedTotal": 2.9188,
+        "modalScore": "1-1",
+        "modalProbability": 0.112394,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.112394
+          },
+          {
+            "score": "1-2",
+            "p": 0.094381
+          },
+          {
+            "score": "0-1",
+            "p": 0.09069
+          },
+          {
+            "score": "0-2",
+            "p": 0.076155
+          },
+          {
+            "score": "2-1",
+            "p": 0.069646
+          }
+        ],
+        "goalBands": {
+          "2": 0.2300170594817394,
+          "3": 0.22379126440510033,
+          "0-1": 0.21160916186001158,
+          "4+": 0.3345825142531487
+        },
+        "markets": {
+          "btts": 0.62281,
+          "over25": 0.57798,
+          "over35": 0.36182,
+          "under25": 0.42202,
+          "home_win": 0.2826,
+          "draw": 0.24032,
+          "away_win": 0.47708,
+          "no_btts": 0.37719
+        },
+        "cleanSheetRisk": 0.28958128954927403,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|bradford city|stevenage",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Bradford City",
+      "away": "Stevenage",
+      "homeKey": "bradford city",
+      "awayKey": "stevenage",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 0.9405,
+        "expectedAway": 0.7811,
+        "expectedTotal": 1.7216,
+        "modalScore": "0-0",
+        "modalProbability": 0.178787,
+        "topScores": [
+          {
+            "score": "0-0",
+            "p": 0.178787
+          },
+          {
+            "score": "1-0",
+            "p": 0.168147
+          },
+          {
+            "score": "0-1",
+            "p": 0.139645
+          },
+          {
+            "score": "1-1",
+            "p": 0.131335
+          },
+          {
+            "score": "2-0",
+            "p": 0.07907
+          }
+        ],
+        "goalBands": {
+          "2": 0.26494341658490306,
+          "3": 0.15204219533085636,
+          "0-1": 0.4865672975719397,
+          "4+": 0.09644709051230085
+        },
+        "markets": {
+          "btts": 0.4258,
+          "over25": 0.34452,
+          "over35": 0.16373,
+          "under25": 0.65548,
+          "home_win": 0.37613,
+          "draw": 0.3363,
+          "away_win": 0.28756,
+          "no_btts": 0.5742
+        },
+        "cleanSheetRisk": 0.45791501773376914,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Home blank 39%",
+          "Away blank 46%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|leicester city|doncaster rovers",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Leicester City",
+      "away": "Doncaster Rovers",
+      "homeKey": "leicester city",
+      "awayKey": "doncaster rovers",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.336,
+        "expectedAway": 1.3232,
+        "expectedTotal": 2.6592,
+        "modalScore": "1-1",
+        "modalProbability": 0.123752,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.123752
+          },
+          {
+            "score": "1-0",
+            "p": 0.093527
+          },
+          {
+            "score": "0-1",
+            "p": 0.092626
+          },
+          {
+            "score": "2-1",
+            "p": 0.082669
+          },
+          {
+            "score": "1-2",
+            "p": 0.081873
+          }
+        ],
+        "goalBands": {
+          "2": 0.24751193111080982,
+          "3": 0.21939457573662183,
+          "0-1": 0.25615938818693335,
+          "4+": 0.2769341049656352
+        },
+        "markets": {
+          "btts": 0.59467,
+          "over25": 0.53408,
+          "over35": 0.31991,
+          "under25": 0.46592,
+          "home_win": 0.37275,
+          "draw": 0.26047,
+          "away_win": 0.36678,
+          "no_btts": 0.40533
+        },
+        "cleanSheetRisk": 0.26628837193741645,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|leyton orient|blackpool",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Leyton Orient",
+      "away": "Blackpool",
+      "homeKey": "leyton orient",
+      "awayKey": "blackpool",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.5226,
+        "expectedAway": 1.2503,
+        "expectedTotal": 2.7729,
+        "modalScore": "1-1",
+        "modalProbability": 0.118942,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.118942
+          },
+          {
+            "score": "1-0",
+            "p": 0.095127
+          },
+          {
+            "score": "2-1",
+            "p": 0.090553
+          },
+          {
+            "score": "0-1",
+            "p": 0.078115
+          },
+          {
+            "score": "1-2",
+            "p": 0.074359
+          }
+        ],
+        "goalBands": {
+          "2": 0.24020568952201232,
+          "3": 0.22202211882519599,
+          "0-1": 0.23573288131091605,
+          "4+": 0.302039310341876
+        },
+        "markets": {
+          "btts": 0.60767,
+          "over25": 0.55375,
+          "over35": 0.33841,
+          "under25": 0.44625,
+          "home_win": 0.43606,
+          "draw": 0.25154,
+          "away_win": 0.3124,
+          "no_btts": 0.39233
+        },
+        "cleanSheetRisk": 0.28640666103265056,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|plymouth argyle|huddersfield town",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Plymouth Argyle",
+      "away": "Huddersfield Town",
+      "homeKey": "plymouth argyle",
+      "awayKey": "huddersfield town",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.5982,
+        "expectedAway": 1.4912,
+        "expectedTotal": 3.0894,
+        "modalScore": "1-1",
+        "modalProbability": 0.108508,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.108508
+          },
+          {
+            "score": "2-1",
+            "p": 0.086708
+          },
+          {
+            "score": "1-2",
+            "p": 0.080903
+          },
+          {
+            "score": "1-0",
+            "p": 0.072766
+          },
+          {
+            "score": "0-1",
+            "p": 0.067895
+          }
+        ],
+        "goalBands": {
+          "2": 0.21727462157547717,
+          "3": 0.2237494052984264,
+          "0-1": 0.18618740805218875,
+          "4+": 0.37278856507390756
+        },
+        "markets": {
+          "btts": 0.65312,
+          "over25": 0.60497,
+          "over35": 0.3887,
+          "under25": 0.39503,
+          "home_win": 0.4039,
+          "draw": 0.23862,
+          "away_win": 0.35748,
+          "no_btts": 0.34688
+        },
+        "cleanSheetRisk": 0.2251039698278278,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|sheffield wednesday|afc wimbledon",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Sheffield Wednesday",
+      "away": "AFC Wimbledon",
+      "homeKey": "sheffield wednesday",
+      "awayKey": "afc wimbledon",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.6159,
+        "expectedAway": 0.7868,
+        "expectedTotal": 2.4027,
+        "modalScore": "1-0",
+        "modalProbability": 0.146196,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.146196
+          },
+          {
+            "score": "2-0",
+            "p": 0.11812
+          },
+          {
+            "score": "1-1",
+            "p": 0.115027
+          },
+          {
+            "score": "2-1",
+            "p": 0.092936
+          },
+          {
+            "score": "0-0",
+            "p": 0.090474
+          }
+        ],
+        "goalBands": {
+          "2": 0.26114987035562276,
+          "3": 0.20915493116781825,
+          "0-1": 0.3078536978369325,
+          "4+": 0.22184150063962652
+        },
+        "markets": {
+          "btts": 0.51362,
+          "over25": 0.48717,
+          "over35": 0.27753,
+          "under25": 0.51283,
+          "home_win": 0.57114,
+          "draw": 0.24766,
+          "away_win": 0.1812,
+          "no_btts": 0.48638
+        },
+        "cleanSheetRisk": 0.4553013829239324,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 46%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|stockport county|bromley",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Stockport County",
+      "away": "Bromley",
+      "homeKey": "stockport county",
+      "awayKey": "bromley",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 2.8995,
+        "expectedAway": 1.0297,
+        "expectedTotal": 3.9292,
+        "modalScore": "2-1",
+        "modalProbability": 0.085097,
+        "topScores": [
+          {
+            "score": "2-1",
+            "p": 0.085097
+          },
+          {
+            "score": "2-0",
+            "p": 0.082642
+          },
+          {
+            "score": "3-1",
+            "p": 0.082247
+          },
+          {
+            "score": "3-0",
+            "p": 0.079874
+          },
+          {
+            "score": "4-1",
+            "p": 0.05962
+          }
+        ],
+        "goalBands": {
+          "2": 0.15176476634837238,
+          "3": 0.19877137331200823,
+          "0-1": 0.09691011799158619,
+          "4+": 0.5525537423480333
+        },
+        "markets": {
+          "btts": 0.6451,
+          "over25": 0.71839,
+          "over35": 0.51223,
+          "under25": 0.28161,
+          "home_win": 0.75564,
+          "draw": 0.13977,
+          "away_win": 0.10459,
+          "no_btts": 0.3549
+        },
+        "cleanSheetRisk": 0.3571101713971294,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 77.77,
+            "likelihood": 68.47,
+            "confidence": 90
+          },
+          {
+            "key": "Over 2.5",
+            "score": 77.78,
+            "likelihood": 71.69,
+            "confidence": 85
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E2|wigan athletic|reading",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Wigan Athletic",
+      "away": "Reading",
+      "homeKey": "wigan athletic",
+      "awayKey": "reading",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 0.9922,
+        "expectedAway": 1.8171,
+        "expectedTotal": 2.8093,
+        "modalScore": "0-1",
+        "modalProbability": 0.109471,
+        "topScores": [
+          {
+            "score": "0-1",
+            "p": 0.109471
+          },
+          {
+            "score": "1-1",
+            "p": 0.108622
+          },
+          {
+            "score": "0-2",
+            "p": 0.099459
+          },
+          {
+            "score": "1-2",
+            "p": 0.098688
+          },
+          {
+            "score": "0-0",
+            "p": 0.060245
+          }
+        ],
+        "goalBands": {
+          "2": 0.23774039315589032,
+          "3": 0.22262802883094757,
+          "0-1": 0.22949958817929933,
+          "4+": 0.31013198983386264
+        },
+        "markets": {
+          "btts": 0.58413,
+          "over25": 0.55989,
+          "over35": 0.34428,
+          "under25": 0.44011,
+          "home_win": 0.20388,
+          "draw": 0.22883,
+          "away_win": 0.56729,
+          "no_btts": 0.41587
+        },
+        "cleanSheetRisk": 0.3707438999955928,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Home blank 37%",
+          "Home side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E2|wycombe wanderers|notts county",
+      "date": "2026-10-17",
+      "division": "E2",
+      "league": "League One",
+      "home": "Wycombe Wanderers",
+      "away": "Notts County",
+      "homeKey": "wycombe wanderers",
+      "awayKey": "notts county",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.4922,
+        "expectedAway": 1.3067,
+        "expectedTotal": 2.7989,
+        "modalScore": "1-1",
+        "modalProbability": 0.118702,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.118702
+          },
+          {
+            "score": "1-0",
+            "p": 0.090839
+          },
+          {
+            "score": "2-1",
+            "p": 0.088561
+          },
+          {
+            "score": "0-1",
+            "p": 0.079551
+          },
+          {
+            "score": "1-2",
+            "p": 0.077556
+          }
+        ],
+        "goalBands": {
+          "2": 0.23845035755520916,
+          "3": 0.22246623525375828,
+          "0-1": 0.23126561773045795,
+          "4+": 0.3078177894605744
+        },
+        "markets": {
+          "btts": 0.61324,
+          "over25": 0.55813,
+          "over35": 0.3426,
+          "under25": 0.44187,
+          "home_win": 0.41618,
+          "draw": 0.25163,
+          "away_win": 0.33219,
+          "no_btts": 0.38676
+        },
+        "cleanSheetRisk": 0.27070253727430726,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "BTTS",
+            "score": 75.25,
+            "likelihood": 64.14,
+            "confidence": 91
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E3|fleetwood town|rotherham united",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Fleetwood Town",
+      "away": "Rotherham United",
+      "homeKey": "fleetwood town",
+      "awayKey": "rotherham united",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.5352,
+        "expectedAway": 0.8955,
+        "expectedTotal": 2.4307,
+        "modalScore": "1-0",
+        "modalProbability": 0.135054,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.135054
+          },
+          {
+            "score": "1-1",
+            "p": 0.120946
+          },
+          {
+            "score": "2-0",
+            "p": 0.103668
+          },
+          {
+            "score": "2-1",
+            "p": 0.092839
+          },
+          {
+            "score": "0-0",
+            "p": 0.087971
+          }
+        ],
+        "goalBands": {
+          "2": 0.25989215314809533,
+          "3": 0.21057328555235844,
+          "0-1": 0.30181664236530004,
+          "4+": 0.22771791893424614
+        },
+        "markets": {
+          "btts": 0.53552,
+          "over25": 0.49247,
+          "over35": 0.2822,
+          "under25": 0.50753,
+          "home_win": 0.52284,
+          "draw": 0.25741,
+          "away_win": 0.21975,
+          "no_btts": 0.46448
+        },
+        "cleanSheetRisk": 0.40838798854301805,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 41%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|shrewsbury town|bristol rovers",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Shrewsbury Town",
+      "away": "Bristol Rovers",
+      "homeKey": "shrewsbury town",
+      "awayKey": "bristol rovers",
+      "kickoff": "12:30",
+      "scoreline": {
+        "expectedHome": 1.4189,
+        "expectedAway": 1.388,
+        "expectedTotal": 2.8069,
+        "modalScore": "1-1",
+        "modalProbability": 0.118938,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.118938
+          },
+          {
+            "score": "1-0",
+            "p": 0.08569
+          },
+          {
+            "score": "2-1",
+            "p": 0.08438
+          },
+          {
+            "score": "0-1",
+            "p": 0.083825
+          },
+          {
+            "score": "1-2",
+            "p": 0.082544
+          }
+        ],
+        "goalBands": {
+          "2": 0.23790454195316665,
+          "3": 0.22259141960278117,
+          "0-1": 0.22990600607440764,
+          "4+": 0.30959803236964445
+        },
+        "markets": {
+          "btts": 0.61592,
+          "over25": 0.55948,
+          "over35": 0.34389,
+          "under25": 0.44052,
+          "home_win": 0.38079,
+          "draw": 0.25241,
+          "away_win": 0.3668,
+          "no_btts": 0.38408
+        },
+        "cleanSheetRisk": 0.24957113883154075,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|accrington stanley|gillingham",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Accrington Stanley",
+      "away": "Gillingham",
+      "homeKey": "accrington stanley",
+      "awayKey": "gillingham",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.258,
+        "expectedAway": 1.1391,
+        "expectedTotal": 2.3971,
+        "modalScore": "1-1",
+        "modalProbability": 0.130377,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.130377
+          },
+          {
+            "score": "1-0",
+            "p": 0.114458
+          },
+          {
+            "score": "0-1",
+            "p": 0.103641
+          },
+          {
+            "score": "0-0",
+            "p": 0.090987
+          },
+          {
+            "score": "2-1",
+            "p": 0.082005
+          }
+        ],
+        "goalBands": {
+          "2": 0.26139363703471363,
+          "3": 0.2088622291119707,
+          "0-1": 0.3090729766097092,
+          "4+": 0.22067115724360653
+        },
+        "markets": {
+          "btts": 0.55305,
+          "over25": 0.48609,
+          "over35": 0.27658,
+          "under25": 0.51391,
+          "home_win": 0.39073,
+          "draw": 0.27621,
+          "away_win": 0.33306,
+          "no_btts": 0.44695
+        },
+        "cleanSheetRisk": 0.3201138849924085,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|colchester united|exeter city",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Colchester United",
+      "away": "Exeter City",
+      "homeKey": "colchester united",
+      "awayKey": "exeter city",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 0.8573,
+        "expectedAway": 0.7022,
+        "expectedTotal": 1.5595,
+        "modalScore": "0-0",
+        "modalProbability": 0.21024,
+        "topScores": [
+          {
+            "score": "0-0",
+            "p": 0.21024
+          },
+          {
+            "score": "1-0",
+            "p": 0.180238
+          },
+          {
+            "score": "0-1",
+            "p": 0.147632
+          },
+          {
+            "score": "1-1",
+            "p": 0.126565
+          },
+          {
+            "score": "2-0",
+            "p": 0.077259
+          }
+        ],
+        "goalBands": {
+          "2": 0.25565748840310054,
+          "3": 0.13289928438821175,
+          "0-1": 0.5381122632059528,
+          "4+": 0.07333096400273495
+        },
+        "markets": {
+          "btts": 0.39038,
+          "over25": 0.30675,
+          "over35": 0.13753,
+          "under25": 0.69325,
+          "home_win": 0.36617,
+          "draw": 0.35718,
+          "away_win": 0.27665,
+          "no_btts": 0.60962
+        },
+        "cleanSheetRisk": 0.495489941514002,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Home blank 42%",
+          "Away blank 50%",
+          "Away side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|crewe|rochdale",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Crewe Alexandra",
+      "away": "Rochdale",
+      "homeKey": "crewe",
+      "awayKey": "rochdale",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.2975,
+        "expectedAway": 0.7667,
+        "expectedTotal": 2.0642,
+        "modalScore": "1-0",
+        "modalProbability": 0.164678,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.164678
+          },
+          {
+            "score": "0-0",
+            "p": 0.126924
+          },
+          {
+            "score": "1-1",
+            "p": 0.126261
+          },
+          {
+            "score": "2-0",
+            "p": 0.106831
+          },
+          {
+            "score": "0-1",
+            "p": 0.097314
+          }
+        ],
+        "goalBands": {
+          "2": 0.27039763482373713,
+          "3": 0.1860515992677194,
+          "0-1": 0.3889076132490881,
+          "4+": 0.15464315265945536
+        },
+        "markets": {
+          "btts": 0.47534,
+          "over25": 0.4196,
+          "over35": 0.22077,
+          "under25": 0.5804,
+          "home_win": 0.4912,
+          "draw": 0.28828,
+          "away_win": 0.22052,
+          "no_btts": 0.52466
+        },
+        "cleanSheetRisk": 0.46453838416190674,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 46%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|grimsby town|northampton town",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Grimsby Town",
+      "away": "Northampton Town",
+      "homeKey": "grimsby town",
+      "awayKey": "northampton town",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.2585,
+        "expectedAway": 0.6253,
+        "expectedTotal": 1.8838,
+        "modalScore": "1-0",
+        "modalProbability": 0.191296,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.191296
+          },
+          {
+            "score": "0-0",
+            "p": 0.151997
+          },
+          {
+            "score": "2-0",
+            "p": 0.120378
+          },
+          {
+            "score": "1-1",
+            "p": 0.119626
+          },
+          {
+            "score": "0-1",
+            "p": 0.095051
+          }
+        ],
+        "goalBands": {
+          "2": 0.2697215513610042,
+          "3": 0.16936715281795323,
+          "0-1": 0.4383703750686202,
+          "4+": 0.12254092075242233
+        },
+        "markets": {
+          "btts": 0.42789,
+          "over25": 0.38092,
+          "over35": 0.19058,
+          "under25": 0.61908,
+          "home_win": 0.51786,
+          "draw": 0.29732,
+          "away_win": 0.18482,
+          "no_btts": 0.57211
+        },
+        "cleanSheetRisk": 0.5350770765811862,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 54%",
+          "Away side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|newport county|york city",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Newport County AFC",
+      "away": "York City",
+      "homeKey": "newport county",
+      "awayKey": "york city",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.4122,
+        "expectedAway": 1.5117,
+        "expectedTotal": 2.9239,
+        "modalScore": "1-1",
+        "modalProbability": 0.11469,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.11469
+          },
+          {
+            "score": "1-2",
+            "p": 0.08669
+          },
+          {
+            "score": "0-1",
+            "p": 0.081215
+          },
+          {
+            "score": "2-1",
+            "p": 0.080982
+          },
+          {
+            "score": "1-0",
+            "p": 0.075867
+          }
+        ],
+        "goalBands": {
+          "2": 0.22964735462542843,
+          "3": 0.22382196672976343,
+          "0-1": 0.21080666759697347,
+          "4+": 0.3357240110478347
+        },
+        "markets": {
+          "btts": 0.6316,
+          "over25": 0.57881,
+          "over35": 0.36263,
+          "under25": 0.42119,
+          "home_win": 0.35474,
+          "draw": 0.24626,
+          "away_win": 0.39901,
+          "no_btts": 0.3684
+        },
+        "cleanSheetRisk": 0.2436112036454212,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|oldham|cheltenham town",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Oldham Athletic",
+      "away": "Cheltenham Town",
+      "homeKey": "oldham",
+      "awayKey": "cheltenham town",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.5549,
+        "expectedAway": 1.1771,
+        "expectedTotal": 2.732,
+        "modalScore": "1-1",
+        "modalProbability": 0.119132,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.119132
+          },
+          {
+            "score": "1-0",
+            "p": 0.101206
+          },
+          {
+            "score": "2-1",
+            "p": 0.092616
+          },
+          {
+            "score": "2-0",
+            "p": 0.07868
+          },
+          {
+            "score": "0-1",
+            "p": 0.07662
+          }
+        ],
+        "goalBands": {
+          "2": 0.24290637638759074,
+          "3": 0.221206740096966,
+          "0-1": 0.2429121042185584,
+          "4+": 0.2929747792968847
+        },
+        "markets": {
+          "btts": 0.59838,
+          "over25": 0.54674,
+          "over35": 0.33176,
+          "under25": 0.45326,
+          "home_win": 0.46049,
+          "draw": 0.25118,
+          "away_win": 0.28832,
+          "no_btts": 0.40162
+        },
+        "cleanSheetRisk": 0.3081626099775273,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|port vale|chesterfield",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Port Vale",
+      "away": "Chesterfield",
+      "homeKey": "port vale",
+      "awayKey": "chesterfield",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.0161,
+        "expectedAway": 1.2232,
+        "expectedTotal": 2.2393,
+        "modalScore": "1-1",
+        "modalProbability": 0.132409,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.132409
+          },
+          {
+            "score": "0-1",
+            "p": 0.130313
+          },
+          {
+            "score": "1-0",
+            "p": 0.108247
+          },
+          {
+            "score": "0-0",
+            "p": 0.106533
+          },
+          {
+            "score": "1-2",
+            "p": 0.080982
+          }
+        ],
+        "goalBands": {
+          "2": 0.26710310397625514,
+          "3": 0.19937466024467607,
+          "0-1": 0.34509251643350786,
+          "4+": 0.18842971934556085
+        },
+        "markets": {
+          "btts": 0.52455,
+          "over25": 0.45537,
+          "over35": 0.25019,
+          "under25": 0.54463,
+          "home_win": 0.30524,
+          "draw": 0.28623,
+          "away_win": 0.40853,
+          "no_btts": 0.47545
+        },
+        "cleanSheetRisk": 0.36200928621644557,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Home blank 36%",
+          "Home side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|salford city|crawley town",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Salford City",
+      "away": "Crawley Town",
+      "homeKey": "salford city",
+      "awayKey": "crawley town",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.9396,
+        "expectedAway": 0.7722,
+        "expectedTotal": 2.7118,
+        "modalScore": "1-0",
+        "modalProbability": 0.12882,
+        "topScores": [
+          {
+            "score": "1-0",
+            "p": 0.12882
+          },
+          {
+            "score": "2-0",
+            "p": 0.124927
+          },
+          {
+            "score": "1-1",
+            "p": 0.09948
+          },
+          {
+            "score": "2-1",
+            "p": 0.096474
+          },
+          {
+            "score": "3-0",
+            "p": 0.080768
+          }
+        ],
+        "goalBands": {
+          "2": 0.24421142317406144,
+          "3": 0.22075084578780663,
+          "0-1": 0.24652741668128023,
+          "4+": 0.28851031435685187
+        },
+        "markets": {
+          "btts": 0.53277,
+          "over25": 0.54325,
+          "over35": 0.32848,
+          "under25": 0.45675,
+          "home_win": 0.64886,
+          "draw": 0.20996,
+          "away_win": 0.14118,
+          "no_btts": 0.46723
+        },
+        "cleanSheetRisk": 0.4619779277813847,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Away blank 46%"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": [
+          {
+            "key": "Home Win",
+            "score": 73.02,
+            "likelihood": 65.18,
+            "confidence": 83
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-17|E3|swindon town|walsall",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Swindon Town",
+      "away": "Walsall",
+      "homeKey": "swindon town",
+      "awayKey": "walsall",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.0984,
+        "expectedAway": 1.1953,
+        "expectedTotal": 2.2937,
+        "modalScore": "1-1",
+        "modalProbability": 0.132463,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.132463
+          },
+          {
+            "score": "0-1",
+            "p": 0.120597
+          },
+          {
+            "score": "1-0",
+            "p": 0.110817
+          },
+          {
+            "score": "0-0",
+            "p": 0.10089
+          },
+          {
+            "score": "1-2",
+            "p": 0.079169
+          }
+        ],
+        "goalBands": {
+          "2": 0.26540065108462574,
+          "3": 0.20291649113093535,
+          "0-1": 0.33230952545129994,
+          "4+": 0.19937333233313903
+        },
+        "markets": {
+          "btts": 0.53607,
+          "over25": 0.46613,
+          "over35": 0.25932,
+          "under25": 0.53387,
+          "home_win": 0.33418,
+          "draw": 0.28372,
+          "away_win": 0.3821,
+          "no_btts": 0.46393
+        },
+        "cleanSheetRisk": 0.3334072237594867,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": [
+          "Home side recent fail-to-score tendency"
+        ]
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    },
+    {
+      "id": "2026-10-17|E3|tranmere rovers|barnet",
+      "date": "2026-10-17",
+      "division": "E3",
+      "league": "League Two",
+      "home": "Tranmere Rovers",
+      "away": "Barnet",
+      "homeKey": "tranmere rovers",
+      "awayKey": "barnet",
+      "kickoff": "15:00",
+      "scoreline": {
+        "expectedHome": 1.4762,
+        "expectedAway": 1.8045,
+        "expectedTotal": 3.2807,
+        "modalScore": "1-1",
+        "modalProbability": 0.100166,
+        "topScores": [
+          {
+            "score": "1-1",
+            "p": 0.100166
+          },
+          {
+            "score": "1-2",
+            "p": 0.090373
+          },
+          {
+            "score": "2-1",
+            "p": 0.073932
+          },
+          {
+            "score": "0-1",
+            "p": 0.067854
+          },
+          {
+            "score": "2-2",
+            "p": 0.066704
+          }
+        ],
+        "goalBands": {
+          "2": 0.2023547325878034,
+          "3": 0.22128839040026888,
+          "0-1": 0.16096265134318793,
+          "4+": 0.41539422566873974
+        },
+        "markets": {
+          "btts": 0.67299,
+          "over25": 0.63356,
+          "over35": 0.41818,
+          "under25": 0.36644,
+          "home_win": 0.31699,
+          "draw": 0.22788,
+          "away_win": 0.45513,
+          "no_btts": 0.32701
+        },
+        "cleanSheetRisk": 0.2285040082828842,
+        "sampleHome": 1,
+        "sampleAway": 1,
+        "model": "INDEPENDENT_SCORELINE_LAB_V1_IMPORTED",
+        "calibrated": true,
+        "source": "Frozen 16 Oct preview",
+        "riskReasons": []
+      },
+      "b31": {
+        "status": "frozen",
+        "qualifiers": []
+      }
+    }
+  ],
+  "status": "frozen-prekickoff",
+  "b31Available": true,
+  "source": "Preserved corrected 16 October preview; source history through 15 October",
+  "notice": "Scores frozen before Saturday kick-off; no subsequent data used to alter them"
+}

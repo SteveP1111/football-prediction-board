@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Football Prediction Board</title>
+<meta name="description" content="Daily independent football scoreline forecasts, market probabilities and transparent performance history.">
+<style>
+:root{color-scheme:dark;--bg:#080e19;--panel:#121d30;--panel2:#17253a;--line:#2c3a51;--text:#ebf3ff;--muted:#91a4c0;--accent:#80b1ff;--green:#3ed3a7;--amber:#eac36c;--bad:#f38993}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -25%,#18345f 0,#080e19 60%);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--text);line-height:1.5;font-size:14px}
+a{color:#9ac1ff}button,select,input{font:inherit}button{cursor:pointer}main{max-width:1170px;margin:auto;padding:21px 18px 75px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;margin:8px 0 22px}.eyebrow{color:var(--green);font-size:12px;letter-spacing:1.6px;font-weight:750;text-transform:uppercase}h1{font-size:clamp(26px,4vw,36px);line-height:1.15;letter-spacing:-1px;margin:8px 0}header p{margin:4px 0;color:var(--muted);max-width:760px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.pill{padding:5px 9px;border:1px solid var(--line);border-radius:25px;color:var(--muted);font-size:11px;background:#131f32}.pill.live{color:#a3f8d4;border-color:#245c51}
+.nav{display:flex;gap:8px;margin:12px 0 19px;border-bottom:1px solid var(--line);padding-bottom:11px}.nav button,.chip{background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600}.nav button.active,.chip:hover{border-color:#3c7fd7;background:#1c3554;color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:17px}.kpi,.panel,.match{border:1px solid var(--line);border-radius:16px;background:var(--panel)}.kpi{padding:16px}.kpi span{font-size:11px;color:var(--muted)}.kpi strong{display:block;font-size:27px;margin:6px 0 0;line-height:1.2;font-variant-numeric:tabular-nums}
+.panel{padding:19px;margin-bottom:17px}.panel h2{font-size:17px;letter-spacing:-.3px;margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:12px}.tiny{font-size:11px}.alert{border-color:#745729;background:#292218;color:#ffdf99;padding:12px 14px;border-radius:12px}
+.searchline{display:flex;gap:8px;margin:14px 0 11px}.searchline input,select{border:1px solid var(--line);border-radius:10px;background:#0b1628;padding:12px;color:var(--text)}.searchline input{flex:1;width:100%}.searchline button{background:#29548a;border:1px solid #4079b8;color:#fff;border-radius:10px;padding:0 20px;font-weight:750}
+.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:7px 11px;font-size:12px}
+.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:15px}.field label{font-size:11px;color:var(--muted);display:block;margin-bottom:5px}.field select{width:100%}
+.resulthead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 10px}.resulthead h2{font-size:17px;margin:0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.match{padding:18px;min-width:0}.matchhead{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px}.fixture{font-size:17px;font-weight:740;margin:9px 0 12px;letter-spacing:-.2px}.fixture span{font-weight:400;color:var(--muted)}.overview{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.prob{font-size:28px;font-weight:760;font-variant-numeric:tabular-nums;color:var(--green)}.pred{font-size:23px;font-weight:740}.right{text-align:right}.band{height:7px;background:#24334c;border-radius:20px;overflow:hidden;margin:4px 0 10px}.band i{display:block;background:#65a9ed;height:100%;border-radius:20px}.row{display:flex;justify-content:space-between;gap:10px;align-items:center}.tag{display:inline-block;background:#21344d;color:#b6d1f5;border:1px solid #335270;border-radius:7px;padding:3px 7px;font-size:11px;margin:4px 4px 0 0}.tag.warning{background:#362d1d;color:#f2d28b;border-color:#6a5330}.scoregrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.scoregrid div{text-align:center;background:#0d1728;border-radius:8px;padding:9px 3px}.scoregrid strong{font-size:14px}.scoregrid small{display:block;color:var(--muted);font-size:10px}
+details{margin-top:12px;border-top:1px solid var(--line);padding-top:8px}summary{cursor:pointer;color:#b7d2fc;font-weight:600}.marketrow{display:flex;justify-content:space-between;gap:12px;font-size:12px;padding:5px 0;border-bottom:1px solid #22314a}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--muted);font-weight:600;font-size:11px}td,th{padding:10px 7px;border-bottom:1px solid var(--line)}td.num{text-align:right;font-variant-numeric:tabular-nums}
+.history-entry{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 4px;gap:12px}.history-entry button{background:var(--panel2);color:#cee1ff;border:1px solid var(--line);padding:6px 11px;border-radius:9px}
+#notice{font-size:13px}.source{margin:22px 0;color:var(--muted);font-size:12px}
+@media(max-width:760px){.cards{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:repeat(2,1fr)}.panel{padding:14px}.match{padding:15px}}
+@media(max-width:420px){main{padding:14px 11px 60px}.fixture{font-size:15px}.searchline button{padding:0 12px}}
+</style></head>
+<body><main>
+<header><div><div class="eyebrow">English Football · Prediction Intelligence</div><h1>Football Prediction Board</h1><p>Find the strongest markets, compare exact-score forecasts and track what the model got right and wrong. Five English leagues, updated through GitHub.</p><div class="meta"><span class="pill live" id="status-pill">Loading data</span><span class="pill" id="date-pill">Date —</span><span class="pill">No bookmaker odds used</span></div></div></header>
+<nav class="nav"><button data-view="today" class="active">Today’s board</button><button data-view="history">History</button><button data-view="performance">Performance</button></nav>
+<div id="notice" aria-live="polite"></div>
+<div id="today">
+<div class="kpis"><div class="kpi"><span>Fixtures scored</span><strong id="k-games">—</strong></div><div class="kpi"><span>Experimental markets ≥60%</span><strong id="k-picks">—</strong></div><div class="kpi"><span>Leagues covered</span><strong id="k-leagues">—</strong></div><div class="kpi"><span>Frozen before kick-off</span><strong id="k-frozen">—</strong></div></div>
+<section class="panel"><h2>Ask the prediction board</h2><div class="muted small">Try “top 3 home wins”, “best under 2.5”, “any 0-0 predictions”, “best BTTS” or “highest over 3.5”. Searches use saved forecast probabilities, not AI-generated answers.</div>
+<form id="ask-form" class="searchline"><input id="ask" type="text" placeholder="Top 5 home wins in League One" aria-label="Enter a prediction query"><button type="submit">Search</button></form>
+<div class="chips"><button class="chip" data-query="Top 3 home wins">Home wins</button><button class="chip" data-query="Top 5 BTTS">BTTS</button><button class="chip" data-query="Top 5 under 2.5">Unders</button><button class="chip" data-query="Top 5 over 3.5">Over 3.5</button><button class="chip" data-query="Any 0-0 predictions">0–0</button><button class="chip" data-query="Top 5 away wins">Away wins</button><button class="chip" data-query="Top 5 draws">Draws</button></div>
+<div class="filters"><div class="field"><label for="league">League</label><select id="league"><option value="all">All five leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option><option value="EC">National League</option></select></div><div class="field"><label for="market">Market</label><select id="market"><option value="home_win">Home win</option><option value="away_win">Away win</option><option value="draw">Draw</option><option value="btts">BTTS</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="modal00">Exact 0–0</option></select></div><div class="field"><label for="count">Number</label><select id="count"><option value="3">Top 3</option><option value="5" selected>Top 5</option><option value="10">Top 10</option><option value="100">All matches</option></select></div><div class="field"><label for="model">View</label><select id="model"><option value="scoreline">Scoreline model</option><option value="b31">B3.1 qualifying picks</option></select></div></div>
+</section>
+<div class="resulthead"><h2 id="result-title">Highest-ranked home wins</h2><span class="muted small" id="result-count"></span></div><div class="cards" id="results"></div>
+</div>
+<div id="history" hidden><section class="panel"><h2>Frozen forecasts and results</h2><p class="muted small">Each day's pre-match snapshot is saved once. Final scores and market outcomes are stored separately. Select a date to inspect its original forecasts.</p><div id="history-list">Loading…</div></section></div>
+<div id="performance" hidden><section class="panel"><h2>Forward performance</h2><p class="muted small">Accuracy below is historical hit rate for each market outcome, not betting profitability. The Brier score penalises poorly calibrated probabilities (lower is better). All forecasts are experimental until prospectively validated.</p><div id="perf-content">Loading…</div></section></div>
+<div class="source" id="source-line">Data source: Football-Data.co.uk. This is research, not financial or betting advice. No odds, final scores or future information enter a pre-match forecast.</div>
+</main>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+let snapshot=null,settlements={},history=[],performance=null,b31history=null;
+let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:""};
+const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",modal00:"Exact 0–0 forecasts"};
+const pct=n=>(100*Number(n||0)).toFixed(1)+"%";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const prob=(g,k)=>k==="modal00"?(g.scoreline?.modalScore==="0-0"?g.scoreline.modalProbability:0):(g.scoreline?.markets?.[k]||0);
+const b31=(g)=>g.b31?.qualifiers||[];
+async function getJSON(path,fallback){try{const r=await fetch(path+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(String(r.status));return await r.json()}catch(e){return fallback}}
+function showView(view){for(const v of ["today","history","performance"])$(v).hidden=v!==view;document.querySelectorAll("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===view))}
+document.querySelectorAll("[data-view]").forEach(x=>x.addEventListener("click",()=>showView(x.dataset.view)));
+function applyQuery(q){
+const x=q.toLowerCase().trim();state.modal00=/0\s*[-–]\s*0|goalless|nil.nil|zero.zero/.test(x);
+const m=x.match(/\b(?:top|best|first|show)\s*(\d+)/);state.count=m?Math.min(100,Math.max(1,Number(m[1]))):state.modal00?100:5;
+if(/under|unders/.test(x))state.market="under25";
+else if(/over\s*3[.]?5|over\s*3\b|3[.]5/.test(x))state.market="over35";
+else if(/over/.test(x))state.market="over25";
+else if(/no\s*btts|both\s*not\s*score/.test(x))state.market="no_btts";
+else if(/btts|both\s*teams/.test(x))state.market="btts";
+else if(/away/.test(x))state.market="away_win";
+else if(/draw|ties/.test(x))state.market="draw";
+else if(/home/.test(x))state.market="home_win";
+let league=[["premier","E0"],["championship","E1"],["league one","E2"],["league 1","E2"],["league two","E3"],["league 2","E3"],["national","EC"]].find(([name])=>x.includes(name));
+state.league=league?league[1]:"all";state.model=/official|b3[.]?1|qualif/.test(x)?"b31":"scoreline";
+state.team="";
+$("market").value=state.modal00?"modal00":state.market;$("league").value=state.league;$("count").value=[3,5,10,100].includes(state.count)?String(state.count):(state.count<5?"3":state.count<10?"5":"100");$("model").value=state.model;draw();
+}
+$("ask-form").addEventListener("submit",e=>{e.preventDefault();applyQuery($("ask").value)});
+document.querySelectorAll("[data-query]").forEach(b=>b.addEventListener("click",()=>{$("ask").value=b.dataset.query;applyQuery(b.dataset.query)}));
+for(const id of ["market","league","count","model"])$(id).addEventListener("change",()=>{
+state.market=$("market").value;state.modal00=state.market==="modal00";state.league=$("league").value;state.count=Number($("count").value);state.model=$("model").value;draw()});
+function card(g,index,selectedPick){
+const k=state.market,sc=g.scoreline||{},value=prob(g,k),q=b31(g),s=settlements[g.id],modal=sc.modalScore||"—";
+const markets=sc.markets||{},goal=sc.goalBands||{};
+const explanation=Object.entries(markets).map(([name,p])=>'<div class="marketrow"><span>'+esc(title[name]||name)+'</span><strong>'+pct(p)+'</strong></div>').join("");
+const goalBars=Object.entries({"0–1 goals":goal["0-1"]||0,"Exactly 2":goal["2"]||0,"Exactly 3":goal["3"]||0,"4+ goals":goal["4+"]||0}).map(([name,p])=>'<div><strong>'+pct(p)+'</strong><small>'+name+'</small></div>').join("");
+const val=state.model==="b31" ? Number(selectedPick?.score||0).toFixed(1) : pct(value);
+let outcome=s?'<span class="tag">Final '+esc(s.score)+'</span>':'';
+return '<article class="match"><div class="matchhead"><span>'+esc(g.league)+' · '+esc(g.kickoff||"TBC")+'</span><span class="pill">'+(state.model==="b31"?"B3.1 frozen":"Scoreline experimental")+'</span></div><div class="fixture">'+esc(g.home)+' <span>v</span> '+esc(g.away)+'</div><div class="overview"><div><div class="muted tiny">'+(state.model==="b31"?(selectedPick?.key||"B3.1 selection"):title[k]||"Selected market")+'</div><div class="prob">'+val+'</div></div><div class="right"><div class="muted tiny">Most likely score</div><div class="pred">'+esc(modal)+'</div><div class="muted tiny">'+pct(sc.modalProbability)+' exact chance</div></div></div>'+outcome+
+'<div class="muted small">Expected goals '+Number(sc.expectedHome||0).toFixed(2)+' – '+Number(sc.expectedAway||0).toFixed(2)+' · total '+Number(sc.expectedTotal||0).toFixed(2)+'</div>'+
+'<div style="margin-top:8px">'+(q.length?'<span class="tag">B3.1 '+q.map(z=>esc(z.key||z.name||"")+" "+Number(z.score||0).toFixed(1)).join(" · ")+'</span>':'<span class="tag">No B3.1 pick frozen for this fixture</span>')+(sc.cleanSheetRisk>=.36?'<span class="tag warning">Clean-sheet risk</span>':'')+'</div>'+
+'<details><summary>Why this ranking? All markets and goal distribution</summary><p class="muted small">Ranking uses the probability-weighted scoreline distribution; it does not count possible scores equally. This is an independent experimental model. Sample coverage: '+(sc.sampleHome||0)+' home matches / '+(sc.sampleAway||0)+' away matches this season.</p><div class="scoregrid">'+goalBars+'</div><p class="small muted">Raw goals probabilities. Over 2.5 = exactly 3 + 4 or more. Under 2.5 = 0–1 + exactly 2.</p>'+explanation+'</details></article>';
+}
+function draw(){
+if(!snapshot){$("results").innerHTML='<div class="panel">Loading forecasts…</div>';return}
+let games=snapshot.games||[];
+if(state.league!=="all")games=games.filter(g=>g.division===state.league);
+if(state.modal00)games=games.filter(g=>g.scoreline?.modalScore==="0-0");
+let entries=state.model==="b31"?games.flatMap(g=>b31(g).map(q=>({game:g,pick:q}))):games.map(g=>({game:g,pick:null}));
+entries.sort((a,b)=>state.model==="b31"?Number(b.pick?.score||0)-Number(a.pick?.score||0):prob(b.game,state.market)-prob(a.game,state.market));
+let found=entries.length;
+entries=entries.slice(0,state.count);
+$("result-title").textContent=state.model==="b31"?"Official B3.1 qualifying selections":state.modal00?"Exact 0–0 predictions":"Highest "+(title[state.market]||"market")+" probabilities";
+$("result-count").textContent=found+" matching matches";
+$("results").innerHTML=entries.length?entries.map((o,i)=>card(o.game,i,o.pick)).join(""):'<div class="panel muted">No matching saved predictions for this date. Try another market or league. Missing established B3.1 predictions are not estimated or invented.</div>';
+}
+async function loadSnapshot(day){const s=await getJSON("data/snapshots/"+day+".json",null);if(s){snapshot=s;await applyBridge();showView("today");$("date-pill").textContent="Viewing "+s.date;draw()}}
+async function applyBridge(){const b=await getJSON("data/b31-snapshots/"+snapshot.date+".json",null);if(!b||!Array.isArray(b.fixtures))return;const byId=new Map(b.fixtures.map(x=>[x.id,x]));for(const g of snapshot.games||[]){const f=byId.get(g.id);if(f&&Array.isArray(f.qualifiers))g.b31={status:"frozen-nightly",qualifiers:f.qualifiers}}}
+function drawHistory(){
+$("history-list").innerHTML=history.length?history.slice().reverse().map(d=>'<div class="history-entry"><div><strong>'+esc(d.date)+'</strong><div class="muted tiny">'+d.games+' frozen fixtures · '+d.settled+' settled · '+d.markets+' market outcomes</div></div><button data-day="'+esc(d.date)+'">View</button></div>').join(""):'<div class="muted">No snapshots have been published yet.</div>';
+document.querySelectorAll("[data-day]").forEach(b=>b.addEventListener("click",()=>loadSnapshot(b.dataset.day)));
+}
+function drawPerformance(){
+let mp=performance?.markets||{},rows=Object.entries(mp).sort((a,b)=>b[1].predictions-a[1].predictions);
+$("perf-content").innerHTML=rows.length?'<div style="overflow-x:auto"><table><thead><tr><th>Market</th><th class="num">Graded</th><th class="num">Wins</th><th class="num">Hit rate</th><th class="num">Brier</th></tr></thead><tbody>'+rows.map(([k,v])=>'<tr><td>'+esc(title[k]||k)+'</td><td class="num">'+v.predictions+'</td><td class="num">'+v.hits+'</td><td class="num">'+pct(v.hitRate)+'</td><td class="num">'+Number(v.brier).toFixed(3)+'</td></tr>').join("")+'</tbody></table></div><p class="muted small">Grading includes every frozen experimental market probability, not only picks with a score above 60%. Market hit rate alone does not demonstrate a profitable system.</p>':'<p class="muted">Performance data will appear after the first frozen forecasts have settled.</p>';
+  const prior=b31history?.cumulative;
+  let extra='<h3 style="margin:18px 0 7px">Established B3.1 · corrected historical series</h3>';
+  if(prior)extra+='<p class="muted small">15 September to '+esc(b31history.through)+'. Earlier invalid-lineage B3.0 excluded. This is historical B3.1 performance, not Scoreline Model performance.</p><div class="kpis"><div class="kpi"><span>Corrected B3.1 settled</span><strong>'+prior.settled_picks+'</strong></div><div class="kpi"><span>B3.1 wins</span><strong>'+prior.wins+'</strong></div><div class="kpi"><span>B3.1 hit rate</span><strong>'+Number(prior.hit_rate).toFixed(1)+'%</strong></div><div class="kpi"><span>60+ accuracy</span><strong>'+Number(prior.hit_rate_60_plus).toFixed(1)+'%</strong></div></div>';
+  let frozen=Object.entries(performance?.b31FrozenMarkets||{});
+  if(frozen.length)extra+='<h3>Subsequent frozen B3.1 selections</h3><table><thead><tr><th>Market</th><th class="num">Graded</th><th class="num">Wins</th><th class="num">Hit rate</th></tr></thead><tbody>'+frozen.map(([k,v])=>'<tr><td>'+esc(title[k]||k)+'</td><td class="num">'+v.selections+'</td><td class="num">'+v.wins+'</td><td class="num">'+pct(v.hitRate)+'</td></tr>').join('')+'</tbody></table><p class="small muted">Graded only from actual pre-kickoff frozen B3.1 selections, and not added retrospectively to the legacy summary.</p>';
+  extra+='<h3 style="margin:24px 0 8px">Independent Scoreline Model · experimental markets</h3>';
+  $("perf-content").innerHTML=extra+$("perf-content").innerHTML;
+}
+async function init(){
+const [s,historyData,perf,settled,status,legacy]=await Promise.all([
+getJSON("data/latest.json",null),getJSON("data/history.json",[]),getJSON("data/performance.json",null),
+getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null)]);
+snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
+await applyBridge();
+history=historyData;performance=perf;settlements=settled;b31history=legacy;
+$("k-games").textContent=(snapshot.games||[]).length;
+$("k-picks").textContent=(snapshot.games||[]).reduce((a,g)=>a+Object.values(g.scoreline?.markets||{}).filter(v=>v>=.60).length,0);
+$("k-leagues").textContent=new Set((snapshot.games||[]).map(g=>g.division)).size;
+$("k-frozen").textContent=snapshot.status==="frozen-prekickoff"?"Yes":"No";
+$("date-pill").textContent=snapshot.date||"No date";
+$("status-pill").textContent=status?.refreshed?"Last refresh "+new Date(status.refreshed).toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"}):"Refresh not yet verified";
+if(!s||!(s.games||[]).length)$("notice").innerHTML='<div class="alert">No frozen pre-match forecast is available for this date. The scheduled workflow may not have run yet, fixtures may not be published, or the data source may be unavailable. Past results are not being presented as today’s picks.</div>';
+$("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. No bookmaker odds are used.";
+draw();drawHistory();drawPerformance();
+}
+init();
+})();
+</script></body></html>
