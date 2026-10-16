@@ -1,0 +1,71 @@
+name: Daily English Football Predictions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * *'
+    - cron: '47 21 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/football-daily.yml'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'index.html'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: football-board-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Test forecast model and team aliases
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate board JavaScript
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path("index.html").read_text(encoding="utf-8")
+          scripts=re.findall(r"<script>(.*?)</script>",html,re.S)
+          assert len(scripts)==1, "Expected exactly one inline JavaScript block"
+          for name in ["data/latest.json","data/history.json","data/performance.json"]:
+              assert name in html, "Missing data source: "+name
+          Path("/tmp/football-board.js").write_text(scripts[0],encoding="utf-8")
+          PY
+          node --check /tmp/football-board.js
+
+      - name: Fetch fixtures, freeze future predictions, settle results
+        run: python3 scripts/refresh.py
+
+      - name: Commit football data changes only
+        run: |
+          git add -A -- data
+          if git diff --cached --quiet; then
+            echo "No updated football data to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh football predictions and verified results"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            echo "Retrying concurrent fast-forward: $attempt"
+            sleep 3
+          done
+          echo "Unable to publish with safe fast-forward"
+          exit 1
