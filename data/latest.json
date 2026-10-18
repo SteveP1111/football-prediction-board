@@ -1,265 +1,70 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-10-18T00:27:50.061863+01:00",
-  "date": "2026-10-18",
+  "capturedAt": "2026-10-19T00:41:10.838814+01:00",
+  "date": "2026-10-19",
   "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
   "games": [
     {
-      "away": "Sunderland",
-      "awayKey": "sunderland",
+      "away": "Coventry",
+      "awayKey": "coventry",
       "b31": {
         "qualifiers": [],
         "status": "not-calculated"
       },
-      "date": "2026-10-18",
+      "date": "2026-10-19",
       "division": "E0",
-      "home": "Bournemouth",
-      "homeKey": "bournemouth",
-      "id": "2026-10-18|E0|bournemouth|sunderland",
-      "kickoff": "14:00",
+      "home": "Tottenham",
+      "homeKey": "tottenham",
+      "id": "2026-10-19|E0|tottenham|coventry",
+      "kickoff": "20:00",
       "league": "Premier League",
       "scoreline": {
         "calibrated": false,
-        "cleanSheetRisk": 0.25285,
-        "expectedAway": 1.375,
-        "expectedHome": 1.67,
-        "expectedTotal": 3.045,
+        "cleanSheetRisk": 0.28845,
+        "expectedAway": 1.243,
+        "expectedHome": 1.377,
+        "expectedTotal": 2.621,
         "goalBands": {
-          "0-1": 0.19258,
-          "2": 0.22068,
-          "3": 0.22397,
-          "4+": 0.36277
+          "0-1": 0.26344,
+          "2": 0.24984,
+          "3": 0.21824,
+          "4+": 0.26848
         },
         "markets": {
-          "away_win": 0.31674,
-          "btts": 0.60646,
-          "draw": 0.23818,
-          "home_win": 0.44508,
-          "no_btts": 0.39354,
-          "over25": 0.58674,
-          "over35": 0.36277,
-          "under25": 0.41326
+          "away_win": 0.33771,
+          "btts": 0.53206,
+          "draw": 0.262,
+          "home_win": 0.40029,
+          "no_btts": 0.46794,
+          "over25": 0.48673,
+          "over35": 0.26848,
+          "under25": 0.51327
         },
-        "modalProbability": 0.10931,
+        "modalProbability": 0.12459,
         "modalScore": "1-1",
         "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
         "sampleAway": 3,
         "sampleHome": 3,
         "topScores": [
           {
-            "p": 0.10931,
+            "p": 0.12459,
             "score": "1-1"
           },
           {
-            "p": 0.09125,
-            "score": "2-1"
-          },
-          {
-            "p": 0.0795,
+            "p": 0.10022,
             "score": "1-0"
           },
           {
-            "p": 0.07515,
+            "p": 0.09046,
+            "score": "0-1"
+          },
+          {
+            "p": 0.0858,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07745,
             "score": "1-2"
-          },
-          {
-            "p": 0.06637,
-            "score": "2-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Crystal Palace",
-      "awayKey": "crystal palace",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-18",
-      "division": "E0",
-      "home": "Brighton",
-      "homeKey": "brighton and hove albion",
-      "id": "2026-10-18|E0|brighton and hove albion|crystal palace",
-      "kickoff": "14:00",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.33482,
-        "expectedAway": 1.094,
-        "expectedHome": 1.721,
-        "expectedTotal": 2.815,
-        "goalBands": {
-          "0-1": 0.22852,
-          "2": 0.23734,
-          "3": 0.22271,
-          "4+": 0.31143
-        },
-        "markets": {
-          "away_win": 0.24128,
-          "btts": 0.54618,
-          "draw": 0.2383,
-          "home_win": 0.52042,
-          "no_btts": 0.45382,
-          "over25": 0.53414,
-          "over35": 0.31143,
-          "under25": 0.46586
-        },
-        "modalProbability": 0.11279,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.11279,
-            "score": "1-1"
-          },
-          {
-            "p": 0.10308,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09705,
-            "score": "2-1"
-          },
-          {
-            "p": 0.0887,
-            "score": "2-0"
-          },
-          {
-            "p": 0.06554,
-            "score": "0-1"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Man United",
-      "awayKey": "manchester united",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-18",
-      "division": "E0",
-      "home": "Leeds",
-      "homeKey": "leeds",
-      "id": "2026-10-18|E0|leeds|manchester united",
-      "kickoff": "14:00",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.30921,
-        "expectedAway": 1.174,
-        "expectedHome": 1.551,
-        "expectedTotal": 2.724,
-        "goalBands": {
-          "0-1": 0.24428,
-          "2": 0.2434,
-          "3": 0.22104,
-          "4+": 0.29128
-        },
-        "markets": {
-          "away_win": 0.28819,
-          "btts": 0.54426,
-          "draw": 0.2516,
-          "home_win": 0.4602,
-          "no_btts": 0.45574,
-          "over25": 0.51232,
-          "over35": 0.29128,
-          "under25": 0.48768
-        },
-        "modalProbability": 0.11937,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.11937,
-            "score": "1-1"
-          },
-          {
-            "p": 0.1017,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09255,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07885,
-            "score": "2-0"
-          },
-          {
-            "p": 0.07698,
-            "score": "0-1"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Arsenal",
-      "awayKey": "arsenal",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-18",
-      "division": "E0",
-      "home": "Nott'm Forest",
-      "homeKey": "nott m forest",
-      "id": "2026-10-18|E0|nott m forest|arsenal",
-      "kickoff": "16:30",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.30635,
-        "expectedAway": 1.183,
-        "expectedHome": 1.202,
-        "expectedTotal": 2.385,
-        "goalBands": {
-          "0-1": 0.31172,
-          "2": 0.26191,
-          "3": 0.20822,
-          "4+": 0.21814
-        },
-        "markets": {
-          "away_win": 0.35658,
-          "btts": 0.48513,
-          "draw": 0.27764,
-          "home_win": 0.36579,
-          "no_btts": 0.51487,
-          "over25": 0.42636,
-          "over35": 0.21814,
-          "under25": 0.57364
-        },
-        "modalProbability": 0.13095,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.13095,
-            "score": "1-1"
-          },
-          {
-            "p": 0.11069,
-            "score": "1-0"
-          },
-          {
-            "p": 0.10895,
-            "score": "0-1"
-          },
-          {
-            "p": 0.09209,
-            "score": "0-0"
-          },
-          {
-            "p": 0.0787,
-            "score": "2-1"
           }
         ]
       }
