@@ -1,8 +1,1571 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-10-20T01:41:25.251493+01:00",
+  "capturedAt": "2026-10-20T09:14:38.033234+01:00",
   "date": "2026-10-20",
-  "games": [],
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Portsmouth",
+      "awayKey": "portsmouth",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E1",
+      "home": "Wolves",
+      "homeKey": "wolverhampton wanderers",
+      "id": "2026-10-20|E1|wolverhampton wanderers|portsmouth",
+      "kickoff": "19:45",
+      "league": "Championship",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.27761,
+        "expectedAway": 1.282,
+        "expectedHome": 1.579,
+        "expectedTotal": 2.861,
+        "goalBands": {
+          "0-1": 0.22093,
+          "2": 0.23416,
+          "3": 0.2233,
+          "4+": 0.32161
+        },
+        "markets": {
+          "away_win": 0.31005,
+          "btts": 0.57348,
+          "draw": 0.24662,
+          "home_win": 0.44333,
+          "no_btts": 0.42652,
+          "over25": 0.54491,
+          "over35": 0.32161,
+          "under25": 0.45509
+        },
+        "modalProbability": 0.11581,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11581,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09145,
+            "score": "2-1"
+          },
+          {
+            "p": 0.09037,
+            "score": "1-0"
+          },
+          {
+            "p": 0.07421,
+            "score": "1-2"
+          },
+          {
+            "p": 0.07333,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "MK Dons",
+      "awayKey": "milton keynes dons",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Blackpool",
+      "homeKey": "blackpool",
+      "id": "2026-10-20|E2|blackpool|milton keynes dons",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.23266,
+        "expectedAway": 1.458,
+        "expectedHome": 1.699,
+        "expectedTotal": 3.157,
+        "goalBands": {
+          "0-1": 0.17686,
+          "2": 0.21204,
+          "3": 0.22315,
+          "4+": 0.38795
+        },
+        "markets": {
+          "away_win": 0.3312,
+          "btts": 0.62703,
+          "draw": 0.23428,
+          "home_win": 0.43452,
+          "no_btts": 0.37297,
+          "over25": 0.6111,
+          "over35": 0.38795,
+          "under25": 0.3889
+        },
+        "modalProbability": 0.1054,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.1054,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08954,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07685,
+            "score": "1-2"
+          },
+          {
+            "p": 0.07228,
+            "score": "1-0"
+          },
+          {
+            "p": 0.06528,
+            "score": "2-2"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Leicester City",
+      "awayKey": "leicester city",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Bromley",
+      "homeKey": "bromley",
+      "id": "2026-10-20|E2|bromley|leicester city",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.27014,
+        "expectedAway": 1.585,
+        "expectedHome": 1.309,
+        "expectedTotal": 2.894,
+        "goalBands": {
+          "0-1": 0.21562,
+          "2": 0.23183,
+          "3": 0.22361,
+          "4+": 0.32894
+        },
+        "markets": {
+          "away_win": 0.43875,
+          "btts": 0.58024,
+          "draw": 0.24546,
+          "home_win": 0.31579,
+          "no_btts": 0.41976,
+          "over25": 0.55255,
+          "over35": 0.32894,
+          "under25": 0.44745
+        },
+        "modalProbability": 0.11486,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11486,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09101,
+            "score": "1-2"
+          },
+          {
+            "p": 0.08776,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07517,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07248,
+            "score": "1-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Bradford City",
+      "awayKey": "bradford city",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Burton Albion",
+      "homeKey": "burton",
+      "id": "2026-10-20|E2|burton|bradford city",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.22842,
+        "expectedAway": 1.477,
+        "expectedHome": 1.556,
+        "expectedTotal": 3.033,
+        "goalBands": {
+          "0-1": 0.19428,
+          "2": 0.22157,
+          "3": 0.224,
+          "4+": 0.36016
+        },
+        "markets": {
+          "away_win": 0.3619,
+          "btts": 0.60886,
+          "draw": 0.24129,
+          "home_win": 0.39682,
+          "no_btts": 0.39114,
+          "over25": 0.58416,
+          "over35": 0.36016,
+          "under25": 0.41584
+        },
+        "modalProbability": 0.11071,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.11071,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08615,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08173,
+            "score": "1-2"
+          },
+          {
+            "p": 0.07497,
+            "score": "1-0"
+          },
+          {
+            "p": 0.07113,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Wycombe Wanderers",
+      "awayKey": "wycombe wanderers",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Cambridge United",
+      "homeKey": "cambridge united",
+      "id": "2026-10-20|E2|cambridge united|wycombe wanderers",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.26491,
+        "expectedAway": 1.328,
+        "expectedHome": 1.485,
+        "expectedTotal": 2.813,
+        "goalBands": {
+          "0-1": 0.22881,
+          "2": 0.23746,
+          "3": 0.22269,
+          "4+": 0.31104
+        },
+        "markets": {
+          "away_win": 0.33897,
+          "btts": 0.56859,
+          "draw": 0.25124,
+          "home_win": 0.40979,
+          "no_btts": 0.43141,
+          "over25": 0.53372,
+          "over35": 0.31104,
+          "under25": 0.46628
+        },
+        "modalProbability": 0.11836,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.11836,
+            "score": "1-1"
+          },
+          {
+            "p": 0.0891,
+            "score": "1-0"
+          },
+          {
+            "p": 0.08788,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07971,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07861,
+            "score": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Stockport County",
+      "awayKey": "stockport county",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Doncaster Rovers",
+      "homeKey": "doncaster rovers",
+      "id": "2026-10-20|E2|doncaster rovers|stockport county",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.26119,
+        "expectedAway": 1.463,
+        "expectedHome": 1.343,
+        "expectedTotal": 2.805,
+        "goalBands": {
+          "0-1": 0.23017,
+          "2": 0.23801,
+          "3": 0.22257,
+          "4+": 0.30925
+        },
+        "markets": {
+          "away_win": 0.40124,
+          "btts": 0.56772,
+          "draw": 0.25201,
+          "home_win": 0.34675,
+          "no_btts": 0.43228,
+          "over25": 0.53182,
+          "over35": 0.30925,
+          "under25": 0.46818
+        },
+        "modalProbability": 0.11879,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 0,
+        "topScores": [
+          {
+            "p": 0.11879,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08848,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08688,
+            "score": "1-2"
+          },
+          {
+            "p": 0.0812,
+            "score": "1-0"
+          },
+          {
+            "p": 0.07974,
+            "score": "2-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Peterborough United",
+      "awayKey": "peterborough united",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Huddersfield Town",
+      "homeKey": "huddersfield town",
+      "id": "2026-10-20|E2|huddersfield town|peterborough united",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.25495,
+        "expectedAway": 1.367,
+        "expectedHome": 1.609,
+        "expectedTotal": 2.976,
+        "goalBands": {
+          "0-1": 0.20277,
+          "2": 0.22583,
+          "3": 0.22402,
+          "4+": 0.34739
+        },
+        "markets": {
+          "away_win": 0.3255,
+          "btts": 0.59602,
+          "draw": 0.24217,
+          "home_win": 0.43233,
+          "no_btts": 0.40398,
+          "over25": 0.57141,
+          "over35": 0.34739,
+          "under25": 0.42859
+        },
+        "modalProbability": 0.11216,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11216,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09025,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08207,
+            "score": "1-0"
+          },
+          {
+            "p": 0.07665,
+            "score": "1-2"
+          },
+          {
+            "p": 0.0697,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Barnsley",
+      "awayKey": "barnsley",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Luton Town",
+      "homeKey": "luton town",
+      "id": "2026-10-20|E2|luton town|barnsley",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.29347,
+        "expectedAway": 1.226,
+        "expectedHome": 1.52,
+        "expectedTotal": 2.746,
+        "goalBands": {
+          "0-1": 0.24048,
+          "2": 0.24201,
+          "3": 0.2215,
+          "4+": 0.29601
+        },
+        "markets": {
+          "away_win": 0.30678,
+          "btts": 0.55196,
+          "draw": 0.25252,
+          "home_win": 0.4407,
+          "no_btts": 0.44804,
+          "over25": 0.51751,
+          "over35": 0.29601,
+          "under25": 0.48249
+        },
+        "modalProbability": 0.11962,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11962,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09757,
+            "score": "1-0"
+          },
+          {
+            "p": 0.0909,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07871,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07414,
+            "score": "2-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Sheffield Wednesday",
+      "awayKey": "sheffield wednesday",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Notts County",
+      "homeKey": "notts county",
+      "id": "2026-10-20|E2|notts county|sheffield wednesday",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.26095,
+        "expectedAway": 1.494,
+        "expectedHome": 1.343,
+        "expectedTotal": 2.837,
+        "goalBands": {
+          "0-1": 0.2248,
+          "2": 0.2358,
+          "3": 0.22302,
+          "4+": 0.31638
+        },
+        "markets": {
+          "away_win": 0.40884,
+          "btts": 0.57314,
+          "draw": 0.25009,
+          "home_win": 0.34107,
+          "no_btts": 0.42686,
+          "over25": 0.5394,
+          "over35": 0.31638,
+          "under25": 0.4606
+        },
+        "modalProbability": 0.11757,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11757,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08782,
+            "score": "1-2"
+          },
+          {
+            "p": 0.08751,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07897,
+            "score": "2-1"
+          },
+          {
+            "p": 0.0787,
+            "score": "1-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Wigan Athletic",
+      "awayKey": "wigan athletic",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Oxford United",
+      "homeKey": "oxford united",
+      "id": "2026-10-20|E2|oxford united|wigan athletic",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.24611,
+        "expectedAway": 1.402,
+        "expectedHome": 1.48,
+        "expectedTotal": 2.882,
+        "goalBands": {
+          "0-1": 0.21742,
+          "2": 0.23263,
+          "3": 0.22351,
+          "4+": 0.32643
+        },
+        "markets": {
+          "away_win": 0.35824,
+          "btts": 0.58234,
+          "draw": 0.24841,
+          "home_win": 0.39335,
+          "no_btts": 0.41766,
+          "over25": 0.54994,
+          "over35": 0.32643,
+          "under25": 0.45006
+        },
+        "modalProbability": 0.11623,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 0,
+        "topScores": [
+          {
+            "p": 0.11623,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08603,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08291,
+            "score": "1-0"
+          },
+          {
+            "p": 0.08148,
+            "score": "1-2"
+          },
+          {
+            "p": 0.07851,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Plymouth Argyle",
+      "awayKey": "plymouth argyle",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "Stevenage",
+      "homeKey": "stevenage",
+      "id": "2026-10-20|E2|stevenage|plymouth argyle",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.24675,
+        "expectedAway": 1.462,
+        "expectedHome": 1.399,
+        "expectedTotal": 2.861,
+        "goalBands": {
+          "0-1": 0.22089,
+          "2": 0.23414,
+          "3": 0.2233,
+          "4+": 0.32167
+        },
+        "markets": {
+          "away_win": 0.38921,
+          "btts": 0.57861,
+          "draw": 0.24955,
+          "home_win": 0.36124,
+          "no_btts": 0.42139,
+          "over25": 0.54497,
+          "over35": 0.32167,
+          "under25": 0.45503
+        },
+        "modalProbability": 0.11702,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11702,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08552,
+            "score": "1-2"
+          },
+          {
+            "p": 0.08362,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08188,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08006,
+            "score": "1-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Mansfield Town",
+      "awayKey": "mansfield town",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E2",
+      "home": "AFC Wimbledon",
+      "homeKey": "afc wimbledon",
+      "id": "2026-10-20|E2|afc wimbledon|mansfield town",
+      "kickoff": "19:45",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.29814,
+        "expectedAway": 1.21,
+        "expectedHome": 1.261,
+        "expectedTotal": 2.471,
+        "goalBands": {
+          "0-1": 0.29335,
+          "2": 0.25798,
+          "3": 0.21247,
+          "4+": 0.23619
+        },
+        "markets": {
+          "away_win": 0.35203,
+          "btts": 0.50289,
+          "draw": 0.27182,
+          "home_win": 0.37615,
+          "no_btts": 0.49711,
+          "over25": 0.44866,
+          "over35": 0.23619,
+          "under25": 0.55134
+        },
+        "modalProbability": 0.12894,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.12894,
+            "score": "1-1"
+          },
+          {
+            "p": 0.10654,
+            "score": "1-0"
+          },
+          {
+            "p": 0.10229,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08452,
+            "score": "0-0"
+          },
+          {
+            "p": 0.08127,
+            "score": "2-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Swindon Town",
+      "awayKey": "swindon town",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Barnet",
+      "homeKey": "barnet",
+      "id": "2026-10-20|E3|barnet|swindon town",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.34753,
+        "expectedAway": 1.057,
+        "expectedHome": 1.704,
+        "expectedTotal": 2.761,
+        "goalBands": {
+          "0-1": 0.23781,
+          "2": 0.241,
+          "3": 0.2218,
+          "4+": 0.29939
+        },
+        "markets": {
+          "away_win": 0.2349,
+          "btts": 0.53375,
+          "draw": 0.23989,
+          "home_win": 0.52521,
+          "no_btts": 0.46625,
+          "over25": 0.52118,
+          "over35": 0.29939,
+          "under25": 0.47882
+        },
+        "modalProbability": 0.11388,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.11388,
+            "score": "1-1"
+          },
+          {
+            "p": 0.10775,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09703,
+            "score": "2-1"
+          },
+          {
+            "p": 0.09181,
+            "score": "2-0"
+          },
+          {
+            "p": 0.06683,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Salford City",
+      "awayKey": "salford city",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Bristol Rovers",
+      "homeKey": "bristol rovers",
+      "id": "2026-10-20|E3|bristol rovers|salford city",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.29271,
+        "expectedAway": 1.229,
+        "expectedHome": 1.538,
+        "expectedTotal": 2.767,
+        "goalBands": {
+          "0-1": 0.23678,
+          "2": 0.24061,
+          "3": 0.22191,
+          "4+": 0.3007
+        },
+        "markets": {
+          "away_win": 0.30413,
+          "btts": 0.5554,
+          "draw": 0.25108,
+          "home_win": 0.44479,
+          "no_btts": 0.4446,
+          "over25": 0.52261,
+          "over35": 0.3007,
+          "under25": 0.47739
+        },
+        "modalProbability": 0.1188,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.1188,
+            "score": "1-1"
+          },
+          {
+            "p": 0.0967,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09137,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07723,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07437,
+            "score": "2-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Fleetwood Town",
+      "awayKey": "fleetwood town",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Cheltenham Town",
+      "homeKey": "cheltenham town",
+      "id": "2026-10-20|E3|cheltenham town|fleetwood town",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.31842,
+        "expectedAway": 1.144,
+        "expectedHome": 1.482,
+        "expectedTotal": 2.626,
+        "goalBands": {
+          "0-1": 0.26232,
+          "2": 0.24949,
+          "3": 0.21842,
+          "4+": 0.26976
+        },
+        "markets": {
+          "away_win": 0.29264,
+          "btts": 0.52674,
+          "draw": 0.25796,
+          "home_win": 0.4494,
+          "no_btts": 0.47326,
+          "over25": 0.48818,
+          "over35": 0.26976,
+          "under25": 0.51182
+        },
+        "modalProbability": 0.12268,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.12268,
+            "score": "1-1"
+          },
+          {
+            "p": 0.10721,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09091,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08278,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07944,
+            "score": "2-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Colchester United",
+      "awayKey": "colchester united",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Chesterfield",
+      "homeKey": "chesterfield",
+      "id": "2026-10-20|E3|chesterfield|colchester united",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.34278,
+        "expectedAway": 1.071,
+        "expectedHome": 1.688,
+        "expectedTotal": 2.759,
+        "goalBands": {
+          "0-1": 0.23816,
+          "2": 0.24113,
+          "3": 0.22176,
+          "4+": 0.29895
+        },
+        "markets": {
+          "away_win": 0.24056,
+          "btts": 0.53575,
+          "draw": 0.24129,
+          "home_win": 0.51814,
+          "no_btts": 0.46425,
+          "over25": 0.52071,
+          "over35": 0.29895,
+          "under25": 0.47929
+        },
+        "modalProbability": 0.11452,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.11452,
+            "score": "1-1"
+          },
+          {
+            "p": 0.10696,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09668,
+            "score": "2-1"
+          },
+          {
+            "p": 0.09029,
+            "score": "2-0"
+          },
+          {
+            "p": 0.06783,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Shrewsbury Town",
+      "awayKey": "shrewsbury town",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Crawley Town",
+      "homeKey": "crawley town",
+      "id": "2026-10-20|E3|crawley town|shrewsbury town",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.3398,
+        "expectedAway": 1.079,
+        "expectedHome": 1.348,
+        "expectedTotal": 2.427,
+        "goalBands": {
+          "0-1": 0.30262,
+          "2": 0.26006,
+          "3": 0.21039,
+          "4+": 0.22693
+        },
+        "markets": {
+          "away_win": 0.2996,
+          "btts": 0.48863,
+          "draw": 0.27173,
+          "home_win": 0.42866,
+          "no_btts": 0.51137,
+          "over25": 0.43732,
+          "over35": 0.22693,
+          "under25": 0.56268
+        },
+        "modalProbability": 0.12844,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.12844,
+            "score": "1-1"
+          },
+          {
+            "p": 0.119,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09532,
+            "score": "0-1"
+          },
+          {
+            "p": 0.0883,
+            "score": "0-0"
+          },
+          {
+            "p": 0.08654,
+            "score": "2-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Crewe Alexandra",
+      "awayKey": "crewe",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Exeter City",
+      "homeKey": "exeter city",
+      "id": "2026-10-20|E3|exeter city|crewe",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.37683,
+        "expectedAway": 0.976,
+        "expectedHome": 1.274,
+        "expectedTotal": 2.25,
+        "goalBands": {
+          "0-1": 0.34256,
+          "2": 0.26679,
+          "3": 0.20009,
+          "4+": 0.19056
+        },
+        "markets": {
+          "away_win": 0.28436,
+          "btts": 0.44886,
+          "draw": 0.28329,
+          "home_win": 0.43236,
+          "no_btts": 0.55114,
+          "over25": 0.39065,
+          "over35": 0.19056,
+          "under25": 0.60935
+        },
+        "modalProbability": 0.13428,
+        "modalScore": "1-0",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 0,
+        "topScores": [
+          {
+            "p": 0.13428,
+            "score": "1-0"
+          },
+          {
+            "p": 0.13106,
+            "score": "1-1"
+          },
+          {
+            "p": 0.1054,
+            "score": "0-0"
+          },
+          {
+            "p": 0.10287,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08554,
+            "score": "2-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Tranmere Rovers",
+      "awayKey": "tranmere rovers",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Northampton Town",
+      "homeKey": "northampton town",
+      "id": "2026-10-20|E3|northampton town|tranmere rovers",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.40694,
+        "expectedAway": 0.899,
+        "expectedHome": 1.368,
+        "expectedTotal": 2.267,
+        "goalBands": {
+          "0-1": 0.33849,
+          "2": 0.26627,
+          "3": 0.20123,
+          "4+": 0.19402
+        },
+        "markets": {
+          "away_win": 0.2466,
+          "btts": 0.44208,
+          "draw": 0.27601,
+          "home_win": 0.47738,
+          "no_btts": 0.55792,
+          "over25": 0.39525,
+          "over35": 0.19402,
+          "under25": 0.60475
+        },
+        "modalProbability": 0.14174,
+        "modalScore": "1-0",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.14174,
+            "score": "1-0"
+          },
+          {
+            "p": 0.12744,
+            "score": "1-1"
+          },
+          {
+            "p": 0.1036,
+            "score": "0-0"
+          },
+          {
+            "p": 0.09696,
+            "score": "2-0"
+          },
+          {
+            "p": 0.09315,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Grimsby Town",
+      "awayKey": "grimsby town",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Rochdale",
+      "homeKey": "rochdale",
+      "id": "2026-10-20|E3|rochdale|grimsby town",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.35456,
+        "expectedAway": 1.037,
+        "expectedHome": 1.463,
+        "expectedTotal": 2.499,
+        "goalBands": {
+          "0-1": 0.28741,
+          "2": 0.25654,
+          "3": 0.21374,
+          "4+": 0.24231
+        },
+        "markets": {
+          "away_win": 0.268,
+          "btts": 0.49593,
+          "draw": 0.26266,
+          "home_win": 0.46934,
+          "no_btts": 0.50407,
+          "over25": 0.45605,
+          "over35": 0.24231,
+          "under25": 0.54395
+        },
+        "modalProbability": 0.12455,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.12455,
+            "score": "1-1"
+          },
+          {
+            "p": 0.12012,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09108,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08784,
+            "score": "2-0"
+          },
+          {
+            "p": 0.08516,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Newport County",
+      "awayKey": "newport county",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Rotherham United",
+      "homeKey": "rotherham united",
+      "id": "2026-10-20|E3|rotherham united|newport county",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.31999,
+        "expectedAway": 1.139,
+        "expectedHome": 1.482,
+        "expectedTotal": 2.621,
+        "goalBands": {
+          "0-1": 0.26328,
+          "2": 0.24979,
+          "3": 0.21827,
+          "4+": 0.26866
+        },
+        "markets": {
+          "away_win": 0.29139,
+          "btts": 0.52551,
+          "draw": 0.25811,
+          "home_win": 0.45049,
+          "no_btts": 0.47449,
+          "over25": 0.48693,
+          "over35": 0.26866,
+          "under25": 0.51307
+        },
+        "modalProbability": 0.12276,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.12276,
+            "score": "1-1"
+          },
+          {
+            "p": 0.10774,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09096,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08284,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07983,
+            "score": "2-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Oldham Athletic",
+      "awayKey": "oldham",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Walsall",
+      "homeKey": "walsall",
+      "id": "2026-10-20|E3|walsall|oldham",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.4007,
+        "expectedAway": 0.915,
+        "expectedHome": 1.441,
+        "expectedTotal": 2.356,
+        "goalBands": {
+          "0-1": 0.31817,
+          "2": 0.26311,
+          "3": 0.20661,
+          "4+": 0.21211
+        },
+        "markets": {
+          "away_win": 0.23904,
+          "btts": 0.4575,
+          "draw": 0.26753,
+          "home_win": 0.49343,
+          "no_btts": 0.5425,
+          "over25": 0.41872,
+          "over35": 0.21211,
+          "under25": 0.58128
+        },
+        "modalProbability": 0.13665,
+        "modalScore": "1-0",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.13665,
+            "score": "1-0"
+          },
+          {
+            "p": 0.12498,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09848,
+            "score": "2-0"
+          },
+          {
+            "p": 0.09481,
+            "score": "0-0"
+          },
+          {
+            "p": 0.09007,
+            "score": "2-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Accrington Stanley",
+      "awayKey": "accrington stanley",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "York City",
+      "homeKey": "york city",
+      "id": "2026-10-20|E3|york city|accrington stanley",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.39365,
+        "expectedAway": 0.932,
+        "expectedHome": 1.486,
+        "expectedTotal": 2.418,
+        "goalBands": {
+          "0-1": 0.3045,
+          "2": 0.26046,
+          "3": 0.20995,
+          "4+": 0.22509
+        },
+        "markets": {
+          "away_win": 0.23676,
+          "btts": 0.46914,
+          "draw": 0.26241,
+          "home_win": 0.50083,
+          "no_btts": 0.53086,
+          "over25": 0.43504,
+          "over35": 0.22509,
+          "under25": 0.56496
+        },
+        "modalProbability": 0.13237,
+        "modalScore": "1-0",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 0,
+        "topScores": [
+          {
+            "p": 0.13237,
+            "score": "1-0"
+          },
+          {
+            "p": 0.12341,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09834,
+            "score": "2-0"
+          },
+          {
+            "p": 0.09168,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08908,
+            "score": "0-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Port Vale",
+      "awayKey": "port vale",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-20",
+      "division": "E3",
+      "home": "Gillingham",
+      "homeKey": "gillingham",
+      "id": "2026-10-20|E3|gillingham|port vale",
+      "kickoff": "20:00",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.43922,
+        "expectedAway": 0.823,
+        "expectedHome": 1.504,
+        "expectedTotal": 2.327,
+        "goalBands": {
+          "0-1": 0.32469,
+          "2": 0.26422,
+          "3": 0.20494,
+          "4+": 0.20615
+        },
+        "markets": {
+          "away_win": 0.20535,
+          "btts": 0.43618,
+          "draw": 0.2613,
+          "home_win": 0.53335,
+          "no_btts": 0.56382,
+          "over25": 0.41109,
+          "over35": 0.20615,
+          "under25": 0.58891
+        },
+        "modalProbability": 0.1468,
+        "modalScore": "1-0",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.1468,
+            "score": "1-0"
+          },
+          {
+            "p": 0.12078,
+            "score": "1-1"
+          },
+          {
+            "p": 0.11041,
+            "score": "2-0"
+          },
+          {
+            "p": 0.09759,
+            "score": "0-0"
+          },
+          {
+            "p": 0.09084,
+            "score": "2-1"
+          }
+        ]
+      }
+    }
+  ],
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-  "status": "no-frozen-matches"
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 550
 }
