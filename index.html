@@ -33,6 +33,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <div class="chips"><button class="chip" data-query="Top 3 home wins">Home wins</button><button class="chip" data-query="Top 5 BTTS">BTTS</button><button class="chip" data-query="Top 5 under 2.5">Unders</button><button class="chip" data-query="Top 5 over 3.5">Over 3.5</button><button class="chip" data-query="Any 0-0 predictions">0–0</button><button class="chip" data-query="Top 5 away wins">Away wins</button><button class="chip" data-query="Top 5 draws">Draws</button></div>
 <div class="filters"><div class="field"><label for="league">League</label><select id="league"><option value="all">All five leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option><option value="EC">National League</option></select></div><div class="field"><label for="market">Market</label><select id="market"><option value="home_win">Home win</option><option value="away_win">Away win</option><option value="draw">Draw</option><option value="btts">BTTS</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="modal00">Exact 0–0</option></select></div><div class="field"><label for="count">Number</label><select id="count"><option value="3">Top 3</option><option value="5" selected>Top 5</option><option value="10">Top 10</option><option value="100">All matches</option></select></div><div class="field"><label for="model">View</label><select id="model"><option value="scoreline">Scoreline model</option><option value="b31">B3.1 qualifying picks</option></select></div></div>
 </section>
+<section class="panel" id="watchlist-section"><h2>Today's strongest markets · 60%+</h2><p class="muted small">Experimental independent Scoreline Model probability rankings. These are <strong>not</strong> official B3.1 selections and are not evidence of a profitable bet.</p><div id="top-opps">Loading today's market probabilities…</div></section>
 <div class="resulthead"><h2 id="result-title">Highest-ranked home wins</h2><span class="muted small" id="result-count"></span></div><div class="cards" id="results"></div>
 </div>
 <div id="history" hidden><section class="panel"><h2>Frozen forecasts and results</h2><p class="muted small">Each day's pre-match snapshot is saved once. Final scores and market outcomes are stored separately. Select a date to inspect its original forecasts.</p><div id="history-list">Loading…</div></section></div>
@@ -86,6 +87,12 @@ return '<article class="match"><div class="matchhead"><span>'+esc(g.league)+' ·
 '<details><summary>Why this ranking? All markets and goal distribution</summary><p class="muted small">Ranking uses the probability-weighted scoreline distribution; it does not count possible scores equally. This is an independent experimental model. Sample coverage: '+(sc.sampleHome||0)+' home matches / '+(sc.sampleAway||0)+' away matches this season.</p><div class="scoregrid">'+goalBars+'</div><p class="small muted">Raw goals probabilities. Over 2.5 = exactly 3 + 4 or more. Under 2.5 = 0–1 + exactly 2.</p>'+explanation+'</details></article>';
 }
 function draw(){
+if(state.model==="b31" && (snapshot?.games||[]).length && !(snapshot.games||[]).some(g=>g.b31?.status==="frozen"||g.b31?.status==="frozen-nightly")){
+  $("result-title").textContent="B3.1 has not been calculated";
+  $("result-count").textContent="Not available";
+  $("results").innerHTML='<div class="panel alert">This day has no B3.1 calculation in the GitHub runner. That is <strong>not</strong> a result of zero qualifying selections. Select Scoreline Model to see all independently calculated forecasts. Previous B3.1 predictions remain available in History where frozen.</div>';
+  return;
+}
 if(!snapshot){$("results").innerHTML='<div class="panel">Loading forecasts…</div>';return}
 let games=snapshot.games||[];
 if(state.league!=="all")games=games.filter(g=>g.division===state.league);
@@ -122,12 +129,17 @@ getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("da
 snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
 await applyBridge();
 history=historyData;performance=perf;settlements=settled;b31history=legacy;
+const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5"};
+const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(g.scoreline?.markets||{}).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=.60).sort((a,b)=>b.p-a.p);
+$("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No market exceeds 60% among the saved fixtures today. That does not mean no matches were analysed.</p>';
+
 $("k-games").textContent=(snapshot.games||[]).length;
 $("k-picks").textContent=(snapshot.games||[]).reduce((a,g)=>a+Object.values(g.scoreline?.markets||{}).filter(v=>v>=.60).length,0);
 $("k-leagues").textContent=new Set((snapshot.games||[]).map(g=>g.division)).size;
 $("k-frozen").textContent=snapshot.status==="frozen-prekickoff"?"Yes":"No";
 $("date-pill").textContent=snapshot.date||"No date";
 $("status-pill").textContent=status?.refreshed?"Last refresh "+new Date(status.refreshed).toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"}):"Refresh not yet verified";
+if(status?.warnings?.length)$("notice").innerHTML+='<div class="alert" style="margin:8px 0">Data coverage warning: '+status.warnings.map(esc).join('; ')+' · Current probabilities may exclude recent results.</div>';
 if(!s||!(s.games||[]).length)$("notice").innerHTML='<div class="alert">No frozen pre-match forecast is available for this date. The scheduled workflow may not have run yet, fixtures may not be published, or the data source may be unavailable. Past results are not being presented as today’s picks.</div>';
 $("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. No bookmaker odds are used.";
 draw();drawHistory();drawPerformance();
