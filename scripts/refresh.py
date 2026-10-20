@@ -9,6 +9,94 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+# The Guardian's dated fixtures page is a secondary source when the CSV fixture feed stops.
+# Parse semantic date/competition headings and fixture links; do not guess matches.
+from html.parser import HTMLParser
+from html import unescape
+
+GUARDIAN_DIVS={"Premier League":"E0","Championship":"E1","League One":"E2",
+               "League Two":"E3","National League":"EC"}
+def parse_guardian_fixtures(html, wanted):
+    class FixtureParser(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.capture=None;self.buffer=[];self.competition=None;self.day=None
+            self.matches=[]
+        def handle_starttag(self,tag,attrs):
+            attrs=dict(attrs)
+            if tag in ("h2","h3"):
+                self.capture=tag;self.buffer=[]
+            elif tag=="a" and "football.theguardian.com" in str(attrs.get("href","")):
+                self.capture="match";self.buffer=[]
+        def handle_data(self,data):
+            if self.capture:self.buffer.append(data)
+        def handle_endtag(self,tag):
+            if (tag=="h2" and self.capture=="h2") or (tag=="h3" and self.capture=="h3"):
+                words=" ".join(" ".join(self.buffer).split())
+                if tag=="h2":
+                    m=re.search(r"(\d{1,2}\s+[A-Za-z]+\s+\d{4})",words)
+                    if m:
+                        try:self.day=datetime.strptime(m.group(1),"%d %B %Y").date()
+                        except ValueError:pass
+                else:self.competition=GUARDIAN_DIVS.get(words)
+                self.capture=None;self.buffer=[]
+            elif tag=="a" and self.capture=="match":
+                words=" ".join(" ".join(self.buffer).split())
+                if self.day==wanted and self.competition:
+                    m=re.match(r"^(\d{1,2}:\d{2})\s*(EDT|EST|BST|GMT)?\s+(.+?)\s+v\s+(.+)$",words,re.I)
+                    if m:
+                        clock,zone,home,away=m.groups()
+                        if zone in ("EDT","EST"):
+                            from zoneinfo import ZoneInfo
+                            local=datetime.combine(wanted,datetime.strptime(clock,"%H:%M").time(),tzinfo=ZoneInfo("America/New_York")).astimezone(TZ)
+                            clock=local.strftime("%H:%M")
+                        self.matches.append({"Div":self.competition,"Date":wanted.isoformat(),
+                                             "Time":clock,"HomeTeam":home,"AwayTeam":away})
+                self.capture=None;self.buffer=[]
+    p=FixtureParser();p.feed(html)
+    return list({(x["Div"],x["HomeTeam"],x["AwayTeam"]):x for x in p.matches}.values())
+
+def missing_fixture_fallback(fixtures, today, state):
+    """Augment stale CSV with a verified fixture manifest; otherwise Guardian dated fixtures."""
+    dates={f["date"] for f in fixtures}
+    when=today.isoformat()
+    manual=DATA/"manual_fixtures"/(when+".json")
+    if manual.exists():
+        record=json.loads(manual.read_text(encoding="utf-8"))
+        if record.get("date")!=when or not record.get("fixtures"):
+            raise ValueError("Invalid dated fixture manifest: "+str(manual))
+        extra=fixture_rows(record["fixtures"])
+        if len(extra)!=len(record["fixtures"]):
+            raise ValueError("Some hand-verified fixtures were rejected")
+        state["sources"].append(record.get("source","dated verified fixture manifest"))
+        state["fixtureFallback"]="verified dated fixture manifest"
+    elif when not in dates:
+        url="https://www.theguardian.com/football/fixtures/"+today.strftime("%Y/%b/%d")
+        try:
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; FootballPredictionBoard/1.1)","Accept":"text/html"})
+            with urllib.request.urlopen(req,timeout=22) as resp:
+                page=resp.read(2500000).decode("utf-8",errors="replace")
+            rows=parse_guardian_fixtures(page,today)
+            extra=fixture_rows(rows)
+            if extra:
+                state["sources"].append(url)
+                state["fixtureFallback"]="Guardian dated fixture page"
+            else:state["warnings"].append("STALE FIXTURE COVERAGE: Guardian fallback returned no parseable games")
+        except Exception as exc:
+            state["warnings"].append("STALE FIXTURE COVERAGE: Guardian fallback failed: "+str(exc))
+            extra=[]
+    else:extra=[]
+    merged={f["id"]:f for f in fixtures}
+    for f in extra:
+        # Never overwrite the original supplier when fixture identity matches.
+        merged.setdefault(f["id"],f)
+    if extra:
+        state["fixtureFallbackGames"]=len(extra)
+    if not extra and when not in dates and max(dates,default="")<when:
+        raise RuntimeError("Fixture feed ends before today and fallback found no trustworthy fixtures")
+    return list(merged.values())
+
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 SNAP = DATA / "snapshots"
@@ -34,7 +122,9 @@ ALIASES = {
     "cheltenham":"cheltenham town","shrewsbury":"shrewsbury town",
     "accrington":"accrington stanley","crawley":"crawley town",
     "fleetwood":"fleetwood town","rotherham":"rotherham united",
-    "brighton":"brighton and hove albion","wolves":"wolverhampton wanderers","newport county afc":"newport county"
+    "brighton":"brighton and hove albion","wolves":"wolverhampton wanderers","newport county afc":"newport county",
+    "burton a":"burton","oxford utd":"oxford united","sheff wed":"sheffield wednesday",
+    "leicester":"leicester city","newport county":"newport county"
 }
 def canon(value):
     s = re.sub(r"\s+"," ", re.sub(r"[^\w\s]", " ",str(value or "").lower())).strip()
@@ -198,9 +288,13 @@ def run():
     if len(curr)<150:raise RuntimeError("Fail closed: incomplete current-season training results (%s): %s"%(len(curr),failures))
     fixture_data,fixture_url=fetch_one(["https://www.football-data.co.uk/fixtures.csv","https://www.football-data.co.uk/matches/fixtures.csv"])
     fixtures=fixture_rows(fixture_data);state["sources"].append(fixture_url)
-    state["warnings"]=failures
+    fixtures=missing_fixture_fallback(fixtures,today,state)
+    state["warnings"]+=failures
     state["resultsCount"]=len(curr)
     state["resultsByLeague"]={d:sum(x["division"]==d for x in curr) for d in DIVS}
+    state["resultsLatestDate"]=max((x["date"] for x in curr),default=None)
+    if state["resultsLatestDate"] and (today-date.fromisoformat(state["resultsLatestDate"])).days>2:
+        state["warnings"].append("RESULTS COVERAGE BEHIND: latest verified result "+state["resultsLatestDate"])
     state["fixtureDateRange"]=[min((x["date"] for x in fixtures),default=None),max((x["date"] for x in fixtures),default=None)]
     completed={x["id"]:(x["hg"],x["ag"]) for x in curr}
     # Freeze before kickoff; an old snapshot is immutable even after a model revision.

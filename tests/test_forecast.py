@@ -35,4 +35,18 @@ class ForecastTests(unittest.TestCase):
            "league":"Premier League","home":"Home","away":"Away","kickoff":"15:00","id":"y"}
         self.assertEqual(refresh.model(f,[])["scoreline"]["expectedHome"],
                          refresh.model(f,[row])["scoreline"]["expectedHome"])
+
+    def test_guardian_fixture_parser(self):
+        page = '''<h2>Tuesday, 20 October 2026</h2><h3>League One</h3>
+        <a href="https://football.theguardian.com/match/123">14:45 EDT Blackpool v MK Dons</a>
+        <h3>League Two</h3><a href="https://football.theguardian.com/match/124">14:45 EDT Barnet v Swindon</a>
+        <h2>Wednesday, 21 October 2026</h2>
+        <a href="https://football.theguardian.com/match/125">15:00 EDT Reading v Leyton Orient</a>'''
+        day=refresh.date(2026,10,20)
+        matches=refresh.parse_guardian_fixtures(page,day)
+        self.assertEqual(len(matches),2)
+        self.assertEqual(matches[0]["Time"],"19:45")
+        self.assertEqual(matches[1]["Div"],"E3")
+        self.assertEqual(refresh.fixture_rows(matches)[0]["date"],"2026-10-20")
+
 if __name__=="__main__":unittest.main()

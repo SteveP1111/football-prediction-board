@@ -12,6 +12,7 @@ on:
       - 'scripts/**'
       - 'tests/**'
       - 'index.html'
+      - 'data/manual_fixtures/**'
 
 permissions:
   contents: write
