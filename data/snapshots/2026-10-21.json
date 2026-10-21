@@ -1,0 +1,76 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-10-21T01:09:31.656214+01:00",
+  "date": "2026-10-21",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Leyton Orient",
+      "awayKey": "leyton orient",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-21",
+      "division": "E2",
+      "home": "Reading",
+      "homeKey": "reading",
+      "id": "2026-10-21|E2|reading|leyton orient",
+      "kickoff": "20:00",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.26083,
+        "expectedAway": 1.344,
+        "expectedHome": 1.436,
+        "expectedTotal": 2.78,
+        "goalBands": {
+          "0-1": 0.23453,
+          "2": 0.23974,
+          "3": 0.22215,
+          "4+": 0.30358
+        },
+        "markets": {
+          "away_win": 0.35228,
+          "btts": 0.56333,
+          "draw": 0.25356,
+          "home_win": 0.39417,
+          "no_btts": 0.43667,
+          "over25": 0.52573,
+          "over35": 0.30358,
+          "under25": 0.47427
+        },
+        "modalProbability": 0.11974,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.11974,
+            "score": "1-1"
+          },
+          {
+            "p": 0.0891,
+            "score": "1-0"
+          },
+          {
+            "p": 0.08597,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08339,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08046,
+            "score": "1-2"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 596
+}
