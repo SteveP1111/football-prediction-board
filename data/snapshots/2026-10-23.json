@@ -1,0 +1,141 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-10-23T01:10:55.980546+01:00",
+  "date": "2026-10-23",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Nottm Forest",
+      "awayKey": "nottm forest",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-23",
+      "division": "E0",
+      "home": "Ipswich",
+      "homeKey": "ipswich town",
+      "id": "2026-10-23|E0|ipswich town|nottm forest",
+      "kickoff": "20:00",
+      "league": "Premier League",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.27433,
+        "expectedAway": 1.293,
+        "expectedHome": 1.567,
+        "expectedTotal": 2.86,
+        "goalBands": {
+          "0-1": 0.221,
+          "2": 0.23419,
+          "3": 0.22329,
+          "4+": 0.32152
+        },
+        "markets": {
+          "away_win": 0.31518,
+          "btts": 0.57423,
+          "draw": 0.24712,
+          "home_win": 0.4377,
+          "no_btts": 0.42577,
+          "over25": 0.54481,
+          "over35": 0.32152,
+          "under25": 0.45519
+        },
+        "modalProbability": 0.11603,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 0,
+        "sampleHome": 3,
+        "topScores": [
+          {
+            "p": 0.11603,
+            "score": "1-1"
+          },
+          {
+            "p": 0.0909,
+            "score": "2-1"
+          },
+          {
+            "p": 0.0897,
+            "score": "1-0"
+          },
+          {
+            "p": 0.07504,
+            "score": "1-2"
+          },
+          {
+            "p": 0.07405,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Middlesbrough",
+      "awayKey": "middlesbrough",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-23",
+      "division": "E1",
+      "home": "Bolton",
+      "homeKey": "bolton",
+      "id": "2026-10-23|E1|bolton|middlesbrough",
+      "kickoff": "20:00",
+      "league": "Championship",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.23576,
+        "expectedAway": 1.445,
+        "expectedHome": 1.454,
+        "expectedTotal": 2.899,
+        "goalBands": {
+          "0-1": 0.21478,
+          "2": 0.23146,
+          "3": 0.22365,
+          "4+": 0.33012
+        },
+        "markets": {
+          "away_win": 0.37409,
+          "btts": 0.58567,
+          "draw": 0.24781,
+          "home_win": 0.3781,
+          "no_btts": 0.41433,
+          "over25": 0.55377,
+          "over35": 0.33012,
+          "under25": 0.44623
+        },
+        "modalProbability": 0.11573,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 5,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.11573,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08413,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08361,
+            "score": "1-2"
+          },
+          {
+            "p": 0.08009,
+            "score": "1-0"
+          },
+          {
+            "p": 0.0796,
+            "score": "0-1"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 621
+}

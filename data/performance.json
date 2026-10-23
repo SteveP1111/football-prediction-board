@@ -23,70 +23,70 @@
       "wins": 0
     },
     "E1": {
-      "total": 3,
+      "total": 4,
       "wins": 0
     },
     "E2": {
-      "total": 6,
+      "total": 12,
       "wins": 0
     },
     "E3": {
-      "total": 9,
+      "total": 18,
       "wins": 0
     }
   },
   "markets": {
     "away_win": {
-      "brier": 0.1936,
-      "hitRate": 0.3077,
-      "hits": 8,
-      "predictions": 26
+      "brier": 0.1913,
+      "hitRate": 0.2857,
+      "hits": 12,
+      "predictions": 42
     },
     "btts": {
-      "brier": 0.2644,
-      "hitRate": 0.4615,
-      "hits": 12,
-      "predictions": 26
+      "brier": 0.2635,
+      "hitRate": 0.5,
+      "hits": 21,
+      "predictions": 42
     },
     "draw": {
-      "brier": 0.1027,
-      "hitRate": 0.0769,
-      "hits": 2,
-      "predictions": 26
+      "brier": 0.147,
+      "hitRate": 0.1667,
+      "hits": 7,
+      "predictions": 42
     },
     "home_win": {
-      "brier": 0.2491,
-      "hitRate": 0.6154,
-      "hits": 16,
-      "predictions": 26
+      "brier": 0.2562,
+      "hitRate": 0.5476,
+      "hits": 23,
+      "predictions": 42
     },
     "no_btts": {
-      "brier": 0.2644,
-      "hitRate": 0.5385,
-      "hits": 14,
-      "predictions": 26
+      "brier": 0.2635,
+      "hitRate": 0.5,
+      "hits": 21,
+      "predictions": 42
     },
     "over25": {
-      "brier": 0.2593,
-      "hitRate": 0.5,
-      "hits": 13,
-      "predictions": 26
+      "brier": 0.26,
+      "hitRate": 0.5238,
+      "hits": 22,
+      "predictions": 42
     },
     "over35": {
-      "brier": 0.2369,
-      "hitRate": 0.3077,
-      "hits": 8,
-      "predictions": 26
+      "brier": 0.2331,
+      "hitRate": 0.3095,
+      "hits": 13,
+      "predictions": 42
     },
     "under25": {
-      "brier": 0.2593,
-      "hitRate": 0.5,
-      "hits": 13,
-      "predictions": 26
+      "brier": 0.26,
+      "hitRate": 0.4762,
+      "hits": 20,
+      "predictions": 42
     }
   },
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-  "totalSettledGames": 26,
-  "totalSnapshots": 5,
-  "updated": "2026-10-21T12:55:15.347185+01:00"
+  "totalSettledGames": 42,
+  "totalSnapshots": 6,
+  "updated": "2026-10-23T01:10:55.980546+01:00"
 }
