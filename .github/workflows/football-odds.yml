@@ -1,24 +1,32 @@
-name: Collect Football Bookmaker Odds
+name: Test Football Bookmaker Odds Integration
 on:
+  pull_request:
+    paths:
+      - 'scripts/fetch_odds.py'
+      - 'tests/test_odds_collector.py'
+      - '.github/workflows/football-odds.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  collect:
+  offline-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: feature/odds-api-integration
-      - name: Fetch odds
+      - name: Test odds collector without API requests
+        run: python3 -m unittest discover -s tests -p 'test_odds_collector.py' -v
+  live-smoke-test:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch odds using GitHub secret
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python3 scripts/fetch_odds.py
-      - name: Commit timestamped odds snapshot to feature branch
-        run: |
-          git add data/odds/
-          if git diff --cached --quiet; then exit 0; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Record bookmaker odds snapshot"
-          git push origin HEAD:feature/odds-api-integration
+      - name: Upload private-to-run odds snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: football-odds-smoke-test
+          path: data/odds/*.json
+          retention-days: 1
