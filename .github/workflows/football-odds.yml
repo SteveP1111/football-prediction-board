@@ -126,4 +126,5 @@ jobs:
           python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 4
           --compare-snapshot /tmp/football-main-latest.json
           --extra-market btts --extra-market alternate_totals --extra-events 1
+          --print-comparison-json
       # Intentionally no upload-artifact or commit: raw odds stay on the runner.
