@@ -1,0 +1,31 @@
+{
+  "completedAtUtc": "2026-10-24T23:45:24.205053+00:00",
+  "confidenceQualifyingRequests": 4,
+  "confidenceRequestsExecuted": 4,
+  "confidenceSelectionPolicy": "BTTS and Over/Under 3.5 55%+; Over/Under 2.5 supplied in standard league odds; skip already-priced outcomes",
+  "date": "2026-10-25",
+  "endRemaining": 474,
+  "extraMarketRequestsCap": 4,
+  "forecastCapturedAt": "2026-10-25T00:44:56.869412+01:00",
+  "plannedMaxCredits": 6,
+  "requestedSports": [
+    "soccer_epl"
+  ],
+  "reserveCredits": 100,
+  "selectionPolicy": "BTTS Yes/No 55%+, Over/Under 3.5 55%+; standard Over/Under 2.5 already fetched by league, skip already-priced outcomes",
+  "spentCredits": 6,
+  "startRemaining": 480,
+  "startedAtUtc": "2026-10-24T23:45:23.340817+00:00",
+  "status": "complete",
+  "summary": {
+    "forecastFixtures": 5,
+    "marketsPriced": 32,
+    "matchedFixtures": 4,
+    "oddsEvents": 26,
+    "positiveEdges": 13,
+    "unmatchedForecasts": 1,
+    "unmatchedReasons": {
+      "unmatched_or_ambiguous_name": 22
+    }
+  }
+}
