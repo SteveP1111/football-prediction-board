@@ -9,6 +9,8 @@ on:
       - 'scripts/check_event_coverage.py'
       - 'tests/test_edge_comparison.py'
       - 'tests/test_confidence_markets.py'
+      - 'tests/test_board_queries.js'
+      - 'scripts/refresh.py'
       - 'tests/fixtures/provider_events_2026-10-24.json'
       - 'index.html'
       - '.github/workflows/football-odds.yml'
@@ -51,6 +53,7 @@ jobs:
           Path("/tmp/football-edge-board.js").write_text(scripts[0],encoding="utf-8")
           PY
           node --check /tmp/football-edge-board.js
+          node tests/test_board_queries.js
 
   api-preflight:
     needs: offline-tests
