@@ -1,32 +1,67 @@
-name: Test Football Bookmaker Odds Integration
+name: Audit Football Bookmaker Odds Integration
+
 on:
   pull_request:
     paths:
       - 'scripts/fetch_odds.py'
       - 'tests/test_odds_collector.py'
       - '.github/workflows/football-odds.yml'
+  # Deliberate one-off smoke tests on the development branch only.
+  # Editing other files does not cause a paid API request.
+  push:
+    branches:
+      - feature/odds-api-integration
+    paths:
+      - 'ops/odds-test-trigger.txt'
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Preflight is free; collect can use at most two API credits'
+        required: true
+        type: choice
+        default: preflight
+        options:
+          - preflight
+          - collect
+
 permissions:
   contents: read
+
 jobs:
   offline-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test odds collector without API requests
+        with:
+          persist-credentials: false
+      - name: Test collector without API requests
         run: python3 -m unittest discover -s tests -p 'test_odds_collector.py' -v
-  live-smoke-test:
-    if: github.event_name == 'workflow_dispatch'
+
+  api-preflight:
+    needs: offline-tests
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch odds using GitHub secret
+        with:
+          persist-credentials: false
+      - name: Authenticate and check league IDs with zero billable credits
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python3 scripts/fetch_odds.py
-      - name: Upload private-to-run odds snapshot
-        uses: actions/upload-artifact@v4
+        run: python3 scripts/fetch_odds.py --mode preflight
+
+  live-smoke-test:
+    needs: api-preflight
+    if: >-
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'collect') ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, '[odds-live]'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
         with:
-          name: football-odds-smoke-test
-          path: data/odds/*.json
-          retention-days: 1
+          persist-credentials: false
+      - name: Validate EPL odds with a strict two-credit cap
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 2
+      # Intentionally no upload-artifact or commit: raw odds stay on the runner.
