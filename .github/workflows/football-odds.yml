@@ -9,6 +9,9 @@ on:
       - 'tests/test_edge_comparison.py'
       - 'index.html'
       - '.github/workflows/football-odds.yml'
+  push:
+    branches: [feature/odds-api-integration]
+    paths: ['ops/edge-end-to-end-trigger.txt']
   workflow_dispatch:
     inputs:
       mode:
@@ -48,7 +51,7 @@ jobs:
 
   api-preflight:
     needs: offline-tests
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +64,9 @@ jobs:
 
   live-smoke-test:
     needs: api-preflight
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'collect'
+    if: >-
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'collect') ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, '[edge-live]'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -70,5 +75,8 @@ jobs:
       - name: Validate EPL odds with a strict two-credit cap
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 2
+        run: >-
+          python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 4
+          --compare-snapshot data/latest.json
+          --extra-market btts --extra-market alternate_totals --extra-events 1
       # Intentionally no upload-artifact or commit: raw odds stay on the runner.
