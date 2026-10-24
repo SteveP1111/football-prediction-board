@@ -1,6 +1,6 @@
 # The Odds API and Football Edge Finder
 
-Development integration, tested 24 October 2026. This branch does **not** change the live main site or the independent forecast generation. It is not an automated profitable-bet system.
+Audited integration, tested 24 October 2026. Changes are held in the feature branch until approved and merged. The independent forecast generation remains separate. Nothing here is a profitable-bet guarantee.
 
 ## Verified facts
 
@@ -39,6 +39,12 @@ The experimental Scoreline Model is not calibrated. Its estimated chances must n
 
 The development website adds an **Odds & Edge** tab reading `data/edges/latest.json`. It shows league/market and positive-only filters, model probability, captured bookmaker price, implied probability, percentage-point edge, theoretical ROI and the bookmaker. It hides a report whose date is not the currently shown forecast and defaults to future matches only. If no audited odds exist, it shows an explicit empty state.
 
-To create a new audited comparison, obtain the latest frozen `data/latest.json` from `main` and run the manual collect workflow (when installed on the default branch). Manual requests are restricted to EPL plus a single future matched event's optional BTTS/alternative totals and at most **4 credits**. The workflow currently **does not publish new reports** automatically.
+To create a new audited comparison, obtain the latest frozen `data/latest.json` from `main` and run the manual collect workflow (when installed on the default branch). Manual requests are restricted to EPL plus a single future matched event's optional BTTS/alternative totals and at most **4 credits**. The earlier smoke workflow does not publish new reports. The production `Publish Football Odds` workflow does so after merge, once per UK day when fresh frozen forecasts and sufficient credits exist.
 
-Before enabling a production schedule, add a reviewed publish step, immutable historical price storage, automatic removal of outdated latest data, and a daily quota budget. Keep the existing website unchanged until these are tested and explicitly approved. Do not merge this draft PR expecting automatic odds refresh or BTTS coverage across all four divisions.
+The new production workflow is designed to run on successful `Daily English Football Predictions` completion, with a 09:33 UTC daily fallback and an optional manual trigger. It preserves immutable day-based previews and a request receipt before billable calls. A second run on the same UK date does not spend additional credits. It recalculates £10 hypothetical settlement results from independent verified score data without overwriting historical odds. Production writes only under `data/edges/` and pages redeploys on successful odds workflow completion. BTTS and alternative 3.5 totals are targeted to at most **two** matching future events daily; other events may have only 1X2 and standard totals.
+
+The hard paid quota is **12 credits per UK day** with at least **100 credits reserved** in the provider account after the planned request set. Four active leagues use at most 8 credits for `h2h,totals`, with up to 4 credits for two event-specific `btts,alternate_totals` requests. Some days cost less because only leagues with frozen upcoming fixtures are requested. Daily requests are not attempted when the frozen model snapshot is stale, unverified or entirely kicked off. Errors result in an immutable daily attempted-request receipt and do not permit automatic recharging. Account allowance and credit reset cadence should be checked periodically against the provider dashboard.
+
+The Odds API's terms updated 31 August 2026 expressly permit public display in analytical websites, storage, and derived calculations; they prohibit repackaging data as a standalone raw feed. Accordingly this project publishes curated per-selection analytical summaries, not raw bookmaker data. See https://the-odds-api.com/terms-and-conditions.html.
+
+Rollout requires successful PR checks and a working main-branch deployment. No retrospective odds are invented; users should interpret uncalibrated theoretical edges cautiously. Exchange quotes may involve commission and stake/liquidity limits.
