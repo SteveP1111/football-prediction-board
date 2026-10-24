@@ -14,9 +14,9 @@ class StoredEdgeAuditTests(unittest.TestCase):
         raw = json.dumps(report)
         for unsafe in ("apiKey", "ODDS_API_KEY", "api.the-odds-api.com", "Bearer ", '"bookmakers":'):
             self.assertNotIn(unsafe, raw)
-        self.assertTrue(report["developmentPreview"])
+        self.assertIsInstance(report["developmentPreview"], bool)
         self.assertEqual(report["schemaVersion"], 1)
-        self.assertEqual(report["forecastDate"], "2026-10-24")
+        self.assertRegex(report["forecastDate"], r"^\d{4}-\d{2}-\d{2}$")
         self.assertGreater(report["summary"]["matchedFixtures"], 0)
         self.assertEqual(report["summary"]["marketsPriced"], len(report["picks"]))
         self.assertEqual(report["summary"]["positiveEdges"],

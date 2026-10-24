@@ -1,0 +1,204 @@
+{
+  "source": "The Odds API free /events endpoint, 2026-10-24 diagnostic",
+  "note": "Public fixture names and kickoff only; no bookmaker prices or credentials",
+  "competitions": {
+    "soccer_epl": [
+      {
+        "home": "Aston Villa",
+        "away": "Manchester City",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Arsenal",
+        "away": "Everton",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Coventry City",
+        "away": "Fulham",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Chelsea",
+        "away": "Tottenham Hotspur",
+        "kickoff": "2026-10-24T16:30:00Z"
+      }
+    ],
+    "soccer_efl_champ": [
+      {
+        "home": "Charlton Athletic",
+        "away": "Norwich City",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Sheffield United",
+        "away": "Derby County",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Portsmouth",
+        "away": "Millwall",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Cardiff City",
+        "away": "Birmingham City",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Blackburn Rovers",
+        "away": "Wrexham AFC",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Stoke City",
+        "away": "Bristol City",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Lincoln City",
+        "away": "Burnley",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Preston North End",
+        "away": "West Bromwich Albion",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Queens Park Rangers",
+        "away": "Swansea City",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "West Ham United",
+        "away": "Southampton",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Wolverhampton Wanderers",
+        "away": "Watford",
+        "kickoff": "2026-10-24T14:00:00Z"
+      }
+    ],
+    "soccer_england_league1": [
+      {
+        "home": "Huddersfield Town",
+        "away": "Wigan Athletic",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Luton",
+        "away": "Leicester City",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Reading",
+        "away": "Barnsley",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Blackpool",
+        "away": "Mansfield Town",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Oxford United",
+        "away": "Bradford City",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Bromley FC",
+        "away": "Peterborough United",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Burton Albion",
+        "away": "Leyton Orient",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Cambridge United",
+        "away": "Plymouth Argyle",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Doncaster Rovers",
+        "away": "Sheffield Wednesday",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Stevenage",
+        "away": "Milton Keynes Dons",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Notts County",
+        "away": "Stockport County FC",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Wimbledon",
+        "away": "Wycombe Wanderers",
+        "kickoff": "2026-10-24T14:00:00Z"
+      }
+    ],
+    "soccer_england_league2": [
+      {
+        "home": "Bristol Rovers",
+        "away": "Swindon Town",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Cheltenham Town",
+        "away": "Newport County",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Northampton Town",
+        "away": "Colchester United",
+        "kickoff": "2026-10-24T11:30:00Z"
+      },
+      {
+        "home": "Rochdale",
+        "away": "Accrington Stanley",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Barnet",
+        "away": "Oldham Athletic",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Chesterfield FC",
+        "away": "Crewe Alexandra",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Crawley Town",
+        "away": "Tranmere Rovers",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Exeter City",
+        "away": "Fleetwood Town",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Gillingham",
+        "away": "Grimsby Town",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "York City",
+        "away": "Port Vale",
+        "kickoff": "2026-10-24T14:00:00Z"
+      },
+      {
+        "home": "Rotherham United",
+        "away": "Shrewsbury Town",
+        "kickoff": "2026-10-24T14:00:00Z"
+      }
+    ]
+  }
+}

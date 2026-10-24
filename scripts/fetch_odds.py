@@ -77,7 +77,7 @@ def preflight(key):
     return active, remaining
 
 
-def collect(key, selected, max_credits, save=False, extra_markets=(), extra_events=0, frozen_snapshot=None, usage=None, reserve_credits=0):
+def collect(key, selected, max_credits, save=False, extra_markets=(), extra_events=0, frozen_snapshot=None, usage=None, reserve_credits=0, confidence_extra_calls=0):
     active, remaining = preflight(key)
     start_remaining = remaining
     if usage is not None:
@@ -89,7 +89,13 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
         raise RuntimeError("Event markets require an immutable pre-match forecast snapshot")
     if extra_markets and not 0 < extra_events <= 3:
         raise RuntimeError("Event markets require an explicit limit of 1 to 3 matched events")
-    upper_bound = len(selected) * MAX_COST_PER_SPORT + len(extra_markets) * extra_events
+    if not isinstance(confidence_extra_calls, int) or not 0 <= confidence_extra_calls <= 4:
+        raise RuntimeError("Extra-market request cap must be between zero and four")
+    if confidence_extra_calls and (extra_markets or extra_events):
+        raise RuntimeError("Cannot combine legacy event extras and confidence-targeted requests")
+    if confidence_extra_calls and (not frozen_snapshot or frozen_snapshot.get("status") != "frozen-prekickoff"):
+        raise RuntimeError("Confidence-targeted requests require frozen model forecasts")
+    upper_bound = len(selected) * MAX_COST_PER_SPORT + len(extra_markets) * extra_events + confidence_extra_calls
     if upper_bound > max_credits:
         raise RuntimeError("Requested markets exceed the explicit credit budget")
     if remaining < upper_bound:
@@ -208,6 +214,73 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
                         added.add(market["key"])
             print("Event-market lookup:", event["sport"], "offered:", ",".join(sorted(added)) or "none",
                   "; credits remaining:", remaining)
+
+    if confidence_extra_calls:
+        from edge_comparison import canonical, select_confident_event_markets
+        targets = select_confident_event_markets(
+            frozen_snapshot, games, datetime.now(timezone.utc),
+            max_requests=confidence_extra_calls,
+        )
+        if usage is not None:
+            usage["confidenceQualifyingRequests"] = len(targets)
+            usage["confidenceSelectionPolicy"] = "BTTS 60%+, Over/Under 3.5 70%+; skip already-priced outcomes"
+        print("High-confidence event markets selected:", len(targets),
+              "of allowed", confidence_extra_calls)
+        indexed = {e["id"]: e for e in games}
+        for target in targets:
+            event = indexed.get(target["eventId"])
+            if not event or event.get("sport") != target["sport"]:
+                raise RuntimeError("Target event identity changed after selection")
+            eid = target["eventId"]
+            market_key = target["market"]
+            if not isinstance(eid, str) or not re.fullmatch(r"[A-Za-z0-9_-]{3,128}", eid):
+                raise RuntimeError("Event id is not safe for a provider request")
+            if market_key not in ("btts", "alternate_totals"):
+                raise RuntimeError("Unsupported targeted bookmaker market")
+            if remaining < 1 or remaining - 1 < reserve_credits:
+                raise RuntimeError("API allowance reserve prevents an extra-market request")
+            if (start_remaining - remaining + 1) > max_credits:
+                raise RuntimeError("Daily budget prevents another extra-market request")
+            payload, headers = fetch(
+                "/sports/" + event["sport"] + "/events/" + eid + "/odds",
+                key, {"regions": REGION, "markets": market_key, "oddsFormat": "decimal"},
+            )
+            remaining = quota_remaining(headers)
+            if usage is not None:
+                usage.update(endRemaining=remaining, spentCredits=max(0, start_remaining-remaining))
+                usage["confidenceRequestsExecuted"] = usage.get("confidenceRequestsExecuted", 0) + 1
+            if (start_remaining - remaining) > max_credits:
+                raise RuntimeError("Odds API usage exceeded the run budget")
+            if not isinstance(payload, dict) or payload.get("id") != eid:
+                raise RuntimeError("Targeted market response identity mismatch")
+            if (canonical(payload.get("home_team")) != canonical(event.get("home_team")) or
+                    canonical(payload.get("away_team")) != canonical(event.get("away_team"))):
+                raise RuntimeError("Targeted market response team identity mismatch")
+            if not isinstance(payload.get("bookmakers"), list):
+                raise RuntimeError("Targeted market response lacks valid bookmakers")
+            existing_books = {b.get("key"): b for b in event["bookmakers"]
+                              if isinstance(b, dict) and b.get("key")}
+            offered = False
+            for book in payload["bookmakers"]:
+                if not isinstance(book, dict) or not book.get("key") or not isinstance(book.get("markets"), list):
+                    continue
+                current = existing_books.get(book["key"])
+                if current is None:
+                    current = {"key": book["key"], "title": book.get("title", book["key"]), "markets": []}
+                    event["bookmakers"].append(current)
+                    existing_books[book["key"]] = current
+                if not isinstance(current.get("markets"), list):
+                    continue
+                for market in book["markets"]:
+                    if not isinstance(market, dict) or market.get("key") != market_key:
+                        continue
+                    # Do not duplicate a market that appeared in the batch feed.
+                    if not any(m.get("key") == market_key for m in current["markets"] if isinstance(m, dict)):
+                        current["markets"].append(market)
+                    offered = True
+            print("Confidence request:", market_key, "model probability",
+                  target["modelProbability"], "fixture", target["fixtureId"],
+                  "offered:", offered, "; credits remaining:", remaining)
 
     if save:
         stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%S%fZ")

@@ -8,6 +8,8 @@ on:
       - 'scripts/edge_comparison.py'
       - 'scripts/check_event_coverage.py'
       - 'tests/test_edge_comparison.py'
+      - 'tests/test_confidence_markets.py'
+      - 'tests/fixtures/provider_events_2026-10-24.json'
       - 'index.html'
       - '.github/workflows/football-odds.yml'
   workflow_dispatch:
@@ -88,7 +90,7 @@ jobs:
       - name: Compare model fixtures with free provider event feed
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python3 scripts/check_event_coverage.py --snapshot /tmp/football-main-latest.json
+        run: python3 scripts/check_event_coverage.py --snapshot /tmp/football-main-latest.json --show-mismatches
 
   live-smoke-test:
     needs: api-preflight

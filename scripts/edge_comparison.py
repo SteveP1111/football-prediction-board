@@ -89,6 +89,23 @@ TEAM_ALIASES = {
     "sunderland afc": "sunderland", "sunderland": "sunderland",
     "notts county": "notts county", "notts co": "notts county",
     "leyton orient": "leyton orient", "orient": "leyton orient",
+    # Verified 24 Oct 2026 against the provider's free event-list names.
+    "lincoln": "lincoln city", "lincoln city": "lincoln city",
+    "preston": "preston north end", "preston north end": "preston north end",
+    "wigan": "wigan", "wigan athletic": "wigan",
+    "wycombe": "wycombe wanderers", "wycombe wanderers": "wycombe wanderers",
+    "mansfield": "mansfield town", "mansfield town": "mansfield town",
+    "bromley": "bromley", "bromley fc": "bromley",
+    "peterboro": "peterborough",
+    "doncaster": "doncaster rovers", "doncaster rovers": "doncaster rovers",
+    "stockport county fc": "stockport county",
+    "bradford": "bradford city", "bradford city": "bradford city",
+    "oxford": "oxford united",
+    "swindon": "swindon", "swindon town": "swindon",
+    "oldham": "oldham", "oldham athletic": "oldham",
+    "chesterfield": "chesterfield", "chesterfield fc": "chesterfield",
+    "exeter": "exeter", "exeter city": "exeter",
+    "york": "york", "york city": "york",
 }
 
 def canonical(name):
@@ -176,6 +193,127 @@ def outcome_key(market_key, outcome, event):
             return "no_btts"
     return None
 
+
+
+def select_confident_event_markets(snapshot, events, now, max_requests=4,
+                                   btts_threshold=0.60, totals_threshold=0.70):
+    """Choose only missing, high-confidence event markets.
+
+    Two preferred slots for BTTS and two for 3.5 totals; remaining slots go
+    to the highest-probability qualifying choices. Standard league-wide
+    h2h/totals fetching is deliberately not filtered.
+    """
+    if not isinstance(snapshot, dict) or snapshot.get("status") != "frozen-prekickoff":
+        return []
+    if now.tzinfo is None:
+        raise ValueError("now must contain UTC offset")
+    now = now.astimezone(timezone.utc)
+    captured = parse_utc(snapshot.get("capturedAt"))
+    if not captured or captured >= now or not 0 <= max_requests <= 4:
+        return []
+    if not isinstance(events, list) or not isinstance(snapshot.get("games"), list):
+        return []
+    lookup = defaultdict(list)
+    for fixture in snapshot["games"]:
+        key = fixture_key(fixture)
+        if key:
+            lookup[key].append(fixture)
+
+    matching = {}
+    seen_ids = set()
+    for event in events:
+        if not isinstance(event, dict):
+            continue
+        eid = event.get("id")
+        if not isinstance(eid, str) or eid in seen_ids:
+            continue
+        seen_ids.add(eid)
+        key = event_key(event)
+        candidates = lookup.get(key, []) if key else []
+        if len(candidates) != 1:
+            continue
+        fixture = candidates[0]
+        fk = fixture_kickoff(fixture)
+        ek = parse_utc(event.get("commence_time"))
+        if not fk or not ek or abs((fk - ek).total_seconds()) > 5400:
+            continue
+        if captured >= min(fk, ek) or min(fk, ek) <= now + timedelta(minutes=15):
+            continue
+        fid = fixture.get("id")
+        if not isinstance(fid, str) or not fid:
+            continue
+        # A duplicate event mapping is ambiguous: do not buy any market for it.
+        if fid in matching:
+            matching[fid] = None
+        else:
+            matching[fid] = (fixture, event)
+
+    def already_quoted(event, outcome):
+        for book in event.get("bookmakers", []):
+            if not isinstance(book, dict):
+                continue
+            for market in book.get("markets", []):
+                if not isinstance(market, dict):
+                    continue
+                updated = parse_utc(market.get("last_update"))
+                kickoff = parse_utc(event.get("commence_time"))
+                if updated and (updated > now + timedelta(minutes=5)
+                                or now - updated > timedelta(hours=24)
+                                or updated >= kickoff):
+                    continue
+                if market.get("last_update") is not None and not updated:
+                    continue
+                for row in market.get("outcomes", []):
+                    if not isinstance(row, dict) or decimal_price(row.get("price")) is None:
+                        continue
+                    if outcome_key(market.get("key"), row, event) == outcome:
+                        return True
+        return False
+
+    options = {"btts": [], "alternate_totals": []}
+    for fid, item in sorted(matching.items()):
+        if item is None:
+            continue
+        fixture, event = item
+        btts_yes = probability(fixture, "btts")
+        btts_no = probability(fixture, "no_btts")
+        if btts_yes is not None and btts_no is not None:
+            selected = "btts" if btts_yes >= btts_no else "no_btts"
+            confidence = max(btts_yes, btts_no)
+            if confidence >= btts_threshold and not already_quoted(event, selected):
+                options["btts"].append({
+                    "fixtureId": fid, "sport": event["sport"], "eventId": event["id"],
+                    "market": "btts", "modelProbability": round(confidence, 5),
+                    "selection": selected,
+                })
+        over = probability(fixture, "over35")
+        under = probability(fixture, "under35")
+        if over is not None and under is not None:
+            selected = "under35" if under >= over else "over35"
+            confidence = max(over, under)
+            if confidence >= totals_threshold and not already_quoted(event, selected):
+                options["alternate_totals"].append({
+                    "fixtureId": fid, "sport": event["sport"], "eventId": event["id"],
+                    "market": "alternate_totals", "modelProbability": round(confidence, 5),
+                    "selection": selected,
+                })
+    ranked = lambda o: (-o["modelProbability"], o["fixtureId"], o["market"])
+    for category in options:
+        options[category].sort(key=ranked)
+
+    # Reserve capacity for both market families rather than letting common
+    # Under 3.5 outcomes displace every qualifying BTTS opportunity.
+    selected = (options["btts"][:min(2, max_requests)] +
+                options["alternate_totals"][:min(2, max_requests)])
+    selected = sorted(selected, key=ranked)[:max_requests]
+    used = {(o["eventId"], o["market"]) for o in selected}
+    remainder = sorted(
+        [o for group in options.values() for o in group
+         if (o["eventId"], o["market"]) not in used],
+        key=ranked
+    )
+    selected += remainder[:max(0, max_requests - len(selected))]
+    return sorted(selected, key=ranked)
 
 def assess(snapshot, odds, max_age_hours=24):
     if not isinstance(snapshot, dict) or not isinstance(odds, dict):
