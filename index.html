@@ -28,13 +28,13 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <nav class="nav"><button data-view="today" class="active">Today’s board</button><button data-view="history">History</button><button data-view="performance">Performance</button><button data-view="edges">Odds &amp; Edge</button></nav>
 <div id="notice" aria-live="polite"></div>
 <div id="today">
-<div class="kpis"><div class="kpi"><span>Fixtures scored</span><strong id="k-games">—</strong></div><div class="kpi"><span>Experimental markets ≥60%</span><strong id="k-picks">—</strong></div><div class="kpi"><span>Leagues covered</span><strong id="k-leagues">—</strong></div><div class="kpi"><span>Frozen before kick-off</span><strong id="k-frozen">—</strong></div></div>
-<section class="panel"><h2>Ask the prediction board</h2><div class="muted small">Try “top 3 home wins”, “best under 2.5”, “any 0-0 predictions”, “best BTTS” or “highest over 3.5”. Searches use saved forecast probabilities, not AI-generated answers.</div>
+<div class="kpis"><div class="kpi"><span>Fixtures scored</span><strong id="k-games">—</strong></div><div class="kpi"><span>Qualifying markets (BTTS/goals ≥55%)</span><strong id="k-picks">—</strong></div><div class="kpi"><span>Leagues covered</span><strong id="k-leagues">—</strong></div><div class="kpi"><span>Frozen before kick-off</span><strong id="k-frozen">—</strong></div></div>
+<section class="panel"><h2>Ask the prediction board</h2><div class="muted small">Try “top 3 home wins”, “best under 3.5”, “top 5 over 2.5”, “best BTTS” or “any 0-0 predictions”. Searches use saved forecast probabilities, not AI-generated answers.</div>
 <form id="ask-form" class="searchline"><input id="ask" type="text" placeholder="Top 5 home wins in League One" aria-label="Enter a prediction query"><button type="submit">Search</button></form>
-<div class="chips"><button class="chip" data-query="Top 3 home wins">Home wins</button><button class="chip" data-query="Top 5 BTTS">BTTS</button><button class="chip" data-query="Top 5 under 2.5">Unders</button><button class="chip" data-query="Top 5 over 3.5">Over 3.5</button><button class="chip" data-query="Any 0-0 predictions">0–0</button><button class="chip" data-query="Top 5 away wins">Away wins</button><button class="chip" data-query="Top 5 draws">Draws</button></div>
-<div class="filters"><div class="field"><label for="league">League</label><select id="league"><option value="all">All five leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option><option value="EC">National League</option></select></div><div class="field"><label for="market">Market</label><select id="market"><option value="home_win">Home win</option><option value="away_win">Away win</option><option value="draw">Draw</option><option value="btts">BTTS</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="modal00">Exact 0–0</option></select></div><div class="field"><label for="count">Number</label><select id="count"><option value="3">Top 3</option><option value="5" selected>Top 5</option><option value="10">Top 10</option><option value="100">All matches</option></select></div><div class="field"><label for="model">View</label><select id="model"><option value="scoreline">Scoreline model</option><option value="b31">B3.1 qualifying picks</option></select></div></div>
+<div class="chips"><button class="chip" data-query="Top 3 home wins">Home wins</button><button class="chip" data-query="Top 5 BTTS">BTTS</button><button class="chip" data-query="Top 5 under 2.5">Under 2.5</button><button class="chip" data-query="Top 5 under 3.5">Under 3.5</button><button class="chip" data-query="Top 5 over 3.5">Over 3.5</button><button class="chip" data-query="Any 0-0 predictions">0–0</button><button class="chip" data-query="Top 5 away wins">Away wins</button><button class="chip" data-query="Top 5 draws">Draws</button></div>
+<div class="filters"><div class="field"><label for="league">League</label><select id="league"><option value="all">All five leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option><option value="EC">National League</option></select></div><div class="field"><label for="market">Market</label><select id="market"><option value="home_win">Home win</option><option value="away_win">Away win</option><option value="draw">Draw</option><option value="btts">BTTS</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="under35">Under 3.5</option><option value="modal00">Exact 0–0</option></select></div><div class="field"><label for="count">Number</label><select id="count"><option value="3">Top 3</option><option value="5" selected>Top 5</option><option value="10">Top 10</option><option value="100">All matches</option></select></div><div class="field"><label for="model">View</label><select id="model"><option value="scoreline">Scoreline model</option><option value="b31">B3.1 qualifying picks</option></select></div></div><div class="muted small" style="margin-top:10px"><label for="qualified-only"><input type="checkbox" id="qualified-only" checked> Show only goal totals and BTTS predictions at 55% or higher. Untick to view all model probabilities.</label></div>
 </section>
-<section class="panel" id="watchlist-section"><h2>Today's strongest markets · 60%+</h2><p class="muted small">Experimental independent Scoreline Model probability rankings. These are <strong>not</strong> official B3.1 selections and are not evidence of a profitable bet.</p><div id="top-opps">Loading today's market probabilities…</div></section>
+<section class="panel" id="watchlist-section"><h2>Today's strongest markets · goals/BTTS 55%+</h2><p class="muted small">Experimental independent Scoreline Model probability rankings. These are <strong>not</strong> official B3.1 selections and are not evidence of a profitable bet.</p><div id="top-opps">Loading today's market probabilities…</div></section>
 <div class="resulthead"><h2 id="result-title">Highest-ranked home wins</h2><span class="muted small" id="result-count"></span></div><div class="cards" id="results"></div>
 </div>
 <div id="history" hidden><section class="panel"><h2>Frozen forecasts and results</h2><p class="muted small">Each day's pre-match snapshot is saved once. Final scores and market outcomes are stored separately. Select a date to inspect its original forecasts.</p><div id="history-list">Loading…</div></section></div>
@@ -47,6 +47,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <label for="edge-league">League</label><select id="edge-league"><option value="all">All supported leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option></select>
 <label for="edge-market">Market</label><select id="edge-market"><option value="all">All markets</option><option value="home_win">Home win</option><option value="draw">Draw</option><option value="away_win">Away win</option><option value="btts">BTTS Yes</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="under35">Under 3.5</option></select>
 <label><input type="checkbox" id="edge-positive" checked>Positive edge only</label>
+<label><input type="checkbox" id="edge-confident" checked>Goals/BTTS ≥55%</label>
 <label><input type="checkbox" id="edge-upcoming" checked>Upcoming matches only</label>
 </div>
 <div id="edge-list">No audited bookmaker comparisons published.</div></section><section class="panel"><h2>Recorded edge performance · £10 flat stakes</h2><p class="muted small">Historical results use original frozen bookmaker quotes and independently verified final scores. Figures are hypothetical, not actual bets. All positive-edge selections are counted, including correlated markets on the same match. Bookmaker exchange commission is excluded.</p><div id="edge-history">Performance will appear once recorded matches finish.</div></section></div>
@@ -57,11 +58,35 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 "use strict";
 const $=id=>document.getElementById(id);
 let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null,edgePerformance=null;
-let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:""};
-const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",modal00:"Exact 0–0 forecasts"};
+let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:"",qualifiedOnly:true};
+const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",under35:"Under 3.5 goals",modal00:"Exact 0–0 forecasts"};
 const pct=n=>(100*Number(n||0)).toFixed(1)+"%";
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const prob=(g,k)=>k==="modal00"?(g.scoreline?.modalScore==="0-0"?g.scoreline.modalProbability:0):(g.scoreline?.markets?.[k]||0);
+function modelMarkets(g){
+const m={...(g.scoreline?.markets||{})};
+if(!Number.isFinite(m.under35)&&Number.isFinite(m.over35))m.under35=Math.max(0,Math.min(1,1-m.over35));
+return m;
+}
+function prob(g,k){
+if(k==="modal00")return g.scoreline?.modalScore==="0-0"?(g.scoreline.modalProbability||0):0;
+const p=modelMarkets(g)[k];return Number.isFinite(p)?Math.max(0,Math.min(1,p)):0;
+}
+const isGoalsOrBtts=k=>["btts","no_btts","over25","under25","over35","under35"].includes(k);
+const marketThreshold=k=>isGoalsOrBtts(k)?.55:.60;
+function marketFromQuery(q){
+const x=String(q||"").toLowerCase();
+const is35=/(?:\b3\s*[.,]\s*5\b|\b3\s*½\b|\bthree\s*(?:point\s*five|and\s+a\s+half)\b)/.test(x);
+const isUnder=/\b(?:under|unders|below|less\s+than)\b|\bu\s*\/\s*\d/.test(x);
+const isOver=/\b(?:over|overs|above|more\s+than)\b|\bo\s*\/\s*\d/.test(x);
+if(isUnder)return is35?"under35":"under25";
+if(isOver)return is35?"over35":"over25";
+if(/\b(?:no\s*btts|btts\s*no|both\s*teams\s*(?:not|do\s*not|don't)\s*(?:to\s*)?score)\b/.test(x))return "no_btts";
+if(/\bbtts\b|\bboth\s*teams\b/.test(x))return "btts";
+if(/\baway\b/.test(x))return "away_win";
+if(/\bdraws?\b|\bties\b/.test(x))return "draw";
+if(/\bhome\b/.test(x))return "home_win";
+return null;
+}
 const b31=(g)=>g.b31?.qualifiers||[];
 async function getJSON(path,fallback){try{const r=await fetch(path+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(String(r.status));return await r.json()}catch(e){return fallback}}
 function showView(view){for(const v of ["today","history","performance","edges"])$(v).hidden=v!==view;document.querySelectorAll("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===view))}
@@ -69,14 +94,7 @@ document.querySelectorAll("[data-view]").forEach(x=>x.addEventListener("click",(
 function applyQuery(q){
 const x=q.toLowerCase().trim();state.modal00=/0\s*[-–]\s*0|goalless|nil.nil|zero.zero/.test(x);
 const m=x.match(/\b(?:top|best|first|show)\s*(\d+)/);state.count=m?Math.min(100,Math.max(1,Number(m[1]))):state.modal00?100:5;
-if(/under|unders/.test(x))state.market="under25";
-else if(/over\s*3[.]?5|over\s*3\b|3[.]5/.test(x))state.market="over35";
-else if(/over/.test(x))state.market="over25";
-else if(/no\s*btts|both\s*not\s*score/.test(x))state.market="no_btts";
-else if(/btts|both\s*teams/.test(x))state.market="btts";
-else if(/away/.test(x))state.market="away_win";
-else if(/draw|ties/.test(x))state.market="draw";
-else if(/home/.test(x))state.market="home_win";
+const queriedMarket=marketFromQuery(x);if(queriedMarket)state.market=queriedMarket;
 let league=[["premier","E0"],["championship","E1"],["league one","E2"],["league 1","E2"],["league two","E3"],["league 2","E3"],["national","EC"]].find(([name])=>x.includes(name));
 state.league=league?league[1]:"all";state.model=/official|b3[.]?1|qualif/.test(x)?"b31":"scoreline";
 state.team="";
@@ -86,9 +104,10 @@ $("ask-form").addEventListener("submit",e=>{e.preventDefault();applyQuery($("ask
 document.querySelectorAll("[data-query]").forEach(b=>b.addEventListener("click",()=>{$("ask").value=b.dataset.query;applyQuery(b.dataset.query)}));
 for(const id of ["market","league","count","model"])$(id).addEventListener("change",()=>{
 state.market=$("market").value;state.modal00=state.market==="modal00";state.league=$("league").value;state.count=Number($("count").value);state.model=$("model").value;draw()});
+$("qualified-only").addEventListener("change",()=>{state.qualifiedOnly=$("qualified-only").checked;draw()});
 function card(g,index,selectedPick){
 const k=state.market,sc=g.scoreline||{},value=prob(g,k),q=b31(g),s=settlements[g.id],modal=sc.modalScore||"—";
-const markets=sc.markets||{},goal=sc.goalBands||{};
+const markets=modelMarkets(g),goal=sc.goalBands||{};
 const explanation=Object.entries(markets).map(([name,p])=>'<div class="marketrow"><span>'+esc(title[name]||name)+'</span><strong>'+pct(p)+'</strong></div>').join("");
 const goalBars=Object.entries({"0–1 goals":goal["0-1"]||0,"Exactly 2":goal["2"]||0,"Exactly 3":goal["3"]||0,"4+ goals":goal["4+"]||0}).map(([name,p])=>'<div><strong>'+pct(p)+'</strong><small>'+name+'</small></div>').join("");
 const val=state.model==="b31" ? Number(selectedPick?.score||0).toFixed(1) : pct(value);
@@ -96,7 +115,7 @@ let outcome=s?'<span class="tag">Final '+esc(s.score)+'</span>':'';
 return '<article class="match"><div class="matchhead"><span>'+esc(g.league)+' · '+esc(g.kickoff||"TBC")+'</span><span class="pill">'+(state.model==="b31"?"B3.1 frozen":"Scoreline experimental")+'</span></div><div class="fixture">'+esc(g.home)+' <span>v</span> '+esc(g.away)+'</div><div class="overview"><div><div class="muted tiny">'+(state.model==="b31"?(selectedPick?.key||"B3.1 selection"):title[k]||"Selected market")+'</div><div class="prob">'+val+'</div></div><div class="right"><div class="muted tiny">Most likely score</div><div class="pred">'+esc(modal)+'</div><div class="muted tiny">'+pct(sc.modalProbability)+' exact chance</div></div></div>'+outcome+
 '<div class="muted small">Expected goals '+Number(sc.expectedHome||0).toFixed(2)+' – '+Number(sc.expectedAway||0).toFixed(2)+' · total '+Number(sc.expectedTotal||0).toFixed(2)+'</div>'+
 '<div style="margin-top:8px">'+(q.length?'<span class="tag">B3.1 '+q.map(z=>esc(z.key||z.name||"")+" "+Number(z.score||0).toFixed(1)).join(" · ")+'</span>':'<span class="tag">No B3.1 pick frozen for this fixture</span>')+(sc.cleanSheetRisk>=.36?'<span class="tag warning">Clean-sheet risk</span>':'')+'</div>'+
-'<details><summary>Why this ranking? All markets and goal distribution</summary><p class="muted small">Ranking uses the probability-weighted scoreline distribution; it does not count possible scores equally. This is an independent experimental model. Sample coverage: '+(sc.sampleHome||0)+' home matches / '+(sc.sampleAway||0)+' away matches this season.</p><div class="scoregrid">'+goalBars+'</div><p class="small muted">Raw goals probabilities. Over 2.5 = exactly 3 + 4 or more. Under 2.5 = 0–1 + exactly 2.</p>'+explanation+'</details></article>';
+'<details><summary>Why this ranking? All markets and goal distribution</summary><p class="muted small">Ranking uses the probability-weighted scoreline distribution; it does not count possible scores equally. This is an independent experimental model. Sample coverage: '+(sc.sampleHome||0)+' home matches / '+(sc.sampleAway||0)+' away matches this season.</p><div class="scoregrid">'+goalBars+'</div><p class="small muted">Raw goals probabilities. Over 2.5 = exactly 3 + 4 or more. Under 2.5 = 0–1 + exactly 2. Under 3.5 = 0–1 + exactly 2 + exactly 3.</p>'+explanation+'</details></article>';
 }
 function draw(){
 if(state.model==="b31" && (snapshot?.games||[]).length && !(snapshot.games||[]).some(g=>g.b31?.status==="frozen"||g.b31?.status==="frozen-nightly")){
@@ -109,13 +128,14 @@ if(!snapshot){$("results").innerHTML='<div class="panel">Loading forecasts…</d
 let games=snapshot.games||[];
 if(state.league!=="all")games=games.filter(g=>g.division===state.league);
 if(state.modal00)games=games.filter(g=>g.scoreline?.modalScore==="0-0");
+if(state.model==="scoreline" && isGoalsOrBtts(state.market) && state.qualifiedOnly)games=games.filter(g=>prob(g,state.market)>=.55);
 let entries=state.model==="b31"?games.flatMap(g=>b31(g).map(q=>({game:g,pick:q}))):games.map(g=>({game:g,pick:null}));
 entries.sort((a,b)=>state.model==="b31"?Number(b.pick?.score||0)-Number(a.pick?.score||0):prob(b.game,state.market)-prob(a.game,state.market));
 let found=entries.length;
 entries=entries.slice(0,state.count);
 $("result-title").textContent=state.model==="b31"?"Official B3.1 qualifying selections":state.modal00?"Exact 0–0 predictions":"Highest "+(title[state.market]||"market")+" probabilities";
-$("result-count").textContent=found+" matching matches";
-$("results").innerHTML=entries.length?entries.map((o,i)=>card(o.game,i,o.pick)).join(""):'<div class="panel muted">No matching saved predictions for this date. Try another market or league. Missing established B3.1 predictions are not estimated or invented.</div>';
+$("result-count").textContent=found+" matching matches"+(state.model==="scoreline"&&isGoalsOrBtts(state.market)&&state.qualifiedOnly?" · 55%+ confidence":"");
+$("results").innerHTML=entries.length?entries.map((o,i)=>card(o.game,i,o.pick)).join(""):'<div class="panel muted">No matching saved predictions at this confidence level. For goal and BTTS markets, untick the 55% filter to see lower-probability predictions. Missing established B3.1 predictions are not estimated or invented.</div>';
 }
 async function loadSnapshot(day){const s=await getJSON("data/snapshots/"+day+".json",null);if(s){snapshot=s;await applyBridge();showView("today");$("date-pill").textContent="Viewing "+s.date;draw()}}
 async function applyBridge(){const b=await getJSON("data/b31-snapshots/"+snapshot.date+".json",null);if(!b||!Array.isArray(b.fixtures))return;const byId=new Map(b.fixtures.map(x=>[x.id,x]));for(const g of snapshot.games||[]){const f=byId.get(g.id);if(f&&Array.isArray(f.qualifiers))g.b31={status:"frozen-nightly",qualifiers:f.qualifiers}}}
@@ -162,6 +182,7 @@ const league=$("edge-league").value,market=$("edge-market").value;
 if(league!=="all")picks=picks.filter(p=>p.division===league);
 if(market!=="all")picks=picks.filter(p=>p.market===market);
 if($("edge-positive").checked)picks=picks.filter(p=>p.positiveEdge);
+if($("edge-confident").checked)picks=picks.filter(p=>!isGoalsOrBtts(p.market)||Number(p.modelProbability)>=.55);
 if($("edge-upcoming").checked)picks=picks.filter(p=>{const t=new Date(p.kickoffUtc).getTime();return Number.isFinite(t)&&t>Date.now()});
 picks.sort((a,b)=>Number(b.modelProbability)-Number(a.modelProbability)||Number(b.edgePp)-Number(a.edgePp));
 if(!picks.length){
@@ -209,7 +230,7 @@ const tables=categories.map(([heading,values])=>{
 const footer='<p class="muted small">Recorded '+Number(p.recordedSelections||0)+' fixture-market selections. Graded '+Number(p.gradedSelections||0)+'; awaiting verified final results for '+Number(p.pendingSelections||0)+'. Among positive-edge predictions with model probability at least 60%, '+Number(confident.selections||0)+' have settled, with '+money(confident.profitGbp)+' hypothetical P/L. These are exploratory results; not proof of a profitable model.</p>';
 target.innerHTML=header+tables+footer;
 }
-for(const id of ["edge-league","edge-market","edge-positive","edge-upcoming"])
+for(const id of ["edge-league","edge-market","edge-positive","edge-confident","edge-upcoming"])
  $(id).addEventListener("change",drawEdges);
 async function init(){
 const [s,historyData,perf,settled,status,legacy,edges,edgeStats]=await Promise.all([
@@ -218,12 +239,12 @@ getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("da
 snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
 await applyBridge();
 history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;edgePerformance=edgeStats;
-const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5"};
-const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(g.scoreline?.markets||{}).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=.60).sort((a,b)=>b.p-a.p);
-$("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No market exceeds 60% among the saved fixtures today. That does not mean no matches were analysed.</p>';
+const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5",under35:"Under 3.5"};
+const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(modelMarkets(g)).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=marketThreshold(x.k)).sort((a,b)=>b.p-a.p);
+$("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No forecast clears its qualification threshold today (55% goals and BTTS, 60% 1X2). That does not mean no matches were analysed.</p>';
 
 $("k-games").textContent=(snapshot.games||[]).length;
-$("k-picks").textContent=(snapshot.games||[]).reduce((a,g)=>a+Object.values(g.scoreline?.markets||{}).filter(v=>v>=.60).length,0);
+$("k-picks").textContent=(snapshot.games||[]).reduce((a,g)=>a+Object.entries(modelMarkets(g)).filter(([k,p])=>p>=marketThreshold(k)).length,0);
 $("k-leagues").textContent=new Set((snapshot.games||[]).map(g=>g.division)).size;
 $("k-frozen").textContent=snapshot.status==="frozen-prekickoff"?"Yes":"No";
 $("date-pill").textContent=snapshot.date||"No date";
