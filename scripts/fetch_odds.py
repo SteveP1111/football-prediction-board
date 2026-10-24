@@ -225,6 +225,7 @@ def main():
     parser.add_argument("--extra-events", type=int, default=0)
     parser.add_argument("--compare-snapshot", type=Path, help="Locally assess collected odds against frozen model forecasts")
     parser.add_argument("--comparison-output", type=Path, help="Write anonymised selection summary, not full bookmaker feed")
+    parser.add_argument("--print-comparison-json", action="store_true", help="Print public bookmaker comparison JSON to audit log")
     args = parser.parse_args()
     if args.max_credits < 1 or args.max_credits > 24:
         parser.error("credit limit must be between 1 and 24")
@@ -234,6 +235,8 @@ def main():
         parser.error("--comparison-output requires --compare-snapshot")
     if args.compare_snapshot and args.mode != "collect":
         parser.error("--compare-snapshot requires --mode collect")
+    if args.print_comparison_json and not args.compare_snapshot:
+        parser.error("--print-comparison-json requires --compare-snapshot")
     if args.extra_market and not args.compare_snapshot:
         parser.error("Event markets require --compare-snapshot to restrict requests to matching fixtures")
     if args.extra_market and not 0 < args.extra_events <= 3:
@@ -263,6 +266,8 @@ def main():
                       "priced markets =", stats["marketsPriced"],
                       "positive theoretical edges =", stats["positiveEdges"])
                 print("Excluded matches:", json.dumps(stats["unmatchedReasons"], sort_keys=True))
+                if args.print_comparison_json:
+                    print("EDGE_REPORT_JSON=" + json.dumps(comparison, separators=(",", ":"), ensure_ascii=True))
                 if args.comparison_output:
                     args.comparison_output.parent.mkdir(parents=True, exist_ok=True)
                     with args.comparison_output.open("x", encoding="utf-8") as output:
