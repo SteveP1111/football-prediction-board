@@ -1,1 +1,1 @@
-Re-check provider's free fixtures against up-to-date main-branch forecasts. No paid bookmaker market requests.
+Use current main-branch 24 October frozen forecasts to collect EPL batch odds plus one matched event BTTS/alternate totals. Four-credit cap, print sanitised comparison to audit log.
