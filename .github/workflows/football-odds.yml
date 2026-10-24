@@ -6,13 +6,6 @@ on:
       - 'scripts/fetch_odds.py'
       - 'tests/test_odds_collector.py'
       - '.github/workflows/football-odds.yml'
-  # Deliberate one-off smoke tests on the development branch only.
-  # Editing other files does not cause a paid API request.
-  push:
-    branches:
-      - feature/odds-api-integration
-    paths:
-      - 'ops/odds-test-trigger.txt'
   workflow_dispatch:
     inputs:
       mode:
@@ -39,7 +32,7 @@ jobs:
 
   api-preflight:
     needs: offline-tests
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -52,9 +45,7 @@ jobs:
 
   live-smoke-test:
     needs: api-preflight
-    if: >-
-      (github.event_name == 'workflow_dispatch' && inputs.mode == 'collect') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.message, '[odds-live]'))
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'collect'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
