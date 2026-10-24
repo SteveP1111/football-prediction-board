@@ -196,7 +196,7 @@ def outcome_key(market_key, outcome, event):
 
 
 def select_confident_event_markets(snapshot, events, now, max_requests=4,
-                                   btts_threshold=0.60, totals_threshold=0.70):
+                                   btts_threshold=0.55, totals_threshold=0.55):
     """Choose only missing, high-confidence event markets.
 
     Two preferred slots for BTTS and two for 3.5 totals; remaining slots go
