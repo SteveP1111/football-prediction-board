@@ -296,6 +296,7 @@ def assess(snapshot, odds, max_age_hours=24):
                         "home": fixture.get("home"),
                         "away": fixture.get("away"),
                         "kickoff": fixture.get("kickoff"),
+                        "kickoffUtc": fixture_kickoff(fixture).isoformat(),
                         "eventId": event["id"],
                         "market": key,
                         "marketLabel": MARKET_TITLES[key],
