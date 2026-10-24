@@ -1,0 +1,44 @@
+# The Odds API and Football Edge Finder
+
+Development integration, tested 24 October 2026. This branch does **not** change the live main site or the independent forecast generation. It is not an automated profitable-bet system.
+
+## Verified facts
+
+- Correct repository: `SteveP1111/football-prediction-board`.
+- The repository's `ODDS_API_KEY` secret authenticated to The Odds API. The preflight `/v4/sports/` did not spend credits.
+- Active competitions: `soccer_epl`, `soccer_efl_champ`, `soccer_england_league1` and `soccer_england_league2`. National League is not integrated with this bookmaker API.
+- Free event-list diagnostic: **4 exact matches** against frozen 24 October Premier League forecasts; **9 Championship**, **5 League One**, **6 League Two** (coverage, not paid odds).
+- Live bounded EPL request used **4 credits**, from 496 to **492 remaining**. Returned 20 odds events, of which 4 joined a forecast. Result: 26 priced fixture-market combinations, 13 positive theoretical edges. `h2h`, `totals`, `btts` and `alternate_totals` were observed.
+- Auditable completed run: https://github.com/SteveP1111/football-prediction-board/actions/runs/40044100044
+- Tested 24 October report is in `data/edges/snapshots/2026-10-24T001609Z.json` and `data/edges/latest.json` **only on this development branch**. The branch has an older independent `data/latest.json`; production workflows must always use the current `main` snapshot, NOT its development copy.
+
+## Security and quotas
+
+The key is only provided to explicit `workflow_dispatch` preflight/coverage/collect jobs via GitHub Actions secrets. Pull-request tests never access the key. No scheduled or push-based paid requests remain. The workflow has `contents: read`, and the checkout does not retain credentials. The API client suppresses URLs containing the token from errors and logs.
+
+The collector defaults to **zero-cost preflight**. `--mode collect` is explicitly required for odds. Each standard EPL `h2h,totals` request uses up to two credits for the UK region, while opt-in additional event markets require an explicit extra-market list, an event count limit, a frozen forecast and a corresponding credit budget. The collector checks the remaining quota before requests. Event-market coverage is not guaranteed. API account quotas can reset; never assume the number of remaining credits is fixed.
+
+Provider response data is not stored by the smoke workflow. Optional raw collection with `--save` writes to ignored `private_odds/` outside `data/`; no raw odds are deployed to GitHub Pages. The dated example stores **only reduced match/market summaries** (including bookmaker names and prices), which are publicly readable because this repository is public. Verify any provider licence restrictions before enabling regular public publication.
+
+## Safeguards in `scripts/edge_comparison.py`
+
+- Uses the model's frozen `capturedAt` from `main`, never recomputes probabilities with bookmaker data.
+- Matches exact league, both normalised team names and local match date, then requires kick-off difference no greater than 90 minutes.
+- Rejects missing/TBC kick-off, duplicate bookmaker events mapping to one fixture, missing/invalid prices, in-play prices, stale updates and old model snapshots.
+- 1X2 prices require all three outcomes, so two-way winner markets are not misread as regulation-time three-way markets.
+- Supports BTTS Yes/No and 2.5/3.5 Over/Under lines, including available alternative totals. Under 3.5 probability derives from `1 - model Over 3.5`.
+- Chooses the highest available decimal price per selection, identifies its bookmaker and how many bookmakers were compared, and preserves the capture timestamp.
+- Computes implied probability as `1 / decimal_odds`, theoretical edge as `100 × (model_probability - implied_probability)`, theoretical ROI as `100 × (model_probability × odds - 1)`. These are *not* expected guaranteed profits. Exchange commission, stake limits and execution are excluded.
+- Ranks positive edges first; then highest model probability, with edge as a tie-breaker. Never reports a selection with missing bookmaker data as positive edge.
+
+The experimental Scoreline Model is not calibrated. Its estimated chances must not be conflated with the established B3.1 record or treated as verified win probabilities.
+
+## Testing and deployment
+
+`python3 -m unittest discover -s tests -v` tests original forecast behaviour and the new odds module using mocks. The PR workflow also compiles Python scripts and validates the site's inline JavaScript. No tests consume API credits.
+
+The development website adds an **Odds & Edge** tab reading `data/edges/latest.json`. It shows league/market and positive-only filters, model probability, captured bookmaker price, implied probability, percentage-point edge, theoretical ROI and the bookmaker. It hides a report whose date is not the currently shown forecast and defaults to future matches only. If no audited odds exist, it shows an explicit empty state.
+
+To create a new audited comparison, obtain the latest frozen `data/latest.json` from `main` and run the manual collect workflow (when installed on the default branch). Manual requests are restricted to EPL plus a single future matched event's optional BTTS/alternative totals and at most **4 credits**. The workflow currently **does not publish new reports** automatically.
+
+Before enabling a production schedule, add a reviewed publish step, immutable historical price storage, automatic removal of outdated latest data, and a daily quota budget. Keep the existing website unchanged until these are tested and explicitly approved. Do not merge this draft PR expecting automatic odds refresh or BTTS coverage across all four divisions.
