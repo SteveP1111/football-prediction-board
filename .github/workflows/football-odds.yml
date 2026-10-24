@@ -10,9 +10,6 @@ on:
       - 'tests/test_edge_comparison.py'
       - 'index.html'
       - '.github/workflows/football-odds.yml'
-  push:
-    branches: [feature/odds-api-integration]
-    paths: ['ops/edge-end-to-end-trigger.txt']
   workflow_dispatch:
     inputs:
       mode:
@@ -55,7 +52,7 @@ jobs:
 
   api-preflight:
     needs: offline-tests
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -68,9 +65,7 @@ jobs:
 
   coverage-check:
     needs: api-preflight
-    if: >-
-      (github.event_name == 'workflow_dispatch' && inputs.mode == 'coverage') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.message, '[edge-events]'))
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'coverage'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -97,9 +92,7 @@ jobs:
 
   live-smoke-test:
     needs: api-preflight
-    if: >-
-      (github.event_name == 'workflow_dispatch' && inputs.mode == 'collect') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.message, '[edge-live]'))
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'collect'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -126,5 +119,4 @@ jobs:
           python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 4
           --compare-snapshot /tmp/football-main-latest.json
           --extra-market btts --extra-market alternate_totals --extra-events 1
-          --print-comparison-json
       # Intentionally no upload-artifact or commit: raw odds stay on the runner.
