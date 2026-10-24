@@ -1,1 +1,1 @@
-Re-run free same-day model vs provider team-name diagnostic after production test-suite fix. No bookmaker price calls.
+Verify all 38 supported 24 Oct 2026 model fixtures against free provider events after exact club-alias fixes. No priced data requested.
