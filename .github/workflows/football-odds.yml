@@ -78,7 +78,7 @@ jobs:
           persist-credentials: false
       - name: Compare model fixtures with free provider event feed
         env:
-          ODDS_API_KEY: \${{ secrets.ODDS_API_KEY }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python3 scripts/check_event_coverage.py
 
   live-smoke-test:
