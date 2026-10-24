@@ -1,1 +1,0 @@
-Audit trigger 2026-10-24: after successful zero-credit authentication, make one EPL bookmaker smoke test capped at 2 credits. No raw data upload.
