@@ -150,11 +150,19 @@ def main():
     parser.add_argument("--sport", action="append", choices=SPORTS)
     parser.add_argument("--max-credits", type=int, default=2)
     parser.add_argument("--save", action="store_true")
+    parser.add_argument("--compare-snapshot", type=Path, help="Locally assess collected odds against frozen model forecasts")
+    parser.add_argument("--comparison-output", type=Path, help="Write anonymised selection summary, not full bookmaker feed")
     args = parser.parse_args()
     if args.max_credits < 1 or args.max_credits > 8:
         parser.error("credit limit must be between 1 and 8")
     if args.save and args.mode != "collect":
         parser.error("--save requires --mode collect")
+    if args.comparison_output and not args.compare_snapshot:
+        parser.error("--comparison-output requires --compare-snapshot")
+    if args.compare_snapshot and args.mode != "collect":
+        parser.error("--compare-snapshot requires --mode collect")
+    if args.comparison_output and args.comparison_output.resolve().is_relative_to((ROOT / "data").resolve()):
+        parser.error("Do not publish previews under public data/ before review")
     key = os.environ.get("ODDS_API_KEY")
     if not key:
         raise SystemExit("ODDS_API_KEY secret is not available to this job")
@@ -162,7 +170,24 @@ def main():
         if args.mode == "preflight":
             preflight(key)
         else:
-            collect(key, args.sport or [SPORTS[0]], args.max_credits, args.save)
+            games = collect(key, args.sport or [SPORTS[0]], args.max_credits, args.save)
+            if args.compare_snapshot:
+                from edge_comparison import assess
+                forecasts = json.loads(args.compare_snapshot.read_text(encoding="utf-8"))
+                comparison = assess(forecasts, {
+                    "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "fixtures": games,
+                })
+                stats = comparison["summary"]
+                print("Live edge comparison: matched fixtures =", stats["matchedFixtures"],
+                      "priced markets =", stats["marketsPriced"],
+                      "positive theoretical edges =", stats["positiveEdges"])
+                print("Excluded matches:", json.dumps(stats["unmatchedReasons"], sort_keys=True))
+                if args.comparison_output:
+                    args.comparison_output.parent.mkdir(parents=True, exist_ok=True)
+                    with args.comparison_output.open("x", encoding="utf-8") as output:
+                        json.dump(comparison, output, indent=2)
+                    print("Saved PRIVATE comparison preview:", args.comparison_output)
     except RuntimeError as exc:
         raise SystemExit(str(exc)) from None
 
