@@ -11,6 +11,10 @@ on:
       - 'tests/test_edge_history.py'
       - 'tests/test_confidence_markets.py'
       - 'tests/test_edge_preview.py'
+      - 'index.html'
+      - 'scripts/refresh.py'
+      - 'tests/test_forecast.py'
+      - 'tests/test_board_queries.js'
       - '.github/workflows/football-edges-publish.yml'
       - '.github/workflows/pages.yml'
   workflow_run:
@@ -54,6 +58,7 @@ jobs:
           Path('/tmp/football-production-board.js').write_text(scripts[0],encoding='utf-8')
           PY
           node --check /tmp/football-production-board.js
+          node tests/test_board_queries.js
 
   publish:
     if: >-

@@ -122,10 +122,36 @@ class ConfidenceSelectionTests(unittest.TestCase):
                          datetime(2026,10,24,1,tzinfo=timezone.utc)), [])
 
     def test_low_confidence_skips_btts_and_alternates(self):
-        f = fixture(probability_btts=.56, over35=.40)
+        f = fixture(probability_btts=.52, over35=.49)
         selected = select_confident_event_markets(
             model(f), [provider()], datetime(2026,10,24,1,tzinfo=timezone.utc))
         self.assertEqual(selected, [])
+
+    def test_exact_fifty_five_percent_confidence_cutoff(self):
+        now=datetime(2026,10,24,1,tzinfo=timezone.utc)
+        qualifies=select_confident_event_markets(
+            model(fixture(probability_btts=.55,over35=.45)),[provider()],now)
+        self.assertEqual({q["market"] for q in qualifies},{"btts","alternate_totals"})
+        below=select_confident_event_markets(
+            model(fixture(probability_btts=.54,over35=.46)),[provider()],now)
+        self.assertEqual(below,[])
+
+    def test_over_three_point_five_at_fifty_five_percent_qualifies(self):
+        now=datetime(2026,10,24,1,tzinfo=timezone.utc)
+        selected=select_confident_event_markets(
+            model(fixture(probability_btts=.50,over35=.55)),[provider()],now)
+        self.assertEqual([q["market"] for q in selected],["alternate_totals"])
+        self.assertEqual(selected[0]["selection"],"over35")
+
+    def test_no_extra_credit_when_standard_totals_already_cover_under_three_point_five(self):
+        now=datetime(2026,10,24,1,tzinfo=timezone.utc)
+        ev=provider(markets=[{"key":"totals","outcomes":[
+            {"name":"Under","point":2.5,"price":2.0},
+            {"name":"Over","point":2.5,"price":1.9},
+            {"name":"Under","point":3.5,"price":1.4}]}])
+        selected=select_confident_event_markets(
+            model(fixture(probability_btts=.51,over35=.20)),[ev],now)
+        self.assertEqual(selected,[])
 
     def test_frozen_source_league_team_and_kickoff_must_agree(self):
         f = fixture(probability_btts=.68,over35=.18)
@@ -145,7 +171,7 @@ class ConfidenceSelectionTests(unittest.TestCase):
             model(f),events,datetime(2026,10,24,1,tzinfo=timezone.utc)),[])
 
     def test_current_quote_of_btts_already_present_is_not_requested_again(self):
-        f=fixture(probability_btts=.68,over35=.40)
+        f=fixture(probability_btts=.68,over35=.49)
         ev=provider(markets=[{"key":"btts","outcomes":[
             {"name":"Yes","price":1.8},{"name":"No","price":2.0}]}])
         selected=select_confident_event_markets(model(f),[ev],datetime(2026,10,24,1,tzinfo=timezone.utc))
@@ -180,7 +206,7 @@ class ConfidenceSelectionTests(unittest.TestCase):
             if path.endswith("/odds/"):
                 return [mock_event],{"remaining":"478"}
             raise AssertionError("No event-specific request should occur without high confidence")
-        no_qualifiers=model(fixture(probability_btts=.51,over35=.40))
+        no_qualifiers=model(fixture(probability_btts=.51,over35=.49))
         usage={}
         with patch("fetch_odds.fetch",side_effect=fake_fetch):
             result=collect("dummy",["soccer_epl"],6,
@@ -209,7 +235,7 @@ class ConfidenceSelectionTests(unittest.TestCase):
         usage={}
         with patch("fetch_odds.fetch",side_effect=fake_fetch):
             result=collect("dummy",["soccer_epl"],6,
-                           frozen_snapshot=model(fixture(probability_btts=.62,over35=.4)),
+                           frozen_snapshot=model(fixture(probability_btts=.62,over35=.49)),
                            confidence_extra_calls=4,usage=usage,reserve_credits=100)
         self.assertEqual(len(calls),3)
         self.assertEqual(usage["spentCredits"],3)

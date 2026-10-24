@@ -47,6 +47,7 @@ jobs:
           Path("/tmp/football-board.js").write_text(scripts[0],encoding="utf-8")
           PY
           node --check /tmp/football-board.js
+          node tests/test_board_queries.js
 
       - name: Fetch fixtures, freeze future predictions, settle results
         run: python3 scripts/refresh.py

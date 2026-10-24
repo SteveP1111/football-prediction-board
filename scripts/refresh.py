@@ -230,7 +230,7 @@ def model(f,train):
     ph=dist(lh);pa=dist(la)
     mass=sum(ph)*sum(pa)
     b={"0-1":0.,"2":0.,"3":0.,"4+":0.}
-    m={k:0. for k in ["home_win","draw","away_win","btts","no_btts","over25","under25","over35"]}
+    m={k:0. for k in ["home_win","draw","away_win","btts","no_btts","over25","under25","over35","under35"]}
     top=[]
     for i,p in enumerate(ph):
         for j,q in enumerate(pa):
@@ -240,11 +240,12 @@ def model(f,train):
             m["home_win" if i>j else ("away_win" if j>i else "draw")]+=v
             m["btts" if i and j else "no_btts"]+=v
             m["over25" if t>=3 else "under25"]+=v
-            if t>=4:m["over35"]+=v
+            m["over35" if t>=4 else "under35"]+=v
             top.append((v,i,j))
     top.sort(reverse=True)
     assert abs(sum(b.values())-1)<1e-8
     assert abs(m["over25"]+m["under25"]-1)<1e-8
+    assert abs(m["over35"]+m["under35"]-1)<1e-8
     assert abs(m["home_win"]+m["draw"]+m["away_win"]-1)<1e-8
     markets={k:round(v,5) for k,v in m.items()}
     result=dict(f)
@@ -265,7 +266,7 @@ def settle(f,score):
     h,a=score
     return {"home_win":h>a,"away_win":a>h,"draw":h==a,"btts":h>0 and a>0,
         "no_btts":h==0 or a==0,"over25":h+a>=3,
-        "under25":h+a<3,"over35":h+a>=4}
+        "under25":h+a<3,"over35":h+a>=4,"under35":h+a<4}
 def atomic_write(path,obj):
     path.parent.mkdir(parents=True,exist_ok=True)
     t=path.with_suffix(path.suffix+".tmp")
@@ -346,7 +347,7 @@ def run():
             preds=f.get("scoreline",{}).get("markets",{})
             daily["settled"]+=1
             b31_results=[]
-            names={"BTTS":"btts","No BTTS":"no_btts","Over 2.5":"over25","Under 2.5":"under25","Over 3.5":"over35","Home Win":"home_win","Away Win":"away_win","Draw":"draw"}
+            names={"BTTS":"btts","No BTTS":"no_btts","Over 2.5":"over25","Under 2.5":"under25","Over 3.5":"over35","Under 3.5":"under35","Home Win":"home_win","Away Win":"away_win","Draw":"draw"}
             for q in b31_overlay.get(f["id"],f.get("b31",{}).get("qualifiers",[])):
                 market=names.get(q.get("key") or q.get("name"))
                 if not market:continue
