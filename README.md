@@ -21,6 +21,19 @@ The Python runner:
 
 No betting odds, private tokens, personal information or paid API feeds are used as model inputs.
 
+## Odds & Edge (live)
+
+The **Odds & Edge** tab displays timestamped UK bookmaker prices compared against independently frozen model probabilities. It identifies best observed decimal prices, implied bookmaker probability, theoretical edge and theoretical ROI. These are **not** guaranteed executable prices or betting recommendations. Original forecasts are never trained or altered using odds. The Scoreline Model's probabilities remain uncalibrated; a positive theoretical edge is not proof of profit.
+
+The [Publish Football Odds](../../actions/workflows/football-edges-publish.yml) workflow is triggered automatically after a successful `Daily English Football Predictions` refresh, has a 09:33 UTC daily fallback, and can be manually dispatched. It makes at most one paid collection attempt per UK calendar day, with a **12-credit daily maximum** and **100-credit account reserve**. The four supported betting feeds are Premier League, Championship, League One and League Two. National League forecasts remain available but have no connected odds feed.
+
+Quoted 1X2 and totals markets are batched by league; event-specific BTTS and alternative totals are sampled for at most two matching future games per day to protect the free API allowance. No unquoted market is fabricated. The `ODDS_API_KEY` is held only in GitHub Secrets, never browser JavaScript or committed files. Public JSON contains reduced analytical summaries, not raw odds feeds.
+
+A dated immutable archive lives under `data/edges/snapshots/YYYY-MM-DD.json`. `data/edges/latest.json` powers today's tab; `data/edges/usage/YYYY-MM-DD.json` records API spend and blocks repeat paid attempts. `scripts/edge_history.py` grades original quoted prices against verified final scores. Hypothetical performance uses £10 flat stakes on *recorded positive-edge selections*, with ROI, market and probability-band history. Multiple markets on one match are correlated, and exchange commissions are not deducted.
+
+Operational and security details: [Odds integration](docs/odds-integration.md). The Odds API permits analytical UI display but prohibits redistribution as a standalone raw data service: https://the-odds-api.com/terms-and-conditions.html.
+
+
 ## Important distinction between models
 
 - **Established B3.1**: the corrected historical performance through 15 October 2026 is retained in data/b31_historical.json. The original 17 October 2026 issued qualifiers are included in the imported frozen snapshot. This is the actual old model, not an imitation.
