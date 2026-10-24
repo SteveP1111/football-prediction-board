@@ -49,14 +49,14 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <label><input type="checkbox" id="edge-positive" checked>Positive edge only</label>
 <label><input type="checkbox" id="edge-upcoming" checked>Upcoming matches only</label>
 </div>
-<div id="edge-list">No audited bookmaker comparisons published.</div></section></div>
+<div id="edge-list">No audited bookmaker comparisons published.</div></section><section class="panel"><h2>Recorded edge performance · £10 flat stakes</h2><p class="muted small">Historical results use original frozen bookmaker quotes and independently verified final scores. Figures are hypothetical, not actual bets. All positive-edge selections are counted, including correlated markets on the same match. Bookmaker exchange commission is excluded.</p><div id="edge-history">Performance will appear once recorded matches finish.</div></section></div>
 <div class="source" id="source-line">Data source: Football-Data.co.uk. This is research, not financial or betting advice. No odds, final scores or future information enter a pre-match forecast.</div>
 </main>
 <script>
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
-let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null;
+let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null,edgePerformance=null;
 let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:""};
 const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",modal00:"Exact 0–0 forecasts"};
 const pct=n=>(100*Number(n||0)).toFixed(1)+"%";
@@ -141,6 +141,11 @@ if(!edgeReport||!Array.isArray(edgeReport.picks)){
  target.innerHTML='<p class="muted small">The prediction model still operates independently without bookmaker prices.</p>';
  return;
 }
+if(edgeReport.developmentPreview){
+ note.textContent="This is a development-only test capture, not an automatically published daily update.";
+ target.innerHTML='<p class="muted small">Live bookmaker comparisons will appear here after the production collection successfully records a new dated forecast.</p>';
+ return;
+}
 if(edgeReport.forecastDate!==snapshot?.date){
  note.textContent="Saved odds belong to "+String(edgeReport.forecastDate||"an earlier date")+"; they are not today's prices.";
  target.innerHTML='<p class="muted small">A new pre-match comparison is required. Historical prices will not be misrepresented as current.</p>';
@@ -150,7 +155,8 @@ const summary=edgeReport.summary||{},recorded=new Date(edgeReport.oddsRetrievedA
 if(!Number.isFinite(recorded.getTime())){
  note.textContent="Invalid bookmaker collection timestamp; prices withheld.";target.innerHTML="";return;
 }
-note.textContent="Forecast "+edgeReport.forecastDate+" · Odds captured "+recorded.toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"})+" UK · "+(summary.matchedFixtures||0)+" safely matched fixtures · "+(summary.marketsPriced||0)+" priced markets. Missing bookmaker markets are not estimated.";
+const ageHours=(Date.now()-recorded.getTime())/3600000;
+note.textContent=(ageHours>6?"Historical capture, not current prices · ":"")+"Forecast "+edgeReport.forecastDate+" · Odds captured "+recorded.toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"})+" UK · "+(summary.matchedFixtures||0)+" safely matched fixtures · "+(summary.marketsPriced||0)+" priced markets. Missing bookmaker markets are not estimated.";
 let picks=edgeReport.picks.slice();
 const league=$("edge-league").value,market=$("edge-market").value;
 if(league!=="all")picks=picks.filter(p=>p.division===league);
@@ -181,15 +187,37 @@ target.innerHTML='<div class="edge-grid">'+
  '<div class="edge-table"><table><thead><tr><th>Fixture</th><th>Market</th><th class="num">Model chance</th><th class="num">Decimal odds</th><th class="num">Bookie implied</th><th class="num">Edge</th><th class="num">Theor. ROI</th><th>Bookmaker</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
  '<p class="muted small">Edge (percentage points) = model probability minus 1 ÷ decimal odds. Theoretical ROI = (model probability × odds − 1) × 100. Bookmakers and prices were recorded at collection, not verified in real time. Prices may have changed. Model probabilities are not calibrated, so estimated edges can be misleading.</p>';
 }
+function drawEdgePerformance(){
+const target=$("edge-history"),p=edgePerformance;
+if(!p?.summary){
+ target.innerHTML='<p class="muted small">No verified edge selections have been graded yet. Historical model hit rates and hypothetical bookmaker P/L are kept separate.</p>';
+ return;
+}
+const summary=p.summary.positiveEdges||{},confident=p.summary.positiveEdges60Plus||{};
+const money=n=>Number.isFinite(Number(n))?(Number(n)<0?"−£":"£")+Math.abs(Number(n)).toFixed(2):"—";
+const num=n=>Number.isFinite(Number(n))?Number(n).toFixed(1)+"%":"—";
+const periods=[["Total selections",summary.selections??0],["Wins",summary.wins??0],["£10 hypothetical P/L",money(summary.profitGbp)],["Hypothetical ROI",num(summary.roiPct)]];
+const header='<div class="edge-grid">'+periods.map(([name,value])=>'<div class="kpi"><span>'+esc(name)+'</span><strong>'+esc(value)+'</strong></div>').join("")+'</div>';
+const categories=[["By market",p.summary.byMarket],["By model probability",p.summary.byProbabilityBand]];
+const tables=categories.map(([heading,values])=>{
+ const lines=Object.entries(values||{}).filter(([key,v])=>v.selections>0);
+ return '<h3 style="font-size:14px;margin:16px 0 7px">'+esc(heading)+'</h3>'+
+ (lines.length?'<div class="edge-table"><table><thead><tr><th>Segment</th><th class="num">Settled</th><th class="num">Wins</th><th class="num">Hit rate</th><th class="num">£10 P/L</th><th class="num">ROI</th></tr></thead><tbody>'+lines.map(([key,v])=>
+ '<tr><td>'+esc(title[key]||key)+'</td><td class="num">'+Number(v.selections)+'</td><td class="num">'+Number(v.wins)+'</td><td class="num">'+num(v.hitRatePct)+'</td><td class="num">'+money(v.profitGbp)+'</td><td class="num">'+num(v.roiPct)+'</td></tr>').join("")+'</tbody></table></div>':
+ '<p class="muted small">No graded outcomes in this segment yet.</p>');
+}).join("");
+const footer='<p class="muted small">Recorded '+Number(p.recordedSelections||0)+' fixture-market selections. Graded '+Number(p.gradedSelections||0)+'; awaiting verified final results for '+Number(p.pendingSelections||0)+'. Among positive-edge predictions with model probability at least 60%, '+Number(confident.selections||0)+' have settled, with '+money(confident.profitGbp)+' hypothetical P/L. These are exploratory results; not proof of a profitable model.</p>';
+target.innerHTML=header+tables+footer;
+}
 for(const id of ["edge-league","edge-market","edge-positive","edge-upcoming"])
  $(id).addEventListener("change",drawEdges);
 async function init(){
-const [s,historyData,perf,settled,status,legacy,edges]=await Promise.all([
+const [s,historyData,perf,settled,status,legacy,edges,edgeStats]=await Promise.all([
 getJSON("data/latest.json",null),getJSON("data/history.json",[]),getJSON("data/performance.json",null),
-getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null)]);
+getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null),getJSON("data/edges/performance.json",null)]);
 snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
 await applyBridge();
-history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;
+history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;edgePerformance=edgeStats;
 const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5"};
 const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(g.scoreline?.markets||{}).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=.60).sort((a,b)=>b.p-a.p);
 $("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No market exceeds 60% among the saved fixtures today. That does not mean no matches were analysed.</p>';
@@ -203,7 +231,7 @@ $("status-pill").textContent=status?.refreshed?"Last refresh "+new Date(status.r
 if(status?.warnings?.length)$("notice").innerHTML+='<div class="alert" style="margin:8px 0">Data coverage warning: '+status.warnings.map(esc).join('; ')+' · Current probabilities may exclude recent results.</div>';
 if(!s||!(s.games||[]).length)$("notice").innerHTML='<div class="alert">No frozen pre-match forecast is available for this date. The scheduled workflow may not have run yet, fixtures may not be published, or the data source may be unavailable. Past results are not being presented as today’s picks.</div>';
 $("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. Bookmaker odds are never used as forecast inputs.";
-draw();drawHistory();drawPerformance();drawEdges();
+draw();drawHistory();drawPerformance();drawEdges();drawEdgePerformance();
 }
 init();
 })();
