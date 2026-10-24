@@ -2,6 +2,9 @@
 import importlib.util
 import json
 import os
+import sys
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 import tempfile
 import unittest
 import urllib.error
@@ -11,6 +14,7 @@ from unittest.mock import patch
 SPEC = importlib.util.spec_from_file_location(
     "fetch_odds", Path(__file__).resolve().parents[1] / "scripts" / "fetch_odds.py"
 )
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 mod = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(mod)
 
@@ -115,6 +119,66 @@ class OddsTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "Invalid event schema"):
                     mod.collect("fake-key", [mod.SPORTS[0]], 2, save=True)
             self.assertFalse((Path(d) / "private_odds").exists())
+
+
+    def test_optional_btts_and_alternate_totals_are_merged_only_for_matching_future_event(self):
+        local = datetime(2099, 10, 24, 12, 30, tzinfo=ZoneInfo("Europe/London"))
+        kickoff = local.astimezone(timezone.utc).isoformat()
+        future = {
+            "id": "next-match123", "sport": "soccer_epl",
+            "home_team": "Aston Villa", "away_team": "Manchester City",
+            "commence_time": kickoff,
+            "bookmakers": [{"key": "example", "title": "Example", "markets": [
+                {"key": "h2h", "outcomes": []}]}],
+        }
+        snap = {"status": "frozen-prekickoff", "games": [{
+            "id": "2099-10-24|E0|aston villa|manchester city",
+            "date": "2099-10-24", "kickoff": "12:30", "division": "E0",
+            "homeKey": "aston villa", "awayKey": "manchester city",
+        }]}
+        paths = []
+        def fake_fetch(path, key, params=None):
+            paths.append(path)
+            if path == "/sports/":
+                return SPORTS_RESPONSE, {"remaining": "100"}
+            if path.endswith("/odds/"):
+                return [future], {"remaining": "98"}
+            self.assertIn("/events/next-match123/odds", path)
+            return {"id": "next-match123", "home_team": "Aston Villa",
+                    "away_team": "Manchester City", "bookmakers": [{
+                        "key": "example", "title": "Example", "markets": [
+                            {"key": "btts", "outcomes": [{"name": "Yes", "price": 1.8}]},
+                            {"key": "alternate_totals", "outcomes": [{"name": "Over", "point": 3.5, "price": 2.9}]}]}]}, {"remaining": "96"}
+        with patch.object(mod, "fetch", side_effect=fake_fetch):
+            data = mod.collect("fake-key", ["soccer_epl"], 4, extra_markets=("btts", "alternate_totals"),
+                               extra_events=1, frozen_snapshot=snap)
+        market_keys = [m["key"] for m in data[0]["bookmakers"][0]["markets"]]
+        self.assertEqual(market_keys, ["h2h", "btts", "alternate_totals"])
+        self.assertEqual(len(paths), 3)
+
+    def test_extra_markets_budget_fails_before_paid_requests(self):
+        calls = []
+        def fake_fetch(path, key, params=None):
+            calls.append(path)
+            return SPORTS_RESPONSE, {"remaining": "100"}
+        with patch.object(mod, "fetch", side_effect=fake_fetch):
+            with self.assertRaisesRegex(RuntimeError, "exceed the explicit"):
+                mod.collect("fake-key", ["soccer_epl"], 3,
+                            extra_markets=("btts", "alternate_totals"), extra_events=1,
+                            frozen_snapshot={"status": "frozen-prekickoff", "games": []})
+        self.assertEqual(calls, ["/sports/"])
+
+    def test_extra_event_matches_required_for_chargeable_event_call(self):
+        payload = dict(EVENT, sport="soccer_epl", id="valid-event123",
+                       home_team="Unmatched Club", away_team="Other Club")
+        requests = []
+        def fake_fetch(path, key, params=None):
+            requests.append(path)
+            return (SPORTS_RESPONSE if path == "/sports/" else [payload]), {"remaining": "100"}
+        with patch.object(mod, "fetch", side_effect=fake_fetch):
+            mod.collect("fake-key", ["soccer_epl"], 4, extra_markets=("btts",),
+                        extra_events=1, frozen_snapshot={"status": "frozen-prekickoff", "games": []})
+        self.assertEqual(len(requests), 2)
 
 
 if __name__ == "__main__":
