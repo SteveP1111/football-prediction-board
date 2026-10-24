@@ -6,6 +6,7 @@ on:
       - 'scripts/fetch_odds.py'
       - 'tests/test_odds_collector.py'
       - 'scripts/edge_comparison.py'
+      - 'scripts/check_event_coverage.py'
       - 'tests/test_edge_comparison.py'
       - 'index.html'
       - '.github/workflows/football-odds.yml'
@@ -15,12 +16,13 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'Preflight is free; collect can use at most two API credits'
+        description: 'Preflight and coverage use no odds credits; collect is capped at four'
         required: true
         type: choice
         default: preflight
         options:
           - preflight
+          - coverage
           - collect
 
 permissions:
@@ -35,6 +37,8 @@ jobs:
           persist-credentials: false
       - name: Test all prediction and odds comparison modules without API requests
         run: python3 -m unittest discover -s tests -v
+      - name: Compile Python scripts
+        run: python3 -m compileall -q scripts
       - name: Check website JavaScript syntax
         run: |
           python3 - <<'PY'
@@ -61,6 +65,21 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python3 scripts/fetch_odds.py --mode preflight
+
+  coverage-check:
+    needs: api-preflight
+    if: >-
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'coverage') ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, '[edge-events]'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compare model fixtures with free provider event feed
+        env:
+          ODDS_API_KEY: \${{ secrets.ODDS_API_KEY }}
+        run: python3 scripts/check_event_coverage.py
 
   live-smoke-test:
     needs: api-preflight
