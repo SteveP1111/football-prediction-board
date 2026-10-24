@@ -8,11 +8,10 @@ on:
       - 'scripts/edge_comparison.py'
       - 'scripts/check_event_coverage.py'
       - 'tests/test_edge_comparison.py'
+      - 'tests/test_confidence_markets.py'
+      - 'tests/fixtures/provider_events_2026-10-24.json'
       - 'index.html'
       - '.github/workflows/football-odds.yml'
-  push:
-    branches: [feature/confidence-based-odds-and-matching]
-    paths: [ops/free-fixture-diagnostic-trigger.txt]
   workflow_dispatch:
     inputs:
       mode:
@@ -55,7 +54,7 @@ jobs:
 
   api-preflight:
     needs: offline-tests
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -68,9 +67,7 @@ jobs:
 
   coverage-check:
     needs: api-preflight
-    if: >-
-      (github.event_name == 'workflow_dispatch' && inputs.mode == 'coverage') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.message, '[free-coverage]'))
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'coverage'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
