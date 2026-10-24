@@ -112,7 +112,7 @@ def build(snapshots, verified_results):
     for shot in sorted(snapshots, key=lambda x: x.get("forecastDate", "")):
         date = shot.get("forecastDate")
         if (not isinstance(date, str) or not isinstance(shot.get("picks"), list) or
-                shot.get("schemaVersion") != 1 or shot.get("status") != "compared"):
+                shot.get("schemaVersion") != 1 or shot.get("status") not in ("compared", "no-comparable-markets")):
             raise ValueError("Malformed stored edge snapshot")
         dates.append(date)
         for pick in shot["picks"]:
