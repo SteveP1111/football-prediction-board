@@ -5,6 +5,9 @@ on:
     paths:
       - 'scripts/fetch_odds.py'
       - 'tests/test_odds_collector.py'
+      - 'scripts/edge_comparison.py'
+      - 'tests/test_edge_comparison.py'
+      - 'index.html'
       - '.github/workflows/football-odds.yml'
   workflow_dispatch:
     inputs:
@@ -27,8 +30,21 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Test collector without API requests
-        run: python3 -m unittest discover -s tests -p 'test_odds_collector.py' -v
+      - name: Test all prediction and odds comparison modules without API requests
+        run: python3 -m unittest discover -s tests -v
+      - name: Check website JavaScript syntax
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path("index.html").read_text(encoding="utf-8")
+          scripts=re.findall(r"<script>(.*?)</script>",html,re.S)
+          assert len(scripts)==1
+          for path in ("data/latest.json","data/edges/latest.json"):
+              assert path in html
+          Path("/tmp/football-edge-board.js").write_text(scripts[0],encoding="utf-8")
+          PY
+          node --check /tmp/football-edge-board.js
 
   api-preflight:
     needs: offline-tests
