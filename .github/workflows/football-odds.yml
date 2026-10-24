@@ -1,0 +1,122 @@
+name: Audit Football Bookmaker Odds Integration
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/fetch_odds.py'
+      - 'tests/test_odds_collector.py'
+      - 'scripts/edge_comparison.py'
+      - 'scripts/check_event_coverage.py'
+      - 'tests/test_edge_comparison.py'
+      - 'index.html'
+      - '.github/workflows/football-odds.yml'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Preflight and coverage use no odds credits; collect is capped at four'
+        required: true
+        type: choice
+        default: preflight
+        options:
+          - preflight
+          - coverage
+          - collect
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test all prediction and odds comparison modules without API requests
+        run: python3 -m unittest discover -s tests -v
+      - name: Compile Python scripts
+        run: python3 -m compileall -q scripts
+      - name: Check website JavaScript syntax
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path("index.html").read_text(encoding="utf-8")
+          scripts=re.findall(r"<script>(.*?)</script>",html,re.S)
+          assert len(scripts)==1
+          for path in ("data/latest.json","data/edges/latest.json"):
+              assert path in html
+          Path("/tmp/football-edge-board.js").write_text(scripts[0],encoding="utf-8")
+          PY
+          node --check /tmp/football-edge-board.js
+
+  api-preflight:
+    needs: offline-tests
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Authenticate and check league IDs with zero billable credits
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 scripts/fetch_odds.py --mode preflight
+
+  coverage-check:
+    needs: api-preflight
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'coverage'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read currently published frozen forecasts from main
+        run: |
+          git fetch --depth=1 origin main
+          git show FETCH_HEAD:data/latest.json > /tmp/football-main-latest.json
+          python3 - <<'PY'
+          import json
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          data=json.load(open('/tmp/football-main-latest.json'))
+          today=datetime.now(ZoneInfo('Europe/London')).date().isoformat()
+          assert data.get('date') == today, 'Published forecasts are not from today; refusing chargeable odds comparison'
+          assert data.get('status') == 'frozen-prekickoff', 'No pre-match forecasts available; refusing chargeable odds comparison'
+          print('Using LIVE MAIN forecast date:', data['date'], 'games:', len(data.get('games', [])))
+          PY
+      - name: Compare model fixtures with free provider event feed
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 scripts/check_event_coverage.py --snapshot /tmp/football-main-latest.json
+
+  live-smoke-test:
+    needs: api-preflight
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'collect'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read currently published frozen forecasts from main
+        run: |
+          git fetch --depth=1 origin main
+          git show FETCH_HEAD:data/latest.json > /tmp/football-main-latest.json
+          python3 - <<'PY'
+          import json
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          data=json.load(open('/tmp/football-main-latest.json'))
+          today=datetime.now(ZoneInfo('Europe/London')).date().isoformat()
+          assert data.get('date') == today, 'Published forecasts are not from today; refusing chargeable odds comparison'
+          assert data.get('status') == 'frozen-prekickoff', 'No pre-match forecasts available; refusing chargeable odds comparison'
+          print('Using LIVE MAIN forecast date:', data['date'], 'games:', len(data.get('games', [])))
+          PY
+      - name: Validate EPL odds and optional BTTS with a four-credit cap
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: >-
+          python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 4
+          --compare-snapshot /tmp/football-main-latest.json
+          --extra-market btts --extra-market alternate_totals --extra-events 1
+      # Intentionally no upload-artifact or commit: raw odds stay on the runner.

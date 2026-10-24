@@ -6,10 +6,11 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - 'data/edges/**'
       - '.github/workflows/pages.yml'
       - '.nojekyll'
   workflow_run:
-    workflows: ["Daily English Football Predictions"]
+    workflows: ["Daily English Football Predictions", "Publish Football Odds"]
     types: [completed]
 
 permissions:
@@ -38,7 +39,7 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
-          for x in ("data/latest.json","data/history.json","data/performance.json","data/status.json"):
+          for x in ("data/latest.json","data/history.json","data/performance.json","data/status.json", "data/edges/latest.json"):
               json.loads(Path(x).read_text(encoding="utf-8"))
           html=Path("index.html").read_text(encoding="utf-8")
           assert "Football Prediction Board" in html

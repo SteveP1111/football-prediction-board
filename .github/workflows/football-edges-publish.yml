@@ -1,0 +1,109 @@
+name: Publish Football Odds
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/publish_edges.py'
+      - 'scripts/edge_history.py'
+      - 'scripts/fetch_odds.py'
+      - 'scripts/edge_comparison.py'
+      - 'tests/test_publish_edges.py'
+      - 'tests/test_edge_history.py'
+      - '.github/workflows/football-edges-publish.yml'
+      - '.github/workflows/pages.yml'
+  workflow_run:
+    workflows: ['Daily English Football Predictions']
+    types: [completed]
+    branches: [main]
+  schedule:
+    # UTC daily fallback; only one paid attempt is allowed per UK calendar day.
+    - cron: '33 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Shares the existing forecast refresh lock, so data/edges and data/settlements
+# do not push competing results to main at the same time.
+concurrency:
+  group: football-board-refresh
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test forecasts, bookmaker matching, grading, quota controls
+        run: python3 -m unittest discover -s tests -v
+      - name: Compile Python and check browser code
+        run: |
+          python3 -m compileall -q scripts
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path('index.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script>(.*?)</script>',html,re.S)
+          assert len(scripts)==1
+          assert 'data/edges/latest.json' in html
+          Path('/tmp/football-production-board.js').write_text(scripts[0],encoding='utf-8')
+          PY
+          node --check /tmp/football-production-board.js
+
+  publish:
+    if: >-
+      github.event_name != 'pull_request' &&
+      (github.event_name != 'workflow_run' ||
+       github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    permissions:
+      contents: write
+    steps:
+      - name: Check out trusted main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Verify production Python and odds tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Freeze one daily bookmaker quote set and grade settled picks
+        id: collect
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        shell: bash
+        run: |
+          set +e
+          python3 scripts/publish_edges.py --limit 12 --reserve 100
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          # Always allow the next step to commit the per-day receipt, even if
+          # an API request failed after consuming some of the budget.
+          exit 0
+      - name: Commit only reduced odds and historical performance data
+        run: |
+          git add -A -- data/edges
+          if git diff --cached --quiet; then
+            echo "No verified edge changes to publish"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish frozen bookmaker edges and verified hypothetical results"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            echo "Retrying safe fast-forward: $attempt"
+            sleep 3
+          done
+          echo "Unable to publish receipt safely"
+          exit 1
+      - name: Fail workflow if bookmaker collection failed
+        if: steps.collect.outputs.code != '0'
+        run: |
+          echo "Odds API collection failed; prior successful snapshots are retained."
+          exit 1

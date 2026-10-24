@@ -1,0 +1,7 @@
+# Local authenticated configuration and unreleased bookmaker data
+.env
+.env.*
+!.env.example
+private_odds/
+__pycache__/
+*.py[cod]
