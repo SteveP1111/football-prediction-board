@@ -21,10 +21,11 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 #notice{font-size:13px}.source{margin:22px 0;color:var(--muted);font-size:12px}
 @media(max-width:760px){.cards{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:repeat(2,1fr)}.panel{padding:14px}.match{padding:15px}}
 @media(max-width:420px){main{padding:14px 11px 60px}.fixture{font-size:15px}.searchline button{padding:0 12px}}
+.edge-positive{color:var(--green)}.edge-negative{color:var(--bad)}.edge-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0 14px}.edge-grid strong{display:block;font-size:18px}.edge-grid span{font-size:11px;color:var(--muted)}.edge-table{overflow-x:auto}.edge-table table{min-width:820px}.edge-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}.edge-controls select{padding:8px}.edge-controls label{display:flex;gap:6px;align-items:center}.edge-grid .kpi{padding:12px}@media(max-width:620px){.edge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head>
 <body><main>
-<header><div><div class="eyebrow">English Football · Prediction Intelligence</div><h1>Football Prediction Board</h1><p>Find the strongest markets, compare exact-score forecasts and track what the model got right and wrong. Five English leagues, updated through GitHub.</p><div class="meta"><span class="pill live" id="status-pill">Loading data</span><span class="pill" id="date-pill">Date —</span><span class="pill">No bookmaker odds used</span></div></div></header>
-<nav class="nav"><button data-view="today" class="active">Today’s board</button><button data-view="history">History</button><button data-view="performance">Performance</button></nav>
+<header><div><div class="eyebrow">English Football · Prediction Intelligence</div><h1>Football Prediction Board</h1><p>Find the strongest markets, compare exact-score forecasts and track what the model got right and wrong. Five English leagues, updated through GitHub.</p><div class="meta"><span class="pill live" id="status-pill">Loading data</span><span class="pill" id="date-pill">Date —</span><span class="pill">Bookmaker odds never enter model forecasts</span></div></div></header>
+<nav class="nav"><button data-view="today" class="active">Today’s board</button><button data-view="history">History</button><button data-view="performance">Performance</button><button data-view="edges">Odds &amp; Edge</button></nav>
 <div id="notice" aria-live="polite"></div>
 <div id="today">
 <div class="kpis"><div class="kpi"><span>Fixtures scored</span><strong id="k-games">—</strong></div><div class="kpi"><span>Experimental markets ≥60%</span><strong id="k-picks">—</strong></div><div class="kpi"><span>Leagues covered</span><strong id="k-leagues">—</strong></div><div class="kpi"><span>Frozen before kick-off</span><strong id="k-frozen">—</strong></div></div>
@@ -38,13 +39,24 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 </div>
 <div id="history" hidden><section class="panel"><h2>Frozen forecasts and results</h2><p class="muted small">Each day's pre-match snapshot is saved once. Final scores and market outcomes are stored separately. Select a date to inspect its original forecasts.</p><div id="history-list">Loading…</div></section></div>
 <div id="performance" hidden><section class="panel"><h2>Forward performance</h2><p class="muted small">Accuracy below is historical hit rate for each market outcome, not betting profitability. The Brier score penalises poorly calibrated probabilities (lower is better). All forecasts are experimental until prospectively validated.</p><div id="perf-content">Loading…</div></section></div>
+<div id="edges" hidden>
+<section class="panel"><h2>Bookmaker odds compared with frozen forecasts</h2>
+<p class="muted small">Independent experimental Scoreline Model probabilities against captured UK bookmaker prices. Positive theoretical edge is not a guarantee of success. Odds can change; this is not a live bookmaker feed. Rankings prioritise model probability, then edge.</p>
+<div id="edge-status" aria-live="polite" class="muted small">Checking for verified bookmaker comparisons…</div>
+<div class="edge-controls">
+<label for="edge-league">League</label><select id="edge-league"><option value="all">All supported leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option></select>
+<label for="edge-market">Market</label><select id="edge-market"><option value="all">All markets</option><option value="home_win">Home win</option><option value="draw">Draw</option><option value="away_win">Away win</option><option value="btts">BTTS Yes</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="under35">Under 3.5</option></select>
+<label><input type="checkbox" id="edge-positive" checked>Positive edge only</label>
+<label><input type="checkbox" id="edge-upcoming" checked>Upcoming matches only</label>
+</div>
+<div id="edge-list">No audited bookmaker comparisons published.</div></section></div>
 <div class="source" id="source-line">Data source: Football-Data.co.uk. This is research, not financial or betting advice. No odds, final scores or future information enter a pre-match forecast.</div>
 </main>
 <script>
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
-let snapshot=null,settlements={},history=[],performance=null,b31history=null;
+let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null;
 let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:""};
 const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",modal00:"Exact 0–0 forecasts"};
 const pct=n=>(100*Number(n||0)).toFixed(1)+"%";
@@ -52,7 +64,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const prob=(g,k)=>k==="modal00"?(g.scoreline?.modalScore==="0-0"?g.scoreline.modalProbability:0):(g.scoreline?.markets?.[k]||0);
 const b31=(g)=>g.b31?.qualifiers||[];
 async function getJSON(path,fallback){try{const r=await fetch(path+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(String(r.status));return await r.json()}catch(e){return fallback}}
-function showView(view){for(const v of ["today","history","performance"])$(v).hidden=v!==view;document.querySelectorAll("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===view))}
+function showView(view){for(const v of ["today","history","performance","edges"])$(v).hidden=v!==view;document.querySelectorAll("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===view))}
 document.querySelectorAll("[data-view]").forEach(x=>x.addEventListener("click",()=>showView(x.dataset.view)));
 function applyQuery(q){
 const x=q.toLowerCase().trim();state.modal00=/0\s*[-–]\s*0|goalless|nil.nil|zero.zero/.test(x);
@@ -122,13 +134,62 @@ $("perf-content").innerHTML=rows.length?'<div style="overflow-x:auto"><table><th
   extra+='<h3 style="margin:24px 0 8px">Independent Scoreline Model · experimental markets</h3>';
   $("perf-content").innerHTML=extra+$("perf-content").innerHTML;
 }
+function drawEdges(){
+const note=$("edge-status"),target=$("edge-list");
+if(!edgeReport||!Array.isArray(edgeReport.picks)){
+ note.textContent="No audited bookmaker price comparison has been published. This tab will remain empty until a verified pre-kickoff collection is approved.";
+ target.innerHTML='<p class="muted small">The prediction model still operates independently without bookmaker prices.</p>';
+ return;
+}
+if(edgeReport.forecastDate!==snapshot?.date){
+ note.textContent="Saved odds belong to "+String(edgeReport.forecastDate||"an earlier date")+"; they are not today's prices.";
+ target.innerHTML='<p class="muted small">A new pre-match comparison is required. Historical prices will not be misrepresented as current.</p>';
+ return;
+}
+const summary=edgeReport.summary||{},recorded=new Date(edgeReport.oddsRetrievedAtUtc);
+if(!Number.isFinite(recorded.getTime())){
+ note.textContent="Invalid bookmaker collection timestamp; prices withheld.";target.innerHTML="";return;
+}
+note.textContent="Forecast "+edgeReport.forecastDate+" · Odds captured "+recorded.toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"})+" UK · "+(summary.matchedFixtures||0)+" safely matched fixtures · "+(summary.marketsPriced||0)+" priced markets. Missing bookmaker markets are not estimated.";
+let picks=edgeReport.picks.slice();
+const league=$("edge-league").value,market=$("edge-market").value;
+if(league!=="all")picks=picks.filter(p=>p.division===league);
+if(market!=="all")picks=picks.filter(p=>p.market===market);
+if($("edge-positive").checked)picks=picks.filter(p=>p.positiveEdge);
+if($("edge-upcoming").checked)picks=picks.filter(p=>{const t=new Date(p.kickoffUtc).getTime();return Number.isFinite(t)&&t>Date.now()});
+picks.sort((a,b)=>Number(b.modelProbability)-Number(a.modelProbability)||Number(b.edgePp)-Number(a.edgePp));
+if(!picks.length){
+ target.innerHTML='<p class="muted small">No selections meet these conditions. Try another market or disable one of the filters. No odds or edges are fabricated where bookmakers provide no price.</p>';
+ return;
+}
+const p100=n=>Number.isFinite(Number(n))?(Number(n)*100).toFixed(1)+"%":"—";
+const number=n=>Number.isFinite(Number(n))?Number(n).toFixed(2):"—";
+const rows=picks.slice(0,150).map(p=>{
+ const expired=new Date(p.kickoffUtc).getTime()<=Date.now(),edge=Number(p.edgePp);
+ return '<tr><td><strong>'+esc(p.home)+' v '+esc(p.away)+'</strong><div class="tiny muted">'+esc(p.league)+' · '+esc(p.date)+' '+esc(p.kickoff)+(expired?' · Started, archived price':'')+'</div></td>'+
+ '<td>'+esc(p.marketLabel)+'</td><td class="num"><strong>'+p100(p.modelProbability)+'</strong></td>'+
+ '<td class="num">'+number(p.odds)+'</td><td class="num">'+p100(p.impliedProbability)+'</td>'+
+ '<td class="num '+(edge>0?'edge-positive':'edge-negative')+'"><strong>'+(edge>0?'+':'')+number(edge)+'pp</strong></td>'+
+ '<td class="num">'+(Number(p.expectedRoiPct)>0?'+':'')+number(p.expectedRoiPct)+'%</td>'+
+ '<td>'+esc(p.bookmaker)+'<div class="tiny muted">'+esc(p.bookmakersCompared)+' price source(s)</div></td></tr>';
+}).join("");
+target.innerHTML='<div class="edge-grid">'+
+ '<div class="kpi"><span>Showing selections</span><strong>'+picks.length+'</strong></div>'+
+ '<div class="kpi"><span>Safely matched fixtures</span><strong>'+Number(summary.matchedFixtures||0)+'</strong></div>'+
+ '<div class="kpi"><span>Positive edges (all markets)</span><strong>'+Number(summary.positiveEdges||0)+'</strong></div>'+
+ '<div class="kpi"><span>Model calibration</span><strong>Experimental</strong></div></div>'+
+ '<div class="edge-table"><table><thead><tr><th>Fixture</th><th>Market</th><th class="num">Model chance</th><th class="num">Decimal odds</th><th class="num">Bookie implied</th><th class="num">Edge</th><th class="num">Theor. ROI</th><th>Bookmaker</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+ '<p class="muted small">Edge (percentage points) = model probability minus 1 ÷ decimal odds. Theoretical ROI = (model probability × odds − 1) × 100. Bookmakers and prices were recorded at collection, not verified in real time. Prices may have changed. Model probabilities are not calibrated, so estimated edges can be misleading.</p>';
+}
+for(const id of ["edge-league","edge-market","edge-positive","edge-upcoming"])
+ $(id).addEventListener("change",drawEdges);
 async function init(){
-const [s,historyData,perf,settled,status,legacy]=await Promise.all([
+const [s,historyData,perf,settled,status,legacy,edges]=await Promise.all([
 getJSON("data/latest.json",null),getJSON("data/history.json",[]),getJSON("data/performance.json",null),
-getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null)]);
+getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null)]);
 snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
 await applyBridge();
-history=historyData;performance=perf;settlements=settled;b31history=legacy;
+history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;
 const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5"};
 const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(g.scoreline?.markets||{}).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=.60).sort((a,b)=>b.p-a.p);
 $("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No market exceeds 60% among the saved fixtures today. That does not mean no matches were analysed.</p>';
@@ -141,8 +202,8 @@ $("date-pill").textContent=snapshot.date||"No date";
 $("status-pill").textContent=status?.refreshed?"Last refresh "+new Date(status.refreshed).toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"}):"Refresh not yet verified";
 if(status?.warnings?.length)$("notice").innerHTML+='<div class="alert" style="margin:8px 0">Data coverage warning: '+status.warnings.map(esc).join('; ')+' · Current probabilities may exclude recent results.</div>';
 if(!s||!(s.games||[]).length)$("notice").innerHTML='<div class="alert">No frozen pre-match forecast is available for this date. The scheduled workflow may not have run yet, fixtures may not be published, or the data source may be unavailable. Past results are not being presented as today’s picks.</div>';
-$("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. No bookmaker odds are used.";
-draw();drawHistory();drawPerformance();
+$("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. Bookmaker odds are never used as forecast inputs.";
+draw();drawHistory();drawPerformance();drawEdges();
 }
 init();
 })();
