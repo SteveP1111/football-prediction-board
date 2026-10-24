@@ -100,7 +100,7 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
         print("No supported divisions today; skipping API entirely.")
         return "no-supported-games"
     print("Daily edge plan:", today, "fixtures", len(eligible),
-          "competitions", len(sports), "additional events", extra,
+          "competitions", len(sports), "maximum targeted market requests", extra,
           "maximum planned credits", projected, "minimum reserve", reserve)
     if dry_run:
         return "dry-run"
