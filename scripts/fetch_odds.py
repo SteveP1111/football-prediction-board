@@ -77,8 +77,12 @@ def preflight(key):
     return active, remaining
 
 
-def collect(key, selected, max_credits, save=False, extra_markets=(), extra_events=0, frozen_snapshot=None):
+def collect(key, selected, max_credits, save=False, extra_markets=(), extra_events=0, frozen_snapshot=None, usage=None, reserve_credits=0):
     active, remaining = preflight(key)
+    start_remaining = remaining
+    if usage is not None:
+        usage.update(startRemaining=remaining, endRemaining=remaining, spentCredits=0,
+                     requestedSports=list(selected), plannedMaxCredits=max_credits)
     if any(sport not in active for sport in selected):
         raise RuntimeError("A requested competition is not currently active")
     if extra_markets and (not frozen_snapshot or frozen_snapshot.get("status") != "frozen-prekickoff"):
@@ -90,11 +94,13 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
         raise RuntimeError("Requested markets exceed the explicit credit budget")
     if remaining < upper_bound:
         raise RuntimeError("Insufficient remaining credits for the maximum planned cost")
+    if remaining - upper_bound < reserve_credits:
+        raise RuntimeError("Credit reserve threshold reached; collecting no paid odds")
 
     games = []
     for sport in selected:
         # Budget is checked before every chargeable request, not just once.
-        if remaining < MAX_COST_PER_SPORT:
+        if remaining < MAX_COST_PER_SPORT or remaining - MAX_COST_PER_SPORT < reserve_credits:
             raise RuntimeError("Remaining credits too low; stopped before next request")
         payload, headers = fetch(
             "/sports/" + sport + "/odds/",
@@ -104,6 +110,10 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
         if not isinstance(payload, list):
             raise RuntimeError("Unexpected bookmaker odds response")
         remaining = quota_remaining(headers)
+        if usage is not None:
+            usage.update(endRemaining=remaining, spentCredits=max(0, start_remaining-remaining))
+        if (start_remaining - remaining) > max_credits:
+            raise RuntimeError("Odds API usage exceeded the run budget; halting further calls")
         for game in payload:
             if not isinstance(game, dict) or not all(
                 isinstance(game.get(field), str)
@@ -157,7 +167,7 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
             candidates.append(event)
         for event in sorted(candidates, key=lambda item: item["commence_time"])[:extra_events]:
             upper = len(extra_markets)
-            if remaining < upper:
+            if remaining < upper or remaining - upper < reserve_credits:
                 raise RuntimeError("Credits insufficient for event markets; stopping safely")
             payload, headers = fetch(
                 "/sports/" + event["sport"] + "/events/" + event["id"] + "/odds",
@@ -165,6 +175,10 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
                 {"regions": REGION, "markets": ",".join(extra_markets), "oddsFormat": "decimal"},
             )
             remaining = quota_remaining(headers)
+            if usage is not None:
+                usage.update(endRemaining=remaining, spentCredits=max(0, start_remaining-remaining))
+            if (start_remaining - remaining) > max_credits:
+                raise RuntimeError("Odds API usage exceeded the run budget; halting further calls")
             if not isinstance(payload, dict) or payload.get("id") != event["id"]:
                 raise RuntimeError("Event-market response identity mismatch")
             if canonical(payload.get("home_team")) != canonical(event.get("home_team")) or (
