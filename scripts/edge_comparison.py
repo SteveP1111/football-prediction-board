@@ -100,6 +100,7 @@ TEAM_ALIASES = {
     "doncaster": "doncaster rovers", "doncaster rovers": "doncaster rovers",
     "stockport county fc": "stockport county",
     "bradford": "bradford city", "bradford city": "bradford city",
+    "oxford": "oxford united",
     "swindon": "swindon", "swindon town": "swindon",
     "oldham": "oldham", "oldham athletic": "oldham",
     "chesterfield": "chesterfield", "chesterfield fc": "chesterfield",
