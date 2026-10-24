@@ -13,6 +13,7 @@ from fetch_odds import ROOT, fetch, quota_remaining
 def run():
     parser = argparse.ArgumentParser()
     parser.add_argument("--snapshot", type=Path, default=ROOT / "data/latest.json")
+    parser.add_argument("--show-mismatches", action="store_true", help="Print same-day provider and model team names (no prices)")
     args = parser.parse_args()
     key = os.environ.get("ODDS_API_KEY")
     if not key:
@@ -30,6 +31,7 @@ def run():
         matchlist = []
         starts = []
         local_days = []
+        same_day_events = []
         for event in payload:
             if not isinstance(event, dict):
                 continue
@@ -39,6 +41,8 @@ def run():
             if start:
                 starts.append(start.isoformat())
                 local_days.append(start.astimezone(__import__("zoneinfo").ZoneInfo("Europe/London")).date().isoformat())
+            if k and k[3] == snap.get("date"):
+                same_day_events.append(event)
             if k in lookups:
                 f = lookups[k]
                 expected = fixture_kickoff(f)
@@ -58,6 +62,9 @@ def run():
               "first London date:", min(local_days, default="none"),
               "reasons:", json.dumps(counts, sort_keys=True),
               "credits remaining:", remaining)
+        if args.show_mismatches:
+            print("UNMATCHED MODEL:", json.dumps([{"home": f["home"], "away": f["away"], "kickoff": f.get("kickoff")} for f in models if f["id"] not in matchlist]))
+            print("PROVIDER SAME DATE:", json.dumps([{"home": e["home_team"], "away": e["away_team"], "kickoff": e.get("commence_time")} for e in same_day_events]))
         if sport == "soccer_epl":
             print("Premier League model today:", " | ".join(f["home"]+" v "+f["away"] for f in models))
             same_day = [e["home_team"]+" v "+e["away_team"]
