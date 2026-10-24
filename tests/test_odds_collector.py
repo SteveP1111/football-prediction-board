@@ -75,7 +75,7 @@ class OddsTests(unittest.TestCase):
             with patch.object(mod, "fetch", side_effect=fake_fetch):
                 matches = mod.collect("fake-key", [mod.SPORTS[0]], 2)
             self.assertEqual(len(matches), 1)
-            self.assertFalse((Path(d) / "data" / "odds").exists())
+            self.assertFalse((Path(d) / "private_odds").exists())
         self.assertEqual(len(calls), 2)
 
     def test_save_explicitly_never_serialises_key(self):
@@ -86,7 +86,7 @@ class OddsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d, patch.object(mod, "ROOT", Path(d)):
             with patch.object(mod, "fetch", side_effect=fake_fetch):
                 mod.collect("fake-test-secret", [mod.SPORTS[0]], 2, save=True)
-            files = list((Path(d) / "data" / "odds").glob("*.json"))
+            files = list((Path(d) / "private_odds").glob("*.json"))
             self.assertEqual(len(files), 1)
             content = files[0].read_text()
             self.assertNotIn("fake-test-secret", content)
@@ -114,7 +114,7 @@ class OddsTests(unittest.TestCase):
             with patch.object(mod, "fetch", side_effect=fake_fetch):
                 with self.assertRaisesRegex(RuntimeError, "Invalid event schema"):
                     mod.collect("fake-key", [mod.SPORTS[0]], 2, save=True)
-            self.assertFalse((Path(d) / "data" / "odds").exists())
+            self.assertFalse((Path(d) / "private_odds").exists())
 
 
 if __name__ == "__main__":
