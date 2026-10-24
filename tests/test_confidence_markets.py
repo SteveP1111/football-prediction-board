@@ -107,7 +107,7 @@ class ConfidenceSelectionTests(unittest.TestCase):
         f = fixture(probability_btts=.64, over35=.20)
         event = provider(markets=[{"key":"h2h","outcomes":[]}])
         selected = select_confident_event_markets(
-            model(f), [event], datetime(2026, 10, 24, tzinfo=timezone.utc))
+            model(f), [event], datetime(2026, 10, 24, 1, tzinfo=timezone.utc))
         self.assertEqual({x["market"] for x in selected}, {"btts", "alternate_totals"})
         self.assertEqual({x["selection"] for x in selected}, {"btts", "under35"})
 
@@ -119,17 +119,17 @@ class ConfidenceSelectionTests(unittest.TestCase):
                 {"name":"Over","point":3.5,"price":2.9}
             ]}])
         self.assertEqual(select_confident_event_markets(model(f),[ev],
-                         datetime(2026,10,24,tzinfo=timezone.utc)), [])
+                         datetime(2026,10,24,1,tzinfo=timezone.utc)), [])
 
     def test_low_confidence_skips_btts_and_alternates(self):
         f = fixture(probability_btts=.56, over35=.40)
         selected = select_confident_event_markets(
-            model(f), [provider()], datetime(2026,10,24,tzinfo=timezone.utc))
+            model(f), [provider()], datetime(2026,10,24,1,tzinfo=timezone.utc))
         self.assertEqual(selected, [])
 
     def test_frozen_source_league_team_and_kickoff_must_agree(self):
         f = fixture(probability_btts=.68,over35=.18)
-        now=datetime(2026,10,24,tzinfo=timezone.utc)
+        now=datetime(2026,10,24,1,tzinfo=timezone.utc)
         for ev in [
             provider(away="Manchester United"),
             provider(home="Manchester City",away="Aston Villa"),
@@ -142,13 +142,13 @@ class ConfidenceSelectionTests(unittest.TestCase):
         f = fixture()
         events=[provider(event_id="valid_a"),provider(event_id="valid_b")]
         self.assertEqual(select_confident_event_markets(
-            model(f),events,datetime(2026,10,24,tzinfo=timezone.utc)),[])
+            model(f),events,datetime(2026,10,24,1,tzinfo=timezone.utc)),[])
 
     def test_current_quote_of_btts_already_present_is_not_requested_again(self):
         f=fixture(probability_btts=.68,over35=.40)
         ev=provider(markets=[{"key":"btts","outcomes":[
             {"name":"Yes","price":1.8},{"name":"No","price":2.0}]}])
-        selected=select_confident_event_markets(model(f),[ev],datetime(2026,10,24,tzinfo=timezone.utc))
+        selected=select_confident_event_markets(model(f),[ev],datetime(2026,10,24,1,tzinfo=timezone.utc))
         self.assertEqual(selected,[])
 
     def test_four_slots_split_between_btts_and_totals(self):
@@ -163,7 +163,7 @@ class ConfidenceSelectionTests(unittest.TestCase):
                   for i,(a,b,_) in enumerate(teams)]
         events=[provider(a,d,event_id=f"event000{i}") for i,(a,b,d) in enumerate(teams)]
         selected=select_confident_event_markets(
-            model(*fixtures),events,datetime(2026,10,24,tzinfo=timezone.utc),max_requests=4)
+            model(*fixtures),events,datetime(2026,10,24,1,tzinfo=timezone.utc),max_requests=4)
         self.assertEqual(len(selected),4)
         self.assertEqual(Counter(x["market"] for x in selected),
                          Counter({"btts":2,"alternate_totals":2}))
