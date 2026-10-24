@@ -8,6 +8,7 @@ No credentials, authenticated URLs, or bookmaker payloads are written to logs.
 import argparse
 import json
 import os
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -76,11 +77,15 @@ def preflight(key):
     return active, remaining
 
 
-def collect(key, selected, max_credits, save=False):
+def collect(key, selected, max_credits, save=False, extra_markets=(), extra_events=0, frozen_snapshot=None):
     active, remaining = preflight(key)
     if any(sport not in active for sport in selected):
         raise RuntimeError("A requested competition is not currently active")
-    upper_bound = len(selected) * MAX_COST_PER_SPORT
+    if extra_markets and (not frozen_snapshot or frozen_snapshot.get("status") != "frozen-prekickoff"):
+        raise RuntimeError("Event markets require an immutable pre-match forecast snapshot")
+    if extra_markets and not 0 < extra_events <= 3:
+        raise RuntimeError("Event markets require an explicit limit of 1 to 3 matched events")
+    upper_bound = len(selected) * MAX_COST_PER_SPORT + len(extra_markets) * extra_events
     if upper_bound > max_credits:
         raise RuntimeError("Requested markets exceed the explicit credit budget")
     if remaining < upper_bound:
@@ -124,6 +129,72 @@ def collect(key, selected, max_credits, save=False):
               (", ".join(offered_markets) or "none") +
               "; credits remaining: " + str(remaining))
 
+    if extra_markets:
+        from edge_comparison import canonical, event_key, fixture_key, fixture_kickoff, parse_utc
+        from collections import defaultdict
+        lookups = defaultdict(list)
+        for fixture in frozen_snapshot.get("games", []):
+            k = fixture_key(fixture)
+            if k:
+                lookups[k].append(fixture)
+        candidates = []
+        now = datetime.now(timezone.utc)
+        for event in games:
+            k = event_key(event)
+            options = lookups.get(k, []) if k else []
+            if len(options) != 1:
+                continue
+            fixture = options[0]
+            start = parse_utc(event.get("commence_time"))
+            expected = fixture_kickoff(fixture)
+            if not start or not expected or start <= now or expected <= now:
+                continue
+            if abs((expected-start).total_seconds()) > 90 * 60:
+                continue
+            eid = event.get("id", "")
+            if not isinstance(eid, str) or not re.fullmatch(r"[A-Za-z0-9_-]{3,128}", eid):
+                continue
+            candidates.append(event)
+        for event in sorted(candidates, key=lambda item: item["commence_time"])[:extra_events]:
+            upper = len(extra_markets)
+            if remaining < upper:
+                raise RuntimeError("Credits insufficient for event markets; stopping safely")
+            payload, headers = fetch(
+                "/sports/" + event["sport"] + "/events/" + event["id"] + "/odds",
+                key,
+                {"regions": REGION, "markets": ",".join(extra_markets), "oddsFormat": "decimal"},
+            )
+            remaining = quota_remaining(headers)
+            if not isinstance(payload, dict) or payload.get("id") != event["id"]:
+                raise RuntimeError("Event-market response identity mismatch")
+            if canonical(payload.get("home_team")) != canonical(event.get("home_team")) or (
+                canonical(payload.get("away_team")) != canonical(event.get("away_team"))
+            ):
+                raise RuntimeError("Event-market team identity mismatch")
+            bookmakers = payload.get("bookmakers")
+            if not isinstance(bookmakers, list):
+                raise RuntimeError("Malformed event bookmaker list")
+            known = {b.get("key"): b for b in event["bookmakers"] if isinstance(b, dict)}
+            added = set()
+            for book in bookmakers:
+                if not isinstance(book, dict) or not book.get("key"):
+                    continue
+                existing = known.get(book["key"])
+                if existing is None:
+                    existing = {"key": book["key"], "title": book.get("title", book["key"]), "markets": []}
+                    event["bookmakers"].append(existing)
+                    known[book["key"]] = existing
+                if not isinstance(book.get("markets"), list):
+                    continue
+                for market in book["markets"]:
+                    if not isinstance(market, dict) or market.get("key") not in extra_markets:
+                        continue
+                    if not any(m.get("key") == market["key"] for m in existing.get("markets", [])):
+                        existing.setdefault("markets", []).append(market)
+                        added.add(market["key"])
+            print("Event-market lookup:", event["sport"], "offered:", ",".join(sorted(added)) or "none",
+                  "; credits remaining:", remaining)
+
     if save:
         stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%S%fZ")
         output = ROOT / "private_odds" / (stamp + ".json")
@@ -150,17 +221,25 @@ def main():
     parser.add_argument("--sport", action="append", choices=SPORTS)
     parser.add_argument("--max-credits", type=int, default=2)
     parser.add_argument("--save", action="store_true")
+    parser.add_argument("--extra-market", choices=("btts", "alternate_totals"), action="append")
+    parser.add_argument("--extra-events", type=int, default=0)
     parser.add_argument("--compare-snapshot", type=Path, help="Locally assess collected odds against frozen model forecasts")
     parser.add_argument("--comparison-output", type=Path, help="Write anonymised selection summary, not full bookmaker feed")
     args = parser.parse_args()
-    if args.max_credits < 1 or args.max_credits > 8:
-        parser.error("credit limit must be between 1 and 8")
+    if args.max_credits < 1 or args.max_credits > 24:
+        parser.error("credit limit must be between 1 and 24")
     if args.save and args.mode != "collect":
         parser.error("--save requires --mode collect")
     if args.comparison_output and not args.compare_snapshot:
         parser.error("--comparison-output requires --compare-snapshot")
     if args.compare_snapshot and args.mode != "collect":
         parser.error("--compare-snapshot requires --mode collect")
+    if args.extra_market and not args.compare_snapshot:
+        parser.error("Event markets require --compare-snapshot to restrict requests to matching fixtures")
+    if args.extra_market and not 0 < args.extra_events <= 3:
+        parser.error("Use --extra-events 1 to 3 explicitly for event markets")
+    if args.extra_events and not args.extra_market:
+        parser.error("--extra-events requires --extra-market")
     if args.comparison_output and args.comparison_output.resolve().is_relative_to((ROOT / "data").resolve()):
         parser.error("Do not publish previews under public data/ before review")
     key = os.environ.get("ODDS_API_KEY")
@@ -170,10 +249,11 @@ def main():
         if args.mode == "preflight":
             preflight(key)
         else:
-            games = collect(key, args.sport or [SPORTS[0]], args.max_credits, args.save)
+            forecasts = json.loads(args.compare_snapshot.read_text(encoding="utf-8")) if args.compare_snapshot else None
+            games = collect(key, args.sport or [SPORTS[0]], args.max_credits, args.save,
+                            tuple(dict.fromkeys(args.extra_market or ())), args.extra_events, forecasts)
             if args.compare_snapshot:
                 from edge_comparison import assess
-                forecasts = json.loads(args.compare_snapshot.read_text(encoding="utf-8"))
                 comparison = assess(forecasts, {
                     "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
                     "fixtures": games,
