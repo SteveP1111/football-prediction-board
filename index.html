@@ -72,7 +72,7 @@ if(k==="modal00")return g.scoreline?.modalScore==="0-0"?(g.scoreline.modalProbab
 const p=modelMarkets(g)[k];return Number.isFinite(p)?Math.max(0,Math.min(1,p)):0;
 }
 const isGoalsOrBtts=k=>["btts","no_btts","over25","under25","over35","under35"].includes(k);
-const marketThreshold=k=>isGoalsOrBtts(k)?.55:.60;
+const marketThreshold=k=>isGoalsOrBtts(k)?0.55:0.60;
 function marketFromQuery(q){
 const x=String(q||"").toLowerCase();
 const is35=/(?:\b3\s*[.,]\s*5\b|\b3\s*½\b|\bthree\s*(?:point\s*five|and\s+a\s+half)\b)/.test(x);
