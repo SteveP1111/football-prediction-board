@@ -1,1 +1,1 @@
-Verify all 38 supported 24 Oct 2026 model fixtures against free provider events after exact club-alias fixes. No priced data requested.
+Free event-list verification of all 38 fixtures after Oxford and test fixture fixes. No priced API requests.
