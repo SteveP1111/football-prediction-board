@@ -15,6 +15,8 @@ class ForecastTests(unittest.TestCase):
         out=refresh.model(f,[])
         sc=out["scoreline"];m=sc["markets"];b=sc["goalBands"]
         self.assertAlmostEqual(m["over25"]+m["under25"],1,places=4)
+        self.assertAlmostEqual(m["over35"]+m["under35"],1,places=4)
+        self.assertAlmostEqual(m["under35"],b["0-1"]+b["2"]+b["3"],places=4)
         self.assertAlmostEqual(m["home_win"]+m["away_win"]+m["draw"],1,places=4)
         self.assertAlmostEqual(m["btts"]+m["no_btts"],1,places=4)
         self.assertAlmostEqual(sum(b.values()),1,places=4)
@@ -23,6 +25,8 @@ class ForecastTests(unittest.TestCase):
         self.assertEqual(refresh.settle(None,(3,0))["over25"],True)
         self.assertEqual(refresh.settle(None,(3,0))["btts"],False)
         self.assertEqual(refresh.settle(None,(0,0))["under25"],True)
+        self.assertEqual(refresh.settle(None,(2,1))["under35"],True)
+        self.assertEqual(refresh.settle(None,(3,1))["under35"],False)
         self.assertEqual(refresh.settle(None,(2,1))["home_win"],True)
     def test_conflicting_scores_rejected(self):
         row={"id":"same","hg":2,"ag":1,"status":"current"}
