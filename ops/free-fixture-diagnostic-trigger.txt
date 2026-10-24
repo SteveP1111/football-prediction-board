@@ -1,1 +1,0 @@
-Free event-list verification of all 38 fixtures after Oxford and test fixture fixes. No priced API requests.
