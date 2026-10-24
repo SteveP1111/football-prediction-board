@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MAX_RUN_CREDITS = 12
 RESERVE_CREDITS = 100
 STANDARD_MARKET_COST = 2  # h2h + totals, one UK region
-EXTRA_MARKET_COST = 2     # BTTS + alternate totals for one upcoming event
+EXTRA_MARKET_COST = 1     # one confidence-selected event/market request
 
 
 def json_data(path, default=None):
@@ -64,8 +64,9 @@ def choose_spend(eligible, limit=MAX_RUN_CREDITS):
     base = len(sports) * STANDARD_MARKET_COST
     if base > limit:
         raise RuntimeError("Sport set exceeds daily hard credit budget")
-    # At most two targeted event-market enquiries to preserve the 500-credit plan.
-    extra = min(2, len(eligible), max(0, (limit - base) // EXTRA_MARKET_COST))
+    # Up to four single-market enquiries, confidence-filtered AFTER batch quotes.
+    # Some unused capacity deliberately remains unspent if nothing qualifies.
+    extra = min(4, 2 * len(eligible), max(0, (limit - base) // EXTRA_MARKET_COST))
     return sports, extra, base + EXTRA_MARKET_COST * extra
 
 
@@ -121,7 +122,8 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
     record = {
         "date": today, "status": "attempted",
         "startedAtUtc": now.isoformat(), "forecastCapturedAt": data["capturedAt"],
-        "requestedSports": sports, "extraEventRequests": extra,
+        "requestedSports": sports, "extraMarketRequestsCap": extra,
+        "selectionPolicy": "BTTS Yes/No 60%+, Over/Under 3.5 70%+, skip already-priced outcomes",
         "plannedMaxCredits": projected, "reserveCredits": reserve,
         "startRemaining": remaining, "endRemaining": remaining, "spentCredits": 0,
     }
@@ -131,8 +133,7 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
     try:
         fetched = collect(
             secret, sports, projected, save=False,
-            extra_markets=("btts", "alternate_totals") if extra else (),
-            extra_events=extra, frozen_snapshot=data,
+            frozen_snapshot=data, confidence_extra_calls=extra,
             usage=usage, reserve_credits=reserve,
         )
         retrieved = datetime.now(timezone.utc).isoformat()
@@ -161,6 +162,9 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
     finally:
         record["completedAtUtc"] = datetime.now(timezone.utc).isoformat()
         if usage:
+            for attr in ("confidenceQualifyingRequests", "confidenceRequestsExecuted", "confidenceSelectionPolicy"):
+                if attr in usage:
+                    record[attr] = usage[attr]
             for attr in ("endRemaining", "spentCredits"):
                 if attr in usage:
                     record[attr] = usage[attr]
