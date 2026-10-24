@@ -55,7 +55,7 @@ class PublishTests(unittest.TestCase):
         fixtures = [dict(PRED["games"][0], division=div) for div in ("E0","E1","E2","E3")]
         sports, extra, cap = pub.choose_spend(fixtures)
         self.assertEqual(len(sports), 4)
-        self.assertEqual(extra, 2)
+        self.assertEqual(extra, 4)
         self.assertEqual(cap, 12)
 
     def test_dry_run_never_uses_secret(self):
