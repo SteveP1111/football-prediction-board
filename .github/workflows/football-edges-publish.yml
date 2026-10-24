@@ -9,6 +9,8 @@ on:
       - 'scripts/edge_comparison.py'
       - 'tests/test_publish_edges.py'
       - 'tests/test_edge_history.py'
+      - 'tests/test_confidence_markets.py'
+      - 'tests/test_edge_preview.py'
       - '.github/workflows/football-edges-publish.yml'
       - '.github/workflows/pages.yml'
   workflow_run:
