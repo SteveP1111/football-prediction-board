@@ -89,6 +89,22 @@ TEAM_ALIASES = {
     "sunderland afc": "sunderland", "sunderland": "sunderland",
     "notts county": "notts county", "notts co": "notts county",
     "leyton orient": "leyton orient", "orient": "leyton orient",
+    # Verified 24 Oct 2026 against the provider's free event-list names.
+    "lincoln": "lincoln city", "lincoln city": "lincoln city",
+    "preston": "preston north end", "preston north end": "preston north end",
+    "wigan": "wigan", "wigan athletic": "wigan",
+    "wycombe": "wycombe wanderers", "wycombe wanderers": "wycombe wanderers",
+    "mansfield": "mansfield town", "mansfield town": "mansfield town",
+    "bromley": "bromley", "bromley fc": "bromley",
+    "peterboro": "peterborough",
+    "doncaster": "doncaster rovers", "doncaster rovers": "doncaster rovers",
+    "stockport county fc": "stockport county",
+    "bradford": "bradford city", "bradford city": "bradford city",
+    "swindon": "swindon", "swindon town": "swindon",
+    "oldham": "oldham", "oldham athletic": "oldham",
+    "chesterfield": "chesterfield", "chesterfield fc": "chesterfield",
+    "exeter": "exeter", "exeter city": "exeter",
+    "york": "york", "york city": "york",
 }
 
 def canonical(name):
