@@ -67,6 +67,14 @@ class SettlementTests(unittest.TestCase):
         self.assertEqual(data["summary"]["positiveEdges60Plus"]["selections"], 1)
         self.assertEqual(data["summary"]["byProbabilityBand"]["60–69.9%"]["selections"], 1)
 
+    def test_no_market_coverage_day_does_not_break_future_history(self):
+        zero = {"schemaVersion": 1, "status": "no-comparable-markets",
+                "forecastDate": "2026-10-25", "picks": []}
+        report = mod.build([zero], {})
+        self.assertEqual(report["recordedSelections"], 0)
+        self.assertEqual(report["summary"]["positiveEdges"]["selections"], 0)
+        self.assertEqual(report["snapshotDays"], ["2026-10-25"])
+
     def test_duplicate_stored_picks_fail_not_double_count(self):
         sample = pick()
         snap = {"schemaVersion": 1, "status": "compared",
