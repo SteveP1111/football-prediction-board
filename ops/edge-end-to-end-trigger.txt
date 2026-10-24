@@ -1,1 +1,1 @@
-Zero-credit event list diagnostic only. The prior four-credit-budget live test has completed; this trigger must not request odds.
+Re-check provider's free fixtures against up-to-date main-branch forecasts. No paid bookmaker market requests.
