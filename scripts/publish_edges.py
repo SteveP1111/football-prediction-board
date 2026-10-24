@@ -123,7 +123,7 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
         "date": today, "status": "attempted",
         "startedAtUtc": now.isoformat(), "forecastCapturedAt": data["capturedAt"],
         "requestedSports": sports, "extraMarketRequestsCap": extra,
-        "selectionPolicy": "BTTS Yes/No 60%+, Over/Under 3.5 70%+, skip already-priced outcomes",
+        "selectionPolicy": "BTTS Yes/No 55%+, Over/Under 3.5 55%+; standard Over/Under 2.5 already fetched by league, skip already-priced outcomes",
         "plannedMaxCredits": projected, "reserveCredits": reserve,
         "startRemaining": remaining, "endRemaining": remaining, "spentCredits": 0,
     }
