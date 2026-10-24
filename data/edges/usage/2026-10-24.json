@@ -1,0 +1,30 @@
+{
+  "completedAtUtc": "2026-10-24T00:28:12.771175+00:00",
+  "date": "2026-10-24",
+  "endRemaining": 480,
+  "extraEventRequests": 2,
+  "forecastCapturedAt": "2026-10-24T01:03:20.774786+01:00",
+  "plannedMaxCredits": 12,
+  "requestedSports": [
+    "soccer_epl",
+    "soccer_efl_champ",
+    "soccer_england_league1",
+    "soccer_england_league2"
+  ],
+  "reserveCredits": 100,
+  "spentCredits": 12,
+  "startRemaining": 492,
+  "startedAtUtc": "2026-10-24T00:28:11.969635+00:00",
+  "status": "complete",
+  "summary": {
+    "forecastFixtures": 49,
+    "marketsPriced": 140,
+    "matchedFixtures": 24,
+    "oddsEvents": 61,
+    "positiveEdges": 66,
+    "unmatchedForecasts": 25,
+    "unmatchedReasons": {
+      "unmatched_or_ambiguous_name": 37
+    }
+  }
+}

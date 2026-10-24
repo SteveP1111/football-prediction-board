@@ -1,0 +1,92 @@
+{
+  "disclaimer": "Hypothetical £10 flat stakes; not actual bets. Exchange commission, limits and unavailable quoted prices are not deducted. Only settled records count.",
+  "gradedSelections": 0,
+  "pendingSelections": 140,
+  "recordedSelections": 140,
+  "rows": [],
+  "schemaVersion": 1,
+  "snapshotDays": [
+    "2026-10-24"
+  ],
+  "summary": {
+    "allQuotedMarkets": {
+      "hitRatePct": null,
+      "losses": 0,
+      "profitGbp": 0,
+      "roiPct": null,
+      "selections": 0,
+      "stakeGbp": 0.0,
+      "wins": 0
+    },
+    "byDay": {},
+    "byMarket": {},
+    "byProbabilityBand": {
+      "50–59.9%": {
+        "hitRatePct": null,
+        "losses": 0,
+        "profitGbp": 0,
+        "roiPct": null,
+        "selections": 0,
+        "stakeGbp": 0.0,
+        "wins": 0
+      },
+      "60–69.9%": {
+        "hitRatePct": null,
+        "losses": 0,
+        "profitGbp": 0,
+        "roiPct": null,
+        "selections": 0,
+        "stakeGbp": 0.0,
+        "wins": 0
+      },
+      "70–79.9%": {
+        "hitRatePct": null,
+        "losses": 0,
+        "profitGbp": 0,
+        "roiPct": null,
+        "selections": 0,
+        "stakeGbp": 0.0,
+        "wins": 0
+      },
+      "80%+": {
+        "hitRatePct": null,
+        "losses": 0,
+        "profitGbp": 0,
+        "roiPct": null,
+        "selections": 0,
+        "stakeGbp": 0.0,
+        "wins": 0
+      },
+      "Under 50%": {
+        "hitRatePct": null,
+        "losses": 0,
+        "profitGbp": 0,
+        "roiPct": null,
+        "selections": 0,
+        "stakeGbp": 0.0,
+        "wins": 0
+      }
+    },
+    "positiveEdges": {
+      "hitRatePct": null,
+      "losses": 0,
+      "profitGbp": 0,
+      "roiPct": null,
+      "selections": 0,
+      "stakeGbp": 0.0,
+      "wins": 0
+    },
+    "positiveEdges60Plus": {
+      "hitRatePct": null,
+      "losses": 0,
+      "profitGbp": 0,
+      "roiPct": null,
+      "selections": 0,
+      "stakeGbp": 0.0,
+      "wins": 0
+    },
+    "primaryDefinition": "Recorded positive theoretical-edge selections only; £10 flat hypothetical stakes.",
+    "stakePerPickGbp": 10.0
+  },
+  "updatedAtUtc": "2026-10-24T00:28:12.773549+00:00"
+}
