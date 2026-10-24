@@ -126,7 +126,7 @@ def collect(key, selected, max_credits, save=False):
 
     if save:
         stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%S%fZ")
-        output = ROOT / "data" / "odds" / (stamp + ".json")
+        output = ROOT / "private_odds" / (stamp + ".json")
         output.parent.mkdir(parents=True, exist_ok=True)
         content = {
             "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
