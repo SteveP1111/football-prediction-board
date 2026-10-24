@@ -1,1 +1,1 @@
-Free events endpoint only; check exact provider team names for today's unmatched fixtures. No betting odds requested.
+Re-run free same-day model vs provider team-name diagnostic after production test-suite fix. No bookmaker price calls.
