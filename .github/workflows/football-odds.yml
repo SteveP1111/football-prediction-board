@@ -76,10 +76,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Read currently published frozen forecasts from main
+        run: |
+          git fetch --depth=1 origin main
+          git show FETCH_HEAD:data/latest.json > /tmp/football-main-latest.json
+          python3 - <<'PY'
+          import json
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          data=json.load(open('/tmp/football-main-latest.json'))
+          today=datetime.now(ZoneInfo('Europe/London')).date().isoformat()
+          assert data.get('date') == today, 'Published forecasts are not from today; refusing chargeable odds comparison'
+          assert data.get('status') == 'frozen-prekickoff', 'No pre-match forecasts available; refusing chargeable odds comparison'
+          print('Using LIVE MAIN forecast date:', data['date'], 'games:', len(data.get('games', [])))
+          PY
       - name: Compare model fixtures with free provider event feed
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python3 scripts/check_event_coverage.py
+        run: python3 scripts/check_event_coverage.py --snapshot /tmp/football-main-latest.json
 
   live-smoke-test:
     needs: api-preflight
@@ -91,11 +105,25 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Validate EPL odds with a strict two-credit cap
+      - name: Read currently published frozen forecasts from main
+        run: |
+          git fetch --depth=1 origin main
+          git show FETCH_HEAD:data/latest.json > /tmp/football-main-latest.json
+          python3 - <<'PY'
+          import json
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          data=json.load(open('/tmp/football-main-latest.json'))
+          today=datetime.now(ZoneInfo('Europe/London')).date().isoformat()
+          assert data.get('date') == today, 'Published forecasts are not from today; refusing chargeable odds comparison'
+          assert data.get('status') == 'frozen-prekickoff', 'No pre-match forecasts available; refusing chargeable odds comparison'
+          print('Using LIVE MAIN forecast date:', data['date'], 'games:', len(data.get('games', [])))
+          PY
+      - name: Validate EPL odds and optional BTTS with a four-credit cap
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: >-
           python3 scripts/fetch_odds.py --mode collect --sport soccer_epl --max-credits 4
-          --compare-snapshot data/latest.json
+          --compare-snapshot /tmp/football-main-latest.json
           --extra-market btts --extra-market alternate_totals --extra-events 1
       # Intentionally no upload-artifact or commit: raw odds stay on the runner.
