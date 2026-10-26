@@ -1,0 +1,77 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-10-26T13:09:31.681101+00:00",
+  "date": "2026-10-26",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Salford",
+      "awayKey": "salford city",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-26",
+      "division": "E3",
+      "home": "Walsall",
+      "homeKey": "walsall",
+      "id": "2026-10-26|E3|walsall|salford city",
+      "kickoff": "20:00",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.32354,
+        "expectedAway": 1.128,
+        "expectedHome": 1.437,
+        "expectedTotal": 2.566,
+        "goalBands": {
+          "0-1": 0.27409,
+          "2": 0.253,
+          "3": 0.21637,
+          "4+": 0.25655
+        },
+        "markets": {
+          "away_win": 0.29644,
+          "btts": 0.51574,
+          "draw": 0.26218,
+          "home_win": 0.44138,
+          "no_btts": 0.48426,
+          "over25": 0.47292,
+          "over35": 0.25655,
+          "under25": 0.52708,
+          "under35": 0.74345
+        },
+        "modalProbability": 0.12467,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 6,
+        "sampleHome": 5,
+        "topScores": [
+          {
+            "p": 0.12467,
+            "score": "1-1"
+          },
+          {
+            "p": 0.11048,
+            "score": "1-0"
+          },
+          {
+            "p": 0.08959,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08674,
+            "score": "0-1"
+          },
+          {
+            "p": 0.07939,
+            "score": "2-0"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 621
+}

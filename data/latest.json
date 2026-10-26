@@ -1,335 +1,71 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-10-25T00:44:56.869412+01:00",
-  "date": "2026-10-25",
+  "capturedAt": "2026-10-26T13:09:31.681101+00:00",
+  "date": "2026-10-26",
   "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
   "games": [
     {
-      "away": "Newcastle",
-      "awayKey": "newcastle",
+      "away": "Salford",
+      "awayKey": "salford city",
       "b31": {
         "qualifiers": [],
         "status": "not-calculated"
       },
-      "date": "2026-10-25",
-      "division": "E0",
-      "home": "Crystal Palace",
-      "homeKey": "crystal palace",
-      "id": "2026-10-25|E0|crystal palace|newcastle",
-      "kickoff": "14:00",
-      "league": "Premier League",
+      "date": "2026-10-26",
+      "division": "E3",
+      "home": "Walsall",
+      "homeKey": "walsall",
+      "id": "2026-10-26|E3|walsall|salford city",
+      "kickoff": "20:00",
+      "league": "League Two",
       "scoreline": {
         "calibrated": false,
-        "cleanSheetRisk": 0.2449,
-        "expectedAway": 1.407,
-        "expectedHome": 1.775,
-        "expectedTotal": 3.182,
+        "cleanSheetRisk": 0.32354,
+        "expectedAway": 1.128,
+        "expectedHome": 1.437,
+        "expectedTotal": 2.566,
         "goalBands": {
-          "0-1": 0.17361,
-          "2": 0.21014,
-          "3": 0.22286,
-          "4+": 0.3934
+          "0-1": 0.27409,
+          "2": 0.253,
+          "3": 0.21637,
+          "4+": 0.25655
         },
         "markets": {
-          "away_win": 0.30614,
-          "btts": 0.62709,
-          "draw": 0.23094,
-          "home_win": 0.46291,
-          "no_btts": 0.37291,
-          "over25": 0.61626,
-          "over35": 0.3934,
-          "under25": 0.38374,
-          "under35": 0.6066
+          "away_win": 0.29644,
+          "btts": 0.51574,
+          "draw": 0.26218,
+          "home_win": 0.44138,
+          "no_btts": 0.48426,
+          "over25": 0.47292,
+          "over35": 0.25655,
+          "under25": 0.52708,
+          "under35": 0.74345
         },
-        "modalProbability": 0.10366,
+        "modalProbability": 0.12467,
         "modalScore": "1-1",
         "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
+        "sampleAway": 6,
+        "sampleHome": 5,
         "topScores": [
           {
-            "p": 0.10366,
+            "p": 0.12467,
             "score": "1-1"
           },
           {
-            "p": 0.09199,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07368,
+            "p": 0.11048,
             "score": "1-0"
           },
           {
-            "p": 0.07292,
-            "score": "1-2"
-          },
-          {
-            "p": 0.06538,
-            "score": "2-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Brentford",
-      "awayKey": "brentford",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-25",
-      "division": "E0",
-      "home": "Hull",
-      "homeKey": "hull",
-      "id": "2026-10-25|E0|hull|brentford",
-      "kickoff": "14:00",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.29182,
-        "expectedAway": 1.232,
-        "expectedHome": 1.569,
-        "expectedTotal": 2.801,
-        "goalBands": {
-          "0-1": 0.23091,
-          "2": 0.23831,
-          "3": 0.2225,
-          "4+": 0.30829
-        },
-        "markets": {
-          "away_win": 0.29943,
-          "btts": 0.56076,
-          "draw": 0.24869,
-          "home_win": 0.45188,
-          "no_btts": 0.43924,
-          "over25": 0.53079,
-          "over35": 0.30829,
-          "under25": 0.46921,
-          "under35": 0.69171
-        },
-        "modalProbability": 0.11742,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.11742,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09534,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09214,
+            "p": 0.08959,
             "score": "2-1"
           },
           {
-            "p": 0.07482,
+            "p": 0.08674,
             "score": "0-1"
           },
           {
-            "p": 0.07481,
+            "p": 0.07939,
             "score": "2-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Brighton",
-      "awayKey": "brighton and hove albion",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-25",
-      "division": "E0",
-      "home": "Liverpool",
-      "homeKey": "liverpool",
-      "id": "2026-10-25|E0|liverpool|brighton and hove albion",
-      "kickoff": "14:00",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.24807,
-        "expectedAway": 1.574,
-        "expectedHome": 1.394,
-        "expectedTotal": 2.968,
-        "goalBands": {
-          "0-1": 0.20391,
-          "2": 0.22638,
-          "3": 0.224,
-          "4+": 0.3457
-        },
-        "markets": {
-          "away_win": 0.41811,
-          "btts": 0.59618,
-          "draw": 0.24339,
-          "home_win": 0.3385,
-          "no_btts": 0.40382,
-          "over25": 0.56971,
-          "over35": 0.3457,
-          "under25": 0.43029,
-          "under35": 0.6543
-        },
-        "modalProbability": 0.11277,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.11277,
-            "score": "1-1"
-          },
-          {
-            "p": 0.08878,
-            "score": "1-2"
-          },
-          {
-            "p": 0.0809,
-            "score": "0-1"
-          },
-          {
-            "p": 0.07861,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07163,
-            "score": "1-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Bournemouth",
-      "awayKey": "bournemouth",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-25",
-      "division": "E0",
-      "home": "Man United",
-      "homeKey": "manchester united",
-      "id": "2026-10-25|E0|manchester united|bournemouth",
-      "kickoff": "14:00",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.27066,
-        "expectedAway": 1.307,
-        "expectedHome": 1.875,
-        "expectedTotal": 3.182,
-        "goalBands": {
-          "0-1": 0.17353,
-          "2": 0.21009,
-          "3": 0.22285,
-          "4+": 0.39353
-        },
-        "markets": {
-          "away_win": 0.26705,
-          "btts": 0.61754,
-          "draw": 0.22533,
-          "home_win": 0.50761,
-          "no_btts": 0.38246,
-          "over25": 0.61639,
-          "over35": 0.39353,
-          "under25": 0.38361,
-          "under35": 0.60647
-        },
-        "modalProbability": 0.10169,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.10169,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09536,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07781,
-            "score": "1-0"
-          },
-          {
-            "p": 0.07296,
-            "score": "2-0"
-          },
-          {
-            "p": 0.06645,
-            "score": "1-2"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Leeds",
-      "awayKey": "leeds",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-10-25",
-      "division": "E0",
-      "home": "Sunderland",
-      "homeKey": "sunderland",
-      "id": "2026-10-25|E0|sunderland|leeds",
-      "kickoff": "16:30",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.28826,
-        "expectedAway": 1.244,
-        "expectedHome": 1.292,
-        "expectedTotal": 2.535,
-        "goalBands": {
-          "0-1": 0.28011,
-          "2": 0.25466,
-          "3": 0.21522,
-          "4+": 0.25002
-        },
-        "markets": {
-          "away_win": 0.35485,
-          "btts": 0.51611,
-          "draw": 0.26774,
-          "home_win": 0.37741,
-          "no_btts": 0.48389,
-          "over25": 0.46523,
-          "over35": 0.25002,
-          "under25": 0.53477,
-          "under35": 0.74998
-        },
-        "modalProbability": 0.12728,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 3,
-        "sampleHome": 3,
-        "topScores": [
-          {
-            "p": 0.12728,
-            "score": "1-1"
-          },
-          {
-            "p": 0.10233,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09855,
-            "score": "0-1"
-          },
-          {
-            "p": 0.08219,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07923,
-            "score": "0-0"
           }
         ]
       }
