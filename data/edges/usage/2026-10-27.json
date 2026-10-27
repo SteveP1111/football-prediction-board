@@ -1,0 +1,32 @@
+{
+  "completedAtUtc": "2026-10-27T00:51:56.020970+00:00",
+  "confidenceQualifyingRequests": 4,
+  "confidenceRequestsExecuted": 4,
+  "confidenceSelectionPolicy": "BTTS and Over/Under 3.5 55%+; Over/Under 2.5 supplied in standard league odds; skip already-priced outcomes",
+  "date": "2026-10-27",
+  "endRemaining": 463,
+  "extraMarketRequestsCap": 4,
+  "forecastCapturedAt": "2026-10-27T00:51:24.051044+00:00",
+  "plannedMaxCredits": 8,
+  "requestedSports": [
+    "soccer_england_league1",
+    "soccer_england_league2"
+  ],
+  "reserveCredits": 100,
+  "selectionPolicy": "BTTS Yes/No 55%+, Over/Under 3.5 55%+; standard Over/Under 2.5 already fetched by league, skip already-priced outcomes",
+  "spentCredits": 8,
+  "startRemaining": 471,
+  "startedAtUtc": "2026-10-27T00:51:54.693807+00:00",
+  "status": "complete",
+  "summary": {
+    "forecastFixtures": 6,
+    "marketsPriced": 44,
+    "matchedFixtures": 6,
+    "oddsEvents": 31,
+    "positiveEdges": 23,
+    "unmatchedForecasts": 0,
+    "unmatchedReasons": {
+      "unmatched_or_ambiguous_name": 25
+    }
+  }
+}
