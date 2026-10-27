@@ -1348,5 +1348,1661 @@
       "under25": 0.47427
     },
     "score": "1-0"
+  },
+  "2026-10-23|E1|bolton|middlesbrough": {
+    "away": "Middlesbrough",
+    "b31Outcomes": [],
+    "date": "2026-10-23",
+    "division": "E1",
+    "home": "Bolton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.37409,
+      "btts": 0.58567,
+      "draw": 0.24781,
+      "home_win": 0.3781,
+      "no_btts": 0.41433,
+      "over25": 0.55377,
+      "over35": 0.33012,
+      "under25": 0.44623
+    },
+    "score": "1-5"
+  },
+  "2026-10-24|E0|arsenal|everton": {
+    "away": "Everton",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E0",
+    "home": "Arsenal",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.25692,
+      "btts": 0.53164,
+      "draw": 0.24784,
+      "home_win": 0.49524,
+      "no_btts": 0.46836,
+      "over25": 0.50731,
+      "over35": 0.28675,
+      "under25": 0.49269
+    },
+    "score": "2-0"
+  },
+  "2026-10-24|E0|aston villa|manchester city": {
+    "away": "Man City",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E0",
+    "home": "Aston Villa",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.43302,
+      "btts": 0.58449,
+      "draw": 0.24502,
+      "home_win": 0.32196,
+      "no_btts": 0.41551,
+      "over25": 0.55694,
+      "over35": 0.33319,
+      "under25": 0.44306
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E0|chelsea|tottenham": {
+    "away": "Tottenham",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E0",
+    "home": "Chelsea",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.26541,
+      "btts": 0.58824,
+      "draw": 0.23315,
+      "home_win": 0.50144,
+      "no_btts": 0.41176,
+      "over25": 0.5784,
+      "over35": 0.35436,
+      "under25": 0.4216
+    },
+    "score": "0-2"
+  },
+  "2026-10-24|E0|coventry|fulham": {
+    "away": "Fulham",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E0",
+    "home": "Coventry",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.31316,
+      "btts": 0.55286,
+      "draw": 0.25317,
+      "home_win": 0.43367,
+      "no_btts": 0.44714,
+      "over25": 0.51731,
+      "over35": 0.29583,
+      "under25": 0.48269
+    },
+    "score": "0-1"
+  },
+  "2026-10-24|E1|blackburn rovers|wrexham": {
+    "away": "Wrexham",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Blackburn",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.28684,
+      "btts": 0.55882,
+      "draw": 0.24689,
+      "home_win": 0.46628,
+      "no_btts": 0.44118,
+      "over25": 0.53183,
+      "over35": 0.30926,
+      "under25": 0.46817
+    },
+    "score": "2-0"
+  },
+  "2026-10-24|E1|cardiff|birmingham": {
+    "away": "Birmingham",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Cardiff",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.29318,
+      "btts": 0.56536,
+      "draw": 0.24619,
+      "home_win": 0.46063,
+      "no_btts": 0.43464,
+      "over25": 0.53852,
+      "over35": 0.31555,
+      "under25": 0.46148
+    },
+    "score": "1-0"
+  },
+  "2026-10-24|E1|charlton|norwich": {
+    "away": "Norwich",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Charlton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.30797,
+      "btts": 0.529,
+      "draw": 0.25978,
+      "home_win": 0.43225,
+      "no_btts": 0.471,
+      "over25": 0.4874,
+      "over35": 0.26907,
+      "under25": 0.5126
+    },
+    "score": "1-3"
+  },
+  "2026-10-24|E1|lincoln|burnley": {
+    "away": "Burnley",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Lincoln",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.43689,
+      "btts": 0.61871,
+      "draw": 0.23608,
+      "home_win": 0.32703,
+      "no_btts": 0.38129,
+      "over25": 0.60088,
+      "over35": 0.37727,
+      "under25": 0.39912
+    },
+    "score": "4-1"
+  },
+  "2026-10-24|E1|portsmouth|millwall": {
+    "away": "Millwall",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Portsmouth",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.33268,
+      "btts": 0.59901,
+      "draw": 0.24209,
+      "home_win": 0.42523,
+      "no_btts": 0.40099,
+      "over25": 0.57419,
+      "over35": 0.35015,
+      "under25": 0.42581
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E1|preston|west bromwich albion": {
+    "away": "West Brom",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Preston",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.38374,
+      "btts": 0.53034,
+      "draw": 0.26332,
+      "home_win": 0.35295,
+      "no_btts": 0.46966,
+      "over25": 0.48337,
+      "over35": 0.26556,
+      "under25": 0.51663
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E1|queens park rangers|swansea": {
+    "away": "Swansea",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "QPR",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.34395,
+      "btts": 0.57706,
+      "draw": 0.24917,
+      "home_win": 0.40688,
+      "no_btts": 0.42294,
+      "over25": 0.54419,
+      "over35": 0.32092,
+      "under25": 0.45581
+    },
+    "score": "5-0"
+  },
+  "2026-10-24|E1|sheffield united|derby": {
+    "away": "Derby",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Sheffield United",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.28675,
+      "btts": 0.58514,
+      "draw": 0.23911,
+      "home_win": 0.47414,
+      "no_btts": 0.41486,
+      "over25": 0.56649,
+      "over35": 0.34253,
+      "under25": 0.43351
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E1|stoke|bristol city": {
+    "away": "Bristol City",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Stoke",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": true,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.3145,
+      "btts": 0.6118,
+      "draw": 0.23639,
+      "home_win": 0.44911,
+      "no_btts": 0.3882,
+      "over25": 0.59423,
+      "over35": 0.37042,
+      "under25": 0.40577
+    },
+    "score": "0-0"
+  },
+  "2026-10-24|E1|west ham|southampton": {
+    "away": "Southampton",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "West Ham",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.26735,
+      "btts": 0.58255,
+      "draw": 0.23531,
+      "home_win": 0.49734,
+      "no_btts": 0.41745,
+      "over25": 0.57008,
+      "over35": 0.34608,
+      "under25": 0.42992
+    },
+    "score": "2-3"
+  },
+  "2026-10-24|E1|wolverhampton wanderers|watford": {
+    "away": "Watford",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E1",
+    "home": "Wolves",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.23768,
+      "btts": 0.55202,
+      "draw": 0.23525,
+      "home_win": 0.52707,
+      "no_btts": 0.44798,
+      "over25": 0.54383,
+      "over35": 0.32059,
+      "under25": 0.45617
+    },
+    "score": "1-0"
+  },
+  "2026-10-24|E2|afc wimbledon|wycombe": {
+    "away": "Wycombe",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "AFC Wimbledon",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.37069,
+      "btts": 0.54038,
+      "draw": 0.26061,
+      "home_win": 0.3687,
+      "no_btts": 0.45962,
+      "over25": 0.49575,
+      "over35": 0.27642,
+      "under25": 0.50425
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E2|blackpool|mansfield": {
+    "away": "Mansfield",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Blackpool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.30659,
+      "btts": 0.58818,
+      "draw": 0.24185,
+      "home_win": 0.45156,
+      "no_btts": 0.41182,
+      "over25": 0.56499,
+      "over35": 0.34105,
+      "under25": 0.43501
+    },
+    "score": "1-4"
+  },
+  "2026-10-24|E2|bromley|peterborough": {
+    "away": "Peterboro",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Bromley",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.38568,
+      "btts": 0.588,
+      "draw": 0.24709,
+      "home_win": 0.36722,
+      "no_btts": 0.412,
+      "over25": 0.55689,
+      "over35": 0.33314,
+      "under25": 0.44311
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E2|burton|leyton orient": {
+    "away": "Leyton Orient",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Burton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.38134,
+      "btts": 0.52641,
+      "draw": 0.26455,
+      "home_win": 0.35411,
+      "no_btts": 0.47359,
+      "over25": 0.47831,
+      "over35": 0.26118,
+      "under25": 0.52169
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E2|cambridge united|plymouth argyle": {
+    "away": "Plymouth",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Cambridge",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.3518,
+      "btts": 0.5985,
+      "draw": 0.24366,
+      "home_win": 0.40454,
+      "no_btts": 0.4015,
+      "over25": 0.57135,
+      "over35": 0.34733,
+      "under25": 0.42865
+    },
+    "score": "2-3"
+  },
+  "2026-10-24|E2|doncaster|sheffield wednesday": {
+    "away": "Sheffield Weds",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Doncaster",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.37622,
+      "btts": 0.54223,
+      "draw": 0.26002,
+      "home_win": 0.36376,
+      "no_btts": 0.45777,
+      "over25": 0.49816,
+      "over35": 0.27856,
+      "under25": 0.50184
+    },
+    "score": "2-0"
+  },
+  "2026-10-24|E2|huddersfield town|wigan": {
+    "away": "Wigan",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Huddersfield",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.24916,
+      "btts": 0.55014,
+      "draw": 0.2397,
+      "home_win": 0.51114,
+      "no_btts": 0.44986,
+      "over25": 0.53536,
+      "over35": 0.31257,
+      "under25": 0.46464
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E2|luton town|leicester city": {
+    "away": "Leicester",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Luton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.37926,
+      "btts": 0.56664,
+      "draw": 0.25304,
+      "home_win": 0.3677,
+      "no_btts": 0.43336,
+      "over25": 0.52935,
+      "over35": 0.30694,
+      "under25": 0.47065
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E2|notts county|stockport county": {
+    "away": "Stockport",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Notts County",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.38812,
+      "btts": 0.52573,
+      "draw": 0.2645,
+      "home_win": 0.34738,
+      "no_btts": 0.47427,
+      "over25": 0.47782,
+      "over35": 0.26076,
+      "under25": 0.52218
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E2|oxford|bradford": {
+    "away": "Bradford",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Oxford",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": true,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.30481,
+      "btts": 0.49627,
+      "draw": 0.26995,
+      "home_win": 0.42524,
+      "no_btts": 0.50373,
+      "over25": 0.44595,
+      "over35": 0.23396,
+      "under25": 0.55405
+    },
+    "score": "0-0"
+  },
+  "2026-10-24|E2|reading|barnsley": {
+    "away": "Barnsley",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Reading",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.25197,
+      "btts": 0.5636,
+      "draw": 0.23651,
+      "home_win": 0.51153,
+      "no_btts": 0.4364,
+      "over25": 0.55181,
+      "over35": 0.32823,
+      "under25": 0.44819
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E2|stevenage|milton keynes dons": {
+    "away": "Milton Keynes Dons",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E2",
+    "home": "Stevenage",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.2591,
+      "btts": 0.5452,
+      "draw": 0.24423,
+      "home_win": 0.49667,
+      "no_btts": 0.4548,
+      "over25": 0.52423,
+      "over35": 0.3022,
+      "under25": 0.47577
+    },
+    "score": "0-1"
+  },
+  "2026-10-24|E3|barnet|oldham": {
+    "away": "Oldham",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Barnet",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.22195,
+      "btts": 0.5431,
+      "draw": 0.23193,
+      "home_win": 0.54611,
+      "no_btts": 0.4569,
+      "over25": 0.54142,
+      "over35": 0.3183,
+      "under25": 0.45858
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E3|bristol rovers|swindon": {
+    "away": "Swindon",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Bristol Rvs",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": true,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.2388,
+      "btts": 0.50553,
+      "draw": 0.25046,
+      "home_win": 0.51074,
+      "no_btts": 0.49447,
+      "over25": 0.48173,
+      "over35": 0.26413,
+      "under25": 0.51827
+    },
+    "score": "0-0"
+  },
+  "2026-10-24|E3|cheltenham town|newport county": {
+    "away": "Newport County",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Cheltenham",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.27574,
+      "btts": 0.55941,
+      "draw": 0.24425,
+      "home_win": 0.48001,
+      "no_btts": 0.44059,
+      "over25": 0.53634,
+      "over35": 0.31349,
+      "under25": 0.46366
+    },
+    "score": "1-0"
+  },
+  "2026-10-24|E3|chesterfield|crewe": {
+    "away": "Crewe",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Chesterfield",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.26674,
+      "btts": 0.48328,
+      "draw": 0.26671,
+      "home_win": 0.46655,
+      "no_btts": 0.51672,
+      "over25": 0.44012,
+      "over35": 0.2292,
+      "under25": 0.55988
+    },
+    "score": "5-1"
+  },
+  "2026-10-24|E3|crawley town|tranmere rovers": {
+    "away": "Tranmere",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Crawley Town",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.33286,
+      "btts": 0.53606,
+      "draw": 0.26041,
+      "home_win": 0.40673,
+      "no_btts": 0.46394,
+      "over25": 0.49239,
+      "over35": 0.27345,
+      "under25": 0.50761
+    },
+    "score": "1-1"
+  },
+  "2026-10-24|E3|exeter|fleetwood town": {
+    "away": "Fleetwood Town",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Exeter",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.21007,
+      "btts": 0.43098,
+      "draw": 0.26568,
+      "home_win": 0.52425,
+      "no_btts": 0.56902,
+      "over25": 0.40102,
+      "over35": 0.1984,
+      "under25": 0.59898
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|E3|gillingham|grimsby town": {
+    "away": "Grimsby",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Gillingham",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.28595,
+      "btts": 0.49397,
+      "draw": 0.26744,
+      "home_win": 0.44661,
+      "no_btts": 0.50603,
+      "over25": 0.44763,
+      "over35": 0.23534,
+      "under25": 0.55237
+    },
+    "score": "1-4"
+  },
+  "2026-10-24|E3|northampton town|colchester united": {
+    "away": "Colchester",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Northampton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.2741,
+      "btts": 0.43515,
+      "draw": 0.28638,
+      "home_win": 0.43952,
+      "no_btts": 0.56485,
+      "over25": 0.37631,
+      "over35": 0.17993,
+      "under25": 0.62369
+    },
+    "score": "2-0"
+  },
+  "2026-10-24|E3|rochdale|accrington stanley": {
+    "away": "Accrington",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Rochdale",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.25654,
+      "btts": 0.50066,
+      "draw": 0.25788,
+      "home_win": 0.48558,
+      "no_btts": 0.49934,
+      "over25": 0.4668,
+      "over35": 0.25135,
+      "under25": 0.5332
+    },
+    "score": "0-5"
+  },
+  "2026-10-24|E3|rotherham united|shrewsbury town": {
+    "away": "Shrewsbury",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "Rotherham",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.31171,
+      "btts": 0.57816,
+      "draw": 0.2455,
+      "home_win": 0.44279,
+      "no_btts": 0.42184,
+      "over25": 0.55068,
+      "over35": 0.32714,
+      "under25": 0.44932
+    },
+    "score": "3-3"
+  },
+  "2026-10-24|E3|york|port vale": {
+    "away": "Port Vale",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "E3",
+    "home": "York",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.1821,
+      "btts": 0.46613,
+      "draw": 0.23725,
+      "home_win": 0.58065,
+      "no_btts": 0.53387,
+      "over25": 0.46991,
+      "over35": 0.25398,
+      "under25": 0.53009
+    },
+    "score": "2-0"
+  },
+  "2026-10-24|EC|aldershot|wealdstone": {
+    "away": "Wealdstone",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Aldershot",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.32704,
+      "btts": 0.60501,
+      "draw": 0.23984,
+      "home_win": 0.43312,
+      "no_btts": 0.39499,
+      "over25": 0.58292,
+      "over35": 0.3589,
+      "under25": 0.41708
+    },
+    "score": "0-1"
+  },
+  "2026-10-24|EC|boreham wood|fylde": {
+    "away": "Fylde",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Boreham Wood",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.30673,
+      "btts": 0.65959,
+      "draw": 0.22236,
+      "home_win": 0.47091,
+      "no_btts": 0.34041,
+      "over25": 0.65874,
+      "over35": 0.43992,
+      "under25": 0.34126
+    },
+    "score": "4-0"
+  },
+  "2026-10-24|EC|eastleigh|boston utd": {
+    "away": "Boston Utd",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Eastleigh",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.33035,
+      "btts": 0.62498,
+      "draw": 0.23474,
+      "home_win": 0.43491,
+      "no_btts": 0.37502,
+      "over25": 0.60855,
+      "over35": 0.38527,
+      "under25": 0.39145
+    },
+    "score": "4-2"
+  },
+  "2026-10-24|EC|harrogate|sutton": {
+    "away": "Sutton",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Harrogate",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.25719,
+      "btts": 0.59263,
+      "draw": 0.22959,
+      "home_win": 0.51322,
+      "no_btts": 0.40737,
+      "over25": 0.58777,
+      "over35": 0.36381,
+      "under25": 0.41223
+    },
+    "score": "3-1"
+  },
+  "2026-10-24|EC|hartlepool united|hornchurch": {
+    "away": "Hornchurch",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Hartlepool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.27869,
+      "btts": 0.54145,
+      "draw": 0.25044,
+      "home_win": 0.47087,
+      "no_btts": 0.45855,
+      "over25": 0.51169,
+      "over35": 0.29071,
+      "under25": 0.48831
+    },
+    "score": "2-1"
+  },
+  "2026-10-24|EC|kidderminster|worthing": {
+    "away": "Worthing",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Kidderminster",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.34485,
+      "btts": 0.56591,
+      "draw": 0.25242,
+      "home_win": 0.40273,
+      "no_btts": 0.43409,
+      "over25": 0.52964,
+      "over35": 0.30722,
+      "under25": 0.47036
+    },
+    "score": "1-2"
+  },
+  "2026-10-24|EC|scunthorpe|woking": {
+    "away": "Woking",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Scunthorpe",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.3632,
+      "btts": 0.61818,
+      "draw": 0.23884,
+      "home_win": 0.39796,
+      "no_btts": 0.38182,
+      "over25": 0.59621,
+      "over35": 0.37245,
+      "under25": 0.40379
+    },
+    "score": "2-3"
+  },
+  "2026-10-24|EC|solihull|carlisle": {
+    "away": "Carlisle",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Solihull",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.4618,
+      "btts": 0.56783,
+      "draw": 0.24538,
+      "home_win": 0.29282,
+      "no_btts": 0.43217,
+      "over25": 0.54188,
+      "over35": 0.31873,
+      "under25": 0.45812
+    },
+    "score": "1-2"
+  },
+  "2026-10-24|EC|southend united|fc halifax town": {
+    "away": "Halifax",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Southend",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.33408,
+      "btts": 0.61437,
+      "draw": 0.23799,
+      "home_win": 0.42793,
+      "no_btts": 0.38563,
+      "over25": 0.59408,
+      "over35": 0.37027,
+      "under25": 0.40592
+    },
+    "score": "2-2"
+  },
+  "2026-10-24|EC|yeovil|altrincham": {
+    "away": "Altrincham",
+    "b31Outcomes": [],
+    "date": "2026-10-24",
+    "division": "EC",
+    "home": "Yeovil",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.25135,
+      "btts": 0.62297,
+      "draw": 0.21938,
+      "home_win": 0.52926,
+      "no_btts": 0.37703,
+      "over25": 0.63049,
+      "over35": 0.40866,
+      "under25": 0.36951
+    },
+    "score": "1-2"
+  },
+  "2026-10-25|E0|crystal palace|newcastle": {
+    "away": "Newcastle",
+    "b31Outcomes": [],
+    "date": "2026-10-25",
+    "division": "E0",
+    "home": "Crystal Palace",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.30614,
+      "btts": 0.62709,
+      "draw": 0.23094,
+      "home_win": 0.46291,
+      "no_btts": 0.37291,
+      "over25": 0.61626,
+      "over35": 0.3934,
+      "under25": 0.38374,
+      "under35": 0.6066
+    },
+    "score": "0-2"
+  },
+  "2026-10-25|E0|hull|brentford": {
+    "away": "Brentford",
+    "b31Outcomes": [],
+    "date": "2026-10-25",
+    "division": "E0",
+    "home": "Hull",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.29943,
+      "btts": 0.56076,
+      "draw": 0.24869,
+      "home_win": 0.45188,
+      "no_btts": 0.43924,
+      "over25": 0.53079,
+      "over35": 0.30829,
+      "under25": 0.46921,
+      "under35": 0.69171
+    },
+    "score": "1-1"
+  },
+  "2026-10-25|E0|liverpool|brighton and hove albion": {
+    "away": "Brighton",
+    "b31Outcomes": [],
+    "date": "2026-10-25",
+    "division": "E0",
+    "home": "Liverpool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.41811,
+      "btts": 0.59618,
+      "draw": 0.24339,
+      "home_win": 0.3385,
+      "no_btts": 0.40382,
+      "over25": 0.56971,
+      "over35": 0.3457,
+      "under25": 0.43029,
+      "under35": 0.6543
+    },
+    "score": "2-0"
+  },
+  "2026-10-25|E0|manchester united|bournemouth": {
+    "away": "Bournemouth",
+    "b31Outcomes": [],
+    "date": "2026-10-25",
+    "division": "E0",
+    "home": "Man United",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.26705,
+      "btts": 0.61754,
+      "draw": 0.22533,
+      "home_win": 0.50761,
+      "no_btts": 0.38246,
+      "over25": 0.61639,
+      "over35": 0.39353,
+      "under25": 0.38361,
+      "under35": 0.60647
+    },
+    "score": "0-3"
+  },
+  "2026-10-25|E0|sunderland|leeds": {
+    "away": "Leeds",
+    "b31Outcomes": [],
+    "date": "2026-10-25",
+    "division": "E0",
+    "home": "Sunderland",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": true,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.35485,
+      "btts": 0.51611,
+      "draw": 0.26774,
+      "home_win": 0.37741,
+      "no_btts": 0.48389,
+      "over25": 0.46523,
+      "over35": 0.25002,
+      "under25": 0.53477,
+      "under35": 0.74998
+    },
+    "score": "0-0"
+  },
+  "2026-10-26|E3|walsall|salford city": {
+    "away": "Salford",
+    "b31Outcomes": [],
+    "date": "2026-10-26",
+    "division": "E3",
+    "home": "Walsall",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.29644,
+      "btts": 0.51574,
+      "draw": 0.26218,
+      "home_win": 0.44138,
+      "no_btts": 0.48426,
+      "over25": 0.47292,
+      "over35": 0.25655,
+      "under25": 0.52708,
+      "under35": 0.74345
+    },
+    "score": "2-4"
   }
 }
