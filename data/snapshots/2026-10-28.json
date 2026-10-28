@@ -1,0 +1,209 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-10-28T00:45:43.582757+00:00",
+  "date": "2026-10-28",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Harrogate",
+      "awayKey": "harrogate",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-28",
+      "division": "EC",
+      "home": "Carlisle",
+      "homeKey": "carlisle",
+      "id": "2026-10-28|EC|carlisle|harrogate",
+      "kickoff": "19:45",
+      "league": "National League",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.22013,
+        "expectedAway": 1.514,
+        "expectedHome": 1.654,
+        "expectedTotal": 3.167,
+        "goalBands": {
+          "0-1": 0.17553,
+          "2": 0.21126,
+          "3": 0.22304,
+          "4+": 0.39017
+        },
+        "markets": {
+          "away_win": 0.35242,
+          "btts": 0.63064,
+          "draw": 0.23504,
+          "home_win": 0.41254,
+          "no_btts": 0.36936,
+          "over25": 0.61321,
+          "over35": 0.39017,
+          "under25": 0.38679,
+          "under35": 0.60983
+        },
+        "modalProbability": 0.10542,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 6,
+        "sampleHome": 7,
+        "topScores": [
+          {
+            "p": 0.10542,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08717,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07978,
+            "score": "1-2"
+          },
+          {
+            "p": 0.06966,
+            "score": "1-0"
+          },
+          {
+            "p": 0.06597,
+            "score": "2-2"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Eastleigh",
+      "awayKey": "eastleigh",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-28",
+      "division": "EC",
+      "home": "Forest Green",
+      "homeKey": "forest green",
+      "id": "2026-10-28|EC|forest green|eastleigh",
+      "kickoff": "19:45",
+      "league": "National League",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.2533,
+        "expectedAway": 1.373,
+        "expectedHome": 1.814,
+        "expectedTotal": 3.188,
+        "goalBands": {
+          "0-1": 0.17282,
+          "2": 0.20967,
+          "3": 0.22278,
+          "4+": 0.39473
+        },
+        "markets": {
+          "away_win": 0.29179,
+          "btts": 0.62505,
+          "draw": 0.22893,
+          "home_win": 0.47928,
+          "no_btts": 0.37495,
+          "over25": 0.61751,
+          "over35": 0.39473,
+          "under25": 0.38249,
+          "under35": 0.60527
+        },
+        "modalProbability": 0.10282,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 6,
+        "sampleHome": 7,
+        "topScores": [
+          {
+            "p": 0.10282,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09329,
+            "score": "2-1"
+          },
+          {
+            "p": 0.07488,
+            "score": "1-0"
+          },
+          {
+            "p": 0.0706,
+            "score": "1-2"
+          },
+          {
+            "p": 0.06793,
+            "score": "2-0"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Aldershot",
+      "awayKey": "aldershot",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-28",
+      "division": "EC",
+      "home": "Sutton",
+      "homeKey": "sutton",
+      "id": "2026-10-28|EC|sutton|aldershot",
+      "kickoff": "19:45",
+      "league": "National League",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.24358,
+        "expectedAway": 1.412,
+        "expectedHome": 1.487,
+        "expectedTotal": 2.9,
+        "goalBands": {
+          "0-1": 0.21465,
+          "2": 0.2314,
+          "3": 0.22366,
+          "4+": 0.33029
+        },
+        "markets": {
+          "away_win": 0.35947,
+          "btts": 0.58549,
+          "draw": 0.24758,
+          "home_win": 0.39295,
+          "no_btts": 0.41451,
+          "over25": 0.55395,
+          "over35": 0.33029,
+          "under25": 0.44605,
+          "under35": 0.66971
+        },
+        "modalProbability": 0.11562,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 7,
+        "sampleHome": 7,
+        "topScores": [
+          {
+            "p": 0.11562,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08598,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08187,
+            "score": "1-0"
+          },
+          {
+            "p": 0.08165,
+            "score": "1-2"
+          },
+          {
+            "p": 0.07774,
+            "score": "0-1"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 677
+}
