@@ -34,6 +34,14 @@ A dated immutable archive lives under `data/edges/snapshots/YYYY-MM-DD.json`. `d
 Operational and security details: [Odds integration](docs/odds-integration.md). The Odds API permits analytical UI display but prohibits redistribution as a standalone raw data service: https://the-odds-api.com/terms-and-conditions.html.
 
 
+## Under 3.5 forward calibration experiment
+
+The live Under 3.5 market remains the original uncalibrated experimental scoreline probability, and priced Edge Finder selections remain ranked by **original probability first** (edge breaks ties).
+
+The board also has a dedicated Under 3.5 watchlist, a one-click priced-market filter, and a separate **forward-only** V1-versus-V4 shadow comparison. After the daily pre-kickoff forecast is frozen, `scripts/shadow_under35.py` saves a second immutable forecast using the previously validation-fitted 1.2 Over 3.5 log-odds temperature and its exact Under 3.5 complement. It scores only subsequently verified results, never rewrites past predictions, never fabricates odds and never automatically promotes the challenger. Prospective shadow records can start no earlier than 30 October 2026, after deployment.
+
+[Prospective Under 3.5 methodology](docs/under35-prospective-shadow.md).
+
 ## Important distinction between models
 
 - **Established B3.1**: the corrected historical performance through 15 October 2026 is retained in data/b31_historical.json. The original 17 October 2026 issued qualifiers are included in the imported frozen snapshot. This is the actual old model, not an imitation.

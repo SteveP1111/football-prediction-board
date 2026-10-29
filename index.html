@@ -35,16 +35,18 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <div class="filters"><div class="field"><label for="league">League</label><select id="league"><option value="all">All five leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option><option value="EC">National League</option></select></div><div class="field"><label for="market">Market</label><select id="market"><option value="home_win">Home win</option><option value="away_win">Away win</option><option value="draw">Draw</option><option value="btts">BTTS</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="under35">Under 3.5</option><option value="modal00">Exact 0–0</option></select></div><div class="field"><label for="count">Number</label><select id="count"><option value="3">Top 3</option><option value="5" selected>Top 5</option><option value="10">Top 10</option><option value="100">All matches</option></select></div><div class="field"><label for="model">View</label><select id="model"><option value="scoreline">Scoreline model</option><option value="b31">B3.1 qualifying picks</option></select></div></div><div class="muted small" style="margin-top:10px"><label for="qualified-only"><input type="checkbox" id="qualified-only" checked> Show only goal totals and BTTS predictions at 55% or higher. Untick to view all model probabilities.</label></div>
 </section>
 <section class="panel" id="watchlist-section"><h2>Today's strongest markets · goals/BTTS 55%+</h2><p class="muted small">Experimental independent Scoreline Model probability rankings. These are <strong>not</strong> official B3.1 selections and are not evidence of a profitable bet.</p><div id="top-opps">Loading today's market probabilities…</div></section>
+<section class="panel" id="under35-focus-section"><h2>Under 3.5 goals · probability-first watchlist</h2><p class="muted small">Original experimental V1 probabilities only, ranked highest first. Under 3.5 means 0–3 total goals. These are frozen forecasts, not calibrated betting recommendations or available bookmaker prices.</p><div id="under35-focus">Loading original pre-match forecasts…</div><button type="button" id="under35-open-edge">Check recorded Under 3.5 bookmaker prices</button></section>
 <div class="resulthead"><h2 id="result-title">Highest-ranked home wins</h2><span class="muted small" id="result-count"></span></div><div class="cards" id="results"></div>
 </div>
 <div id="history" hidden><section class="panel"><h2>Frozen forecasts and results</h2><p class="muted small">Each day's pre-match snapshot is saved once. Final scores and market outcomes are stored separately. Select a date to inspect its original forecasts.</p><div id="history-list">Loading…</div></section></div>
-<div id="performance" hidden><section class="panel"><h2>Forward performance</h2><p class="muted small">Accuracy below is historical hit rate for each market outcome, not betting profitability. The Brier score penalises poorly calibrated probabilities (lower is better). All forecasts are experimental until prospectively validated.</p><div id="perf-content">Loading…</div></section></div>
+<div id="performance" hidden><section class="panel"><h2>Forward performance</h2><p class="muted small">Accuracy below is historical hit rate for each market outcome, not betting profitability. The Brier score penalises poorly calibrated probabilities (lower is better). All forecasts are experimental until prospectively validated.</p><div id="perf-content">Loading…</div></section><section class="panel" id="shadow-under35-panel"><h2>Under 3.5 · forward model comparison</h2><p class="muted small">Separately frozen before kickoff: original V1 versus validation-calibrated V4. Both are graded against the same verified results; previous matches are never backfilled. The shadow forecast is not used to price Edge Finder selections.</p><div id="shadow-under35-results">No prospective comparisons recorded yet.</div></section></div>
 <div id="edges" hidden>
 <section class="panel"><h2>Bookmaker odds compared with frozen forecasts</h2>
 <p class="muted small">Independent experimental Scoreline Model probabilities against captured UK bookmaker prices. Positive theoretical edge is not a guarantee of success. Odds can change; this is not a live bookmaker feed. Rankings prioritise model probability, then edge.</p>
 <div id="edge-status" aria-live="polite" class="muted small">Checking for verified bookmaker comparisons…</div>
 <div class="edge-controls">
 <label for="edge-league">League</label><select id="edge-league"><option value="all">All supported leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option></select>
+<button type="button" id="edge-under35-focus">Under 3.5 only</button>
 <label for="edge-market">Market</label><select id="edge-market"><option value="all">All markets</option><option value="home_win">Home win</option><option value="draw">Draw</option><option value="away_win">Away win</option><option value="btts">BTTS Yes</option><option value="no_btts">BTTS No</option><option value="over25">Over 2.5</option><option value="under25">Under 2.5</option><option value="over35">Over 3.5</option><option value="under35">Under 3.5</option></select>
 <label><input type="checkbox" id="edge-positive" checked>Positive edge only</label>
 <label><input type="checkbox" id="edge-confident" checked>Goals/BTTS ≥55%</label>
@@ -57,7 +59,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
-let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null,edgePerformance=null;
+let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null,edgePerformance=null,shadowUnder35=null;
 let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:"",qualifiedOnly:true};
 const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",under35:"Under 3.5 goals",modal00:"Exact 0–0 forecasts"};
 const pct=n=>(100*Number(n||0)).toFixed(1)+"%";
@@ -117,6 +119,44 @@ return '<article class="match"><div class="matchhead"><span>'+esc(g.league)+' ·
 '<div style="margin-top:8px">'+(q.length?'<span class="tag">B3.1 '+q.map(z=>esc(z.key||z.name||"")+" "+Number(z.score||0).toFixed(1)).join(" · ")+'</span>':'<span class="tag">No B3.1 pick frozen for this fixture</span>')+(sc.cleanSheetRisk>=.36?'<span class="tag warning">Clean-sheet risk</span>':'')+'</div>'+
 '<details><summary>Why this ranking? All markets and goal distribution</summary><p class="muted small">Ranking uses the probability-weighted scoreline distribution; it does not count possible scores equally. This is an independent experimental model. Sample coverage: '+(sc.sampleHome||0)+' home matches / '+(sc.sampleAway||0)+' away matches this season.</p><div class="scoregrid">'+goalBars+'</div><p class="small muted">Raw goals probabilities. Over 2.5 = exactly 3 + 4 or more. Under 2.5 = 0–1 + exactly 2. Under 3.5 = 0–1 + exactly 2 + exactly 3.</p>'+explanation+'</details></article>';
 }
+function drawUnder35Focus(){
+const target=$("under35-focus"), games=(snapshot?.games||[]).filter(g=>Number.isFinite(modelMarkets(g).under35));
+const entries=games.map(g=>({g,p:prob(g,"under35")})).sort((a,b)=>b.p-a.p).slice(0,8);
+if(!entries.length){
+ target.innerHTML='<p class="muted small">No frozen Under 3.5 forecasts are available for this date. No probabilities or prices have been invented.</p>';
+ return;
+}
+target.innerHTML='<div style="overflow-x:auto"><table><thead><tr><th>Fixture</th><th>League</th><th class="num">Under 3.5 chance</th><th class="num">Status</th></tr></thead><tbody>'+
+ entries.map(({g,p})=>'<tr><td>'+esc(g.home)+' v '+esc(g.away)+'</td><td>'+esc(g.league)+'</td><td class="num"><strong>'+pct(p)+'</strong></td><td class="num">'+(p>=.55?'55%+ model threshold':'Below 55%')+'</td></tr>').join('')+
+ '</tbody></table></div><p class="muted small">Showing '+entries.length+' of '+games.length+' frozen forecasts. Ranked solely by original Under 3.5 probability; no retrospective result filtering.</p>';
+}
+
+function drawShadowUnder35(){
+const target=$("shadow-under35-results"), report=shadowUnder35;
+if(!report||!report.models){
+ target.innerHTML='<p class="muted small">Prospective shadow tracking has not been published yet. Previous results will not be retroactively recalibrated.</p>';
+ return;
+}
+const count=Number(report.settledFixtures||0), frozen=Number(report.frozenFixtures||0), pending=Number(report.pendingFixtures||0);
+if(!count){
+ target.innerHTML='<p class="muted small">'+frozen+' separately frozen fixtures; '+pending+' awaiting final scores. No completed forward comparison yet. The live model remains V1.</p>';
+ return;
+}
+const display=n=>Number.isFinite(Number(n))?Number(n).toFixed(2):"—";
+const fields=[["V1 original","Original V1"],["V4 calibrated shadow","Calibrated V4 (shadow only)"]];
+let rows=fields.map(([key,label])=>{
+ const m=report.models[key]||{};
+ return '<tr><td>'+esc(label)+'</td><td class="num">'+Number(m.n||0)+'</td><td class="num">'+display(m.meanProbabilityPct)+'%</td><td class="num">'+display(m.strikeRatePct)+'%</td><td class="num">'+display(m.brier)+'</td></tr>';
+}).join('');
+const delta=report.pairedBrierDelta;
+const comparison=delta?.status==="exploratory"?'Brier difference (V4 minus V1): '+display(delta.v4MinusV1Brier)+'. Exploratory 95% interval: '+(delta.dateClusterBootstrap95||[]).map(display).join(' to ')+'.':"Too few new results for a paired confidence interval.";
+const cohortV1=report.byThreshold?.["70%"]?.["V1 original"],cohortV4=report.byThreshold?.["70%"]?.["V4 calibrated shadow"];
+target.innerHTML='<p class="muted small">'+frozen+' pre-kickoff shadow forecasts · '+count+' settled · '+pending+' pending. Models are compared only on identical settled fixtures.</p>'+
+'<div style="overflow-x:auto"><table><thead><tr><th>Model</th><th class="num">Fixtures</th><th class="num">Mean prediction</th><th class="num">Actual Under 3.5</th><th class="num">Brier</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+'<p class="muted small">'+esc(comparison)+' At a 70%+ cutoff: V1 '+Number(cohortV1?.n||0)+' fixtures, V4 '+Number(cohortV4?.n||0)+' fixtures. Different thresholds create different cohorts; this is not a head-to-head betting ROI comparison.</p>'+
+'<p class="muted small">Observation only: no model is automatically promoted and no bookmaker odds are inferred.</p>';
+}
+
 function draw(){
 if(state.model==="b31" && (snapshot?.games||[]).length && !(snapshot.games||[]).some(g=>g.b31?.status==="frozen"||g.b31?.status==="frozen-nightly")){
   $("result-title").textContent="B3.1 has not been calculated";
@@ -137,7 +177,7 @@ $("result-title").textContent=state.model==="b31"?"Official B3.1 qualifying sele
 $("result-count").textContent=found+" matching matches"+(state.model==="scoreline"&&isGoalsOrBtts(state.market)&&state.qualifiedOnly?" · 55%+ confidence":"");
 $("results").innerHTML=entries.length?entries.map((o,i)=>card(o.game,i,o.pick)).join(""):'<div class="panel muted">No matching saved predictions at this confidence level. For goal and BTTS markets, untick the 55% filter to see lower-probability predictions. Missing established B3.1 predictions are not estimated or invented.</div>';
 }
-async function loadSnapshot(day){const s=await getJSON("data/snapshots/"+day+".json",null);if(s){snapshot=s;await applyBridge();showView("today");$("date-pill").textContent="Viewing "+s.date;draw()}}
+async function loadSnapshot(day){const s=await getJSON("data/snapshots/"+day+".json",null);if(s){snapshot=s;await applyBridge();showView("today");$("date-pill").textContent="Viewing "+s.date;draw();drawUnder35Focus()}}
 async function applyBridge(){const b=await getJSON("data/b31-snapshots/"+snapshot.date+".json",null);if(!b||!Array.isArray(b.fixtures))return;const byId=new Map(b.fixtures.map(x=>[x.id,x]));for(const g of snapshot.games||[]){const f=byId.get(g.id);if(f&&Array.isArray(f.qualifiers))g.b31={status:"frozen-nightly",qualifiers:f.qualifiers}}}
 function drawHistory(){
 $("history-list").innerHTML=history.length?history.slice().reverse().map(d=>'<div class="history-entry"><div><strong>'+esc(d.date)+'</strong><div class="muted tiny">'+d.games+' frozen fixtures · '+d.settled+' settled · '+d.markets+' market outcomes</div></div><button data-day="'+esc(d.date)+'">View</button></div>').join(""):'<div class="muted">No snapshots have been published yet.</div>';
@@ -153,6 +193,9 @@ $("perf-content").innerHTML=rows.length?'<div style="overflow-x:auto"><table><th
   if(frozen.length)extra+='<h3>Subsequent frozen B3.1 selections</h3><table><thead><tr><th>Market</th><th class="num">Graded</th><th class="num">Wins</th><th class="num">Hit rate</th></tr></thead><tbody>'+frozen.map(([k,v])=>'<tr><td>'+esc(title[k]||k)+'</td><td class="num">'+v.selections+'</td><td class="num">'+v.wins+'</td><td class="num">'+pct(v.hitRate)+'</td></tr>').join('')+'</tbody></table><p class="small muted">Graded only from actual pre-kickoff frozen B3.1 selections, and not added retrospectively to the legacy summary.</p>';
   extra+='<h3 style="margin:24px 0 8px">Independent Scoreline Model · experimental markets</h3>';
   $("perf-content").innerHTML=extra+$("perf-content").innerHTML;
+}
+function rankByModelProbability(picks){
+ return picks.sort((a,b)=>Number(b.modelProbability)-Number(a.modelProbability)||Number(b.edgePp)-Number(a.edgePp));
 }
 function drawEdges(){
 const note=$("edge-status"),target=$("edge-list");
@@ -184,7 +227,7 @@ if(market!=="all")picks=picks.filter(p=>p.market===market);
 if($("edge-positive").checked)picks=picks.filter(p=>p.positiveEdge);
 if($("edge-confident").checked)picks=picks.filter(p=>!isGoalsOrBtts(p.market)||Number(p.modelProbability)>=.55);
 if($("edge-upcoming").checked)picks=picks.filter(p=>{const t=new Date(p.kickoffUtc).getTime();return Number.isFinite(t)&&t>Date.now()});
-picks.sort((a,b)=>Number(b.modelProbability)-Number(a.modelProbability)||Number(b.edgePp)-Number(a.edgePp));
+rankByModelProbability(picks);
 if(!picks.length){
  target.innerHTML='<p class="muted small">No selections meet these conditions. Try another market or disable one of the filters. No odds or edges are fabricated where bookmakers provide no price.</p>';
  return;
@@ -230,15 +273,17 @@ const tables=categories.map(([heading,values])=>{
 const footer='<p class="muted small">Recorded '+Number(p.recordedSelections||0)+' fixture-market selections. Graded '+Number(p.gradedSelections||0)+'; awaiting verified final results for '+Number(p.pendingSelections||0)+'. Among positive-edge predictions with model probability at least 60%, '+Number(confident.selections||0)+' have settled, with '+money(confident.profitGbp)+' hypothetical P/L. These are exploratory results; not proof of a profitable model.</p>';
 target.innerHTML=header+tables+footer;
 }
+$("edge-under35-focus").addEventListener("click",()=>{$("edge-market").value="under35";drawEdges()});
+$("under35-open-edge").addEventListener("click",()=>{$("edge-market").value="under35";showView("edges");drawEdges()});
 for(const id of ["edge-league","edge-market","edge-positive","edge-confident","edge-upcoming"])
  $(id).addEventListener("change",drawEdges);
 async function init(){
-const [s,historyData,perf,settled,status,legacy,edges,edgeStats]=await Promise.all([
+const [s,historyData,perf,settled,status,legacy,edges,edgeStats,shadowStats]=await Promise.all([
 getJSON("data/latest.json",null),getJSON("data/history.json",[]),getJSON("data/performance.json",null),
-getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null),getJSON("data/edges/performance.json",null)]);
+getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null),getJSON("data/edges/performance.json",null),getJSON("data/shadow_under35/performance.json",null)]);
 snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
 await applyBridge();
-history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;edgePerformance=edgeStats;
+history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;edgePerformance=edgeStats;shadowUnder35=shadowStats;
 const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5",under35:"Under 3.5"};
 const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(modelMarkets(g)).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=marketThreshold(x.k)).sort((a,b)=>b.p-a.p);
 $("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No forecast clears its qualification threshold today (55% goals and BTTS, 60% 1X2). That does not mean no matches were analysed.</p>';
@@ -252,7 +297,7 @@ $("status-pill").textContent=status?.refreshed?"Last refresh "+new Date(status.r
 if(status?.warnings?.length)$("notice").innerHTML+='<div class="alert" style="margin:8px 0">Data coverage warning: '+status.warnings.map(esc).join('; ')+' · Current probabilities may exclude recent results.</div>';
 if(!s||!(s.games||[]).length)$("notice").innerHTML='<div class="alert">No frozen pre-match forecast is available for this date. The scheduled workflow may not have run yet, fixtures may not be published, or the data source may be unavailable. Past results are not being presented as today’s picks.</div>';
 $("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. Bookmaker odds are never used as forecast inputs.";
-draw();drawHistory();drawPerformance();drawEdges();drawEdgePerformance();
+draw();drawUnder35Focus();drawHistory();drawPerformance();drawShadowUnder35();drawEdges();drawEdgePerformance();
 }
 init();
 })();

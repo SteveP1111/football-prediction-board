@@ -1,0 +1,43 @@
+name: Under 3.5 shadow and board tests
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/shadow_under35.py'
+      - 'tests/test_shadow_under35.py'
+      - 'tests/test_board_queries.js'
+      - 'index.html'
+      - '.github/workflows/football-daily.yml'
+      - '.github/workflows/under35-shadow-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  safe-shadow-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test existing predictions and prospective shadow
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate live board JavaScript
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          html = Path("index.html").read_text(encoding="utf-8")
+          scripts = re.findall(r"<script>(.*?)</script>", html, re.S)
+          assert len(scripts) == 1
+          Path("/tmp/football-under35-board.js").write_text(scripts[0],encoding="utf-8")
+          PY
+          node --check /tmp/football-under35-board.js
+          node tests/test_board_queries.js
+      - name: Check shadow generator does not rewrite frozen odds or forecasts
+        run: |
+          python3 scripts/shadow_under35.py
+          git diff --exit-code -- data/snapshots data/edges
