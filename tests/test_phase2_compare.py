@@ -72,9 +72,9 @@ class ModelComparisonTests(unittest.TestCase):
         self.assertEqual(delta["over35"]["differenceVsV1"],delta["under35"]["differenceVsV1"])
 
     def test_paired_bootstrap_constant_impact(self):
-        original={"home_win":.5,"draw":.25,"away_win":.25,"btts":.5,"over25":.5,"over35":.3}
+        original=add_complements({"home_win":.5,"draw":.25,"away_win":.25,"btts":.5,"over25":.5,"over35":.3})
         alternative=dict(original,home_win=.6,draw=.2,away_win=.2)
-        row={"date":"2026-08-01","truth":{"home_win":1,"draw":0,"away_win":0,"btts":1,"over25":1,"over35":0},
+        row={"date":"2026-08-01","truth":{"home_win":1,"draw":0,"away_win":0,"btts":1,"no_btts":0,"over25":1,"under25":0,"over35":0,"under35":1},
              "predictions":{"V1 Poisson":original,"V2":alternative}}
         delta=paired_day_bootstrap([row], "V2",iterations=100)
         self.assertLess(delta["1x2MulticlassBrier"]["differenceVsV1"],0)
