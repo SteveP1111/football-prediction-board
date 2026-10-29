@@ -119,6 +119,39 @@ def immutable_shadow(snapshot, now, sha256):
     }
 
 
+def validate_shadow_provenance(shot, source_raw):
+    """Fail closed if shadow was not captured before kickoff or source snapshot changed."""
+    if shot.get("calibration") != CONFIG:
+        raise ValueError("Shadow calibration version mismatch")
+    if shot.get("sourceSnapshotSha256") != hashlib.sha256(source_raw).hexdigest():
+        raise ValueError("Original immutable forecast hash differs from frozen shadow provenance")
+    source=json.loads(source_raw)
+    if source.get("date") != shot.get("sourceSnapshotDate") or source.get("model") != CONFIG["liveModel"]:
+        raise ValueError("Shadow/source forecast date or model mismatch")
+    original=time_from_iso(shot.get("originalCapturedAt"))
+    shadow=time_from_iso(shot.get("shadowCapturedAt"))
+    if original > shadow:
+        raise ValueError("Shadow timestamp precedes original forecast")
+    if abs((original - time_from_iso(source.get("capturedAt"))).total_seconds()) > 1:
+        raise ValueError("Original capture timestamp no longer matches the frozen source")
+    games={g["id"]:g for g in source.get("games",[])}
+    for row in shot.get("games",[]):
+        game=games.get(row.get("fixtureId"))
+        if game is None:
+            raise ValueError("Frozen shadow fixture is missing from original forecast")
+        kickoff=time_from_iso(row.get("kickoffLocal"))
+        if original >= kickoff or shadow >= kickoff:
+            raise ValueError("Shadow contains a retrospective or non-prekickoff selection")
+        p=(game.get("scoreline") or {}).get("markets") or {}
+        if p.get("under35") != row.get("originalUnder35"):
+            raise ValueError("Original Under 3.5 probability changed since shadow capture")
+        if not math.isclose(
+                row["shadowUnder35"],
+                1-temperature_scale(p["over35"],CONFIG["over35Temperature"]),
+                abs_tol=1e-8,rel_tol=0):
+            raise ValueError("Shadow calibration differs from locked pre-kickoff transformation")
+
+
 def verified_under35(result, expected_date):
     if not isinstance(result, dict) or result.get("date") != expected_date:
         return None
@@ -242,7 +275,14 @@ def run(root=ROOT, now=None):
         shot=immutable_shadow(original,now,hashlib.sha256(raw).hexdigest())
         if shot is not None:
             frozen.write_text(json.dumps(shot,indent=2,sort_keys=True)+"\n",encoding="utf-8")
-    shots=[json.loads(p.read_text(encoding="utf-8")) for p in sorted(folder.glob("????-??-??.json"))]
+    shots=[]
+    for file in sorted(folder.glob("????-??-??.json")):
+        shot=json.loads(file.read_text(encoding="utf-8"))
+        original=root/"data"/"snapshots"/(file.name)
+        if not original.exists():
+            raise ValueError("Frozen original forecast missing for "+file.name)
+        validate_shadow_provenance(shot,original.read_bytes())
+        shots.append(shot)
     results_path=root/"data"/"settlements.json"
     results=json.loads(results_path.read_text(encoding="utf-8")) if results_path.exists() else {}
     report=compare(shots, results)
