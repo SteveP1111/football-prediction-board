@@ -1,0 +1,36 @@
+name: Phase 1 and 2 model audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/phase1_calibration.py'
+      - 'scripts/phase2_compare.py'
+      - 'tests/test_phase1_calibration.py'
+      - '.github/workflows/model-audit.yml'
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Phase 1 frozen probability audit
+        run: python scripts/phase1_calibration.py
+      - name: Phase 2 chronological model comparison
+        run: python scripts/phase2_compare.py > phase2-run.log
+      - name: Upload audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase1-phase2-audit
+          path: |
+            data/phase1_calibration.json
+            data/phase2_comparison.json
+            phase2-run.log
+          if-no-files-found: warn
