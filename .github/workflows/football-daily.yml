@@ -52,6 +52,9 @@ jobs:
       - name: Fetch fixtures, freeze future predictions, settle results
         run: python3 scripts/refresh.py
 
+      - name: Freeze prospective Under 3.5 shadow and grade verified results
+        run: python3 scripts/shadow_under35.py
+
       - name: Commit football data changes only
         run: |
           git add -A -- data
