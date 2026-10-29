@@ -7,7 +7,7 @@ from zoneinfo import ZoneInfo
 
 from scripts.shadow_under35 import (
     CONFIG, START_DATE, compare, immutable_shadow, metrics,
-    paired_day_interval, run, temperature_scale, verified_under35,
+    paired_day_interval, run, temperature_scale, verified_under35, validate_shadow_provenance,
 )
 
 TZ=ZoneInfo("Europe/London")
@@ -82,10 +82,14 @@ class ForwardUnder35Tests(unittest.TestCase):
             saved=shadow.read_bytes()
             self.assertEqual(first["frozenFixtures"],1)
             self.assertEqual(first["pendingFixtures"],1)
-            source.write_text(json.dumps(forecast(kickoff="11:00")))
             second=run(root,datetime(2026,10,30,10,tzinfo=TZ))
             self.assertEqual(shadow.read_bytes(),saved)
             self.assertEqual(second["frozenFixtures"],1)
+            source_original=source.read_bytes()
+            source.write_text(json.dumps(forecast(kickoff="11:00")))
+            with self.assertRaises(ValueError):
+                run(root,datetime(2026,10,30,10,tzinfo=TZ))
+            source.write_bytes(source_original)
             results.write_text(json.dumps({
                 "2026-10-30|E0|fixture-a|fixture-b":{
                     "date":"2026-10-30","score":"2-1","outcomes":{"under35":True}
@@ -96,6 +100,19 @@ class ForwardUnder35Tests(unittest.TestCase):
             self.assertEqual(third["models"]["V1 original"]["wins"],1)
             self.assertEqual(third["byThreshold"]["55%"]["V1 original"]["n"],1)
             self.assertEqual(third["pairedBrierDelta"]["status"],"insufficient-data")
+
+    def test_rejects_tampered_shadow_or_post_kickoff_timestamp(self):
+        import hashlib
+        original=json.dumps(forecast()).encode()
+        frozen=immutable_shadow(json.loads(original),datetime(2026,10,30,9,tzinfo=TZ),hashlib.sha256(original).hexdigest())
+        validate_shadow_provenance(frozen,original)
+        frozen["shadowCapturedAt"]="2026-10-30T16:00:00+00:00"
+        with self.assertRaises(ValueError):
+            validate_shadow_provenance(frozen,original)
+        frozen["shadowCapturedAt"]="2026-10-30T09:00:00+00:00"
+        frozen["games"][0]["shadowUnder35"]=0.99
+        with self.assertRaises(ValueError):
+            validate_shadow_provenance(frozen,original)
 
     def test_duplicate_fixture_rejected(self):
         frozen=immutable_shadow(forecast(),datetime(2026,10,30,9,tzinfo=TZ),"a"*64)
