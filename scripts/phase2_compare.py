@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Phase 2 chronological comparison. No edits to live forecasts or frozen odds."""
-import json, math, sys
+import hashlib, json, math, random, sys
 from collections import defaultdict
-from datetime import date
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import refresh
@@ -75,13 +74,61 @@ def truth(r):
     return {"home_win":int(h>a),"draw":int(h==a),"away_win":int(h<a),
             "btts":int(h>0 and a>0),"over25":int(h+a>=3),"over35":int(h+a>=4)}
 
+
+def league_climatology(train, division):
+    """Only results preceding kickoff; naive benchmark, not modelled odds."""
+    past=sorted((r for r in train if r["division"]==division),key=lambda r:r["date"],reverse=True)[:250]
+    if not past:
+        return {"home_win":1/3,"draw":1/3,"away_win":1/3,"btts":.5,"over25":.5,"over35":.5}
+    obs=[truth(r) for r in past]
+    n=len(obs)
+    result={m:(sum(y[m] for y in obs)+1)/(n+2) for m in ("btts","over25","over35")}
+    result.update({m:(sum(y[m] for y in obs)+1)/(n+3) for m in ("home_win","draw","away_win")})
+    return result
+
+def loss_value(row, name, measure):
+    predicted=row["predictions"][name]; observed=row["truth"]
+    if measure=="1x2MulticlassBrier":
+        return sum((predicted[m]-observed[m])**2 for m in ("home_win","draw","away_win"))
+    if measure=="1x2LogLoss":
+        winner=next(m for m in ("home_win","draw","away_win") if observed[m])
+        return -math.log(clip(predicted[winner]))
+    return (predicted[measure]-observed[measure])**2
+
+def paired_day_bootstrap(rows, candidate, baseline="V1 Poisson", iterations=1200):
+    """Compare the same matches; resample whole fixture dates."""
+    measures=("1x2MulticlassBrier","1x2LogLoss")+MARKETS
+    output={}
+    rng=random.Random(20261029)
+    for metric in measures:
+        days=defaultdict(lambda:[0.,0])
+        for row in rows:
+            difference=loss_value(row,candidate,metric)-loss_value(row,baseline,metric)
+            days[row["date"]][0]+=difference
+            days[row["date"]][1]+=1
+        samples=[days[key] for key in sorted(days)]
+        n=sum(count for total,count in samples)
+        point=sum(total for total,count in samples)/n
+        draws=[]
+        for _ in range(iterations):
+            selected=[samples[rng.randrange(len(samples))] for _ in samples]
+            draws.append(sum(x[0] for x in selected)/sum(x[1] for x in selected))
+        draws.sort()
+        lower=draws[int(.025*iterations)]
+        upper=draws[int(.975*iterations)]
+        output[metric]={"differenceVsV1":round(point,6),
+            "dayClusterBootstrap95":[round(lower,6),round(upper,6)],
+            "clearImprovementInThisExploratoryInterval":upper<0,
+            "interpretation":"Negative means lower forecast loss than V1."}
+    return output
+
 def run(rows):
     # 2025/26 validation, 2026/27 untouched test. Pre-match histories only.
     rows=sorted(rows,key=lambda r:(r["date"],r["id"]))
     val=[];test=[]
     for r in rows:
         day=r["date"]
-        if not ("2026-02-01"<=day<="2026-05-31" or "2026-08-01"<=day<="2026-10-29"):
+        if not ("2026-02-01"<=day<="2026-05-31" or "2026-08-01"<=day<="2026-10-28"):
             continue
         season="2526" if day<"2026-06-01" else "2627"
         if season=="2526":
@@ -91,6 +138,7 @@ def run(rows):
         if len(training)<100:continue
         f={"division":r["division"],"homeKey":r["home"],"awayKey":r["away"],"date":day}
         predictions=variants(f,training)
+        predictions["V0 league prior"]=league_climatology(training,r["division"])
         record={"date":day,"division":r["division"],"truth":truth(r),"predictions":predictions}
         (val if season=="2526" else test).append(record)
     if not val or not test:raise RuntimeError("Insufficient chronological validation/test fixtures")
@@ -101,10 +149,17 @@ def run(rows):
         for m in ("home_win","draw","away_win"):cal[m]/=z
         r["predictions"]["V4 calibrated V1"]=cal
     # Score 1X2 as one 3-way outcome and binary markets individually.
-    report={"validationPeriod":"2026-02-01 to 2026-05-31","testPeriod":"2026-08-01 to 2026-10-29",
+    report={"validationPeriod":"2026-02-01 to 2026-05-31","testPeriod":"2026-08-01 to 2026-10-28",
             "validationFixtures":len(val),"testFixtures":len(test),"temperatureFromValidation":temps,
+            "datasetSha256":hashlib.sha256(json.dumps(rows,sort_keys=True).encode("utf-8")).hexdigest(),
             "caution":"Exploratory predeclared variants; not independent model optimisation. No historical bookmaker ROI inferred.",
-            "models":{}}
+            "models":{},"byDivision":{},"pairedBootstrapVsV1":{},
+            "methodNotes":["No odds used in fitting; no priced-bet ROI estimated.",
+                "Multiple candidates compared on the same single holdout. Confidence intervals are exploratory, not proof of superiority.",
+                "The 2026/27 test period was inspected on 29 October 2026; it must not be reused as a new untouched holdout for future tuning.",
+                "The venue-strength variant reuses form features already in V1, so improvements do not establish a unique causal effect.",
+                "Overdispersion uses a fixed shared-tempo mixture, not a fitted negative binomial.",
+                "Calibration parameters are fitted on earlier 2025/26 validation fixtures only."]}
     for name in test[0]["predictions"]:
         metrics={}
         for m in MARKETS:
@@ -112,7 +167,18 @@ def run(rows):
             metrics[m]=score(pairs)
         metrics["1x2MulticlassBrier"]=round(sum(sum((r["predictions"][name][m]-r["truth"][m])**2 for m in ("home_win","draw","away_win")) for r in test)/len(test),5)
         metrics["1x2LogLoss"]=round(-sum(math.log(clip(r["predictions"][name][next(m for m in ("home_win","draw","away_win") if r["truth"][m])])) for r in test)/len(test),5)
+        metrics["1x2TopChoiceAccuracy"]=round(sum(
+            r["truth"][max(("home_win","draw","away_win"),key=lambda m:r["predictions"][name][m])]
+            for r in test)/len(test),5)
         report["models"][name]=metrics
+        report["byDivision"][name]={}
+        for div in refresh.DIVS:
+            part=[r for r in test if r["division"]==div]
+            if not part:continue
+            report["byDivision"][name][div]={m:score([(r["predictions"][name][m],r["truth"][m]) for r in part])
+                for m in MARKETS}
+        if name!="V1 Poisson":
+            report["pairedBootstrapVsV1"][name]=paired_day_bootstrap(test,name)
     return report
 
 def load():
