@@ -65,7 +65,7 @@ class ModelComparisonTests(unittest.TestCase):
     def test_under35_bootstrap_compares_same_fixtures(self):
         baseline=add_complements({"home_win":.5,"draw":.25,"away_win":.25,"btts":.5,"over25":.5,"over35":.45})
         challenger=add_complements({"home_win":.5,"draw":.25,"away_win":.25,"btts":.5,"over25":.5,"over35":.3})
-        row={"date":"2026-08-01","truth":{"under35":1},
+        row={"date":"2026-08-01","truth":{"home_win":1,"draw":0,"away_win":0,"btts":0,"no_btts":1,"over25":1,"under25":0,"over35":0,"under35":1},
              "predictions":{"V1 Poisson":baseline,"V2":challenger}}
         delta=paired_day_bootstrap([row],"V2",iterations=100)
         self.assertLess(delta["under35"]["differenceVsV1"],0)
