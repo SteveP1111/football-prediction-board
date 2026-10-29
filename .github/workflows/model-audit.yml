@@ -5,6 +5,7 @@ on:
       - 'scripts/phase1_calibration.py'
       - 'scripts/phase2_compare.py'
       - 'tests/test_phase1_calibration.py'
+      - 'tests/test_phase2_compare.py'
       - '.github/workflows/model-audit.yml'
   workflow_dispatch:
 jobs:
