@@ -3,16 +3,17 @@
     "2026-10-27",
     "2026-10-28"
   ],
-  "refreshed": "2026-10-28T12:59:55.680141+00:00",
+  "fixtureFallback": "Guardian confirmed no covered league fixtures",
+  "refreshed": "2026-10-29T18:00:36.145125+00:00",
   "resultsByLeague": {
     "E0": 80,
     "E1": 144,
-    "E2": 138,
-    "E3": 150,
-    "EC": 165
+    "E2": 143,
+    "E3": 151,
+    "EC": 177
   },
-  "resultsCount": 677,
-  "resultsLatestDate": "2026-10-26",
+  "resultsCount": 695,
+  "resultsLatestDate": "2026-10-28",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -24,7 +25,10 @@
     "https://www.football-data.co.uk/mmz4281/2627/E2.csv",
     "https://www.football-data.co.uk/mmz4281/2627/E3.csv",
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
-    "https://www.football-data.co.uk/fixtures.csv"
+    "https://www.football-data.co.uk/fixtures.csv",
+    "https://www.theguardian.com/football/fixtures/2026/Oct/29"
   ],
-  "warnings": []
+  "warnings": [
+    "NO COVERED LEAGUE FIXTURES on this date (verified Guardian listing)"
+  ]
 }

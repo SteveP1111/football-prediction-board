@@ -1,0 +1,170 @@
+{
+  "byDivision": {},
+  "byThreshold": {
+    "55%": {
+      "V1 original": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      },
+      "V4 calibrated shadow": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      }
+    },
+    "60%": {
+      "V1 original": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      },
+      "V4 calibrated shadow": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      }
+    },
+    "65%": {
+      "V1 original": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      },
+      "V4 calibrated shadow": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      }
+    },
+    "70%": {
+      "V1 original": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      },
+      "V4 calibrated shadow": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      }
+    },
+    "75%": {
+      "V1 original": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      },
+      "V4 calibrated shadow": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      }
+    },
+    "80%": {
+      "V1 original": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      },
+      "V4 calibrated shadow": {
+        "brier": null,
+        "calibrationGapPp": null,
+        "logLoss": null,
+        "meanProbabilityPct": null,
+        "n": 0,
+        "strikeRatePct": null,
+        "wins": 0
+      }
+    }
+  },
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Only original pre-kickoff forecasts and separately frozen pre-kickoff shadow estimates are compared. No executable bookmaker odds or estimated betting return. Do not auto-promote V4.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "firstFreezeDate": null,
+  "frozenFixtures": 0,
+  "lastFreezeDate": null,
+  "models": {
+    "V1 original": {
+      "brier": null,
+      "calibrationGapPp": null,
+      "logLoss": null,
+      "meanProbabilityPct": null,
+      "n": 0,
+      "strikeRatePct": null,
+      "wins": 0
+    },
+    "V4 calibrated shadow": {
+      "brier": null,
+      "calibrationGapPp": null,
+      "logLoss": null,
+      "meanProbabilityPct": null,
+      "n": 0,
+      "strikeRatePct": null,
+      "wins": 0
+    }
+  },
+  "pairedBrierDelta": {
+    "minFixtures": 30,
+    "minMatchDays": 5,
+    "status": "insufficient-data"
+  },
+  "pendingFixtures": 0,
+  "schemaVersion": 1,
+  "settledFixtures": 0,
+  "snapshotDays": 0,
+  "status": "collecting-prospective-evidence"
+}
