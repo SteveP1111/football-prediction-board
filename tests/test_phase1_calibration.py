@@ -19,5 +19,13 @@ class CalibrationAuditTests(unittest.TestCase):
         self.assertNotIn("v1",result["models"])
         self.assertEqual(result["excludedMissingOrInvalidByMarket"]["draw"],1)
 
+    def test_under35_is_derived_only_for_audit_and_never_overwrites_input(self):
+        original={"a":{"model":"v1","division":"E0","probs":{"over35":0.3},"outcomes":{"over35":False,"under35":True}}}
+        result=audit(original)
+        self.assertEqual(result["models"]["v1"]["under35"]["overall"]["n"],1)
+        self.assertEqual(result["models"]["v1"]["under35"]["overall"]["meanPredicted"],0.7)
+        self.assertEqual(result["derivedUnder35ComplementsByModel"]["v1"],1)
+        self.assertNotIn("under35", original["a"]["probs"])
+
 if __name__=="__main__":
     unittest.main()
