@@ -96,7 +96,10 @@ def run(rows):
     if not val or not test:raise RuntimeError("Insufficient chronological validation/test fixtures")
     temps=fit_temperatures([(r["predictions"]["V1 Poisson"],r["truth"]) for r in val])
     for r in test:
-        cal={m:temp(r["predictions"]["V1 Poisson"][m],temps[m]) for m in MARKETS}\n        z=sum(cal[m] for m in ("home_win","draw","away_win"))\n        for m in ("home_win","draw","away_win"):cal[m]/=z\n        r["predictions"]["V4 calibrated V1"]=cal
+        cal={m:temp(r["predictions"]["V1 Poisson"][m],temps[m]) for m in MARKETS}
+        z=sum(cal[m] for m in ("home_win","draw","away_win"))
+        for m in ("home_win","draw","away_win"):cal[m]/=z
+        r["predictions"]["V4 calibrated V1"]=cal
     # Score 1X2 as one 3-way outcome and binary markets individually.
     report={"validationPeriod":"2026-02-01 to 2026-05-31","testPeriod":"2026-08-01 to 2026-10-29",
             "validationFixtures":len(val),"testFixtures":len(test),"temperatureFromValidation":temps,
