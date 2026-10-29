@@ -1,7 +1,7 @@
 {
   "disclaimer": "Hypothetical £10 flat stakes; not actual bets. Exchange commission, limits and unavailable quoted prices are not deducted. Only settled records count.",
-  "gradedSelections": 179,
-  "pendingSelections": 44,
+  "gradedSelections": 216,
+  "pendingSelections": 7,
   "recordedSelections": 223,
   "schemaVersion": 1,
   "snapshotDays": [
@@ -12,13 +12,13 @@
   ],
   "summary": {
     "allQuotedMarkets": {
-      "hitRatePct": 41.9,
-      "losses": 104,
-      "profitGbp": -31.6,
-      "roiPct": -1.77,
-      "selections": 179,
-      "stakeGbp": 1790.0,
-      "wins": 75
+      "hitRatePct": 42.13,
+      "losses": 125,
+      "profitGbp": -97.3,
+      "roiPct": -4.5,
+      "selections": 216,
+      "stakeGbp": 2160.0,
+      "wins": 91
     },
     "byDay": {
       "2026-10-24": {
@@ -47,43 +47,52 @@
         "selections": 3,
         "stakeGbp": 30.0,
         "wins": 0
+      },
+      "2026-10-27": {
+        "hitRatePct": 21.05,
+        "losses": 15,
+        "profitGbp": -113.5,
+        "roiPct": -59.74,
+        "selections": 19,
+        "stakeGbp": 190.0,
+        "wins": 4
       }
     },
     "byMarket": {
       "away_win": {
-        "hitRatePct": 28.57,
-        "losses": 10,
-        "profitGbp": 22.4,
-        "roiPct": 16.0,
-        "selections": 14,
-        "stakeGbp": 140.0,
+        "hitRatePct": 22.22,
+        "losses": 14,
+        "profitGbp": -17.6,
+        "roiPct": -9.78,
+        "selections": 18,
+        "stakeGbp": 180.0,
         "wins": 4
       },
       "draw": {
-        "hitRatePct": 12.5,
-        "losses": 7,
-        "profitGbp": -38.0,
-        "roiPct": -47.5,
-        "selections": 8,
-        "stakeGbp": 80.0,
+        "hitRatePct": 9.09,
+        "losses": 10,
+        "profitGbp": -68.0,
+        "roiPct": -61.82,
+        "selections": 11,
+        "stakeGbp": 110.0,
         "wins": 1
       },
       "home_win": {
-        "hitRatePct": 31.58,
-        "losses": 13,
-        "profitGbp": -0.2,
-        "roiPct": -0.11,
-        "selections": 19,
-        "stakeGbp": 190.0,
-        "wins": 6
+        "hitRatePct": 33.33,
+        "losses": 14,
+        "profitGbp": 1.0,
+        "roiPct": 0.48,
+        "selections": 21,
+        "stakeGbp": 210.0,
+        "wins": 7
       },
       "no_btts": {
-        "hitRatePct": 50.0,
-        "losses": 2,
-        "profitGbp": 14.4,
-        "roiPct": 36.0,
-        "selections": 4,
-        "stakeGbp": 40.0,
+        "hitRatePct": 40.0,
+        "losses": 3,
+        "profitGbp": 4.4,
+        "roiPct": 8.8,
+        "selections": 5,
+        "stakeGbp": 50.0,
         "wins": 2
       },
       "over25": {
@@ -105,22 +114,22 @@
         "wins": 0
       },
       "under25": {
-        "hitRatePct": 47.06,
-        "losses": 9,
-        "profitGbp": 9.7,
-        "roiPct": 5.71,
-        "selections": 17,
-        "stakeGbp": 170.0,
-        "wins": 8
+        "hitRatePct": 40.91,
+        "losses": 13,
+        "profitGbp": -17.3,
+        "roiPct": -7.86,
+        "selections": 22,
+        "stakeGbp": 220.0,
+        "wins": 9
       },
       "under35": {
-        "hitRatePct": 80.0,
-        "losses": 2,
-        "profitGbp": 31.1,
-        "roiPct": 31.1,
-        "selections": 10,
-        "stakeGbp": 100.0,
-        "wins": 8
+        "hitRatePct": 71.43,
+        "losses": 4,
+        "profitGbp": 23.4,
+        "roiPct": 16.71,
+        "selections": 14,
+        "stakeGbp": 140.0,
+        "wins": 10
       }
     },
     "byProbabilityBand": {
@@ -134,22 +143,22 @@
         "wins": 4
       },
       "60–69.9%": {
-        "hitRatePct": 90.91,
-        "losses": 1,
-        "profitGbp": 55.5,
-        "roiPct": 50.45,
-        "selections": 11,
-        "stakeGbp": 110.0,
-        "wins": 10
+        "hitRatePct": 84.62,
+        "losses": 2,
+        "profitGbp": 50.4,
+        "roiPct": 38.77,
+        "selections": 13,
+        "stakeGbp": 130.0,
+        "wins": 11
       },
       "70–79.9%": {
-        "hitRatePct": 0.0,
-        "losses": 1,
-        "profitGbp": -10.0,
-        "roiPct": -100.0,
-        "selections": 1,
-        "stakeGbp": 10.0,
-        "wins": 0
+        "hitRatePct": 33.33,
+        "losses": 2,
+        "profitGbp": -12.6,
+        "roiPct": -42.0,
+        "selections": 3,
+        "stakeGbp": 30.0,
+        "wins": 1
       },
       "80%+": {
         "hitRatePct": null,
@@ -161,35 +170,35 @@
         "wins": 0
       },
       "Under 50%": {
-        "hitRatePct": 34.55,
-        "losses": 36,
-        "profitGbp": 39.3,
-        "roiPct": 7.15,
-        "selections": 55,
-        "stakeGbp": 550.0,
-        "wins": 19
+        "hitRatePct": 30.0,
+        "losses": 49,
+        "profitGbp": -66.5,
+        "roiPct": -9.5,
+        "selections": 70,
+        "stakeGbp": 700.0,
+        "wins": 21
       }
     },
     "positiveEdges": {
-      "hitRatePct": 40.24,
-      "losses": 49,
-      "profitGbp": 18.2,
-      "roiPct": 2.22,
-      "selections": 82,
-      "stakeGbp": 820.0,
-      "wins": 33
+      "hitRatePct": 36.63,
+      "losses": 64,
+      "profitGbp": -95.3,
+      "roiPct": -9.44,
+      "selections": 101,
+      "stakeGbp": 1010.0,
+      "wins": 37
     },
     "positiveEdges60Plus": {
-      "hitRatePct": 83.33,
-      "losses": 2,
-      "profitGbp": 45.5,
-      "roiPct": 37.92,
-      "selections": 12,
-      "stakeGbp": 120.0,
-      "wins": 10
+      "hitRatePct": 75.0,
+      "losses": 4,
+      "profitGbp": 37.8,
+      "roiPct": 23.62,
+      "selections": 16,
+      "stakeGbp": 160.0,
+      "wins": 12
     },
     "primaryDefinition": "Recorded positive theoretical-edge selections only; £10 flat hypothetical stakes.",
     "stakePerPickGbp": 10.0
   },
-  "updatedAtUtc": "2026-10-27T00:51:56.022765+00:00"
+  "updatedAtUtc": "2026-10-29T18:00:58.455480+00:00"
 }
