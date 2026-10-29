@@ -33,6 +33,7 @@ def distribution(lh,la,rho=0):
 def variants(f,train):
     base=refresh.model(f,train)["scoreline"]
     lh,la=base["expectedHome"],base["expectedAway"]
+    exact_v1={m:base["markets"][m] for m in MARKETS}
     # V2: modest, predeclared home/away recent-strength correction; not fitted to test.
     relevant=[r for r in train if r["division"]==f["division"] and r["date"]<f["date"]]
     home=sorted([r for r in relevant if r["home"]==f["homeKey"]],key=lambda r:r["date"],reverse=True)[:12]
@@ -43,7 +44,7 @@ def variants(f,train):
     aa=shrink_mean(away,"ag",la); ac=shrink_mean(away,"hg",lh)
     l2h=max(.2,min(4.,lh*(max(.25,hh/lh)*max(.25,ac/lh))**.20))
     l2a=max(.2,min(4.,la*(max(.25,aa/la)*max(.25,hc/la))**.20))
-    return {"V1 Poisson":distribution(lh,la),
+    return {"V1 Poisson":exact_v1,
             "V2 venue-strength":distribution(l2h,l2a),
             "V3 Dixon-Coles":distribution(lh,la,rho=-.08),
             "V3 overdispersion":overdispersed(lh,la)}
@@ -139,6 +140,13 @@ def run(rows):
         f={"division":r["division"],"homeKey":r["home"],"awayKey":r["away"],"date":day}
         predictions=variants(f,training)
         predictions["V0 league prior"]=league_climatology(training,r["division"])
+        for label, pred in predictions.items():
+            if any(not math.isfinite(p) or not 0<=p<=1 for p in pred.values()):
+                raise AssertionError("Invalid probability: "+label)
+            if abs(sum(pred[m] for m in ("home_win","draw","away_win"))-1)>0.00005:
+                raise AssertionError("1X2 outcomes not normalised: "+label)
+            if pred["over35"] > pred["over25"]+0.000001:
+                raise AssertionError("Inconsistent goals probabilities: "+label)
         record={"date":day,"division":r["division"],"truth":truth(r),"predictions":predictions}
         (val if season=="2526" else test).append(record)
     if not val or not test:raise RuntimeError("Insufficient chronological validation/test fixtures")
