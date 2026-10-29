@@ -1,4 +1,5 @@
-import math, sys, unittest
+import io, math, sys, tempfile, unittest
+from unittest.mock import patch
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
 import refresh
@@ -52,5 +53,50 @@ class ForecastTests(unittest.TestCase):
         self.assertEqual(matches[0]["Time"],"19:45")
         self.assertEqual(matches[1]["Div"],"E3")
         self.assertEqual(refresh.fixture_rows(matches)[0]["date"],"2026-10-20")
+
+
+    def test_guardian_cet_kickoff_and_canonical_aliases(self):
+        page='''<h2>Friday, 30 October 2026</h2>
+        <h3>Championship</h3><a href="https://football.theguardian.com/match/567">21:00 CET Sheff Utd v Wrexham</a>
+        <h3>League Two</h3><a href="https://football.theguardian.com/match/568">20:45 CET Newport v Chesterfield</a>'''
+        fixtures,meta=refresh.parse_guardian_fixtures(page,refresh.date(2026,10,30),return_meta=True)
+        self.assertTrue(meta["dateSeen"])
+        self.assertEqual(meta["targetFixtureLinks"],2)
+        self.assertEqual(meta["parsedFixtures"],2)
+        self.assertEqual(fixtures[0]["Time"],"20:00")
+        self.assertEqual(fixtures[1]["Time"],"19:45")
+        standard=refresh.fixture_rows(fixtures)
+        self.assertEqual(standard[0]["homeKey"],"sheffield united")
+        self.assertEqual(standard[1]["homeKey"],"newport county")
+        for name,key in (("Nottm Forest","nottingham forest"),
+                         ("C Palace","crystal palace"),
+                         ("Spurs","tottenham hotspur"),
+                         ("AFC Bournemouth","bournemouth"),
+                         ("Man Utd","manchester united"),
+                         ("Preston North End","preston")):
+            self.assertEqual(refresh.canon(name),key)
+
+    def test_guardian_verified_no_target_league_games_does_not_raise(self):
+        day=refresh.date(2026,10,29)
+        page=b'''<h2>Thursday, 29 October 2026</h2>
+          <h3>Serie A</h3><a href="https://football.theguardian.com/match/1">20:45 CET Fiorentina v Atalanta</a>
+          <h3>Carabao Cup</h3><a href="https://football.theguardian.com/match/2">20:45 CET Everton v Newcastle</a>
+          <h2>Friday, 30 October 2026</h2>
+          <h3>Championship</h3><a href="https://football.theguardian.com/match/3">21:00 CET Sheff Utd v Wrexham</a>'''
+        with tempfile.TemporaryDirectory() as directory, patch.object(refresh,"DATA",refresh.Path(directory)),patch.object(refresh.urllib.request,"urlopen",return_value=io.BytesIO(page)):
+            state={"sources":[],"warnings":[]}
+            found=refresh.missing_fixture_fallback([],day,state)
+            self.assertEqual(found,[])
+            self.assertIn("confirmed no covered",state["fixtureFallback"])
+            self.assertTrue(any("NO COVERED LEAGUE FIXTURES" in w for w in state["warnings"]))
+
+    def test_guardian_target_fixture_unparseable_still_fails_closed(self):
+        day=refresh.date(2026,10,30)
+        page=b'''<h2>Friday, 30 October 2026</h2><h3>Championship</h3>
+          <a href="https://football.theguardian.com/match/1">No time or teams</a>'''
+        with tempfile.TemporaryDirectory() as directory, patch.object(refresh,"DATA",refresh.Path(directory)),patch.object(refresh.urllib.request,"urlopen",return_value=io.BytesIO(page)):
+            state={"sources":[],"warnings":[]}
+            with self.assertRaises(RuntimeError):
+                refresh.missing_fixture_fallback([],day,state)
 
 if __name__=="__main__":unittest.main()

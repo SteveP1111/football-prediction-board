@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'scripts/shadow_under35.py'
+      - 'scripts/refresh.py'
+      - 'tests/test_forecast.py'
       - 'tests/test_shadow_under35.py'
       - 'tests/test_board_queries.js'
       - 'index.html'

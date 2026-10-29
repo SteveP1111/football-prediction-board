@@ -16,12 +16,12 @@ from html import unescape
 
 GUARDIAN_DIVS={"Premier League":"E0","Championship":"E1","League One":"E2",
                "League Two":"E3","National League":"EC"}
-def parse_guardian_fixtures(html, wanted):
+def parse_guardian_fixtures(html, wanted, return_meta=False):
     class FixtureParser(HTMLParser):
         def __init__(self):
             super().__init__(convert_charrefs=True)
             self.capture=None;self.buffer=[];self.competition=None;self.day=None
-            self.matches=[]
+            self.matches=[];self.date_seen=False;self.target_sections=set();self.target_links=0
         def handle_starttag(self,tag,attrs):
             attrs=dict(attrs)
             if tag in ("h2","h3"):
@@ -36,30 +36,46 @@ def parse_guardian_fixtures(html, wanted):
                 if tag=="h2":
                     m=re.search(r"(\d{1,2}\s+[A-Za-z]+\s+\d{4})",words)
                     if m:
-                        try:self.day=datetime.strptime(m.group(1),"%d %B %Y").date()
+                        try:
+                            self.day=datetime.strptime(m.group(1),"%d %B %Y").date()
+                            if self.day==wanted:self.date_seen=True
                         except ValueError:pass
-                else:self.competition=GUARDIAN_DIVS.get(words)
+                else:
+                    self.competition=GUARDIAN_DIVS.get(words)
+                    if self.day==wanted and self.competition:
+                        self.target_sections.add(self.competition)
                 self.capture=None;self.buffer=[]
             elif tag=="a" and self.capture=="match":
                 words=" ".join(" ".join(self.buffer).split())
                 if self.day==wanted and self.competition:
-                    m=re.match(r"^(\d{1,2}:\d{2})\s*(EDT|EST|BST|GMT)?\s+(.+?)\s+v\s+(.+)$",words,re.I)
+                    self.target_links+=1
+                    m=re.match(r"^(\d{1,2}:\d{2})\s*(EDT|EST|BST|GMT|CET|CEST)?\s+(.+?)\s+v\s+(.+)$",words,re.I)
                     if m:
                         clock,zone,home,away=m.groups()
-                        if zone in ("EDT","EST"):
-                            from zoneinfo import ZoneInfo
-                            local=datetime.combine(wanted,datetime.strptime(clock,"%H:%M").time(),tzinfo=ZoneInfo("America/New_York")).astimezone(TZ)
+                        if zone:
+                            source_zone=("America/New_York" if zone.upper() in ("EDT","EST")
+                                else "Europe/Paris" if zone.upper() in ("CET","CEST")
+                                else "Europe/London")
+                            local=datetime.combine(wanted,datetime.strptime(clock,"%H:%M").time(),
+                                tzinfo=ZoneInfo(source_zone)).astimezone(TZ)
                             clock=local.strftime("%H:%M")
                         self.matches.append({"Div":self.competition,"Date":wanted.isoformat(),
                                              "Time":clock,"HomeTeam":home,"AwayTeam":away})
                 self.capture=None;self.buffer=[]
     p=FixtureParser();p.feed(html)
-    return list({(x["Div"],x["HomeTeam"],x["AwayTeam"]):x for x in p.matches}.values())
+    matches=list({(x["Div"],x["HomeTeam"],x["AwayTeam"]):x for x in p.matches}.values())
+    if return_meta:
+        return matches,{"dateSeen":p.date_seen,
+                        "targetSections":sorted(p.target_sections),
+                        "targetFixtureLinks":p.target_links,
+                        "parsedFixtures":len(matches)}
+    return matches
 
 def missing_fixture_fallback(fixtures, today, state):
     """Augment stale CSV with a verified fixture manifest; otherwise Guardian dated fixtures."""
     dates={f["date"] for f in fixtures}
     when=today.isoformat()
+    verified_zero=False
     manual=DATA/"manual_fixtures"/(when+".json")
     if manual.exists():
         record=json.loads(manual.read_text(encoding="utf-8"))
@@ -76,12 +92,21 @@ def missing_fixture_fallback(fixtures, today, state):
             req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; FootballPredictionBoard/1.1)","Accept":"text/html"})
             with urllib.request.urlopen(req,timeout=22) as resp:
                 page=resp.read(2500000).decode("utf-8",errors="replace")
-            rows=parse_guardian_fixtures(page,today)
+            rows,meta=parse_guardian_fixtures(page,today,return_meta=True)
             extra=fixture_rows(rows)
             if extra:
+                if len(extra)!=meta["parsedFixtures"]:
+                    raise ValueError("Guardian fixture row validation rejected a parsed game")
                 state["sources"].append(url)
                 state["fixtureFallback"]="Guardian dated fixture page"
-            else:state["warnings"].append("STALE FIXTURE COVERAGE: Guardian fallback returned no parseable games")
+            elif meta["dateSeen"] and not meta["targetSections"] and not meta["targetFixtureLinks"]:
+                # Valid dated fixture list, but no matches in any of our five divisions.
+                verified_zero=True
+                state["sources"].append(url)
+                state["fixtureFallback"]="Guardian confirmed no covered league fixtures"
+                state["warnings"].append("NO COVERED LEAGUE FIXTURES on this date (verified Guardian listing)")
+            else:
+                state["warnings"].append("STALE FIXTURE COVERAGE: Guardian target league links missing or unparseable")
         except Exception as exc:
             state["warnings"].append("STALE FIXTURE COVERAGE: Guardian fallback failed: "+str(exc))
             extra=[]
@@ -92,7 +117,7 @@ def missing_fixture_fallback(fixtures, today, state):
         merged.setdefault(f["id"],f)
     if extra:
         state["fixtureFallbackGames"]=len(extra)
-    if not extra and when not in dates and max(dates,default="")<when:
+    if not extra and not verified_zero and when not in dates and max(dates,default="")<when:
         raise RuntimeError("Fixture feed ends before today and fallback found no trustworthy fixtures")
     return list(merged.values())
 
@@ -114,6 +139,10 @@ ALIASES = {
     "salford":"salford city","millwall":"millwall",
     "blackburn":"blackburn rovers","west brom":"west bromwich albion",
     "man city":"manchester city","man united":"manchester united",
+    "man utd":"manchester united","sheff utd":"sheffield united",
+    "nottm forest":"nottingham forest","c palace":"crystal palace",
+    "spurs":"tottenham hotspur","afc bournemouth":"bournemouth",
+    "preston north end":"preston",
     "qpr":"queens park rangers","notts co":"notts county",
     "tranmere":"tranmere rovers","colchester":"colchester united",
     "southend":"southend united","hartlepool":"hartlepool united",
