@@ -31,10 +31,10 @@ function constLine(name) {
   assert.ok(line, "Missing const " + name);
   return line;
 }
-const functions = ["modelMarkets", "prob", "marketFromQuery"].map(functionFromSource).join("\n");
+const functions = ["modelMarkets", "prob", "marketFromQuery", "rankByModelProbability"].map(functionFromSource).join("\n");
 const code = functions + "\n" + ["isGoalsOrBtts", "marketThreshold"].map(constLine).join("\n");
-const { modelMarkets, prob, marketFromQuery, marketThreshold, isGoalsOrBtts } =
-  new Function(code + "\nreturn {modelMarkets,prob,marketFromQuery,marketThreshold,isGoalsOrBtts};")();
+const { modelMarkets, prob, marketFromQuery, marketThreshold, isGoalsOrBtts, rankByModelProbability } =
+  new Function(code + "\nreturn {modelMarkets,prob,marketFromQuery,marketThreshold,isGoalsOrBtts,rankByModelProbability};")();
 
 const intents = [
   ["Top 5 under 3.5", "under35"],
@@ -94,5 +94,19 @@ assert.ok(prob(future, "under35") >= marketThreshold("under35"));
 assert.ok(prob(future, "btts") >= marketThreshold("btts"));
 assert.ok(prob(future, "over25") >= marketThreshold("over25"));
 assert.ok(prob(future, "over35") < marketThreshold("over35"));
+
+assert.ok(html.includes('id="under35-focus-section"'),"Under 3.5 has a visible dedicated watchlist");
+assert.ok(html.includes('id="under35-open-edge"'),"Under 3.5 watchlist links to recorded odds");
+assert.ok(html.includes('id="shadow-under35-panel"'),"Forward-only calibrated comparisons are displayed");
+assert.ok(html.includes('getJSON("data/shadow_under35/performance.json",null)'),"Shadow data is fetched separately");
+assert.ok(html.includes('rankByModelProbability(picks);'),"The Edge Finder calls probability-first ranking");
+const ranked=rankByModelProbability([
+ {market:"draw",modelProbability:.40,edgePp:30},
+ {market:"under35",modelProbability:.73,edgePp:1},
+ {market:"home_win",modelProbability:.62,edgePp:15},
+ {market:"under25",modelProbability:.62,edgePp:3}
+]);
+assert.deepEqual(ranked.map(p=>p.market),["under35","home_win","under25","draw"],
+ "Ranking must prioritize probability; theoretical edge is only a tiebreaker");
 
 console.log("PASS: " + intents.length + " query variants, archived Under 3.5 derivation, 55% market thresholds and UI controls.");
