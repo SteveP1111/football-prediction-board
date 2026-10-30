@@ -1,0 +1,143 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-10-30T01:21:39.609390+00:00",
+  "date": "2026-10-30",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Wrexham",
+      "awayKey": "wrexham",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-30",
+      "division": "E1",
+      "home": "Sheff Utd",
+      "homeKey": "sheffield united",
+      "id": "2026-10-30|E1|sheffield united|wrexham",
+      "kickoff": "20:00",
+      "league": "Championship",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.31287,
+        "expectedAway": 1.162,
+        "expectedHome": 1.6,
+        "expectedTotal": 2.762,
+        "goalBands": {
+          "0-1": 0.23767,
+          "2": 0.24095,
+          "3": 0.22181,
+          "4+": 0.29957
+        },
+        "markets": {
+          "away_win": 0.27695,
+          "btts": 0.54837,
+          "draw": 0.24789,
+          "home_win": 0.47516,
+          "no_btts": 0.45163,
+          "over25": 0.52138,
+          "over35": 0.29957,
+          "under25": 0.47862,
+          "under35": 0.70043
+        },
+        "modalProbability": 0.11745,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 6,
+        "sampleHome": 6,
+        "topScores": [
+          {
+            "p": 0.11745,
+            "score": "1-1"
+          },
+          {
+            "p": 0.10107,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09394,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08085,
+            "score": "2-0"
+          },
+          {
+            "p": 0.07341,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Chesterfield",
+      "awayKey": "chesterfield",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-10-30",
+      "division": "E3",
+      "home": "Newport",
+      "homeKey": "newport county",
+      "id": "2026-10-30|E3|newport county|chesterfield",
+      "kickoff": "19:45",
+      "league": "League Two",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.34539,
+        "expectedAway": 1.063,
+        "expectedHome": 1.459,
+        "expectedTotal": 2.522,
+        "goalBands": {
+          "0-1": 0.28283,
+          "2": 0.25537,
+          "3": 0.21468,
+          "4+": 0.24712
+        },
+        "markets": {
+          "away_win": 0.27552,
+          "btts": 0.50241,
+          "draw": 0.26232,
+          "home_win": 0.46216,
+          "no_btts": 0.49759,
+          "over25": 0.4618,
+          "over35": 0.24712,
+          "under25": 0.5382,
+          "under35": 0.75288
+        },
+        "modalProbability": 0.12454,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 6,
+        "sampleHome": 6,
+        "topScores": [
+          {
+            "p": 0.12454,
+            "score": "1-1"
+          },
+          {
+            "p": 0.11715,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09084,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08545,
+            "score": "2-0"
+          },
+          {
+            "p": 0.08537,
+            "score": "0-1"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 695
+}

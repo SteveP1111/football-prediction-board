@@ -75,5 +75,12 @@
     "markets": 27,
     "settled": 3,
     "wins": 12
+  },
+  {
+    "date": "2026-10-30",
+    "games": 2,
+    "markets": 0,
+    "settled": 0,
+    "wins": 0
   }
 ]

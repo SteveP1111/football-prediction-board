@@ -1,0 +1,43 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Wrexham",
+      "date": "2026-10-30",
+      "division": "E1",
+      "fixtureId": "2026-10-30|E1|sheffield united|wrexham",
+      "home": "Sheff Utd",
+      "kickoffLocal": "2026-10-30T20:00:00+00:00",
+      "originalUnder35": 0.70043,
+      "shadowUnder35": 0.66991234
+    },
+    {
+      "away": "Chesterfield",
+      "date": "2026-10-30",
+      "division": "E3",
+      "fixtureId": "2026-10-30|E3|newport county|chesterfield",
+      "home": "Newport",
+      "kickoffLocal": "2026-10-30T19:45:00+00:00",
+      "originalUnder35": 0.75288,
+      "shadowUnder35": 0.71674241
+    }
+  ],
+  "originalCapturedAt": "2026-10-30T01:21:39.609390+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-10-30T01:21:50.820489+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-10-30",
+  "sourceSnapshotSha256": "3f60a39de535cddb84ce1feba4dc688377db10cf456a40d8dc5c0d014dfa8aa9",
+  "status": "frozen-prekickoff"
+}
