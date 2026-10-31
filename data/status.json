@@ -3,7 +3,7 @@
     "2026-10-30",
     "2026-11-02"
   ],
-  "refreshed": "2026-10-30T13:00:10.366623+00:00",
+  "refreshed": "2026-10-31T01:04:53.100590+00:00",
   "resultsByLeague": {
     "E0": 80,
     "E1": 144,
@@ -26,5 +26,7 @@
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
     "https://www.football-data.co.uk/fixtures.csv"
   ],
-  "warnings": []
+  "warnings": [
+    "RESULTS COVERAGE BEHIND: latest verified result 2026-10-28"
+  ]
 }
