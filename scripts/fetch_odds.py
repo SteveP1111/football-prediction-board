@@ -223,7 +223,11 @@ def collect(key, selected, max_credits, save=False, extra_markets=(), extra_even
         )
         if usage is not None:
             usage["confidenceQualifyingRequests"] = len(targets)
-            usage["confidenceSelectionPolicy"] = "BTTS and Over/Under 3.5 55%+; Over/Under 2.5 supplied in standard league odds; skip already-priced outcomes"
+            usage["confidenceRequestsByMarket"] = {
+                "btts": sum(t["market"] == "btts" for t in targets),
+                "alternate_totals": sum(t["market"] == "alternate_totals" for t in targets),
+            }
+            usage["confidenceSelectionPolicy"] = "Prioritise BTTS 55%+, use unused slots for Over/Under 3.5 55%+; standard 2.5 totals remain batch-priced; skip already-priced outcomes"
         print("High-confidence event markets selected:", len(targets),
               "of allowed", confidence_extra_calls)
         indexed = {e["id"]: e for e in games}
