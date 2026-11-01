@@ -451,9 +451,36 @@ def assess(snapshot, odds, max_age_hours=24):
             item["positiveEdge"] = item["edgePp"] > 0
             prices.append(item)
 
-    prices.sort(key=lambda x: (-int(x["positiveEdge"]), -x["modelProbability"],
+    prices.sort(key=lambda x: (-x["modelProbability"], -int(x["positiveEdge"]),
                                -x["edgePp"], x["fixtureId"], x["market"]))
     matched_count = sum(value is not None for value in matching.values())
+    btts_supported = [f for f in fixtures if f.get("division") in DIVISION_SPORT
+                      and probability(f, "btts") is not None
+                      and probability(f, "no_btts") is not None]
+    btts_matched = [f for f in btts_supported if matching.get(f.get("id")) is not None]
+    btts_qualified = [f for f in btts_matched
+                      if max(probability(f, "btts"), probability(f, "no_btts")) >= 0.55]
+    quoted_fixtures = {p["fixtureId"] for p in prices if p["market"] in ("btts", "no_btts")}
+    quoted_qualified = sum(f["id"] in quoted_fixtures for f in btts_qualified)
+    covered_count = sum(f["id"] in quoted_fixtures for f in btts_matched)
+    quote_pct = round(100 * covered_count / len(btts_matched), 2) if btts_matched else None
+    qualified_pct = round(100 * quoted_qualified / len(btts_qualified), 2) if btts_qualified else None
+    low_btts_coverage = len(btts_qualified) >= 5 and qualified_pct < 25
+    btts_coverage = {
+        "supportedForecastFixtures": len(btts_supported),
+        "matchedForecastFixtures": len(btts_matched),
+        "qualified55MatchedFixtures": len(btts_qualified),
+        "quotedFixtures": covered_count,
+        "quotedOutcomes": sum(p["market"] in ("btts", "no_btts") for p in prices),
+        "quotedQualifiedFixtures": quoted_qualified,
+        "matchedCoveragePct": quote_pct,
+        "qualifiedCoveragePct": qualified_pct,
+        "lowCoverageWarning": low_btts_coverage,
+        "warning": ("BTTS quoted for only " + str(quoted_qualified) + "/" +
+                    str(len(btts_qualified)) + " qualifying matched fixtures; " +
+                    "the extra-market request limit restricts coverage."
+                    if low_btts_coverage else None),
+    }
     return {
         "schemaVersion": 1,
         "status": "compared" if prices else "no-comparable-markets",
@@ -463,7 +490,7 @@ def assess(snapshot, odds, max_age_hours=24):
         "provider": "The Odds API",
         "model": snapshot.get("model"),
         "calibrated": False,
-        "ranking": "positive-edge-first, then model probability descending, edge as tiebreak",
+        "ranking": "model probability descending; positive edge and edge pp as tiebreakers",
         "bettingNote": "Experimental uncalibrated model. Theoretical edge does not imply betting profit; bookmaker odds are time-sensitive.",
         "summary": {
             "oddsEvents": len(events),
@@ -473,6 +500,8 @@ def assess(snapshot, odds, max_age_hours=24):
             "marketsPriced": len(prices),
             "positiveEdges": sum(bool(p["positiveEdge"]) for p in prices),
             "unmatchedReasons": dict(sorted(reasons.items())),
+            "bttsCoverage": btts_coverage,
+            "coverageWarnings": [btts_coverage["warning"]] if low_btts_coverage else [],
         },
         "picks": prices,
     }
