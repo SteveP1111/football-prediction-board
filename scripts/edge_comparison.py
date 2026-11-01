@@ -197,11 +197,11 @@ def outcome_key(market_key, outcome, event):
 
 def select_confident_event_markets(snapshot, events, now, max_requests=4,
                                    btts_threshold=0.55, totals_threshold=0.55):
-    """Choose only missing, high-confidence event markets.
+    """Choose missing high-confidence event markets, with BTTS first.
 
-    Two preferred slots for BTTS and two for 3.5 totals; remaining slots go
-    to the highest-probability qualifying choices. Standard league-wide
-    h2h/totals fetching is deliberately not filtered.
+    Prioritise up to four BTTS enquiries; any unused slots go to 3.5 totals.
+    3.5 quotes already in the standard feed never consume extra credits.
+    League-wide h2h/2.5 totals collection is deliberately unaffected.
     """
     if not isinstance(snapshot, dict) or snapshot.get("status") != "frozen-prekickoff":
         return []
@@ -301,18 +301,9 @@ def select_confident_event_markets(snapshot, events, now, max_requests=4,
     for category in options:
         options[category].sort(key=ranked)
 
-    # Reserve capacity for both market families rather than letting common
-    # Under 3.5 outcomes displace every qualifying BTTS opportunity.
-    selected = (options["btts"][:min(2, max_requests)] +
-                options["alternate_totals"][:min(2, max_requests)])
-    selected = sorted(selected, key=ranked)[:max_requests]
-    used = {(o["eventId"], o["market"]) for o in selected}
-    remainder = sorted(
-        [o for group in options.values() for o in group
-         if (o["eventId"], o["market"]) not in used],
-        key=ranked
-    )
-    selected += remainder[:max(0, max_requests - len(selected))]
+    # Prefer BTTS, but never purchase a duplicate quoted market or exceed cap.
+    selected = options["btts"][:max_requests]
+    selected += options["alternate_totals"][:max(0, max_requests - len(selected))]
     return sorted(selected, key=ranked)
 
 def assess(snapshot, odds, max_age_hours=24):
