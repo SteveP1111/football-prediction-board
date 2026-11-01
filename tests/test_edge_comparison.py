@@ -89,7 +89,32 @@ class EdgeTests(unittest.TestCase):
         self.assertEqual(picks["under35"]["edgePp"], -0.97)
         self.assertTrue(picks["home_win"]["positiveEdge"])
         self.assertFalse(picks["under25"]["positiveEdge"])
-        self.assertEqual(report["picks"][0]["market"], "under35" if picks["under35"]["positiveEdge"] else "btts")
+        self.assertEqual(report["picks"][0]["market"], "under35")
+
+    def test_low_btts_coverage_is_flagged_without_inventing_prices(self):
+        pairs = [("Aston Villa", "Man City"), ("Chelsea", "Tottenham"),
+                 ("Arsenal", "Everton"), ("Fulham", "Newcastle"),
+                 ("Brentford", "Liverpool"), ("Wolves", "Bournemouth")]
+        fixtures = [game(home=h, away=a) for h, a in pairs]
+        items = []
+        for i, (home, away) in enumerate(pairs):
+            markets = [{"key": "totals", "outcomes": [
+                {"name": "Over", "point": 2.5, "price": 1.85},
+                {"name": "Under", "point": 2.5, "price": 2.05}]}]
+            if i == 0:
+                markets.append({"key": "btts", "outcomes": [
+                    {"name": "Yes", "price": 1.8},
+                    {"name": "No", "price": 2.05}]})
+            items.append(event([book(markets=markets)], id="unique000" + str(i),
+                               home_team=home, away_team=away))
+        report = edge.assess(snapshot(*fixtures), odds(*items))
+        coverage = report["summary"]["bttsCoverage"]
+        self.assertEqual(coverage["matchedForecastFixtures"], 6)
+        self.assertEqual(coverage["qualified55MatchedFixtures"], 6)
+        self.assertEqual(coverage["quotedFixtures"], 1)
+        self.assertEqual(coverage["quotedOutcomes"], 2)
+        self.assertTrue(coverage["lowCoverageWarning"])
+        self.assertEqual(len(report["summary"]["coverageWarnings"]), 1)
 
     def test_highest_odds_bookmaker_wins_and_keeps_count(self):
         higher = book("BetterUK")
