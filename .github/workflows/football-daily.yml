@@ -55,6 +55,9 @@ jobs:
       - name: Freeze prospective Under 3.5 shadow and grade verified results
         run: python3 scripts/shadow_under35.py
 
+      - name: Grade frozen BTTS forecasts separately from bookmaker prices
+        run: python3 scripts/btts_history.py
+
       - name: Commit football data changes only
         run: |
           git add -A -- data

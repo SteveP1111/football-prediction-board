@@ -40,11 +40,16 @@ class StoredEdgeAuditTests(unittest.TestCase):
                                    delta=0.011)
             self.assertEqual(pick["positiveEdge"], pick["edgePp"] > 0)
 
-    def test_ranked_highest_probability_with_positive_edge_first(self):
+    def test_stored_snapshot_uses_its_original_ranking_contract(self):
         report = json.loads(REPORT.read_text(encoding="utf-8"))
+        # Existing dated odds snapshots remain immutable. Future reports rank
+        # probability-first; old archives must still validate under old policy.
+        old = report.get("ranking", "").startswith("positive-edge-first")
         ranked = sorted(report["picks"], key=lambda p: (
-            -int(p["positiveEdge"]), -p["modelProbability"], -p["edgePp"],
-            p["fixtureId"], p["market"]
+            (-int(p["positiveEdge"]), -p["modelProbability"], -p["edgePp"],
+             p["fixtureId"], p["market"]) if old else
+            (-p["modelProbability"], -int(p["positiveEdge"]), -p["edgePp"],
+             p["fixtureId"], p["market"])
         ))
         self.assertEqual(report["picks"], ranked)
 

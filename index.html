@@ -44,6 +44,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <section class="panel"><h2>Bookmaker odds compared with frozen forecasts</h2>
 <p class="muted small">Independent experimental Scoreline Model probabilities against captured UK bookmaker prices. Positive theoretical edge is not a guarantee of success. Odds can change; this is not a live bookmaker feed. Rankings prioritise model probability, then edge.</p>
 <div id="edge-status" aria-live="polite" class="muted small">Checking for verified bookmaker comparisons…</div>
+<div id="edge-coverage" aria-live="polite"></div>
 <div class="edge-controls">
 <label for="edge-league">League</label><select id="edge-league"><option value="all">All supported leagues</option><option value="E0">Premier League</option><option value="E1">Championship</option><option value="E2">League One</option><option value="E3">League Two</option></select>
 <button type="button" id="edge-under35-focus">Under 3.5 only</button>
@@ -52,14 +53,17 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 <label><input type="checkbox" id="edge-confident" checked>Goals/BTTS ≥55%</label>
 <label><input type="checkbox" id="edge-upcoming" checked>Upcoming matches only</label>
 </div>
-<div id="edge-list">No audited bookmaker comparisons published.</div></section><section class="panel"><h2>Recorded edge performance · £10 flat stakes</h2><p class="muted small">Historical results use original frozen bookmaker quotes and independently verified final scores. Figures are hypothetical, not actual bets. All positive-edge selections are counted, including correlated markets on the same match. Bookmaker exchange commission is excluded.</p><div id="edge-history">Performance will appear once recorded matches finish.</div></section></div>
+<div id="edge-list">No audited bookmaker comparisons published.</div></section><section class="panel"><h2>Recorded edge performance · £10 flat stakes</h2><p class="muted small">Historical results use original frozen bookmaker quotes and independently verified final scores. Figures are hypothetical, not actual bets. All positive-edge selections are counted, including correlated markets on the same match. Bookmaker exchange commission is excluded.</p><div id="edge-history">Performance will appear once recorded matches finish.</div></section>
+<section class="panel"><h2>BTTS · every frozen forecast, including unpriced matches</h2>
+<p class="muted small">One probability-first Yes/No selection per fixture, assessed against a verified full-time result. Results include National League matches, which have no connected bookmaker feed. Forecast accuracy is not hypothetical betting ROI and does not establish profitable edges.</p>
+<div id="btts-history">BTTS forecast accuracy will appear after the next refresh.</div></section></div>
 <div class="source" id="source-line">Data source: Football-Data.co.uk. This is research, not financial or betting advice. No odds, final scores or future information enter a pre-match forecast.</div>
 </main>
 <script>
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
-let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null,edgePerformance=null,shadowUnder35=null;
+let snapshot=null,settlements={},history=[],performance=null,b31history=null,edgeReport=null,edgePerformance=null,bttsPerformance=null,shadowUnder35=null;
 let state={market:"home_win",league:"all",count:5,model:"scoreline",modal00:false,team:"",qualifiedOnly:true};
 const title={home_win:"Home wins",away_win:"Away wins",draw:"Draws",btts:"BTTS Yes",no_btts:"BTTS No",over25:"Over 2.5 goals",under25:"Under 2.5 goals",over35:"Over 3.5 goals",under35:"Under 3.5 goals",modal00:"Exact 0–0 forecasts"};
 const pct=n=>(100*Number(n||0)).toFixed(1)+"%";
@@ -177,7 +181,7 @@ $("result-title").textContent=state.model==="b31"?"Official B3.1 qualifying sele
 $("result-count").textContent=found+" matching matches"+(state.model==="scoreline"&&isGoalsOrBtts(state.market)&&state.qualifiedOnly?" · 55%+ confidence":"");
 $("results").innerHTML=entries.length?entries.map((o,i)=>card(o.game,i,o.pick)).join(""):'<div class="panel muted">No matching saved predictions at this confidence level. For goal and BTTS markets, untick the 55% filter to see lower-probability predictions. Missing established B3.1 predictions are not estimated or invented.</div>';
 }
-async function loadSnapshot(day){const s=await getJSON("data/snapshots/"+day+".json",null);if(s){snapshot=s;await applyBridge();showView("today");$("date-pill").textContent="Viewing "+s.date;draw();drawUnder35Focus()}}
+async function loadSnapshot(day){const s=await getJSON("data/snapshots/"+day+".json",null);if(s){snapshot=s;await applyBridge();showView("today");$("date-pill").textContent="Viewing "+s.date;draw();drawUnder35Focus();drawEdges();drawBttsPerformance()}}
 async function applyBridge(){const b=await getJSON("data/b31-snapshots/"+snapshot.date+".json",null);if(!b||!Array.isArray(b.fixtures))return;const byId=new Map(b.fixtures.map(x=>[x.id,x]));for(const g of snapshot.games||[]){const f=byId.get(g.id);if(f&&Array.isArray(f.qualifiers))g.b31={status:"frozen-nightly",qualifiers:f.qualifiers}}}
 function drawHistory(){
 $("history-list").innerHTML=history.length?history.slice().reverse().map(d=>'<div class="history-entry"><div><strong>'+esc(d.date)+'</strong><div class="muted tiny">'+d.games+' frozen fixtures · '+d.settled+' settled · '+d.markets+' market outcomes</div></div><button data-day="'+esc(d.date)+'">View</button></div>').join(""):'<div class="muted">No snapshots have been published yet.</div>';
@@ -198,7 +202,8 @@ function rankByModelProbability(picks){
  return picks.sort((a,b)=>Number(b.modelProbability)-Number(a.modelProbability)||Number(b.edgePp)-Number(a.edgePp));
 }
 function drawEdges(){
-const note=$("edge-status"),target=$("edge-list");
+const note=$("edge-status"),target=$("edge-list"),coverageBox=$("edge-coverage");
+coverageBox.textContent="";
 if(!edgeReport||!Array.isArray(edgeReport.picks)){
  note.textContent="No audited bookmaker price comparison has been published. This tab will remain empty until a verified pre-kickoff collection is approved.";
  target.innerHTML='<p class="muted small">The prediction model still operates independently without bookmaker prices.</p>';
@@ -220,6 +225,17 @@ if(!Number.isFinite(recorded.getTime())){
 }
 const ageHours=(Date.now()-recorded.getTime())/3600000;
 note.textContent=(ageHours>6?"Historical capture, not current prices · ":"")+"Forecast "+edgeReport.forecastDate+" · Odds captured "+recorded.toLocaleString("en-GB",{timeZone:"Europe/London",dateStyle:"short",timeStyle:"short"})+" UK · "+(summary.matchedFixtures||0)+" safely matched fixtures · "+(summary.marketsPriced||0)+" priced markets. Missing bookmaker markets are not estimated.";
+const bc=summary.bttsCoverage;
+if(bc){
+ const qualified=Number(bc.qualified55MatchedFixtures||0);
+ const quoted=Number(bc.quotedQualifiedFixtures||0);
+ coverageBox.innerHTML='<div class="'+(bc.lowCoverageWarning?'alert':'muted small')+'" style="margin:10px 0">'+
+ '<strong>BTTS bookmaker coverage:</strong> '+Number(bc.quotedFixtures||0)+' of '+Number(bc.matchedForecastFixtures||0)+
+ ' matched fixtures priced · '+quoted+' of '+qualified+' qualifying 55%+ fixtures priced ('+
+ (bc.qualifiedCoveragePct==null?'N/A':Number(bc.qualifiedCoveragePct).toFixed(1)+'%')+'). '+
+ (bc.lowCoverageWarning?'Low coverage: do not interpret unpriced forecasts as betting losses. ':'')+
+ 'The BTTS model can be graded without odds; hypothetical £10 profit/ROI only applies to recorded bookmaker prices.</div>';
+}
 let picks=edgeReport.picks.slice();
 const league=$("edge-league").value,market=$("edge-market").value;
 if(league!=="all")picks=picks.filter(p=>p.division===league);
@@ -273,17 +289,55 @@ const tables=categories.map(([heading,values])=>{
 const footer='<p class="muted small">Recorded '+Number(p.recordedSelections||0)+' fixture-market selections. Graded '+Number(p.gradedSelections||0)+'; awaiting verified final results for '+Number(p.pendingSelections||0)+'. Among positive-edge predictions with model probability at least 60%, '+Number(confident.selections||0)+' have settled, with '+money(confident.profitGbp)+' hypothetical P/L. These are exploratory results; not proof of a profitable model.</p>';
 target.innerHTML=header+tables+footer;
 }
+function drawBttsPerformance(){
+const target=$("btts-history"),p=bttsPerformance;
+if(!p?.summary){
+ target.innerHTML='<p class="muted small">No derived BTTS accuracy audit has been published yet. Existing priced Edge Finder results above are unaffected.</p>';
+ return;
+}
+const s=p.summary;
+const accuracy=n=>n==null?"—":Number(n).toFixed(1)+"%";
+const cell=n=>n==null?"—":String(n);
+const kpis='<div class="edge-grid">'+[
+ ["Original BTTS forecasts",s.forecasts],["Verified full-time results",s.graded],
+ ["Correct preferred Yes/No",s.correct],["Accuracy (not ROI)",accuracy(s.accuracyPct)]
+].map(([name,value])=>'<div class="kpi"><span>'+esc(name)+'</span><strong>'+esc(value)+'</strong></div>').join("")+'</div>';
+const categories=[
+ ["Preferred BTTS outcome",p.byOutcome],
+ ["By league",p.byLeague],
+ ["By model probability",p.byProbabilityBand]
+];
+const breakdown=categories.map(([heading,values])=>
+ '<h3 style="font-size:14px;margin:17px 0 7px">'+esc(heading)+'</h3>'+
+ '<div class="edge-table"><table><thead><tr><th>Group</th><th class="num">Forecasts</th><th class="num">Settled</th><th class="num">Correct</th><th class="num">Accuracy</th></tr></thead><tbody>'+
+ Object.entries(values||{}).map(([key,v])=>'<tr><td>'+esc(key==="Yes"?"BTTS Yes":key==="No"?"BTTS No":key)+
+ '</td><td class="num">'+cell(v.forecasts)+'</td><td class="num">'+cell(v.graded)+
+ '</td><td class="num">'+cell(v.correct)+'</td><td class="num">'+accuracy(v.accuracyPct)+'</td></tr>').join("")+
+ '</tbody></table></div>').join("");
+const days=Object.entries(p.coverageByDay||{}).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,7);
+const daily='<h3 style="font-size:14px;margin:17px 0 7px">Recent bookmaker BTTS coverage</h3>'+
+ '<div class="edge-table"><table><thead><tr><th>Date</th><th class="num">BTTS forecasts</th><th class="num">Matched</th><th class="num">55%+ matched</th><th class="num">Priced fixtures</th><th>Coverage</th></tr></thead><tbody>'+
+ days.map(([date,c])=>'<tr><td>'+esc(date)+'</td><td class="num">'+cell(c.allLeagueForecasts)+
+ '</td><td class="num">'+cell(c.bookmakerMatchedFixtures)+
+ '</td><td class="num">'+cell(c.qualified55MatchedFixtures)+
+ '</td><td class="num">'+cell(c.bttsQuotedFixtures)+
+ '</td><td>'+(!c.captureAvailable?'No bookmaker capture':(c.lowCoverageWarning?'Low · ':'')+accuracy(c.matchedCoveragePct))+
+ '</td></tr>').join("")+'</tbody></table></div>';
+target.innerHTML=kpis+breakdown+daily+
+ '<p class="muted small">Awaiting results for '+cell(s.pending)+' forecasts. Missing odds are not assigned invented prices or betting profit. Quoted fixtures are counted once even when both BTTS Yes and No were available. Uncalibrated model probabilities are not proven edges.</p>';
+}
+
 $("edge-under35-focus").addEventListener("click",()=>{$("edge-market").value="under35";drawEdges()});
 $("under35-open-edge").addEventListener("click",()=>{$("edge-market").value="under35";showView("edges");drawEdges()});
 for(const id of ["edge-league","edge-market","edge-positive","edge-confident","edge-upcoming"])
  $(id).addEventListener("change",drawEdges);
 async function init(){
-const [s,historyData,perf,settled,status,legacy,edges,edgeStats,shadowStats]=await Promise.all([
+const [s,historyData,perf,settled,status,legacy,edges,edgeStats,bttsStats,shadowStats]=await Promise.all([
 getJSON("data/latest.json",null),getJSON("data/history.json",[]),getJSON("data/performance.json",null),
-getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null),getJSON("data/edges/performance.json",null),getJSON("data/shadow_under35/performance.json",null)]);
+getJSON("data/settlements.json",{}),getJSON("data/status.json",null),getJSON("data/b31_historical.json",null),getJSON("data/edges/latest.json",null),getJSON("data/edges/performance.json",null),getJSON("data/edges/btts_performance.json",null),getJSON("data/shadow_under35/performance.json",null)]);
 snapshot=s||{date:new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),games:[],status:"not-refreshed"};
 await applyBridge();
-history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;edgePerformance=edgeStats;shadowUnder35=shadowStats;
+history=historyData;performance=perf;settlements=settled;b31history=legacy;edgeReport=edges;edgePerformance=edgeStats;bttsPerformance=bttsStats;shadowUnder35=shadowStats;
 const oppMarkets={home_win:"Home win",away_win:"Away win",draw:"Draw",btts:"BTTS Yes",no_btts:"No BTTS",over25:"Over 2.5",under25:"Under 2.5",over35:"Over 3.5",under35:"Under 3.5"};
 const opportunities=(snapshot.games||[]).flatMap(g=>Object.entries(modelMarkets(g)).map(([k,p])=>({g,k,p}))).filter(x=>x.p>=marketThreshold(x.k)).sort((a,b)=>b.p-a.p);
 $("top-opps").innerHTML=opportunities.length?'<div style="overflow-x:auto"><table><thead><tr><th>Match</th><th>Market</th><th class="num">Probability</th><th class="num">Likely score</th></tr></thead><tbody>'+opportunities.slice(0,12).map(x=>'<tr><td>'+esc(x.g.home)+' v '+esc(x.g.away)+'</td><td>'+esc(oppMarkets[x.k]||x.k)+'</td><td class="num"><strong>'+pct(x.p)+'</strong></td><td class="num">'+esc(x.g.scoreline?.modalScore||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<p class="muted">No forecast clears its qualification threshold today (55% goals and BTTS, 60% 1X2). That does not mean no matches were analysed.</p>';
@@ -297,7 +351,7 @@ $("status-pill").textContent=status?.refreshed?"Last refresh "+new Date(status.r
 if(status?.warnings?.length)$("notice").innerHTML+='<div class="alert" style="margin:8px 0">Data coverage warning: '+status.warnings.map(esc).join('; ')+' · Current probabilities may exclude recent results.</div>';
 if(!s||!(s.games||[]).length)$("notice").innerHTML='<div class="alert">No frozen pre-match forecast is available for this date. The scheduled workflow may not have run yet, fixtures may not be published, or the data source may be unavailable. Past results are not being presented as today’s picks.</div>';
 $("source-line").textContent="Sources: Football-Data.co.uk fixture/results CSV. Last source checks: "+(status?.refreshed||"not yet available")+". B3.1 must be separately calculated and frozen; missing B3.1 picks are not fabricated. Bookmaker odds are never used as forecast inputs.";
-draw();drawUnder35Focus();drawHistory();drawPerformance();drawShadowUnder35();drawEdges();drawEdgePerformance();
+draw();drawUnder35Focus();drawHistory();drawPerformance();drawShadowUnder35();drawEdges();drawEdgePerformance();drawBttsPerformance();
 }
 init();
 })();
