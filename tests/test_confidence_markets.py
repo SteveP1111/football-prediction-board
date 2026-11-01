@@ -177,7 +177,7 @@ class ConfidenceSelectionTests(unittest.TestCase):
         selected=select_confident_event_markets(model(f),[ev],datetime(2026,10,24,1,tzinfo=timezone.utc))
         self.assertEqual(selected,[])
 
-    def test_four_slots_split_between_btts_and_totals(self):
+    def test_four_slots_prioritise_btts_before_totals(self):
         teams = [
             ("Aston Villa","Man City","Manchester City"),
             ("Arsenal","Everton","Everton"),
@@ -192,9 +192,20 @@ class ConfidenceSelectionTests(unittest.TestCase):
             model(*fixtures),events,datetime(2026,10,24,1,tzinfo=timezone.utc),max_requests=4)
         self.assertEqual(len(selected),4)
         self.assertEqual(Counter(x["market"] for x in selected),
-                         Counter({"btts":2,"alternate_totals":2}))
+                         Counter({"btts":4}))
         self.assertEqual(selected,sorted(selected,key=lambda x:
                          (-x["modelProbability"],x["fixtureId"],x["market"])))
+
+    def test_unused_btts_slots_fall_back_to_alternate_totals(self):
+        now=datetime(2026,10,24,1,tzinfo=timezone.utc)
+        first=fixture(probability_btts=.64,over35=.20)
+        second=fixture("Arsenal","Everton",probability_btts=.66,over35=.21)
+        already_btts=provider(markets=[{"key":"btts","outcomes":[
+            {"name":"Yes","price":1.80},{"name":"No","price":2.0}]}])
+        other=provider("Arsenal","Everton",event_id="unique002")
+        selected=select_confident_event_markets(model(first,second),[already_btts,other],now,max_requests=4)
+        self.assertEqual(Counter(q["market"] for q in selected),
+                         Counter({"btts":1,"alternate_totals":2}))
 
     def test_extra_credit_budget_only_consumed_if_qualified(self):
         calls=[]
