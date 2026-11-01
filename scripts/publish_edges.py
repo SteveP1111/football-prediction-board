@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 from edge_comparison import DIVISION_SPORT, assess, fixture_kickoff, parse_utc
 from edge_history import recalculate
+from btts_history import recalculate as recalculate_btts
 from fetch_odds import collect, preflight
 
 LONDON = ZoneInfo("Europe/London")
@@ -64,7 +65,7 @@ def choose_spend(eligible, limit=MAX_RUN_CREDITS):
     base = len(sports) * STANDARD_MARKET_COST
     if base > limit:
         raise RuntimeError("Sport set exceeds daily hard credit budget")
-    # Up to four single-market enquiries, confidence-filtered AFTER batch quotes.
+    # Up to four BTTS-first single-market enquiries, confidence-filtered AFTER batch quotes.
     # Some unused capacity deliberately remains unspent if nothing qualifies.
     extra = min(4, 2 * len(eligible), max(0, (limit - base) // EXTRA_MARKET_COST))
     return sports, extra, base + EXTRA_MARKET_COST * extra
@@ -85,6 +86,7 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
 
     # Regrade verified results every run, even if today's odds have been frozen.
     recalculate(root)
+    recalculate_btts(root)
     if receipt.exists():
         print("Odds request already attempted for", today, ": no further credits will be spent.")
         return "already-attempted"
@@ -162,7 +164,7 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
     finally:
         record["completedAtUtc"] = datetime.now(timezone.utc).isoformat()
         if usage:
-            for attr in ("confidenceQualifyingRequests", "confidenceRequestsExecuted", "confidenceSelectionPolicy"):
+            for attr in ("confidenceQualifyingRequests", "confidenceRequestsExecuted", "confidenceSelectionPolicy", "confidenceRequestsByMarket"):
                 if attr in usage:
                     record[attr] = usage[attr]
             for attr in ("endRemaining", "spentCredits"):
@@ -171,6 +173,7 @@ def publish(root=ROOT, now=None, limit=MAX_RUN_CREDITS, reserve=RESERVE_CREDITS,
         write_json(receipt, record)
         if archived.exists():
             recalculate(root)
+            recalculate_btts(root)
         print("Daily collection receipt:", today,
               "status", record["status"], "observed spend", record["spentCredits"])
 
