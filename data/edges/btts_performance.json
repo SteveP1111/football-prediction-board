@@ -1,0 +1,375 @@
+{
+  "byDay": {
+    "2026-10-17": {
+      "accuracyPct": 47.62,
+      "correct": 10,
+      "forecasts": 39,
+      "graded": 21,
+      "pending": 18
+    },
+    "2026-10-18": {
+      "accuracyPct": 50.0,
+      "correct": 2,
+      "forecasts": 4,
+      "graded": 4,
+      "pending": 0
+    },
+    "2026-10-19": {
+      "accuracyPct": 100.0,
+      "correct": 1,
+      "forecasts": 1,
+      "graded": 1,
+      "pending": 0
+    },
+    "2026-10-20": {
+      "accuracyPct": 53.33,
+      "correct": 8,
+      "forecasts": 24,
+      "graded": 15,
+      "pending": 9
+    },
+    "2026-10-21": {
+      "accuracyPct": 0.0,
+      "correct": 0,
+      "forecasts": 1,
+      "graded": 1,
+      "pending": 0
+    },
+    "2026-10-23": {
+      "accuracyPct": 100.0,
+      "correct": 1,
+      "forecasts": 2,
+      "graded": 1,
+      "pending": 1
+    },
+    "2026-10-24": {
+      "accuracyPct": 62.5,
+      "correct": 30,
+      "forecasts": 49,
+      "graded": 48,
+      "pending": 1
+    },
+    "2026-10-25": {
+      "accuracyPct": 20.0,
+      "correct": 1,
+      "forecasts": 5,
+      "graded": 5,
+      "pending": 0
+    },
+    "2026-10-26": {
+      "accuracyPct": 100.0,
+      "correct": 1,
+      "forecasts": 1,
+      "graded": 1,
+      "pending": 0
+    },
+    "2026-10-27": {
+      "accuracyPct": 80.0,
+      "correct": 4,
+      "forecasts": 6,
+      "graded": 5,
+      "pending": 1
+    },
+    "2026-10-28": {
+      "accuracyPct": 0.0,
+      "correct": 0,
+      "forecasts": 3,
+      "graded": 3,
+      "pending": 0
+    },
+    "2026-10-30": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 2,
+      "graded": 0,
+      "pending": 2
+    },
+    "2026-10-31": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 52,
+      "graded": 0,
+      "pending": 52
+    },
+    "2026-11-01": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 2,
+      "graded": 0,
+      "pending": 2
+    }
+  },
+  "byLeague": {
+    "E0": {
+      "accuracyPct": 41.18,
+      "correct": 7,
+      "forecasts": 29,
+      "graded": 17,
+      "pending": 12
+    },
+    "E1": {
+      "accuracyPct": 56.25,
+      "correct": 9,
+      "forecasts": 36,
+      "graded": 16,
+      "pending": 20
+    },
+    "E2": {
+      "accuracyPct": 57.14,
+      "correct": 16,
+      "forecasts": 52,
+      "graded": 28,
+      "pending": 24
+    },
+    "E3": {
+      "accuracyPct": 58.06,
+      "correct": 18,
+      "forecasts": 49,
+      "graded": 31,
+      "pending": 18
+    },
+    "EC": {
+      "accuracyPct": 61.54,
+      "correct": 8,
+      "forecasts": 25,
+      "graded": 13,
+      "pending": 12
+    }
+  },
+  "byOutcome": {
+    "No": {
+      "accuracyPct": 50.0,
+      "correct": 7,
+      "forecasts": 25,
+      "graded": 14,
+      "pending": 11
+    },
+    "Yes": {
+      "accuracyPct": 56.04,
+      "correct": 51,
+      "forecasts": 166,
+      "graded": 91,
+      "pending": 75
+    }
+  },
+  "byProbabilityBand": {
+    "50–59.9%": {
+      "accuracyPct": 60.49,
+      "correct": 49,
+      "forecasts": 149,
+      "graded": 81,
+      "pending": 68
+    },
+    "60–69.9%": {
+      "accuracyPct": 37.5,
+      "correct": 9,
+      "forecasts": 42,
+      "graded": 24,
+      "pending": 18
+    },
+    "70–79.9%": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 0,
+      "graded": 0,
+      "pending": 0
+    },
+    "80%+": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 0,
+      "graded": 0,
+      "pending": 0
+    },
+    "Under 50%": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 0,
+      "graded": 0,
+      "pending": 0
+    }
+  },
+  "coverageByDay": {
+    "2026-10-17": {
+      "allLeagueForecasts": 39,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 39,
+      "warning": null
+    },
+    "2026-10-18": {
+      "allLeagueForecasts": 4,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 4,
+      "warning": null
+    },
+    "2026-10-19": {
+      "allLeagueForecasts": 1,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 1,
+      "warning": null
+    },
+    "2026-10-20": {
+      "allLeagueForecasts": 24,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 24,
+      "warning": null
+    },
+    "2026-10-21": {
+      "allLeagueForecasts": 1,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 1,
+      "warning": null
+    },
+    "2026-10-23": {
+      "allLeagueForecasts": 2,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 2,
+      "warning": null
+    },
+    "2026-10-24": {
+      "allLeagueForecasts": 49,
+      "bookmakerMatchedFixtures": 24,
+      "bttsQuotedFixtures": 2,
+      "bttsQuotedOutcomes": 4,
+      "captureAvailable": true,
+      "lowCoverageWarning": true,
+      "matchedCoveragePct": 8.33,
+      "qualified55MatchedFixtures": 17,
+      "supportedLeagueForecasts": 38,
+      "warning": "BTTS quotes cover fewer than 25% of bookmaker-matched fixtures."
+    },
+    "2026-10-25": {
+      "allLeagueForecasts": 5,
+      "bookmakerMatchedFixtures": 4,
+      "bttsQuotedFixtures": 2,
+      "bttsQuotedOutcomes": 4,
+      "captureAvailable": true,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": 50.0,
+      "qualified55MatchedFixtures": 4,
+      "supportedLeagueForecasts": 5,
+      "warning": null
+    },
+    "2026-10-26": {
+      "allLeagueForecasts": 1,
+      "bookmakerMatchedFixtures": 1,
+      "bttsQuotedFixtures": 0,
+      "bttsQuotedOutcomes": 0,
+      "captureAvailable": true,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": 0.0,
+      "qualified55MatchedFixtures": 0,
+      "supportedLeagueForecasts": 1,
+      "warning": null
+    },
+    "2026-10-27": {
+      "allLeagueForecasts": 6,
+      "bookmakerMatchedFixtures": 6,
+      "bttsQuotedFixtures": 2,
+      "bttsQuotedOutcomes": 4,
+      "captureAvailable": true,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": 33.33,
+      "qualified55MatchedFixtures": 4,
+      "supportedLeagueForecasts": 6,
+      "warning": null
+    },
+    "2026-10-28": {
+      "allLeagueForecasts": 3,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 0,
+      "warning": null
+    },
+    "2026-10-30": {
+      "allLeagueForecasts": 2,
+      "bookmakerMatchedFixtures": 2,
+      "bttsQuotedFixtures": 0,
+      "bttsQuotedOutcomes": 0,
+      "captureAvailable": true,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": 0.0,
+      "qualified55MatchedFixtures": 0,
+      "supportedLeagueForecasts": 2,
+      "warning": null
+    },
+    "2026-10-31": {
+      "allLeagueForecasts": 52,
+      "bookmakerMatchedFixtures": 39,
+      "bttsQuotedFixtures": 2,
+      "bttsQuotedOutcomes": 4,
+      "captureAvailable": true,
+      "lowCoverageWarning": true,
+      "matchedCoveragePct": 5.13,
+      "qualified55MatchedFixtures": 24,
+      "supportedLeagueForecasts": 41,
+      "warning": "BTTS quotes cover fewer than 25% of bookmaker-matched fixtures."
+    },
+    "2026-11-01": {
+      "allLeagueForecasts": 2,
+      "bookmakerMatchedFixtures": 2,
+      "bttsQuotedFixtures": 0,
+      "bttsQuotedOutcomes": 0,
+      "captureAvailable": true,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": 0.0,
+      "qualified55MatchedFixtures": 0,
+      "supportedLeagueForecasts": 2,
+      "warning": null
+    }
+  },
+  "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
+  "model": "original frozen experimental Scoreline Model",
+  "mostRecentDay": "2026-11-01",
+  "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
+  "schemaVersion": 1,
+  "settledForecasts": 105,
+  "summary": {
+    "accuracyPct": 55.24,
+    "correct": 58,
+    "forecasts": 191,
+    "graded": 105,
+    "pending": 86
+  }
+}
