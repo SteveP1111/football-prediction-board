@@ -30,6 +30,15 @@ class PublicResultsSourceProbe(unittest.TestCase):
                         comp=(row.get("competitions") or [{}])[0]
                         print("ESPN_ROW",row.get("date"),row.get("name"),str(comp.get("status"))[:130],[(x.get("homeAway"),x.get("team",{}).get("displayName"),x.get("score")) for x in comp.get("competitors",[])])
                 else:
+                    if "footballwebpages" in url:
+                        for needle in ("Manchester City 0-1", "FC Halifax Town 2-0"):
+                            match=re.search(r"<tr[^>]+title=[\\\"']" + re.escape(needle) + r".*?</tr>",page,re.I|re.S)
+                            if match:
+                                print("FWP_FULL_MATCH_ROW",needle,repr(match.group(0)[:2100]))
+                        for needle in ("comp-1","comp-2","comp-3","comp-4","comp-5"):
+                            match=re.search(r"<tr class=[\\\"']" + re.escape(needle) + r".*?</tr>",page,re.I|re.S)
+                            if match:
+                                print("FWP_FIRST_ROW",needle,repr(match.group(0)[:900]))
                     for needle in ("Coventry City","Manchester City","FC Halifax Town","Boreham Wood","Premier League","Saturday, 31 October"):
                         m=re.search(re.escape(needle),page,re.I)
                         if m:
