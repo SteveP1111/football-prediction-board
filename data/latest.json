@@ -1,137 +1,71 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-11-01T00:26:49.220813+00:00",
-  "date": "2026-11-01",
+  "capturedAt": "2026-11-02T01:02:24.883166+00:00",
+  "date": "2026-11-02",
   "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
   "games": [
     {
-      "away": "Arsenal",
-      "awayKey": "arsenal",
+      "away": "Everton",
+      "awayKey": "everton",
       "b31": {
         "qualifiers": [],
         "status": "not-calculated"
       },
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "division": "E0",
-      "home": "Liverpool",
-      "homeKey": "liverpool",
-      "id": "2026-11-01|E0|liverpool|arsenal",
-      "kickoff": "16:30",
+      "home": "Newcastle",
+      "homeKey": "newcastle",
+      "id": "2026-11-02|E0|newcastle|everton",
+      "kickoff": "20:00",
       "league": "Premier League",
       "scoreline": {
         "calibrated": false,
-        "cleanSheetRisk": 0.29583,
-        "expectedAway": 1.218,
-        "expectedHome": 1.276,
-        "expectedTotal": 2.494,
+        "cleanSheetRisk": 0.29711,
+        "expectedAway": 1.214,
+        "expectedHome": 1.49,
+        "expectedTotal": 2.703,
         "goalBands": {
-          "0-1": 0.28852,
-          "2": 0.25682,
-          "3": 0.21351,
-          "4+": 0.24115
+          "0-1": 0.24804,
+          "2": 0.24475,
+          "3": 0.22055,
+          "4+": 0.28666
         },
         "markets": {
-          "away_win": 0.351,
-          "btts": 0.50761,
-          "draw": 0.27029,
-          "home_win": 0.37871,
-          "no_btts": 0.49239,
-          "over25": 0.45466,
-          "over35": 0.24115,
-          "under25": 0.54534,
-          "under35": 0.75885
+          "away_win": 0.30904,
+          "btts": 0.54444,
+          "draw": 0.25515,
+          "home_win": 0.43581,
+          "no_btts": 0.45556,
+          "over25": 0.50721,
+          "over35": 0.28666,
+          "under25": 0.49279,
+          "under35": 0.71334
         },
-        "modalProbability": 0.12834,
+        "modalProbability": 0.1211,
         "modalScore": "1-1",
         "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
         "sampleAway": 4,
         "sampleHome": 4,
         "topScores": [
           {
-            "p": 0.12834,
+            "p": 0.1211,
             "score": "1-1"
           },
           {
-            "p": 0.10537,
+            "p": 0.09978,
             "score": "1-0"
           },
           {
-            "p": 0.10058,
+            "p": 0.0902,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08129,
             "score": "0-1"
           },
           {
-            "p": 0.08258,
-            "score": "0-0"
-          },
-          {
-            "p": 0.08188,
-            "score": "2-1"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Blackpool",
-      "awayKey": "blackpool",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-01",
-      "division": "E2",
-      "home": "Sheffield Weds",
-      "homeKey": "sheffield wednesday",
-      "id": "2026-11-01|E2|sheffield wednesday|blackpool",
-      "kickoff": "14:00",
-      "league": "League One",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.37251,
-        "expectedAway": 0.987,
-        "expectedHome": 1.717,
-        "expectedTotal": 2.704,
-        "goalBands": {
-          "0-1": 0.24787,
-          "2": 0.24469,
-          "3": 0.22057,
-          "4+": 0.28687
-        },
-        "markets": {
-          "away_win": 0.21644,
-          "btts": 0.51478,
-          "draw": 0.23852,
-          "home_win": 0.54503,
-          "no_btts": 0.48522,
-          "over25": 0.50745,
-          "over35": 0.28687,
-          "under25": 0.49255,
-          "under35": 0.71313
-        },
-        "modalProbability": 0.11488,
-        "modalScore": "1-0",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 5,
-        "sampleHome": 6,
-        "topScores": [
-          {
-            "p": 0.11488,
-            "score": "1-0"
-          },
-          {
-            "p": 0.11344,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09862,
+            "p": 0.07432,
             "score": "2-0"
-          },
-          {
-            "p": 0.09738,
-            "score": "2-1"
-          },
-          {
-            "p": 0.06691,
-            "score": "0-0"
           }
         ]
       }

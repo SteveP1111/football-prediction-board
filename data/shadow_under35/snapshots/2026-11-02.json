@@ -1,0 +1,33 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Everton",
+      "date": "2026-11-02",
+      "division": "E0",
+      "fixtureId": "2026-11-02|E0|newcastle|everton",
+      "home": "Newcastle",
+      "kickoffLocal": "2026-11-02T20:00:00+00:00",
+      "originalUnder35": 0.71334,
+      "shadowUnder35": 0.68129245
+    }
+  ],
+  "originalCapturedAt": "2026-11-02T01:02:24.883166+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-02T01:02:39.927321+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-02",
+  "sourceSnapshotSha256": "59479768a1fb16e2c7c8ba8dc9f0e5eab1374746d226188d2666bc920b8dcf4f",
+  "status": "frozen-prekickoff"
+}

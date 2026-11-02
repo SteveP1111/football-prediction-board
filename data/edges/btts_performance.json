@@ -97,15 +97,22 @@
       "forecasts": 2,
       "graded": 0,
       "pending": 2
+    },
+    "2026-11-02": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 1,
+      "graded": 0,
+      "pending": 1
     }
   },
   "byLeague": {
     "E0": {
       "accuracyPct": 41.18,
       "correct": 7,
-      "forecasts": 29,
+      "forecasts": 30,
       "graded": 17,
-      "pending": 12
+      "pending": 13
     },
     "E1": {
       "accuracyPct": 56.25,
@@ -147,18 +154,18 @@
     "Yes": {
       "accuracyPct": 56.04,
       "correct": 51,
-      "forecasts": 166,
+      "forecasts": 167,
       "graded": 91,
-      "pending": 75
+      "pending": 76
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
       "accuracyPct": 60.49,
       "correct": 49,
-      "forecasts": 149,
+      "forecasts": 150,
       "graded": 81,
-      "pending": 68
+      "pending": 69
     },
     "60–69.9%": {
       "accuracyPct": 37.5,
@@ -357,19 +364,31 @@
       "qualified55MatchedFixtures": 0,
       "supportedLeagueForecasts": 2,
       "warning": null
+    },
+    "2026-11-02": {
+      "allLeagueForecasts": 1,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 1,
+      "warning": null
     }
   },
   "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
   "model": "original frozen experimental Scoreline Model",
-  "mostRecentDay": "2026-11-01",
+  "mostRecentDay": "2026-11-02",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
   "settledForecasts": 105,
   "summary": {
     "accuracyPct": 55.24,
     "correct": 58,
-    "forecasts": 191,
+    "forecasts": 192,
     "graded": 105,
-    "pending": 86
+    "pending": 87
   }
 }
