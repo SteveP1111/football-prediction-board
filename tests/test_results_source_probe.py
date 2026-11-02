@@ -26,7 +26,7 @@ class PublicResultsSourceProbe(unittest.TestCase):
                     from results_fallback import parse_espn
                     from refresh import canon
                     j=json.loads(page)
-                    league={"eng.1":"E0","eng.2":"E1","eng.3":"E2","eng.4":"E3","eng.5":"EC"}[re.search(r"eng\\.\\d",url).group(0)]
+                    league={"eng.1":"E0","eng.2":"E1","eng.3":"E2","eng.4":"E3","eng.5":"EC"}[next(k for k in ("eng.1","eng.2","eng.3","eng.4","eng.5") if "/"+k+"/" in url)]
                     parsed=parse_espn(j,league,"2026-10-31",canon)
                     print("ESPN_PARSED",league,len(parsed),sorted(parsed.items())[:4])
                     e=j.get("events",[])
