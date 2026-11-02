@@ -101,6 +101,11 @@ def parse_espn(payload, league, day, canonical):
     """A completed league fixture needs two explicitly home/away teams."""
     if not isinstance(payload, dict) or not isinstance(payload.get("events"), list):
         raise ValueError("Missing ESPN events")
+    provider_leagues = payload.get("leagues")
+    if isinstance(provider_leagues, list) and provider_leagues:
+        if not any(isinstance(item, dict) and item.get("slug") == ESPN_CODES[league]
+                   for item in provider_leagues):
+            raise ValueError("ESPN scoreboard does not match the requested league")
     games = {}
     for event in payload["events"]:
         if not isinstance(event, dict):
@@ -122,7 +127,8 @@ def parse_espn(payload, league, day, canonical):
             continue
         status = comp.get("status") or event.get("status") or {}
         type_info = status.get("type", {}) if isinstance(status, dict) else {}
-        if not isinstance(type_info, dict) or type_info.get("completed") is not True:
+        if (not isinstance(type_info, dict) or type_info.get("completed") is not True
+                or type_info.get("name") not in ("STATUS_FULL_TIME", "STATUS_FINAL")):
             continue
         competitors = comp.get("competitors")
         if not isinstance(competitors, list) or len(competitors) != 2:
@@ -267,7 +273,10 @@ def public_get(url, timeout=12, size=3_500_000):
     with urllib.request.urlopen(req, timeout=timeout) as response:
         if response.status != 200:
             raise RuntimeError("Unexpected results HTTP status")
-        return response.read(size + 1).decode("utf-8", errors="replace")
+        data = response.read(size + 1)
+        if len(data) > size:
+            raise ValueError("Results provider response exceeds size cap")
+        return data.decode("utf-8", errors="replace")
 
 
 def reconcile(primary, candidates, existing):
