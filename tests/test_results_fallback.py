@@ -73,6 +73,16 @@ class ResultFallbackTests(unittest.TestCase):
         self.assertEqual(parse_espn({"events": [event(completed=False)]},
                                     "E0", "2026-10-31", refresh.canon), {})
 
+    def test_exact_aliases_include_short_frozen_fixture_names(self):
+        self.assertEqual(verified_id("2026-10-31", "E2", "Wycombe Wanderers",
+                                     "Burton Albion", refresh.canon),
+                         verified_id("2026-10-31", "E2", "Wycombe",
+                                     "Burton", refresh.canon))
+        self.assertEqual(verified_id("2026-10-31", "EC", "Boston United",
+                                     "Scunthorpe United", refresh.canon),
+                         verified_id("2026-10-31", "EC", "Boston Utd",
+                                     "Scunthorpe", refresh.canon))
+
     def test_webpages_ft_only_and_exact_competition(self):
         html = (
             html_rows("Premier League", [
