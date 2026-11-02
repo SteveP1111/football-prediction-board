@@ -23,18 +23,28 @@ MAX_RESULTS_PER_DAY = 120
 
 # Provider-specific extra reviewed names; all other aliases use refresh.canon.
 EXTRA_NAMES = {
+    # Approved equivalences only. Compare BOTH original fixture names and
+    # provider names through this common canonical form; never fuzzy-match.
     "brighton hove albion": "brighton and hove albion",
+    "nott m forest": "nottingham forest",
+    "tottenham": "tottenham hotspur",
+    "leeds": "leeds united",
+    "hull": "hull city",
+    "coventry": "coventry city",
+    "lincoln": "lincoln city",
+    "west ham": "west ham united",
+    "cardiff": "cardiff city",
     "bradford city": "bradford",
     "birmingham city": "birmingham",
-    "cambridge united": "cambridge",
     "charlton athletic": "charlton",
     "derby county": "derby",
     "doncaster rovers": "doncaster",
     "exeter city": "exeter",
-    "huddersfield town": "huddersfield",
-    "leicester city": "leicester",
+    "huddersfield": "huddersfield town",
+    "leicester": "leicester city",
+    "cambridge": "cambridge united",
     "mansfield town": "mansfield",
-    "northampton town": "northampton",
+    "northampton": "northampton town",
     "norwich city": "norwich",
     "oxford united": "oxford",
     "scunthorpe united": "scunthorpe",
@@ -45,32 +55,19 @@ EXTRA_NAMES = {
     "carlisle united": "carlisle",
     "york city": "york",
     "peterborough united": "peterborough",
-    "milton keynes dons": "milton keynes dons",
     "fc halifax": "fc halifax town",
     "halifax town": "fc halifax town",
     "forest green rovers": "forest green",
-    "forest green": "forest green",
-    "spurs": "tottenham hotspur",
-    "tottenham": "tottenham hotspur",
-    "bournemouth": "bournemouth",
-    "accrington": "accrington stanley",
-    "stockport county": "stockport county",
-    "grimsby": "grimsby town",
-    "bristol city": "bristol city",
-    "bolton": "bolton",
-    "cambridge united": "cambridge united",
-    "leicester city": "leicester city",
     "harrogate town": "harrogate",
     "kidderminster harriers": "kidderminster",
     "aldershot town": "aldershot",
     "sutton united": "sutton",
     "solihull moors": "solihull",
-    "boston united": "boston",
+    "boston united": "boston utd",
     "wigan athletic": "wigan",
     "wimbledon": "afc wimbledon",
     "afc hornchurch": "hornchurch",
 }
-
 
 def normalise_team(name, canonical):
     key = canonical(name)
@@ -209,8 +206,11 @@ def parse_footballwebpages(page, day, canonical):
     slugs = {
         "premier-league": "E0",
         "championship": "E1",
+        "sky-bet-championship": "E1",
         "league-one": "E2",
+        "sky-bet-league-one": "E2",
         "league-two": "E3",
+        "sky-bet-league-two": "E3",
         "enterprise-national-league": "EC",
         "national-league": "EC",
     }
@@ -308,7 +308,9 @@ def get_confirmed_fallback(needed_fixtures, primary, existing, current_day,
         except ValueError:
             continue
         if 1 <= age <= max_lookback and fid not in primary and fid not in existing:
-            dates[day].add((league, fid))
+            identity = verified_id(day, league, fixture.get("home"), fixture.get("away"), canonical)
+            if identity:
+                dates[day].add((league, fid, identity))
     diagnostics = {"attemptedDates": sorted(dates), "fullyConfirmed": 0,
                    "unconfirmed": 0, "conflicts": [], "sourceErrors": [],
                    "sourceUrls": [], "sources": ["ESPN full-time scoreboard", "Football Web Pages full-time results"]}
@@ -346,7 +348,16 @@ def get_confirmed_fallback(needed_fixtures, primary, existing, current_day,
         except (ValueError, TypeError):
             web = {}
             diagnostics["sourceErrors"].append({"date": day, "source": "web", "errorType": "ParseError"})
-        for league, fid in sorted(expected):
+        by_identity = defaultdict(set)
+        for league, original_id, normalised_id in expected:
+            by_identity[normalised_id].add(original_id)
+        for league, fid, identity in sorted(expected):
+            if len(by_identity[identity]) != 1:
+                diagnostics["unconfirmed"] += 1
+                diagnostics["conflicts"].append({
+                    "fixtureId": fid, "reason": "Ambiguous canonical fixture identity",
+                })
+                continue
             key = ("espn", day, league)
             espn = {}
             if key in responses:
@@ -356,18 +367,18 @@ def get_confirmed_fallback(needed_fixtures, primary, existing, current_day,
                     diagnostics["sourceErrors"].append({
                         "date": day, "source": "espn", "league": league, "errorType": "ParseError"
                     })
-            if fid not in web or fid not in espn:
+            if identity not in web or identity not in espn:
                 diagnostics["unconfirmed"] += 1
                 continue
-            if web[fid] != espn[fid]:
+            if web[identity] != espn[identity]:
                 diagnostics["conflicts"].append({
-                    "fixtureId": fid, "espnScore": "%d-%d" % espn[fid],
-                    "webScore": "%d-%d" % web[fid],
+                    "fixtureId": fid, "espnScore": "%d-%d" % espn[identity],
+                    "webScore": "%d-%d" % web[identity],
                 })
                 diagnostics["unconfirmed"] += 1
                 continue
             matched[fid] = {
-                "score": espn[fid],
+                "score": espn[identity],
                 "sources": [
                     queries[key], web_url,
                 ],
