@@ -23,7 +23,12 @@ class PublicResultsSourceProbe(unittest.TestCase):
                     status=resp.status
                 print("PROBE",url,"STATUS",status,"LENGTH",len(page))
                 if "espn" in url:
+                    from results_fallback import parse_espn
+                    from refresh import canon
                     j=json.loads(page)
+                    league={"eng.1":"E0","eng.2":"E1","eng.3":"E2","eng.4":"E3","eng.5":"EC"}[re.search(r"eng\\.\\d",url).group(0)]
+                    parsed=parse_espn(j,league,"2026-10-31",canon)
+                    print("ESPN_PARSED",league,len(parsed),sorted(parsed.items())[:4])
                     e=j.get("events",[])
                     print("ESPN_EVENTS",len(e),"LEAGUE",str(j.get("leagues",[]))[:250])
                     for row in e[:2]:
@@ -31,6 +36,10 @@ class PublicResultsSourceProbe(unittest.TestCase):
                         print("ESPN_ROW",row.get("date"),row.get("name"),str(comp.get("status"))[:130],[(x.get("homeAway"),x.get("team",{}).get("displayName"),x.get("score")) for x in comp.get("competitors",[])])
                 else:
                     if "footballwebpages" in url:
+                        from results_fallback import parse_footballwebpages
+                        from refresh import canon
+                        parsed=parse_footballwebpages(page,"2026-10-31",canon)
+                        print("FWP_PARSED",len(parsed),sorted(parsed.items())[:12])
                         for needle in ("Manchester City 0-1", "FC Halifax Town 2-0"):
                             match=re.search(r"<tr[^>]+title=[\\\"']" + re.escape(needle) + r".*?</tr>",page,re.I|re.S)
                             if match:
