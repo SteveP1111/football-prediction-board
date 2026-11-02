@@ -40,6 +40,9 @@ class PublicResultsSourceProbe(unittest.TestCase):
                         from refresh import canon
                         parsed=parse_footballwebpages(page,"2026-10-31",canon)
                         print("FWP_PARSED",len(parsed),sorted(parsed.items())[:12])
+                        for league_class in ("comp-2","comp-3","comp-4"):
+                            m=re.search(r'<tr class="' + league_class + r'[^"]*" title="[^"]+ [0-9]+-[0-9]+ [^"]+"[^>]*>',page,re.I)
+                            if m: print("FWP_LEAGUE_MATCH_ROW",league_class,repr(m.group(0)))
                         for needle in ("Manchester City 0-1", "FC Halifax Town 2-0"):
                             match=re.search(r"<tr[^>]+title=[\\\"']" + re.escape(needle) + r".*?</tr>",page,re.I|re.S)
                             if match:
