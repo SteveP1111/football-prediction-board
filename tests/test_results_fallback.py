@@ -34,10 +34,21 @@ def event(day="2026-10-31", home="Manchester City", away="Brighton & Hove Albion
 
 
 def html_rows(league_name, rows):
+    slugs = {
+        "Premier League": "premier-league",
+        "Scottish Championship": "scottish-championship",
+        "Championship": "championship",
+        "National League": "enterprise-national-league",
+    }
+    slug = slugs[league_name]
     table = "".join(
-        "<tr><td>" + state + "</td><td><a>" + home +
-        "</a></td><td>" + str(hg) + "</td><td>" + str(ag) +
-        "</td><td><a>" + away + "</a></td></tr>"
+        '<tr data-href="match/2026-2027/' + slug + '/home/away/12345">' +
+        '<td class="d-none export-only">31/10/2026</td>' +
+        '<td class="status">' + state + '</td>' +
+        '<td class="team home-team" data-export="' + home + '"><span>(1)</span>' + home + '</td>' +
+        '<td class="score home-score">' + str(hg) + '</td>' +
+        '<td class="score away-score">' + str(ag) + '</td>' +
+        '<td class="team away-team" data-export="' + away + '"><span>(2)</span>' + away + '</td></tr>'
         for state, home, hg, ag, away in rows)
     return "<html><h2>" + league_name + "</h2><table><tbody>" + table + "</tbody></table></html>"
 
