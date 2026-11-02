@@ -3,16 +3,16 @@
     "2026-10-30",
     "2026-11-02"
   ],
-  "refreshed": "2026-11-02T01:02:24.883166+00:00",
+  "refreshed": "2026-11-02T12:34:25.883594+00:00",
   "resultsByLeague": {
-    "E0": 80,
-    "E1": 144,
-    "E2": 143,
-    "E3": 151,
-    "EC": 177
+    "E0": 89,
+    "E1": 156,
+    "E2": 155,
+    "E3": 163,
+    "EC": 189
   },
-  "resultsCount": 695,
-  "resultsLatestDate": "2026-10-28",
+  "resultsCount": 752,
+  "resultsLatestDate": "2026-11-01",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -26,7 +26,5 @@
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
     "https://www.football-data.co.uk/fixtures.csv"
   ],
-  "warnings": [
-    "RESULTS COVERAGE BEHIND: latest verified result 2026-10-28"
-  ]
+  "warnings": []
 }
