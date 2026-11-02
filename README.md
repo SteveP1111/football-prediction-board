@@ -21,6 +21,13 @@ The Python runner:
 
 No betting odds, private tokens, personal information or paid API feeds are used as model inputs.
 
+### Verified fallback for delayed final scores
+
+When the latest *primary* current-season result is over two days old, `scripts/refresh.py` checks outstanding, **already-frozen** results from the preceding seven days. The `scripts/results_fallback.py` module independently queries ESPN's completed-match scoreboards and the Football Web Pages dated results page. A fallback result is accepted only when **both** report full-time for the same exact UK-local date, covered division, canonical home and away teams, and the **same full-time score**. Unparseable, missing, postponed, non-final or contradictory scores remain pending and are reported in `data/status.json`. Any fallback-vs-primary-CSV or fallback-vs-previously-settled conflict fails closed rather than overwriting verified history.
+
+Accepted fallback scores update the **separate result settlement ledger** and its derived BTTS and bookmaker Edge Finder performance tables. Provenance URLs and verification timestamps are recorded with newly settled fixtures. Existing bookmaker odds and original forecast snapshots are never rewritten. The primary CSV remains the training source; fallback results are never fed retrospectively into the scoreline model. No paid APIs, credentials or account secrets are used by this fallback.
+
+
 ## Odds & Edge (live)
 
 The **Odds & Edge** tab displays timestamped UK bookmaker prices compared against independently frozen model probabilities. It identifies best observed decimal prices, implied bookmaker probability, theoretical edge and theoretical ROI. These are **not** guaranteed executable prices or betting recommendations. Original forecasts are never trained or altered using odds. The Scoreline Model's probabilities remain uncalibrated; a positive theoretical edge is not proof of profit.

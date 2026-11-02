@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 # Parse semantic date/competition headings and fixture links; do not guess matches.
 from html.parser import HTMLParser
 from html import unescape
+from results_fallback import get_confirmed_fallback, reconcile
 
 GUARDIAN_DIVS={"Premier League":"E0","Championship":"E1","League One":"E2",
                "League Two":"E3","National League":"EC"}
@@ -326,7 +327,42 @@ def run():
     if state["resultsLatestDate"] and (today-date.fromisoformat(state["resultsLatestDate"])).days>2:
         state["warnings"].append("RESULTS COVERAGE BEHIND: latest verified result "+state["resultsLatestDate"])
     state["fixtureDateRange"]=[min((x["date"] for x in fixtures),default=None),max((x["date"] for x in fixtures),default=None)]
-    completed={x["id"]:(x["hg"],x["ag"]) for x in curr}
+    completed_primary={x["id"]:(x["hg"],x["ag"]) for x in curr}
+    settlements_path=DATA/"settlements.json"
+    settled=json.loads(settlements_path.read_text(encoding="utf-8")) if settlements_path.exists() else {}
+    completed=completed_primary.copy()
+    fallback_evidence={}
+    # Do not treat late CSV publication as missing matches. Two independent
+    # completed-result sources must agree on exact fixture date, league, teams
+    # and score. Only frozen past fixtures may be settled via this route.
+    if state["resultsLatestDate"] and (today-date.fromisoformat(state["resultsLatestDate"])).days>2:
+        pending_frozen=[]
+        for archived in sorted(SNAP.glob("????-??-??.json")):
+            shot=json.loads(archived.read_text(encoding="utf-8"))
+            if archived.stem!=shot.get("date"):
+                raise ValueError("Mismatched dated snapshot filename and content")
+            # Old imported snapshots may use a separate explicit status.
+            if shot.get("status")=="frozen-prekickoff" and isinstance(shot.get("games"),list):
+                pending_frozen.extend(shot["games"])
+        candidates,audit=get_confirmed_fallback(
+            pending_frozen,completed_primary,settled,today,canon)
+        completed,fallback_evidence=reconcile(completed_primary,candidates,settled)
+        state["resultsFallback"]=audit
+        state["verifiedFallbackSettlements"]=len(fallback_evidence)
+        state["resultsSettlementLatestDate"]=max(
+            (fid.split("|",1)[0] for fid in set(completed) | set(settled)),default=None)
+        if audit["conflicts"]:
+            state["warnings"].append(
+                "FALLBACK SCORES CONFLICT: %d fixtures left pending" % len(audit["conflicts"]))
+        if audit["sourceErrors"]:
+            state["warnings"].append(
+                "RESULTS FALLBACK INCOMPLETE: %d source fetch/parse failures" % len(audit["sourceErrors"]))
+        if audit["unconfirmed"]:
+            state["warnings"].append(
+                "RESULTS FALLBACK UNCONFIRMED: %d frozen fixtures remain pending" % audit["unconfirmed"])
+        if fallback_evidence:
+            state["warnings"].append(
+                "VERIFIED FALLBACK RESULTS: %d final scores corroborated by two sources" % len(fallback_evidence))
     # Freeze before kickoff; an old snapshot is immutable even after a model revision.
     today_str=today.isoformat();today_file=SNAP/(today_str+".json")
     if not today_file.exists():
@@ -344,9 +380,7 @@ def run():
                   "fixtureSource":fixture_url,"trainingCurrentCount":len(curr),
                   "b31Available":False}
         if ready:atomic_write(today_file,snapshot)
-    # Snapshot results may be added later to a separate mutable settlement file.
-    settlements_path=DATA/"settlements.json"
-    settled=json.loads(settlements_path.read_text(encoding="utf-8")) if settlements_path.exists() else {}
+    # Score settlement records are mutable; original forecasts and odds are not.
     summary=[]
     by_market=defaultdict(lambda:{"total":0,"wins":0,"brier":0.})
     b31_market=defaultdict(lambda:{"total":0,"wins":0})
@@ -382,8 +416,18 @@ def run():
                 if not market:continue
                 win=bool(truth[market]);b31_results.append({"market":market,"score":q.get("score"),"likelihood":q.get("likelihood"),"confidence":q.get("confidence"),"outcome":"Win" if win else "Loss"})
                 b31_market[market]["total"]+=1;b31_market[market]["wins"]+=int(win)
-            settled[f["id"]]={"date":f["date"],"division":f["division"],"home":f["home"],"away":f["away"],"score":"%d-%d"%r,
+            entry={"date":f["date"],"division":f["division"],"home":f["home"],"away":f["away"],"score":"%d-%d"%r,
                 "outcomes":truth,"probs":preds,"model":shot.get("model"),"b31Outcomes":b31_results}
+            if f["id"] in fallback_evidence:
+                evidence=fallback_evidence[f["id"]]
+                entry["resultVerification"]=evidence["verification"]
+                entry["resultSourceUrls"]=evidence["sources"]
+                entry["resultVerifiedAtUtc"]=evidence["verifiedAtUtc"]
+            elif prior_settlement:
+                # Keep old provenance unchanged when today's primary feed catches up.
+                for key in ("resultVerification","resultSourceUrls","resultVerifiedAtUtc"):
+                    if key in prior_settlement:entry[key]=prior_settlement[key]
+            settled[f["id"]]=entry
             for k,prob in preds.items():
                 by_market[k]["total"]+=1;by_market[k]["wins"]+=int(truth[k])
                 by_market[k]["brier"]+=(prob-int(truth[k]))**2

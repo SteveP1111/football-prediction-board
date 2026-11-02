@@ -58,6 +58,9 @@ jobs:
       - name: Grade frozen BTTS forecasts separately from bookmaker prices
         run: python3 scripts/btts_history.py
 
+      - name: Reconcile original bookmaker quotes with verified final results
+        run: python3 scripts/edge_history.py
+
       - name: Commit football data changes only
         run: |
           git add -A -- data
