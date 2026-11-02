@@ -64,6 +64,7 @@ EXTRA_NAMES = {
     "sutton united": "sutton",
     "solihull moors": "solihull",
     "boston united": "boston utd",
+    "wycombe wanderers": "wycombe",
     "wigan athletic": "wigan",
     "wimbledon": "afc wimbledon",
     "afc hornchurch": "hornchurch",
