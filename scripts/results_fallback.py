@@ -166,77 +166,89 @@ def league_from_heading(heading):
 
 
 class FootballWebPagesParser(HTMLParser):
+    """Extract documented FT match-table rows; ignore hidden half-time text."""
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.heading_tag = None
-        self.heading = []
-        self.league = None
         self.current_row = None
-        self.cell_tag = None
-        self.cell_depth = 0
+        self.current_cell = None
         self.cell_parts = []
         self.rows = []
 
     def handle_starttag(self, tag, attrs):
-        if tag in ("h1", "h2", "h3", "h4", "h5", "h6") and self.heading_tag is None:
-            self.heading_tag = tag
-            self.heading = []
+        attrs = dict(attrs)
         if tag == "tr" and self.current_row is None:
-            self.current_row = []
-        if tag in ("td", "th") and self.current_row is not None and self.cell_tag is None:
-            self.cell_tag = tag
+            self.current_row = {"attrs": attrs, "cells": []}
+        elif tag in ("td", "th") and self.current_row is not None and self.current_cell is None:
+            self.current_cell = attrs
             self.cell_parts = []
 
     def handle_data(self, data):
-        if self.heading_tag:
-            self.heading.append(data)
-        if self.cell_tag:
+        if self.current_cell is not None:
             self.cell_parts.append(data)
 
     def handle_endtag(self, tag):
-        if tag == self.heading_tag:
-            heading = " ".join(" ".join(self.heading).split())
-            identified = league_from_heading(heading)
-            # A new league / competition heading ends the old section.
-            if identified is not None:
-                self.league = identified
-            elif any(x in heading.lower() for x in ("league", "premiership", "championship", "fa cup", "scottish")):
-                self.league = None
-            self.heading_tag = None
-            self.heading = []
-        if tag == self.cell_tag:
-            self.current_row.append(" ".join(" ".join(self.cell_parts).split()))
-            self.cell_tag = None
+        if tag in ("td", "th") and self.current_cell is not None and self.current_row is not None:
+            self.current_row["cells"].append({
+                "attrs": self.current_cell,
+                "text": " ".join(" ".join(self.cell_parts).split()),
+            })
+            self.current_cell = None
             self.cell_parts = []
         if tag == "tr" and self.current_row is not None:
-            self.rows.append((self.league, self.current_row))
+            self.rows.append(self.current_row)
             self.current_row = None
 
 
 def parse_footballwebpages(page, day, canonical):
-    """Only rows explicitly labelled FT with four outcome fields are accepted."""
+    """Validate the site's date/league/FT/team/score attributes per match."""
     if not isinstance(page, str) or not page.strip():
         raise ValueError("Empty Football Web Pages response")
     parser = FootballWebPagesParser()
     parser.feed(page)
     games = {}
-    for league, cells in parser.rows:
+    slugs = {
+        "premier-league": "E0",
+        "championship": "E1",
+        "league-one": "E2",
+        "league-two": "E3",
+        "enterprise-national-league": "EC",
+        "national-league": "EC",
+    }
+    expected_date = datetime.strptime(day, "%Y-%m-%d").strftime("%d/%m/%Y")
+    for row in parser.rows:
+        attrs = row["attrs"]
+        link = attrs.get("data-href", "")
+        if not isinstance(link, str):
+            continue
+        match_path = re.fullmatch(
+            r"match/\d{4}-\d{4}/([a-z0-9-]+)/[a-z0-9-]+/[a-z0-9-]+/\d+", link)
+        if not match_path:
+            continue
+        league = slugs.get(match_path.group(1))
         if league is None:
             continue
-        # Expected: FT | Home Club | 2 | 1 | Away Club
-        starts = [i for i, cell in enumerate(cells) if cell.upper() in ("FT", "FULL TIME", "FULL-TIME")]
-        for i in starts:
-            if len(cells) < i + 5:
-                continue
-            home, hg_raw, ag_raw, away = cells[i+1:i+5]
-            hg, ag = valid_score(hg_raw), valid_score(ag_raw)
-            fid = verified_id(day, league, home, away, canonical)
-            if fid is None or hg is None or ag is None:
-                continue
-            score = (hg, ag)
-            if fid in games and games[fid] != score:
-                raise ValueError("Conflicting scores in Football Web Pages for " + fid)
-            games[fid] = score
+        values = {}
+        for cell in row["cells"]:
+            attrs = cell["attrs"]
+            names = set(str(attrs.get("class", "")).split())
+            if "export-only" in names:
+                values["date"] = cell["text"]
+            for key in ("status", "home-team", "away-team", "home-score", "away-score"):
+                if key in names:
+                    values[key] = attrs.get("data-export") if key in ("home-team", "away-team") else cell["text"]
+        if values.get("date") != expected_date or str(values.get("status", "")).upper() != "FT":
+            continue
+        home = values.get("home-team")
+        away = values.get("away-team")
+        hg = valid_score(values.get("home-score"))
+        ag = valid_score(values.get("away-score"))
+        fid = verified_id(day, league, home, away, canonical)
+        if fid is None or hg is None or ag is None:
+            continue
+        score = (hg, ag)
+        if fid in games and games[fid] != score:
+            raise ValueError("Conflicting scores in Football Web Pages for " + fid)
+        games[fid] = score
     if len(games) > MAX_RESULTS_PER_DAY:
         raise ValueError("Unreasonable Football Web Pages full-time result count")
     return games
