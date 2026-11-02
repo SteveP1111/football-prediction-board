@@ -6,6 +6,8 @@ import urllib.request
 
 class PublicResultsSourceProbe(unittest.TestCase):
     def test_inspect_public_sources(self):
+        parsed_espn={}
+        parsed_web={}
         urls=[
             "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261031",
             "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261031",
@@ -28,6 +30,7 @@ class PublicResultsSourceProbe(unittest.TestCase):
                     j=json.loads(page)
                     league={"eng.1":"E0","eng.2":"E1","eng.3":"E2","eng.4":"E3","eng.5":"EC"}[next(k for k in ("eng.1","eng.2","eng.3","eng.4","eng.5") if "/"+k+"/" in url)]
                     parsed=parse_espn(j,league,"2026-10-31",canon)
+                    parsed_espn.update(parsed)
                     print("ESPN_PARSED",league,len(parsed),sorted(parsed.items())[:4])
                     e=j.get("events",[])
                     print("ESPN_EVENTS",len(e),"LEAGUE",str(j.get("leagues",[]))[:250])
@@ -39,6 +42,7 @@ class PublicResultsSourceProbe(unittest.TestCase):
                         from results_fallback import parse_footballwebpages
                         from refresh import canon
                         parsed=parse_footballwebpages(page,"2026-10-31",canon)
+                        parsed_web.update(parsed)
                         print("FWP_PARSED",len(parsed),sorted(parsed.items())[:12])
                         for league_class in ("comp-2","comp-3","comp-4"):
                             m=re.search(r'<tr class="' + league_class + r'[^"]*" title="[^"]+ [0-9]+-[0-9]+ [^"]+"[^>]*>',page,re.I)
@@ -57,4 +61,18 @@ class PublicResultsSourceProbe(unittest.TestCase):
                             print("HTML_NEEDLE",needle,"RAW_CONTEXT",repr(page[max(0,m.start()-260):m.end()+350])[:660])
             except Exception as exc:
                 print("PROBE_ERROR",url,type(exc).__name__,str(exc)[:150])
+        from results_fallback import verified_id
+        from refresh import canon
+        from pathlib import Path
+        forecast=json.loads((Path(__file__).resolve().parents[1]/"data/snapshots/2026-10-31.json").read_text())
+        checked=[]
+        missing=[]
+        disagreement=[]
+        for f in forecast["games"]:
+            norm=verified_id(f["date"],f["division"],f["home"],f["away"],canon)
+            if norm in parsed_espn and norm in parsed_web:
+                if parsed_espn[norm]==parsed_web[norm]:checked.append(f["id"])
+                else:disagreement.append(f["id"])
+            else:missing.append((f["id"],norm,norm in parsed_espn,norm in parsed_web))
+        print("FULL_AUDIT_31_OCT",len(forecast["games"]),"CORROBORATED",len(checked),"DISAGREEMENTS",len(disagreement),"MISSING",missing)
         self.assertTrue(True)
