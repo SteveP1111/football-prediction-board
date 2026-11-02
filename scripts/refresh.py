@@ -339,16 +339,18 @@ def run():
         pending_frozen=[]
         for archived in sorted(SNAP.glob("????-??-??.json")):
             shot=json.loads(archived.read_text(encoding="utf-8"))
-            if shot.get("status")!="frozen-prekickoff" or archived.stem!=shot.get("date"):
-                raise ValueError("Invalid frozen snapshot date or status for results fallback")
-            pending_frozen.extend(shot.get("games",[]))
+            if archived.stem!=shot.get("date"):
+                raise ValueError("Mismatched dated snapshot filename and content")
+            # Old imported snapshots may use a separate explicit status.
+            if shot.get("status")=="frozen-prekickoff" and isinstance(shot.get("games"),list):
+                pending_frozen.extend(shot["games"])
         candidates,audit=get_confirmed_fallback(
             pending_frozen,completed_primary,settled,today,canon)
         completed,fallback_evidence=reconcile(completed_primary,candidates,settled)
         state["resultsFallback"]=audit
         state["verifiedFallbackSettlements"]=len(fallback_evidence)
         state["resultsSettlementLatestDate"]=max(
-            (fid.split("|",1)[0] for fid in completed),default=None)
+            (fid.split("|",1)[0] for fid in set(completed) | set(settled)),default=None)
         if audit["conflicts"]:
             state["warnings"].append(
                 "FALLBACK SCORES CONFLICT: %d fixtures left pending" % len(audit["conflicts"]))
