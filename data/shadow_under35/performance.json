@@ -236,8 +236,8 @@
   "disclaimer": "Only original pre-kickoff forecasts and separately frozen pre-kickoff shadow estimates are compared. No executable bookmaker odds or estimated betting return. Do not auto-promote V4.",
   "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
   "firstFreezeDate": "2026-10-30",
-  "frozenFixtures": 57,
-  "lastFreezeDate": "2026-11-02",
+  "frozenFixtures": 69,
+  "lastFreezeDate": "2026-11-03",
   "models": {
     "V1 original": {
       "brier": 0.248112,
@@ -263,9 +263,9 @@
     "minMatchDays": 5,
     "status": "insufficient-data"
   },
-  "pendingFixtures": 1,
+  "pendingFixtures": 13,
   "schemaVersion": 1,
   "settledFixtures": 56,
-  "snapshotDays": 4,
+  "snapshotDays": 5,
   "status": "collecting-prospective-evidence"
 }

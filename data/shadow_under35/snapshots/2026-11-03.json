@@ -1,0 +1,143 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Stoke",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|blackburn rovers|stoke",
+      "home": "Blackburn",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.69779,
+      "shadowUnder35": 0.66759554
+    },
+    {
+      "away": "Bolton",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|charlton|bolton",
+      "home": "Charlton",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.7122,
+      "shadowUnder35": 0.68028405
+    },
+    {
+      "away": "Norwich",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|derby|norwich",
+      "home": "Derby",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.67107,
+      "shadowUnder35": 0.64432604
+    },
+    {
+      "away": "Swansea",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|portsmouth|swansea",
+      "home": "Portsmouth",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.6425,
+      "shadowUnder35": 0.61975918
+    },
+    {
+      "away": "Sheff Utd",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|preston|sheffield united",
+      "home": "Preston North End",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.71291,
+      "shadowUnder35": 0.68091201
+    },
+    {
+      "away": "Burnley",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|queens park rangers|burnley",
+      "home": "QPR",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.57775,
+      "shadowUnder35": 0.56495249
+    },
+    {
+      "away": "Lincoln",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|watford|lincoln",
+      "home": "Watford",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.70803,
+      "shadowUnder35": 0.67660128
+    },
+    {
+      "away": "Millwall",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|birmingham|millwall",
+      "home": "Birmingham",
+      "kickoffLocal": "2026-11-03T20:00:00+00:00",
+      "originalUnder35": 0.63885,
+      "shadowUnder35": 0.61664064
+    },
+    {
+      "away": "Southampton",
+      "date": "2026-11-03",
+      "division": "E1",
+      "fixtureId": "2026-11-03|E1|west bromwich albion|southampton",
+      "home": "West Brom",
+      "kickoffLocal": "2026-11-03T20:00:00+00:00",
+      "originalUnder35": 0.69077,
+      "shadowUnder35": 0.6614512
+    },
+    {
+      "away": "Luton",
+      "date": "2026-11-03",
+      "division": "E2",
+      "fixtureId": "2026-11-03|E2|huddersfield town|luton town",
+      "home": "Huddersfield",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.59058,
+      "shadowUnder35": 0.57573836
+    },
+    {
+      "away": "Mansfield",
+      "date": "2026-11-03",
+      "division": "E2",
+      "fixtureId": "2026-11-03|E2|wigan|mansfield",
+      "home": "Wigan",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.67452,
+      "shadowUnder35": 0.64731329
+    },
+    {
+      "away": "Oldham",
+      "date": "2026-11-03",
+      "division": "E3",
+      "fixtureId": "2026-11-03|E3|northampton town|oldham",
+      "home": "Northampton",
+      "kickoffLocal": "2026-11-03T19:45:00+00:00",
+      "originalUnder35": 0.80174,
+      "shadowUnder35": 0.76211998
+    }
+  ],
+  "originalCapturedAt": "2026-11-03T03:05:25.380484+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-03T03:05:39.182687+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-03",
+  "sourceSnapshotSha256": "222acfe66199705a822ff473c162887b7e7895852b6071500164739364659df4",
+  "status": "frozen-prekickoff"
+}
