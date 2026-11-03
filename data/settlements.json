@@ -4988,5 +4988,36 @@
       "under35": 0.71313
     },
     "score": "1-1"
+  },
+  "2026-11-02|E0|newcastle|everton": {
+    "away": "Everton",
+    "b31Outcomes": [],
+    "date": "2026-11-02",
+    "division": "E0",
+    "home": "Newcastle",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.30904,
+      "btts": 0.54444,
+      "draw": 0.25515,
+      "home_win": 0.43581,
+      "no_btts": 0.45556,
+      "over25": 0.50721,
+      "over35": 0.28666,
+      "under25": 0.49279,
+      "under35": 0.71334
+    },
+    "score": "0-1"
   }
 }

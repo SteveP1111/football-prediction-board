@@ -1,20 +1,18 @@
 {
   "fixtureDateRange": [
-    "2026-10-30",
-    "2026-11-03"
+    "2026-11-03",
+    "2026-11-04"
   ],
-  "fixtureFallback": "Guardian dated fixture page",
-  "fixtureFallbackGames": 12,
-  "refreshed": "2026-11-03T03:05:25.380484+00:00",
+  "refreshed": "2026-11-03T14:21:55.184763+00:00",
   "resultsByLeague": {
-    "E0": 89,
+    "E0": 90,
     "E1": 156,
     "E2": 155,
     "E3": 163,
     "EC": 189
   },
-  "resultsCount": 752,
-  "resultsLatestDate": "2026-11-01",
+  "resultsCount": 753,
+  "resultsLatestDate": "2026-11-02",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -26,8 +24,7 @@
     "https://www.football-data.co.uk/mmz4281/2627/E2.csv",
     "https://www.football-data.co.uk/mmz4281/2627/E3.csv",
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
-    "https://www.football-data.co.uk/fixtures.csv",
-    "https://www.theguardian.com/football/fixtures/2026/Nov/03"
+    "https://www.football-data.co.uk/fixtures.csv"
   ],
   "warnings": []
 }
