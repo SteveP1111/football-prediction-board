@@ -1,0 +1,63 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "West Ham",
+      "date": "2026-11-04",
+      "division": "E1",
+      "fixtureId": "2026-11-04|E1|cardiff|west ham",
+      "home": "Cardiff",
+      "kickoffLocal": "2026-11-04T19:45:00+00:00",
+      "originalUnder35": 0.63014,
+      "shadowUnder35": 0.6092152
+    },
+    {
+      "away": "Middlesbrough",
+      "date": "2026-11-04",
+      "division": "E1",
+      "fixtureId": "2026-11-04|E1|wrexham|middlesbrough",
+      "home": "Wrexham",
+      "kickoffLocal": "2026-11-04T19:45:00+00:00",
+      "originalUnder35": 0.60068,
+      "shadowUnder35": 0.5842511
+    },
+    {
+      "away": "Wolves",
+      "date": "2026-11-04",
+      "division": "E1",
+      "fixtureId": "2026-11-04|E1|bristol city|wolverhampton wanderers",
+      "home": "Bristol City",
+      "kickoffLocal": "2026-11-04T20:00:00+00:00",
+      "originalUnder35": 0.73991,
+      "shadowUnder35": 0.70500587
+    },
+    {
+      "away": "Reading",
+      "date": "2026-11-04",
+      "division": "E2",
+      "fixtureId": "2026-11-04|E2|oxford united|reading",
+      "home": "Oxford Utd",
+      "kickoffLocal": "2026-11-04T19:45:00+00:00",
+      "originalUnder35": 0.72139,
+      "shadowUnder35": 0.68843347
+    }
+  ],
+  "originalCapturedAt": "2026-11-04T01:41:32.430327+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-04T01:41:45.136692+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-04",
+  "sourceSnapshotSha256": "0553786bcbb3044be499f81f79aae633fbdf0a9e1f50d2c6386a92c1f0029e10",
+  "status": "frozen-prekickoff"
+}
