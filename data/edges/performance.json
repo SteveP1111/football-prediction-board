@@ -1,8 +1,8 @@
 {
   "disclaimer": "Hypothetical £10 flat stakes; not actual bets. Exchange commission, limits and unavailable quoted prices are not deducted. Only settled records count.",
   "gradedSelections": 476,
-  "pendingSelections": 77,
-  "recordedSelections": 553,
+  "pendingSelections": 107,
+  "recordedSelections": 583,
   "schemaVersion": 1,
   "snapshotDays": [
     "2026-10-24",
@@ -13,7 +13,8 @@
     "2026-10-31",
     "2026-11-01",
     "2026-11-02",
-    "2026-11-03"
+    "2026-11-03",
+    "2026-11-04"
   ],
   "summary": {
     "allQuotedMarkets": {
@@ -241,5 +242,5 @@
     "primaryDefinition": "Recorded positive theoretical-edge selections only; £10 flat hypothetical stakes.",
     "stakePerPickGbp": 10.0
   },
-  "updatedAtUtc": "2026-11-03T14:22:12.885739+00:00"
+  "updatedAtUtc": "2026-11-04T01:41:59.283541+00:00"
 }
