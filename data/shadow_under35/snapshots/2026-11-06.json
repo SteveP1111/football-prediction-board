@@ -1,0 +1,43 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Coventry",
+      "date": "2026-11-06",
+      "division": "E0",
+      "fixtureId": "2026-11-06|E0|everton|coventry",
+      "home": "Everton",
+      "kickoffLocal": "2026-11-06T20:00:00+00:00",
+      "originalUnder35": 0.7425,
+      "shadowUnder35": 0.70734056
+    },
+    {
+      "away": "Bolton",
+      "date": "2026-11-06",
+      "division": "E1",
+      "fixtureId": "2026-11-06|E1|derby|bolton",
+      "home": "Derby",
+      "kickoffLocal": "2026-11-06T20:00:00+00:00",
+      "originalUnder35": 0.69841,
+      "shadowUnder35": 0.66813933
+    }
+  ],
+  "originalCapturedAt": "2026-11-06T01:49:25.379669+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-06T01:49:37.646695+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-06",
+  "sourceSnapshotSha256": "798a4cfb472168b1f796db2af9f584d6e70cbe0385e3668a2a9c836ffe55c02c",
+  "status": "frozen-prekickoff"
+}

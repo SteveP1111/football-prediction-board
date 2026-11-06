@@ -117,5 +117,12 @@
     "markets": 36,
     "settled": 4,
     "wins": 16
+  },
+  {
+    "date": "2026-11-06",
+    "games": 2,
+    "markets": 0,
+    "settled": 0,
+    "wins": 0
   }
 ]

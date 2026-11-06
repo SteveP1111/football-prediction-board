@@ -1,0 +1,143 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-11-06T01:49:25.379669+00:00",
+  "date": "2026-11-06",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Coventry",
+      "awayKey": "coventry",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-11-06",
+      "division": "E0",
+      "home": "Everton",
+      "homeKey": "everton",
+      "id": "2026-11-06|E0|everton|coventry",
+      "kickoff": "20:00",
+      "league": "Premier League",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.33821,
+        "expectedAway": 1.084,
+        "expectedHome": 1.486,
+        "expectedTotal": 2.57,
+        "goalBands": {
+          "0-1": 0.27322,
+          "2": 0.25275,
+          "3": 0.21653,
+          "4+": 0.2575
+        },
+        "markets": {
+          "away_win": 0.27636,
+          "btts": 0.51204,
+          "draw": 0.25931,
+          "home_win": 0.46433,
+          "no_btts": 0.48796,
+          "over25": 0.47403,
+          "over35": 0.2575,
+          "under25": 0.52597,
+          "under35": 0.7425
+        },
+        "modalProbability": 0.12329,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 4,
+        "sampleHome": 4,
+        "topScores": [
+          {
+            "p": 0.12329,
+            "score": "1-1"
+          },
+          {
+            "p": 0.11372,
+            "score": "1-0"
+          },
+          {
+            "p": 0.0916,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08449,
+            "score": "2-0"
+          },
+          {
+            "p": 0.08297,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Bolton",
+      "awayKey": "bolton",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-11-06",
+      "division": "E1",
+      "home": "Derby",
+      "homeKey": "derby",
+      "id": "2026-11-06|E1|derby|bolton",
+      "kickoff": "20:00",
+      "league": "Championship",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.27449,
+        "expectedAway": 1.478,
+        "expectedHome": 1.293,
+        "expectedTotal": 2.771,
+        "goalBands": {
+          "0-1": 0.23608,
+          "2": 0.24034,
+          "3": 0.22199,
+          "4+": 0.30159
+        },
+        "markets": {
+          "away_win": 0.41559,
+          "btts": 0.56003,
+          "draw": 0.25309,
+          "home_win": 0.33132,
+          "no_btts": 0.43997,
+          "over25": 0.52358,
+          "over35": 0.30159,
+          "under25": 0.47642,
+          "under35": 0.69841
+        },
+        "modalProbability": 0.11963,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 7,
+        "sampleHome": 7,
+        "topScores": [
+          {
+            "p": 0.11963,
+            "score": "1-1"
+          },
+          {
+            "p": 0.09254,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08841,
+            "score": "1-2"
+          },
+          {
+            "p": 0.08094,
+            "score": "1-0"
+          },
+          {
+            "p": 0.07733,
+            "score": "2-1"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 769
+}
