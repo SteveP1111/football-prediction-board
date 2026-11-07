@@ -3,7 +3,7 @@
     "2026-11-06",
     "2026-11-08"
   ],
-  "refreshed": "2026-11-06T14:21:11.384433+00:00",
+  "refreshed": "2026-11-07T01:15:29.337606+00:00",
   "resultsByLeague": {
     "E0": 90,
     "E1": 168,
@@ -12,7 +12,26 @@
     "EC": 189
   },
   "resultsCount": 769,
+  "resultsFallback": {
+    "attemptedDates": [
+      "2026-11-06"
+    ],
+    "conflicts": [],
+    "fullyConfirmed": 0,
+    "sourceErrors": [],
+    "sourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261106&limit=100",
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261106&limit=100",
+      "https://www.footballwebpages.co.uk/20261106"
+    ],
+    "sources": [
+      "ESPN full-time scoreboard",
+      "Football Web Pages full-time results"
+    ],
+    "unconfirmed": 2
+  },
   "resultsLatestDate": "2026-11-04",
+  "resultsSettlementLatestDate": "2026-11-04",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -26,5 +45,9 @@
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
     "https://www.football-data.co.uk/fixtures.csv"
   ],
-  "warnings": []
+  "verifiedFallbackSettlements": 0,
+  "warnings": [
+    "RESULTS COVERAGE BEHIND: latest verified result 2026-11-04",
+    "RESULTS FALLBACK UNCONFIRMED: 2 frozen fixtures remain pending"
+  ]
 }

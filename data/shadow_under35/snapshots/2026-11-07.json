@@ -1,0 +1,173 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Tottenham",
+      "date": "2026-11-07",
+      "division": "E0",
+      "fixtureId": "2026-11-07|E0|leeds|tottenham",
+      "home": "Leeds",
+      "kickoffLocal": "2026-11-07T12:30:00+00:00",
+      "originalUnder35": 0.77696,
+      "shadowUnder35": 0.73885607
+    },
+    {
+      "away": "Hull",
+      "date": "2026-11-07",
+      "division": "E0",
+      "fixtureId": "2026-11-07|E0|arsenal|hull",
+      "home": "Arsenal",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.74201,
+      "shadowUnder35": 0.70689852
+    },
+    {
+      "away": "Newcastle",
+      "date": "2026-11-07",
+      "division": "E0",
+      "fixtureId": "2026-11-07|E0|fulham|newcastle",
+      "home": "Fulham",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.68509,
+      "shadowUnder35": 0.65649636
+    },
+    {
+      "away": "Man City",
+      "date": "2026-11-07",
+      "division": "E0",
+      "fixtureId": "2026-11-07|E0|nott m forest|manchester city",
+      "home": "Nott'm Forest",
+      "kickoffLocal": "2026-11-07T17:30:00+00:00",
+      "originalUnder35": 0.79154,
+      "shadowUnder35": 0.7524759
+    },
+    {
+      "away": "Norwich",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|bristol city|norwich",
+      "home": "Bristol City",
+      "kickoffLocal": "2026-11-07T12:30:00+00:00",
+      "originalUnder35": 0.68642,
+      "shadowUnder35": 0.65765526
+    },
+    {
+      "away": "Stoke",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|portsmouth|stoke",
+      "home": "Portsmouth",
+      "kickoffLocal": "2026-11-07T12:30:00+00:00",
+      "originalUnder35": 0.65695,
+      "shadowUnder35": 0.63214805
+    },
+    {
+      "away": "Wolves",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|wrexham|wolverhampton wanderers",
+      "home": "Wrexham",
+      "kickoffLocal": "2026-11-07T12:30:00+00:00",
+      "originalUnder35": 0.65572,
+      "shadowUnder35": 0.63109071
+    },
+    {
+      "away": "Swansea",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|birmingham|swansea",
+      "home": "Birmingham",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.6269,
+      "shadowUnder35": 0.60645866
+    },
+    {
+      "away": "West Ham",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|blackburn rovers|west ham",
+      "home": "Blackburn",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.62025,
+      "shadowUnder35": 0.60081
+    },
+    {
+      "away": "Burnley",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|cardiff|burnley",
+      "home": "Cardiff",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.57747,
+      "shadowUnder35": 0.56471742
+    },
+    {
+      "away": "Sheffield United",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|charlton|sheffield united",
+      "home": "Charlton",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.73361,
+      "shadowUnder35": 0.69934487
+    },
+    {
+      "away": "Southampton",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|preston|southampton",
+      "home": "Preston",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.67741,
+      "shadowUnder35": 0.6498194
+    },
+    {
+      "away": "Lincoln",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|queens park rangers|lincoln",
+      "home": "QPR",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.70139,
+      "shadowUnder35": 0.67075566
+    },
+    {
+      "away": "Middlesbrough",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|watford|middlesbrough",
+      "home": "Watford",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.66563,
+      "shadowUnder35": 0.63962529
+    },
+    {
+      "away": "Millwall",
+      "date": "2026-11-07",
+      "division": "E1",
+      "fixtureId": "2026-11-07|E1|west bromwich albion|millwall",
+      "home": "West Brom",
+      "kickoffLocal": "2026-11-07T15:00:00+00:00",
+      "originalUnder35": 0.69025,
+      "shadowUnder35": 0.66099698
+    }
+  ],
+  "originalCapturedAt": "2026-11-07T01:15:29.337606+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-07T01:15:44.803916+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-07",
+  "sourceSnapshotSha256": "bf9260423eb6b436f340b1d5098dbdae52fba63c76159f9d22e1e741da8d8a71",
+  "status": "frozen-prekickoff"
+}
