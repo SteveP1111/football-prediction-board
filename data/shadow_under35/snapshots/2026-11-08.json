@@ -1,0 +1,73 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Brentford",
+      "date": "2026-11-08",
+      "division": "E0",
+      "fixtureId": "2026-11-08|E0|brighton and hove albion|brentford",
+      "home": "Brighton",
+      "kickoffLocal": "2026-11-08T14:00:00+00:00",
+      "originalUnder35": 0.68498,
+      "shadowUnder35": 0.65640055
+    },
+    {
+      "away": "Liverpool",
+      "date": "2026-11-08",
+      "division": "E0",
+      "fixtureId": "2026-11-08|E0|crystal palace|liverpool",
+      "home": "Crystal Palace",
+      "kickoffLocal": "2026-11-08T14:00:00+00:00",
+      "originalUnder35": 0.67409,
+      "shadowUnder35": 0.64694071
+    },
+    {
+      "away": "Bournemouth",
+      "date": "2026-11-08",
+      "division": "E0",
+      "fixtureId": "2026-11-08|E0|ipswich town|bournemouth",
+      "home": "Ipswich",
+      "kickoffLocal": "2026-11-08T14:00:00+00:00",
+      "originalUnder35": 0.68005,
+      "shadowUnder35": 0.65211176
+    },
+    {
+      "away": "Chelsea",
+      "date": "2026-11-08",
+      "division": "E0",
+      "fixtureId": "2026-11-08|E0|sunderland|chelsea",
+      "home": "Sunderland",
+      "kickoffLocal": "2026-11-08T14:00:00+00:00",
+      "originalUnder35": 0.76348,
+      "shadowUnder35": 0.72642216
+    },
+    {
+      "away": "Aston Villa",
+      "date": "2026-11-08",
+      "division": "E0",
+      "fixtureId": "2026-11-08|E0|manchester united|aston villa",
+      "home": "Man United",
+      "kickoffLocal": "2026-11-08T16:30:00+00:00",
+      "originalUnder35": 0.69327,
+      "shadowUnder35": 0.6636367
+    }
+  ],
+  "originalCapturedAt": "2026-11-08T00:55:59.571742+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-08T00:56:14.187428+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-08",
+  "sourceSnapshotSha256": "ee2e3876c39e6728d20cd56fe34a98561657b3b6082c448d00fd2c56ff7610f0",
+  "status": "frozen-prekickoff"
+}
