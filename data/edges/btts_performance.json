@@ -120,41 +120,41 @@
       "pending": 0
     },
     "2026-11-06": {
-      "accuracyPct": null,
-      "correct": 0,
+      "accuracyPct": 100.0,
+      "correct": 2,
       "forecasts": 2,
-      "graded": 0,
-      "pending": 2
+      "graded": 2,
+      "pending": 0
     },
     "2026-11-07": {
-      "accuracyPct": null,
-      "correct": 0,
+      "accuracyPct": 66.67,
+      "correct": 10,
       "forecasts": 15,
-      "graded": 0,
-      "pending": 15
+      "graded": 15,
+      "pending": 0
     },
     "2026-11-08": {
-      "accuracyPct": null,
-      "correct": 0,
+      "accuracyPct": 60.0,
+      "correct": 3,
       "forecasts": 5,
-      "graded": 0,
-      "pending": 5
+      "graded": 5,
+      "pending": 0
     }
   },
   "byLeague": {
     "E0": {
-      "accuracyPct": 40.74,
-      "correct": 11,
+      "accuracyPct": 48.65,
+      "correct": 18,
       "forecasts": 40,
-      "graded": 27,
-      "pending": 13
+      "graded": 37,
+      "pending": 3
     },
     "E1": {
-      "accuracyPct": 55.0,
-      "correct": 22,
+      "accuracyPct": 57.69,
+      "correct": 30,
       "forecasts": 60,
-      "graded": 40,
-      "pending": 20
+      "graded": 52,
+      "pending": 8
     },
     "E2": {
       "accuracyPct": 55.81,
@@ -180,34 +180,34 @@
   },
   "byOutcome": {
     "No": {
-      "accuracyPct": 45.45,
-      "correct": 10,
+      "accuracyPct": 48.0,
+      "correct": 12,
       "forecasts": 29,
-      "graded": 22,
-      "pending": 7
+      "graded": 25,
+      "pending": 4
     },
     "Yes": {
-      "accuracyPct": 55.77,
-      "correct": 87,
+      "accuracyPct": 57.14,
+      "correct": 100,
       "forecasts": 201,
-      "graded": 156,
-      "pending": 45
+      "graded": 175,
+      "pending": 26
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
-      "accuracyPct": 58.16,
-      "correct": 82,
+      "accuracyPct": 59.01,
+      "correct": 95,
       "forecasts": 182,
-      "graded": 141,
-      "pending": 41
+      "graded": 161,
+      "pending": 21
     },
     "60–69.9%": {
-      "accuracyPct": 40.54,
-      "correct": 15,
+      "accuracyPct": 43.59,
+      "correct": 17,
       "forecasts": 48,
-      "graded": 37,
-      "pending": 11
+      "graded": 39,
+      "pending": 9
     },
     "70–79.9%": {
       "accuracyPct": null,
@@ -478,12 +478,12 @@
   "mostRecentDay": "2026-11-08",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
-  "settledForecasts": 178,
+  "settledForecasts": 200,
   "summary": {
-    "accuracyPct": 54.49,
-    "correct": 97,
+    "accuracyPct": 56.0,
+    "correct": 112,
     "forecasts": 230,
-    "graded": 178,
-    "pending": 52
+    "graded": 200,
+    "pending": 30
   }
 }
