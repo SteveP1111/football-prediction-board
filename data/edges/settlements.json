@@ -1,8 +1,8 @@
 {
   "disclaimer": "Hypothetical £10 flat stakes; not actual bets. Exchange commission, limits and unavailable quoted prices are not deducted. Only settled records count.",
   "gradedSelections": 712,
-  "pendingSelections": 7,
-  "recordedSelections": 719,
+  "pendingSelections": 92,
+  "recordedSelections": 804,
   "rows": [
     {
       "away": "Everton",
@@ -12835,7 +12835,8 @@
     "2026-11-04",
     "2026-11-06",
     "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-14"
   ],
   "summary": {
     "allQuotedMarkets": {
@@ -13117,5 +13118,5 @@
     "primaryDefinition": "Recorded positive theoretical-edge selections only; £10 flat hypothetical stakes.",
     "stakePerPickGbp": 10.0
   },
-  "updatedAtUtc": "2026-11-09T16:28:03.119088+00:00"
+  "updatedAtUtc": "2026-11-14T01:50:25.543151+00:00"
 }
