@@ -1,0 +1,283 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Blackpool",
+      "date": "2026-11-14",
+      "division": "E2",
+      "fixtureId": "2026-11-14|E2|afc wimbledon|blackpool",
+      "home": "AFC Wimbledon",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.78643,
+      "shadowUnder35": 0.74768106
+    },
+    {
+      "away": "Burton",
+      "date": "2026-11-14",
+      "division": "E2",
+      "fixtureId": "2026-11-14|E2|milton keynes dons|burton",
+      "home": "Milton Keynes Dons",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.65609,
+      "shadowUnder35": 0.63140872
+    },
+    {
+      "away": "Plymouth",
+      "date": "2026-11-14",
+      "division": "E2",
+      "fixtureId": "2026-11-14|E2|sheffield wednesday|plymouth argyle",
+      "home": "Sheffield Weds",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.66158,
+      "shadowUnder35": 0.63613302
+    },
+    {
+      "away": "Reading",
+      "date": "2026-11-14",
+      "division": "E2",
+      "fixtureId": "2026-11-14|E2|stockport county|reading",
+      "home": "Stockport",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.70387,
+      "shadowUnder35": 0.67293635
+    },
+    {
+      "away": "Barnsley",
+      "date": "2026-11-14",
+      "division": "E2",
+      "fixtureId": "2026-11-14|E2|wigan|barnsley",
+      "home": "Wigan",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.72798,
+      "shadowUnder35": 0.69430674
+    },
+    {
+      "away": "Cheltenham",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|exeter|cheltenham town",
+      "home": "Exeter",
+      "kickoffLocal": "2026-11-14T12:30:00+00:00",
+      "originalUnder35": 0.74394,
+      "shadowUnder35": 0.70864051
+    },
+    {
+      "away": "Chesterfield",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|bristol rovers|chesterfield",
+      "home": "Bristol Rvs",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.71788,
+      "shadowUnder35": 0.68531539
+    },
+    {
+      "away": "Gillingham",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|colchester united|gillingham",
+      "home": "Colchester",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.71975,
+      "shadowUnder35": 0.68697573
+    },
+    {
+      "away": "Newport County",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|crewe|newport county",
+      "home": "Crewe",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.73868,
+      "shadowUnder35": 0.70389865
+    },
+    {
+      "away": "Accrington",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|port vale|accrington stanley",
+      "home": "Port Vale",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.75377,
+      "shadowUnder35": 0.71755201
+    },
+    {
+      "away": "York",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|rochdale|york",
+      "home": "Rochdale",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.63185,
+      "shadowUnder35": 0.61067124
+    },
+    {
+      "away": "Northampton",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|salford city|northampton town",
+      "home": "Salford",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.8012,
+      "shadowUnder35": 0.76160688
+    },
+    {
+      "away": "Oldham",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|shrewsbury town|oldham",
+      "home": "Shrewsbury",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.77087,
+      "shadowUnder35": 0.73322073
+    },
+    {
+      "away": "Grimsby",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|swindon|grimsby town",
+      "home": "Swindon",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.69881,
+      "shadowUnder35": 0.66849027
+    },
+    {
+      "away": "Tranmere",
+      "date": "2026-11-14",
+      "division": "E3",
+      "fixtureId": "2026-11-14|E3|fleetwood town|tranmere rovers",
+      "home": "Fleetwood Town",
+      "kickoffLocal": "2026-11-14T17:30:00+00:00",
+      "originalUnder35": 0.74842,
+      "shadowUnder35": 0.71269368
+    },
+    {
+      "away": "Boston Utd",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|carlisle|boston utd",
+      "home": "Carlisle",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.52735,
+      "shadowUnder35": 0.52279862
+    },
+    {
+      "away": "Fylde",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|eastleigh|fylde",
+      "home": "Eastleigh",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.57873,
+      "shadowUnder35": 0.56577535
+    },
+    {
+      "away": "Barrow",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|gateshead|barrow",
+      "home": "Gateshead",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.61192,
+      "shadowUnder35": 0.5937505
+    },
+    {
+      "away": "Altrincham",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|harrogate|altrincham",
+      "home": "Harrogate",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.58618,
+      "shadowUnder35": 0.57203608
+    },
+    {
+      "away": "Wealdstone",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|hartlepool united|wealdstone",
+      "home": "Hartlepool",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.71847,
+      "shadowUnder35": 0.68583903
+    },
+    {
+      "away": "Tamworth",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|hornchurch|tamworth",
+      "home": "Hornchurch",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.62741,
+      "shadowUnder35": 0.60689237
+    },
+    {
+      "away": "Halifax",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|kidderminster|fc halifax town",
+      "home": "Kidderminster",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.72174,
+      "shadowUnder35": 0.68874477
+    },
+    {
+      "away": "Worthing",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|scunthorpe|worthing",
+      "home": "Scunthorpe",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.57256,
+      "shadowUnder35": 0.56059726
+    },
+    {
+      "away": "Aldershot",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|southend united|aldershot",
+      "home": "Southend",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.61333,
+      "shadowUnder35": 0.59494423
+    },
+    {
+      "away": "Solihull",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|sutton|solihull",
+      "home": "Sutton",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.56649,
+      "shadowUnder35": 0.5555087
+    },
+    {
+      "away": "Boreham Wood",
+      "date": "2026-11-14",
+      "division": "EC",
+      "fixtureId": "2026-11-14|EC|yeovil|boreham wood",
+      "home": "Yeovil",
+      "kickoffLocal": "2026-11-14T15:00:00+00:00",
+      "originalUnder35": 0.59204,
+      "shadowUnder35": 0.57696765
+    }
+  ],
+  "originalCapturedAt": "2026-11-14T01:49:58.517238+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-14T01:50:11.684647+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-14",
+  "sourceSnapshotSha256": "03e6498fda80ff474fe30fa840bc68db1a23d24858c0d1159a8b2b8b0fe22970",
+  "status": "frozen-prekickoff"
+}

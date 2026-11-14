@@ -139,6 +139,13 @@
       "forecasts": 5,
       "graded": 5,
       "pending": 0
+    },
+    "2026-11-14": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 26,
+      "graded": 0,
+      "pending": 26
     }
   },
   "byLeague": {
@@ -159,55 +166,55 @@
     "E2": {
       "accuracyPct": 55.81,
       "correct": 24,
-      "forecasts": 55,
+      "forecasts": 60,
       "graded": 43,
-      "pending": 12
+      "pending": 17
     },
     "E3": {
       "accuracyPct": 56.82,
       "correct": 25,
-      "forecasts": 50,
+      "forecasts": 60,
       "graded": 44,
-      "pending": 6
+      "pending": 16
     },
     "EC": {
       "accuracyPct": 62.5,
       "correct": 15,
-      "forecasts": 25,
+      "forecasts": 36,
       "graded": 24,
-      "pending": 1
+      "pending": 12
     }
   },
   "byOutcome": {
     "No": {
       "accuracyPct": 48.0,
       "correct": 12,
-      "forecasts": 29,
+      "forecasts": 34,
       "graded": 25,
-      "pending": 4
+      "pending": 9
     },
     "Yes": {
       "accuracyPct": 57.14,
       "correct": 100,
-      "forecasts": 201,
+      "forecasts": 222,
       "graded": 175,
-      "pending": 26
+      "pending": 47
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
       "accuracyPct": 59.01,
       "correct": 95,
-      "forecasts": 182,
+      "forecasts": 199,
       "graded": 161,
-      "pending": 21
+      "pending": 38
     },
     "60–69.9%": {
       "accuracyPct": 43.59,
       "correct": 17,
-      "forecasts": 48,
+      "forecasts": 57,
       "graded": 39,
-      "pending": 9
+      "pending": 18
     },
     "70–79.9%": {
       "accuracyPct": null,
@@ -471,19 +478,31 @@
       "qualified55MatchedFixtures": 3,
       "supportedLeagueForecasts": 5,
       "warning": null
+    },
+    "2026-11-14": {
+      "allLeagueForecasts": 26,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 15,
+      "warning": null
     }
   },
   "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
   "model": "original frozen experimental Scoreline Model",
-  "mostRecentDay": "2026-11-08",
+  "mostRecentDay": "2026-11-14",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
   "settledForecasts": 200,
   "summary": {
     "accuracyPct": 56.0,
     "correct": 112,
-    "forecasts": 230,
+    "forecasts": 256,
     "graded": 200,
-    "pending": 30
+    "pending": 56
   }
 }
