@@ -142,8 +142,8 @@
   {
     "date": "2026-11-14",
     "games": 26,
-    "markets": 0,
-    "settled": 0,
-    "wins": 0
+    "markets": 216,
+    "settled": 24,
+    "wins": 96
   }
 ]
