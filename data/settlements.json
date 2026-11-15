@@ -6864,6 +6864,43 @@
     "resultVerifiedAtUtc": "2026-11-15T01:20:15.684102+00:00",
     "score": "4-0"
   },
+  "2026-11-14|EC|hartlepool united|wealdstone": {
+    "away": "Wealdstone",
+    "b31Outcomes": [],
+    "date": "2026-11-14",
+    "division": "EC",
+    "home": "Hartlepool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.35031,
+      "btts": 0.5444,
+      "draw": 0.259,
+      "home_win": 0.39069,
+      "no_btts": 0.4556,
+      "over25": 0.5015,
+      "over35": 0.28153,
+      "under25": 0.4985,
+      "under35": 0.71847
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261114&limit=100",
+      "https://www.footballwebpages.co.uk/20261114"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-15T13:59:10.340465+00:00",
+    "score": "1-1"
+  },
   "2026-11-14|EC|hornchurch|tamworth": {
     "away": "Tamworth",
     "b31Outcomes": [],

@@ -4,7 +4,7 @@
     "2026-11-14"
   ],
   "fixtureFallback": "Guardian confirmed no covered league fixtures",
-  "refreshed": "2026-11-15T01:20:04.421000+00:00",
+  "refreshed": "2026-11-15T13:58:55.962239+00:00",
   "resultsByLeague": {
     "E0": 100,
     "E1": 180,
@@ -17,18 +17,10 @@
     "attemptedDates": [
       "2026-11-14"
     ],
-    "conflicts": [
-      {
-        "espnScore": "1-1",
-        "fixtureId": "2026-11-14|EC|hartlepool united|wealdstone",
-        "webScore": "2-1"
-      }
-    ],
-    "fullyConfirmed": 24,
+    "conflicts": [],
+    "fullyConfirmed": 1,
     "sourceErrors": [],
     "sourceUrls": [
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261114&limit=100",
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.4/scoreboard?dates=20261114&limit=100",
       "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261114&limit=100",
       "https://www.footballwebpages.co.uk/20261114"
     ],
@@ -36,7 +28,7 @@
       "ESPN full-time scoreboard",
       "Football Web Pages full-time results"
     ],
-    "unconfirmed": 2
+    "unconfirmed": 1
   },
   "resultsLatestDate": "2026-11-08",
   "resultsSettlementLatestDate": "2026-11-14",
@@ -54,12 +46,11 @@
     "https://www.football-data.co.uk/fixtures.csv",
     "https://www.theguardian.com/football/fixtures/2026/Nov/15"
   ],
-  "verifiedFallbackSettlements": 24,
+  "verifiedFallbackSettlements": 1,
   "warnings": [
     "NO COVERED LEAGUE FIXTURES on this date (verified Guardian listing)",
     "RESULTS COVERAGE BEHIND: latest verified result 2026-11-08",
-    "FALLBACK SCORES CONFLICT: 1 fixtures left pending",
-    "RESULTS FALLBACK UNCONFIRMED: 2 frozen fixtures remain pending",
-    "VERIFIED FALLBACK RESULTS: 24 final scores corroborated by two sources"
+    "RESULTS FALLBACK UNCONFIRMED: 1 frozen fixtures remain pending",
+    "VERIFIED FALLBACK RESULTS: 1 final scores corroborated by two sources"
   ]
 }

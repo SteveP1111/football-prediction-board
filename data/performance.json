@@ -35,68 +35,68 @@
       "wins": 0
     },
     "EC": {
-      "total": 33,
+      "total": 34,
       "wins": 0
     }
   },
   "markets": {
     "away_win": {
-      "brier": 0.1928,
-      "hitRate": 0.2679,
+      "brier": 0.1925,
+      "hitRate": 0.2667,
       "hits": 60,
-      "predictions": 224
+      "predictions": 225
     },
     "btts": {
-      "brier": 0.2516,
-      "hitRate": 0.5625,
-      "hits": 126,
-      "predictions": 224
+      "brier": 0.2514,
+      "hitRate": 0.5644,
+      "hits": 127,
+      "predictions": 225
     },
     "draw": {
-      "brier": 0.1673,
-      "hitRate": 0.2098,
-      "hits": 47,
-      "predictions": 224
+      "brier": 0.169,
+      "hitRate": 0.2133,
+      "hits": 48,
+      "predictions": 225
     },
     "home_win": {
-      "brier": 0.2487,
-      "hitRate": 0.5223,
+      "brier": 0.2483,
+      "hitRate": 0.52,
       "hits": 117,
-      "predictions": 224
+      "predictions": 225
     },
     "no_btts": {
-      "brier": 0.2516,
-      "hitRate": 0.4375,
+      "brier": 0.2514,
+      "hitRate": 0.4356,
       "hits": 98,
-      "predictions": 224
+      "predictions": 225
     },
     "over25": {
       "brier": 0.2506,
-      "hitRate": 0.5491,
+      "hitRate": 0.5467,
       "hits": 123,
-      "predictions": 224
+      "predictions": 225
     },
     "over35": {
-      "brier": 0.2241,
-      "hitRate": 0.3259,
+      "brier": 0.2234,
+      "hitRate": 0.3244,
       "hits": 73,
-      "predictions": 224
+      "predictions": 225
     },
     "under25": {
       "brier": 0.2506,
-      "hitRate": 0.4509,
-      "hits": 101,
-      "predictions": 224
+      "hitRate": 0.4533,
+      "hits": 102,
+      "predictions": 225
     },
     "under35": {
-      "brier": 0.2267,
-      "hitRate": 0.6692,
-      "hits": 89,
-      "predictions": 133
+      "brier": 0.2256,
+      "hitRate": 0.6716,
+      "hits": 90,
+      "predictions": 134
     }
   },
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-  "totalSettledGames": 224,
+  "totalSettledGames": 225,
   "totalSnapshots": 21,
-  "updated": "2026-11-15T01:20:04.421000+00:00"
+  "updated": "2026-11-15T13:58:55.962239+00:00"
 }
