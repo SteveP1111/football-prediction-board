@@ -141,11 +141,11 @@
       "pending": 0
     },
     "2026-11-14": {
-      "accuracyPct": 60.0,
-      "correct": 15,
+      "accuracyPct": 61.54,
+      "correct": 16,
       "forecasts": 26,
-      "graded": 25,
-      "pending": 1
+      "graded": 26,
+      "pending": 0
     }
   },
   "byLeague": {
@@ -178,11 +178,11 @@
       "pending": 6
     },
     "EC": {
-      "accuracyPct": 61.76,
-      "correct": 21,
+      "accuracyPct": 62.86,
+      "correct": 22,
       "forecasts": 36,
-      "graded": 34,
-      "pending": 2
+      "graded": 35,
+      "pending": 1
     }
   },
   "byOutcome": {
@@ -194,11 +194,11 @@
       "pending": 4
     },
     "Yes": {
-      "accuracyPct": 57.44,
-      "correct": 112,
+      "accuracyPct": 57.65,
+      "correct": 113,
       "forecasts": 222,
-      "graded": 195,
-      "pending": 27
+      "graded": 196,
+      "pending": 26
     }
   },
   "byProbabilityBand": {
@@ -210,11 +210,11 @@
       "pending": 21
     },
     "60–69.9%": {
-      "accuracyPct": 42.55,
-      "correct": 20,
+      "accuracyPct": 43.75,
+      "correct": 21,
       "forecasts": 57,
-      "graded": 47,
-      "pending": 10
+      "graded": 48,
+      "pending": 9
     },
     "70–79.9%": {
       "accuracyPct": null,
@@ -497,12 +497,12 @@
   "mostRecentDay": "2026-11-14",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
-  "settledForecasts": 225,
+  "settledForecasts": 226,
   "summary": {
-    "accuracyPct": 56.44,
-    "correct": 127,
+    "accuracyPct": 56.64,
+    "correct": 128,
     "forecasts": 256,
-    "graded": 225,
-    "pending": 31
+    "graded": 226,
+    "pending": 30
   }
 }

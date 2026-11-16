@@ -6790,6 +6790,37 @@
     "resultVerifiedAtUtc": "2026-11-15T01:20:15.681940+00:00",
     "score": "2-0"
   },
+  "2026-11-14|EC|eastleigh|fylde": {
+    "away": "Fylde",
+    "b31Outcomes": [],
+    "date": "2026-11-14",
+    "division": "EC",
+    "home": "Eastleigh",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.32953,
+      "btts": 0.65043,
+      "draw": 0.22788,
+      "home_win": 0.4426,
+      "no_btts": 0.34957,
+      "over25": 0.64203,
+      "over35": 0.42127,
+      "under25": 0.35797,
+      "under35": 0.57873
+    },
+    "score": "1-2"
+  },
   "2026-11-14|EC|gateshead|barrow": {
     "away": "Barrow",
     "b31Outcomes": [],

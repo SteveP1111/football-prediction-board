@@ -4,34 +4,16 @@
     "2026-11-14"
   ],
   "fixtureFallback": "Guardian confirmed no covered league fixtures",
-  "refreshed": "2026-11-16T01:25:14.739092+00:00",
+  "refreshed": "2026-11-16T15:52:50.423708+00:00",
   "resultsByLeague": {
     "E0": 100,
     "E1": 180,
-    "E2": 158,
-    "E3": 164,
-    "EC": 189
+    "E2": 163,
+    "E3": 174,
+    "EC": 200
   },
-  "resultsCount": 791,
-  "resultsFallback": {
-    "attemptedDates": [
-      "2026-11-14"
-    ],
-    "conflicts": [],
-    "fullyConfirmed": 0,
-    "sourceErrors": [],
-    "sourceUrls": [
-      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261114&limit=100",
-      "https://www.footballwebpages.co.uk/20261114"
-    ],
-    "sources": [
-      "ESPN full-time scoreboard",
-      "Football Web Pages full-time results"
-    ],
-    "unconfirmed": 1
-  },
-  "resultsLatestDate": "2026-11-08",
-  "resultsSettlementLatestDate": "2026-11-14",
+  "resultsCount": 817,
+  "resultsLatestDate": "2026-11-14",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -46,10 +28,7 @@
     "https://www.football-data.co.uk/fixtures.csv",
     "https://www.theguardian.com/football/fixtures/2026/Nov/16"
   ],
-  "verifiedFallbackSettlements": 0,
   "warnings": [
-    "NO COVERED LEAGUE FIXTURES on this date (verified Guardian listing)",
-    "RESULTS COVERAGE BEHIND: latest verified result 2026-11-08",
-    "RESULTS FALLBACK UNCONFIRMED: 1 frozen fixtures remain pending"
+    "NO COVERED LEAGUE FIXTURES on this date (verified Guardian listing)"
   ]
 }
