@@ -1,0 +1,77 @@
+{
+  "b31Available": false,
+  "capturedAt": "2026-11-20T02:38:34.416691+00:00",
+  "date": "2026-11-20",
+  "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
+  "games": [
+    {
+      "away": "Sheff Wed",
+      "awayKey": "sheffield wednesday",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-11-20",
+      "division": "E2",
+      "home": "Barnsley",
+      "homeKey": "barnsley",
+      "id": "2026-11-20|E2|barnsley|sheffield wednesday",
+      "kickoff": "20:00",
+      "league": "League One",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.25476,
+        "expectedAway": 1.367,
+        "expectedHome": 1.432,
+        "expectedTotal": 2.8,
+        "goalBands": {
+          "0-1": 0.23116,
+          "2": 0.23841,
+          "3": 0.22248,
+          "4+": 0.30796
+        },
+        "markets": {
+          "away_win": 0.35899,
+          "btts": 0.56727,
+          "draw": 0.25268,
+          "home_win": 0.38833,
+          "no_btts": 0.43273,
+          "over25": 0.53043,
+          "over35": 0.30796,
+          "under25": 0.46957,
+          "under35": 0.69204
+        },
+        "modalProbability": 0.11914,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 6,
+        "sampleHome": 6,
+        "topScores": [
+          {
+            "p": 0.11914,
+            "score": "1-1"
+          },
+          {
+            "p": 0.08713,
+            "score": "1-0"
+          },
+          {
+            "p": 0.08531,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08319,
+            "score": "0-1"
+          },
+          {
+            "p": 0.08146,
+            "score": "1-2"
+          }
+        ]
+      }
+    }
+  ],
+  "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+  "status": "frozen-prekickoff",
+  "trainingCurrentCount": 817
+}

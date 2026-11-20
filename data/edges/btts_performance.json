@@ -146,6 +146,13 @@
       "forecasts": 26,
       "graded": 26,
       "pending": 0
+    },
+    "2026-11-20": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 1,
+      "graded": 0,
+      "pending": 1
     }
   },
   "byLeague": {
@@ -166,9 +173,9 @@
     "E2": {
       "accuracyPct": 58.33,
       "correct": 28,
-      "forecasts": 60,
+      "forecasts": 61,
       "graded": 48,
-      "pending": 12
+      "pending": 13
     },
     "E3": {
       "accuracyPct": 55.56,
@@ -196,18 +203,18 @@
     "Yes": {
       "accuracyPct": 57.65,
       "correct": 113,
-      "forecasts": 222,
+      "forecasts": 223,
       "graded": 196,
-      "pending": 26
+      "pending": 27
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
       "accuracyPct": 60.11,
       "correct": 107,
-      "forecasts": 199,
+      "forecasts": 200,
       "graded": 178,
-      "pending": 21
+      "pending": 22
     },
     "60–69.9%": {
       "accuracyPct": 43.75,
@@ -490,19 +497,31 @@
       "qualified55MatchedFixtures": 5,
       "supportedLeagueForecasts": 15,
       "warning": null
+    },
+    "2026-11-20": {
+      "allLeagueForecasts": 1,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 1,
+      "warning": null
     }
   },
   "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
   "model": "original frozen experimental Scoreline Model",
-  "mostRecentDay": "2026-11-14",
+  "mostRecentDay": "2026-11-20",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
   "settledForecasts": 226,
   "summary": {
     "accuracyPct": 56.64,
     "correct": 128,
-    "forecasts": 256,
+    "forecasts": 257,
     "graded": 226,
-    "pending": 30
+    "pending": 31
   }
 }
