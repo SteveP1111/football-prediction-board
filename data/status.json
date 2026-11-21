@@ -3,7 +3,7 @@
     "2026-11-20",
     "2026-11-23"
   ],
-  "refreshed": "2026-11-20T15:31:18.574991+00:00",
+  "refreshed": "2026-11-21T02:51:29.590964+00:00",
   "resultsByLeague": {
     "E0": 100,
     "E1": 180,
@@ -13,11 +13,16 @@
   },
   "resultsCount": 817,
   "resultsFallback": {
-    "attemptedDates": [],
+    "attemptedDates": [
+      "2026-11-20"
+    ],
     "conflicts": [],
-    "fullyConfirmed": 0,
+    "fullyConfirmed": 1,
     "sourceErrors": [],
-    "sourceUrls": [],
+    "sourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261120&limit=100",
+      "https://www.footballwebpages.co.uk/20261120"
+    ],
     "sources": [
       "ESPN full-time scoreboard",
       "Football Web Pages full-time results"
@@ -25,7 +30,7 @@
     "unconfirmed": 0
   },
   "resultsLatestDate": "2026-11-14",
-  "resultsSettlementLatestDate": "2026-11-14",
+  "resultsSettlementLatestDate": "2026-11-20",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -39,8 +44,9 @@
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
     "https://www.football-data.co.uk/fixtures.csv"
   ],
-  "verifiedFallbackSettlements": 0,
+  "verifiedFallbackSettlements": 1,
   "warnings": [
-    "RESULTS COVERAGE BEHIND: latest verified result 2026-11-14"
+    "RESULTS COVERAGE BEHIND: latest verified result 2026-11-14",
+    "VERIFIED FALLBACK RESULTS: 1 final scores corroborated by two sources"
   ]
 }

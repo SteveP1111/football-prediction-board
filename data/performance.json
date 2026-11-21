@@ -27,7 +27,7 @@
       "wins": 0
     },
     "E2": {
-      "total": 48,
+      "total": 49,
       "wins": 0
     },
     "E3": {
@@ -41,62 +41,62 @@
   },
   "markets": {
     "away_win": {
-      "brier": 0.1936,
-      "hitRate": 0.2699,
-      "hits": 61,
-      "predictions": 226
+      "brier": 0.1946,
+      "hitRate": 0.2731,
+      "hits": 62,
+      "predictions": 227
     },
     "btts": {
-      "brier": 0.2508,
-      "hitRate": 0.5664,
-      "hits": 128,
-      "predictions": 226
+      "brier": 0.2505,
+      "hitRate": 0.5683,
+      "hits": 129,
+      "predictions": 227
     },
     "draw": {
-      "brier": 0.1685,
-      "hitRate": 0.2124,
+      "brier": 0.1681,
+      "hitRate": 0.2115,
       "hits": 48,
-      "predictions": 226
+      "predictions": 227
     },
     "home_win": {
-      "brier": 0.2481,
-      "hitRate": 0.5177,
+      "brier": 0.2477,
+      "hitRate": 0.5154,
       "hits": 117,
-      "predictions": 226
+      "predictions": 227
     },
     "no_btts": {
-      "brier": 0.2508,
-      "hitRate": 0.4336,
+      "brier": 0.2505,
+      "hitRate": 0.4317,
       "hits": 98,
-      "predictions": 226
+      "predictions": 227
     },
     "over25": {
-      "brier": 0.2501,
-      "hitRate": 0.5487,
-      "hits": 124,
-      "predictions": 226
+      "brier": 0.25,
+      "hitRate": 0.5507,
+      "hits": 125,
+      "predictions": 227
     },
     "over35": {
-      "brier": 0.2232,
-      "hitRate": 0.323,
+      "brier": 0.2227,
+      "hitRate": 0.3216,
       "hits": 73,
-      "predictions": 226
+      "predictions": 227
     },
     "under25": {
-      "brier": 0.2501,
-      "hitRate": 0.4513,
+      "brier": 0.25,
+      "hitRate": 0.4493,
       "hits": 102,
-      "predictions": 226
+      "predictions": 227
     },
     "under35": {
-      "brier": 0.2252,
-      "hitRate": 0.6741,
-      "hits": 91,
-      "predictions": 135
+      "brier": 0.2243,
+      "hitRate": 0.6765,
+      "hits": 92,
+      "predictions": 136
     }
   },
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-  "totalSettledGames": 226,
-  "totalSnapshots": 22,
-  "updated": "2026-11-20T15:31:18.574991+00:00"
+  "totalSettledGames": 227,
+  "totalSnapshots": 23,
+  "updated": "2026-11-21T02:51:29.590964+00:00"
 }

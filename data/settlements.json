@@ -7153,5 +7153,42 @@
     "resultVerification": "Two independent full-time sources agreed",
     "resultVerifiedAtUtc": "2026-11-15T01:20:15.689155+00:00",
     "score": "2-2"
+  },
+  "2026-11-20|E2|barnsley|sheffield wednesday": {
+    "away": "Sheff Wed",
+    "b31Outcomes": [],
+    "date": "2026-11-20",
+    "division": "E2",
+    "home": "Barnsley",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.35899,
+      "btts": 0.56727,
+      "draw": 0.25268,
+      "home_win": 0.38833,
+      "no_btts": 0.43273,
+      "over25": 0.53043,
+      "over35": 0.30796,
+      "under25": 0.46957,
+      "under35": 0.69204
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261120&limit=100",
+      "https://www.footballwebpages.co.uk/20261120"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-21T02:51:48.734363+00:00",
+    "score": "1-2"
   }
 }
