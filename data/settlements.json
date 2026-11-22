@@ -9003,5 +9003,42 @@
     "resultVerification": "Two independent full-time sources agreed",
     "resultVerifiedAtUtc": "2026-11-22T01:37:48.112385+00:00",
     "score": "2-1"
+  },
+  "2026-11-21|EC|yeovil|forest green": {
+    "away": "Forest Green",
+    "b31Outcomes": [],
+    "date": "2026-11-21",
+    "division": "EC",
+    "home": "Yeovil",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.30805,
+      "btts": 0.64103,
+      "draw": 0.22749,
+      "home_win": 0.46446,
+      "no_btts": 0.35897,
+      "over25": 0.6341,
+      "over35": 0.41257,
+      "under25": 0.3659,
+      "under35": 0.58743
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261121&limit=100",
+      "https://www.footballwebpages.co.uk/20261121"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-22T14:38:52.038832+00:00",
+    "score": "3-2"
   }
 }

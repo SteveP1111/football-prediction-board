@@ -35,68 +35,68 @@
       "wins": 0
     },
     "EC": {
-      "total": 44,
+      "total": 45,
       "wins": 0
     }
   },
   "markets": {
     "away_win": {
-      "brier": 0.1951,
-      "hitRate": 0.2754,
+      "brier": 0.1947,
+      "hitRate": 0.2744,
       "hits": 76,
-      "predictions": 276
+      "predictions": 277
     },
     "btts": {
-      "brier": 0.2519,
-      "hitRate": 0.5616,
-      "hits": 155,
-      "predictions": 276
+      "brier": 0.2514,
+      "hitRate": 0.5632,
+      "hits": 156,
+      "predictions": 277
     },
     "draw": {
-      "brier": 0.1705,
-      "hitRate": 0.2174,
+      "brier": 0.17,
+      "hitRate": 0.2166,
       "hits": 60,
-      "predictions": 276
+      "predictions": 277
     },
     "home_win": {
-      "brier": 0.2463,
-      "hitRate": 0.5072,
-      "hits": 140,
-      "predictions": 276
+      "brier": 0.2464,
+      "hitRate": 0.509,
+      "hits": 141,
+      "predictions": 277
     },
     "no_btts": {
-      "brier": 0.2519,
-      "hitRate": 0.4384,
+      "brier": 0.2514,
+      "hitRate": 0.4368,
       "hits": 121,
-      "predictions": 276
+      "predictions": 277
     },
     "over25": {
-      "brier": 0.2502,
-      "hitRate": 0.5435,
-      "hits": 150,
-      "predictions": 276
+      "brier": 0.2498,
+      "hitRate": 0.5451,
+      "hits": 151,
+      "predictions": 277
     },
     "over35": {
-      "brier": 0.2195,
-      "hitRate": 0.3116,
-      "hits": 86,
-      "predictions": 276
+      "brier": 0.22,
+      "hitRate": 0.3141,
+      "hits": 87,
+      "predictions": 277
     },
     "under25": {
-      "brier": 0.2502,
-      "hitRate": 0.4565,
+      "brier": 0.2498,
+      "hitRate": 0.4549,
       "hits": 126,
-      "predictions": 276
+      "predictions": 277
     },
     "under35": {
-      "brier": 0.2192,
-      "hitRate": 0.6919,
+      "brier": 0.2198,
+      "hitRate": 0.6882,
       "hits": 128,
-      "predictions": 185
+      "predictions": 186
     }
   },
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-  "totalSettledGames": 276,
+  "totalSettledGames": 277,
   "totalSnapshots": 24,
-  "updated": "2026-11-22T01:37:33.326043+00:00"
+  "updated": "2026-11-22T14:38:38.700980+00:00"
 }
