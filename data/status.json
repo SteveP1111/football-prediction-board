@@ -3,7 +3,7 @@
     "2026-11-20",
     "2026-11-23"
   ],
-  "refreshed": "2026-11-21T14:42:34.874740+00:00",
+  "refreshed": "2026-11-22T01:37:33.326043+00:00",
   "resultsByLeague": {
     "E0": 100,
     "E1": 180,
@@ -13,19 +13,34 @@
   },
   "resultsCount": 817,
   "resultsFallback": {
-    "attemptedDates": [],
-    "conflicts": [],
-    "fullyConfirmed": 0,
+    "attemptedDates": [
+      "2026-11-21"
+    ],
+    "conflicts": [
+      {
+        "espnScore": "3-2",
+        "fixtureId": "2026-11-21|EC|yeovil|forest green",
+        "webScore": "3-3"
+      }
+    ],
+    "fullyConfirmed": 49,
     "sourceErrors": [],
-    "sourceUrls": [],
+    "sourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261121&limit=100",
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261121&limit=100",
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261121&limit=100",
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.4/scoreboard?dates=20261121&limit=100",
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261121&limit=100",
+      "https://www.footballwebpages.co.uk/20261121"
+    ],
     "sources": [
       "ESPN full-time scoreboard",
       "Football Web Pages full-time results"
     ],
-    "unconfirmed": 0
+    "unconfirmed": 3
   },
   "resultsLatestDate": "2026-11-14",
-  "resultsSettlementLatestDate": "2026-11-20",
+  "resultsSettlementLatestDate": "2026-11-21",
   "sources": [
     "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "https://www.football-data.co.uk/mmz4281/2526/E1.csv",
@@ -39,8 +54,11 @@
     "https://www.football-data.co.uk/mmz4281/2627/EC.csv",
     "https://www.football-data.co.uk/fixtures.csv"
   ],
-  "verifiedFallbackSettlements": 0,
+  "verifiedFallbackSettlements": 49,
   "warnings": [
-    "RESULTS COVERAGE BEHIND: latest verified result 2026-11-14"
+    "RESULTS COVERAGE BEHIND: latest verified result 2026-11-14",
+    "FALLBACK SCORES CONFLICT: 1 fixtures left pending",
+    "RESULTS FALLBACK UNCONFIRMED: 3 frozen fixtures remain pending",
+    "VERIFIED FALLBACK RESULTS: 49 final scores corroborated by two sources"
   ]
 }

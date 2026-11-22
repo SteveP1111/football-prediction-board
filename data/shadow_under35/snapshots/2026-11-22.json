@@ -1,0 +1,53 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Brighton",
+      "date": "2026-11-22",
+      "division": "E0",
+      "fixtureId": "2026-11-22|E0|hull|brighton and hove albion",
+      "home": "Hull",
+      "kickoffLocal": "2026-11-22T14:00:00+00:00",
+      "originalUnder35": 0.71011,
+      "shadowUnder35": 0.6784371
+    },
+    {
+      "away": "Man United",
+      "date": "2026-11-22",
+      "division": "E0",
+      "fixtureId": "2026-11-22|E0|liverpool|manchester united",
+      "home": "Liverpool",
+      "kickoffLocal": "2026-11-22T16:30:00+00:00",
+      "originalUnder35": 0.76059,
+      "shadowUnder35": 0.72377485
+    },
+    {
+      "away": "Blackburn",
+      "date": "2026-11-22",
+      "division": "E1",
+      "fixtureId": "2026-11-22|E1|burnley|blackburn rovers",
+      "home": "Burnley",
+      "kickoffLocal": "2026-11-22T12:00:00+00:00",
+      "originalUnder35": 0.68525,
+      "shadowUnder35": 0.65663574
+    }
+  ],
+  "originalCapturedAt": "2026-11-22T01:37:33.326043+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-22T01:37:48.160060+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-22",
+  "sourceSnapshotSha256": "43b16a0ea99d3663869d5b548bbe3f1a9aea93f004b69e568b8046c464810297",
+  "status": "frozen-prekickoff"
+}
