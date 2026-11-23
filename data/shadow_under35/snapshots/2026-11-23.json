@@ -1,0 +1,33 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Everton",
+      "date": "2026-11-23",
+      "division": "E0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "kickoffLocal": "2026-11-23T20:00:00+00:00",
+      "originalUnder35": 0.75787,
+      "shadowUnder35": 0.72128895
+    }
+  ],
+  "originalCapturedAt": "2026-11-23T01:59:21.109456+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-23T01:59:39.013636+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-23",
+  "sourceSnapshotSha256": "74f86a71d784771d3e514db9eb10b49e404261edd3e858308a1399a6e1a32fe3",
+  "status": "frozen-prekickoff"
+}

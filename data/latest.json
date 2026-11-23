@@ -1,203 +1,71 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-11-22T01:37:33.326043+00:00",
-  "date": "2026-11-22",
+  "capturedAt": "2026-11-23T01:59:21.109456+00:00",
+  "date": "2026-11-23",
   "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
   "games": [
     {
-      "away": "Brighton",
-      "awayKey": "brighton and hove albion",
+      "away": "Everton",
+      "awayKey": "everton",
       "b31": {
         "qualifiers": [],
         "status": "not-calculated"
       },
-      "date": "2026-11-22",
+      "date": "2026-11-23",
       "division": "E0",
-      "home": "Hull",
-      "homeKey": "hull",
-      "id": "2026-11-22|E0|hull|brighton and hove albion",
-      "kickoff": "14:00",
+      "home": "Brentford",
+      "homeKey": "brentford",
+      "id": "2026-11-23|E0|brentford|everton",
+      "kickoff": "20:00",
       "league": "Premier League",
       "scoreline": {
         "calibrated": false,
-        "cleanSheetRisk": 0.26767,
-        "expectedAway": 1.318,
-        "expectedHome": 1.4,
-        "expectedTotal": 2.718,
+        "cleanSheetRisk": 0.36504,
+        "expectedAway": 1.008,
+        "expectedHome": 1.491,
+        "expectedTotal": 2.499,
         "goalBands": {
-          "0-1": 0.2454,
-          "2": 0.24381,
-          "3": 0.2209,
-          "4+": 0.28989
+          "0-1": 0.28758,
+          "2": 0.25659,
+          "3": 0.2137,
+          "4+": 0.24213
         },
         "markets": {
-          "away_win": 0.35269,
-          "btts": 0.55175,
-          "draw": 0.25693,
-          "home_win": 0.39037,
-          "no_btts": 0.44825,
-          "over25": 0.51079,
-          "over35": 0.28989,
-          "under25": 0.48921,
-          "under35": 0.71011
+          "away_win": 0.2557,
+          "btts": 0.49198,
+          "draw": 0.2606,
+          "home_win": 0.48371,
+          "no_btts": 0.50802,
+          "over25": 0.45583,
+          "over35": 0.24213,
+          "under25": 0.54417,
+          "under35": 0.75787
         },
-        "modalProbability": 0.12179,
+        "modalProbability": 0.1235,
         "modalScore": "1-1",
         "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
         "sampleAway": 5,
         "sampleHome": 5,
         "topScores": [
           {
-            "p": 0.12179,
+            "p": 0.1235,
             "score": "1-1"
           },
           {
-            "p": 0.09241,
+            "p": 0.12255,
             "score": "1-0"
           },
           {
-            "p": 0.08699,
-            "score": "0-1"
-          },
-          {
-            "p": 0.08526,
+            "p": 0.09206,
             "score": "2-1"
           },
           {
-            "p": 0.08026,
-            "score": "1-2"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Man United",
-      "awayKey": "manchester united",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-22",
-      "division": "E0",
-      "home": "Liverpool",
-      "homeKey": "liverpool",
-      "id": "2026-11-22|E0|liverpool|manchester united",
-      "kickoff": "16:30",
-      "league": "Premier League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.32651,
-        "expectedAway": 1.119,
-        "expectedHome": 1.367,
-        "expectedTotal": 2.486,
-        "goalBands": {
-          "0-1": 0.29021,
-          "2": 0.25723,
-          "3": 0.21315,
-          "4+": 0.23941
-        },
-        "markets": {
-          "away_win": 0.30687,
-          "btts": 0.50176,
-          "draw": 0.26841,
-          "home_win": 0.42472,
-          "no_btts": 0.49824,
-          "over25": 0.45256,
-          "over35": 0.23941,
-          "under25": 0.54744,
-          "under35": 0.76059
-        },
-        "modalProbability": 0.12734,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 5,
-        "sampleHome": 5,
-        "topScores": [
-          {
-            "p": 0.12734,
-            "score": "1-1"
+            "p": 0.09135,
+            "score": "2-0"
           },
           {
-            "p": 0.11377,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09318,
+            "p": 0.08283,
             "score": "0-1"
-          },
-          {
-            "p": 0.08701,
-            "score": "2-1"
-          },
-          {
-            "p": 0.08325,
-            "score": "0-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Blackburn",
-      "awayKey": "blackburn rovers",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-22",
-      "division": "E1",
-      "home": "Burnley",
-      "homeKey": "burnley",
-      "id": "2026-11-22|E1|burnley|blackburn rovers",
-      "kickoff": "12:00",
-      "league": "Championship",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.28424,
-        "expectedAway": 1.258,
-        "expectedHome": 1.572,
-        "expectedTotal": 2.83,
-        "goalBands": {
-          "0-1": 0.22602,
-          "2": 0.23631,
-          "3": 0.22292,
-          "4+": 0.31475
-        },
-        "markets": {
-          "away_win": 0.30549,
-          "btts": 0.56716,
-          "draw": 0.24778,
-          "home_win": 0.44673,
-          "no_btts": 0.43284,
-          "over25": 0.53767,
-          "over35": 0.31475,
-          "under25": 0.46233,
-          "under35": 0.68525
-        },
-        "modalProbability": 0.1167,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 7,
-        "sampleHome": 7,
-        "topScores": [
-          {
-            "p": 0.1167,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09277,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09173,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07423,
-            "score": "0-1"
-          },
-          {
-            "p": 0.0734,
-            "score": "1-2"
           }
         ]
       }

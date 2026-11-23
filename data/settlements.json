@@ -9040,5 +9040,116 @@
     "resultVerification": "Two independent full-time sources agreed",
     "resultVerifiedAtUtc": "2026-11-22T14:38:52.038832+00:00",
     "score": "3-2"
+  },
+  "2026-11-22|E0|hull|brighton and hove albion": {
+    "away": "Brighton",
+    "b31Outcomes": [],
+    "date": "2026-11-22",
+    "division": "E0",
+    "home": "Hull",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.35269,
+      "btts": 0.55175,
+      "draw": 0.25693,
+      "home_win": 0.39037,
+      "no_btts": 0.44825,
+      "over25": 0.51079,
+      "over35": 0.28989,
+      "under25": 0.48921,
+      "under35": 0.71011
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261122&limit=100",
+      "https://www.footballwebpages.co.uk/20261122"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-23T01:59:38.958528+00:00",
+    "score": "2-0"
+  },
+  "2026-11-22|E0|liverpool|manchester united": {
+    "away": "Man United",
+    "b31Outcomes": [],
+    "date": "2026-11-22",
+    "division": "E0",
+    "home": "Liverpool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.30687,
+      "btts": 0.50176,
+      "draw": 0.26841,
+      "home_win": 0.42472,
+      "no_btts": 0.49824,
+      "over25": 0.45256,
+      "over35": 0.23941,
+      "under25": 0.54744,
+      "under35": 0.76059
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261122&limit=100",
+      "https://www.footballwebpages.co.uk/20261122"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-23T01:59:38.958721+00:00",
+    "score": "4-0"
+  },
+  "2026-11-22|E1|burnley|blackburn rovers": {
+    "away": "Blackburn",
+    "b31Outcomes": [],
+    "date": "2026-11-22",
+    "division": "E1",
+    "home": "Burnley",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.30549,
+      "btts": 0.56716,
+      "draw": 0.24778,
+      "home_win": 0.44673,
+      "no_btts": 0.43284,
+      "over25": 0.53767,
+      "over35": 0.31475,
+      "under25": 0.46233,
+      "under35": 0.68525
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261122&limit=100",
+      "https://www.footballwebpages.co.uk/20261122"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-23T01:59:38.958818+00:00",
+    "score": "2-2"
   }
 }
