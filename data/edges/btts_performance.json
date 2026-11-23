@@ -155,11 +155,11 @@
       "pending": 0
     },
     "2026-11-21": {
-      "accuracyPct": 52.0,
-      "correct": 26,
+      "accuracyPct": 53.85,
+      "correct": 28,
       "forecasts": 52,
-      "graded": 50,
-      "pending": 2
+      "graded": 52,
+      "pending": 0
     },
     "2026-11-22": {
       "accuracyPct": 33.33,
@@ -178,11 +178,11 @@
   },
   "byLeague": {
     "E0": {
-      "accuracyPct": 46.67,
-      "correct": 21,
+      "accuracyPct": 47.83,
+      "correct": 22,
       "forecasts": 50,
-      "graded": 45,
-      "pending": 5
+      "graded": 46,
+      "pending": 4
     },
     "E1": {
       "accuracyPct": 56.25,
@@ -206,11 +206,11 @@
       "pending": 6
     },
     "EC": {
-      "accuracyPct": 60.0,
-      "correct": 27,
+      "accuracyPct": 60.87,
+      "correct": 28,
       "forecasts": 47,
-      "graded": 45,
-      "pending": 2
+      "graded": 46,
+      "pending": 1
     }
   },
   "byOutcome": {
@@ -222,20 +222,20 @@
       "pending": 5
     },
     "Yes": {
-      "accuracyPct": 56.68,
-      "correct": 140,
+      "accuracyPct": 57.03,
+      "correct": 142,
       "forecasts": 275,
-      "graded": 247,
-      "pending": 28
+      "graded": 249,
+      "pending": 26
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
-      "accuracyPct": 58.37,
-      "correct": 129,
+      "accuracyPct": 58.74,
+      "correct": 131,
       "forecasts": 245,
-      "graded": 221,
-      "pending": 24
+      "graded": 223,
+      "pending": 22
     },
     "60–69.9%": {
       "accuracyPct": 45.76,
@@ -573,12 +573,12 @@
   "mostRecentDay": "2026-11-23",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
-  "settledForecasts": 280,
+  "settledForecasts": 282,
   "summary": {
-    "accuracyPct": 55.71,
-    "correct": 156,
+    "accuracyPct": 56.03,
+    "correct": 158,
     "forecasts": 313,
-    "graded": 280,
-    "pending": 33
+    "graded": 282,
+    "pending": 31
   }
 }

@@ -2,21 +2,21 @@
   "byDivision": {
     "E0": {
       "V1 original": {
-        "brier": 0.222724,
-        "calibrationGapPp": -2.72,
-        "logLoss": 0.639414,
-        "meanProbabilityPct": 70.57,
-        "n": 28,
-        "strikeRatePct": 67.86,
+        "brier": 0.234997,
+        "calibrationGapPp": -5.25,
+        "logLoss": 0.666674,
+        "meanProbabilityPct": 70.76,
+        "n": 29,
+        "strikeRatePct": 65.52,
         "wins": 19
       },
       "V4 calibrated shadow": {
-        "brier": 0.221311,
-        "calibrationGapPp": 0.34,
-        "logLoss": 0.635283,
-        "meanProbabilityPct": 67.52,
-        "n": 28,
-        "strikeRatePct": 67.86,
+        "brier": 0.231748,
+        "calibrationGapPp": -2.17,
+        "logLoss": 0.65775,
+        "meanProbabilityPct": 67.68,
+        "n": 29,
+        "strikeRatePct": 65.52,
         "wins": 19
       }
     },
@@ -82,21 +82,21 @@
     },
     "EC": {
       "V1 original": {
-        "brier": 0.208996,
-        "calibrationGapPp": 6.98,
-        "logLoss": 0.60856,
-        "meanProbabilityPct": 61.77,
-        "n": 32,
-        "strikeRatePct": 68.75,
+        "brier": 0.216639,
+        "calibrationGapPp": 4.71,
+        "logLoss": 0.624565,
+        "meanProbabilityPct": 61.96,
+        "n": 33,
+        "strikeRatePct": 66.67,
         "wins": 22
       },
       "V4 calibrated shadow": {
-        "brier": 0.213241,
-        "calibrationGapPp": 8.85,
-        "logLoss": 0.617927,
-        "meanProbabilityPct": 59.9,
-        "n": 32,
-        "strikeRatePct": 68.75,
+        "brier": 0.219634,
+        "calibrationGapPp": 6.6,
+        "logLoss": 0.631129,
+        "meanProbabilityPct": 60.06,
+        "n": 33,
+        "strikeRatePct": 66.67,
         "wins": 22
       }
     }
@@ -104,92 +104,92 @@
   "byThreshold": {
     "55%": {
       "V1 original": {
-        "brier": 0.221402,
-        "calibrationGapPp": 0.04,
-        "logLoss": 0.636426,
-        "meanProbabilityPct": 68.56,
-        "n": 172,
-        "strikeRatePct": 68.6,
+        "brier": 0.224833,
+        "calibrationGapPp": -0.78,
+        "logLoss": 0.643862,
+        "meanProbabilityPct": 68.6,
+        "n": 174,
+        "strikeRatePct": 67.82,
         "wins": 118
       },
       "V4 calibrated shadow": {
-        "brier": 0.221093,
-        "calibrationGapPp": 2.83,
-        "logLoss": 0.634822,
-        "meanProbabilityPct": 65.77,
-        "n": 172,
-        "strikeRatePct": 68.6,
+        "brier": 0.224001,
+        "calibrationGapPp": 2.01,
+        "logLoss": 0.640975,
+        "meanProbabilityPct": 65.8,
+        "n": 174,
+        "strikeRatePct": 67.82,
         "wins": 118
       }
     },
     "60%": {
       "V1 original": {
-        "brier": 0.220801,
-        "calibrationGapPp": -0.75,
-        "logLoss": 0.635311,
-        "meanProbabilityPct": 69.54,
-        "n": 157,
-        "strikeRatePct": 68.79,
+        "brier": 0.224564,
+        "calibrationGapPp": -1.64,
+        "logLoss": 0.643463,
+        "meanProbabilityPct": 69.57,
+        "n": 159,
+        "strikeRatePct": 67.92,
         "wins": 108
       },
       "V4 calibrated shadow": {
-        "brier": 0.221853,
-        "calibrationGapPp": 0.78,
-        "logLoss": 0.63636,
-        "meanProbabilityPct": 67.0,
-        "n": 149,
-        "strikeRatePct": 67.79,
+        "brier": 0.225194,
+        "calibrationGapPp": -0.14,
+        "logLoss": 0.643431,
+        "meanProbabilityPct": 67.02,
+        "n": 151,
+        "strikeRatePct": 66.89,
         "wins": 101
       }
     },
     "65%": {
       "V1 original": {
-        "brier": 0.227795,
-        "calibrationGapPp": -4.83,
-        "logLoss": 0.649924,
-        "meanProbabilityPct": 70.98,
-        "n": 130,
-        "strikeRatePct": 66.15,
+        "brier": 0.232221,
+        "calibrationGapPp": -5.85,
+        "logLoss": 0.659521,
+        "meanProbabilityPct": 71.0,
+        "n": 132,
+        "strikeRatePct": 65.15,
         "wins": 86
       },
       "V4 calibrated shadow": {
-        "brier": 0.228064,
-        "calibrationGapPp": -4.13,
-        "logLoss": 0.649246,
-        "meanProbabilityPct": 69.4,
-        "n": 95,
-        "strikeRatePct": 65.26,
+        "brier": 0.233136,
+        "calibrationGapPp": -5.47,
+        "logLoss": 0.659987,
+        "meanProbabilityPct": 69.38,
+        "n": 97,
+        "strikeRatePct": 63.92,
         "wins": 62
       }
     },
     "70%": {
       "V1 original": {
-        "brier": 0.22232,
-        "calibrationGapPp": -5.69,
-        "logLoss": 0.639417,
-        "meanProbabilityPct": 73.69,
-        "n": 75,
-        "strikeRatePct": 68.0,
+        "brier": 0.227008,
+        "calibrationGapPp": -6.62,
+        "logLoss": 0.649819,
+        "meanProbabilityPct": 73.73,
+        "n": 76,
+        "strikeRatePct": 67.11,
         "wins": 51
       },
       "V4 calibrated shadow": {
-        "brier": 0.231645,
-        "calibrationGapPp": -7.46,
-        "logLoss": 0.658366,
-        "meanProbabilityPct": 73.08,
-        "n": 32,
-        "strikeRatePct": 65.62,
+        "brier": 0.240504,
+        "calibrationGapPp": -9.43,
+        "logLoss": 0.677411,
+        "meanProbabilityPct": 73.06,
+        "n": 33,
+        "strikeRatePct": 63.64,
         "wins": 21
       }
     },
     "75%": {
       "V1 original": {
-        "brier": 0.242868,
-        "calibrationGapPp": -12.63,
-        "logLoss": 0.68829,
-        "meanProbabilityPct": 77.85,
-        "n": 23,
-        "strikeRatePct": 65.22,
+        "brier": 0.256858,
+        "calibrationGapPp": -15.27,
+        "logLoss": 0.719192,
+        "meanProbabilityPct": 77.77,
+        "n": 24,
+        "strikeRatePct": 62.5,
         "wins": 15
       },
       "V4 calibrated shadow": {
@@ -240,36 +240,36 @@
   "lastFreezeDate": "2026-11-23",
   "models": {
     "V1 original": {
-      "brier": 0.222017,
-      "calibrationGapPp": -0.29,
-      "logLoss": 0.637649,
-      "meanProbabilityPct": 68.29,
-      "n": 175,
-      "strikeRatePct": 68.0,
+      "brier": 0.225383,
+      "calibrationGapPp": -1.1,
+      "logLoss": 0.644945,
+      "meanProbabilityPct": 68.33,
+      "n": 177,
+      "strikeRatePct": 67.23,
       "wins": 119
     },
     "V4 calibrated shadow": {
-      "brier": 0.22169,
-      "calibrationGapPp": 2.46,
-      "logLoss": 0.636026,
-      "meanProbabilityPct": 65.54,
-      "n": 175,
-      "strikeRatePct": 68.0,
+      "brier": 0.224542,
+      "calibrationGapPp": 1.66,
+      "logLoss": 0.642062,
+      "meanProbabilityPct": 65.57,
+      "n": 177,
+      "strikeRatePct": 67.23,
       "wins": 119
     }
   },
   "pairedBrierDelta": {
     "dateClusterBootstrap95": [
       -0.004418,
-      0.003435
+      0.002927
     ],
     "explanation": "Negative favours shadow V4. Repeated matches and exploratory monitoring limit certainty.",
     "status": "exploratory",
-    "v4MinusV1Brier": -0.000326
+    "v4MinusV1Brier": -0.000841
   },
-  "pendingFixtures": 3,
+  "pendingFixtures": 1,
   "schemaVersion": 1,
-  "settledFixtures": 175,
+  "settledFixtures": 177,
   "snapshotDays": 14,
   "status": "descriptive-comparison-available"
 }

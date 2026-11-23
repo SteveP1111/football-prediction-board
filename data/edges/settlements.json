@@ -1,7 +1,7 @@
 {
   "disclaimer": "Hypothetical £10 flat stakes; not actual bets. Exchange commission, limits and unavailable quoted prices are not deducted. Only settled records count.",
-  "gradedSelections": 1049,
-  "pendingSelections": 19,
+  "gradedSelections": 1054,
+  "pendingSelections": 14,
   "recordedSelections": 1068,
   "rows": [
     {
@@ -14819,6 +14819,96 @@
       "stakeGbp": 10.0
     },
     {
+      "away": "Arsenal",
+      "bookmaker": "Coral",
+      "date": "2026-11-21",
+      "edgePp": -26.0,
+      "finalScore": "2-2",
+      "fixtureId": "2026-11-21|E0|newcastle|arsenal",
+      "home": "Newcastle",
+      "market": "away_win",
+      "marketLabel": "Away win",
+      "modelProbability": 0.36499,
+      "odds": 1.6,
+      "outcome": "Loss",
+      "positiveEdge": false,
+      "probabilityBand": "Under 50%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Arsenal",
+      "bookmaker": "Betfair",
+      "date": "2026-11-21",
+      "edgePp": 4.88,
+      "finalScore": "2-2",
+      "fixtureId": "2026-11-21|E0|newcastle|arsenal",
+      "home": "Newcastle",
+      "market": "draw",
+      "marketLabel": "Draw",
+      "modelProbability": 0.27098,
+      "odds": 4.5,
+      "outcome": "Win",
+      "positiveEdge": true,
+      "probabilityBand": "Under 50%",
+      "profitGbp": 35.0,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Arsenal",
+      "bookmaker": "Betfair",
+      "date": "2026-11-21",
+      "edgePp": 20.78,
+      "finalScore": "2-2",
+      "fixtureId": "2026-11-21|E0|newcastle|arsenal",
+      "home": "Newcastle",
+      "market": "home_win",
+      "marketLabel": "Home win",
+      "modelProbability": 0.36403,
+      "odds": 6.4,
+      "outcome": "Loss",
+      "positiveEdge": true,
+      "probabilityBand": "Under 50%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Arsenal",
+      "bookmaker": "Matchbook",
+      "date": "2026-11-21",
+      "edgePp": -12.23,
+      "finalScore": "2-2",
+      "fixtureId": "2026-11-21|E0|newcastle|arsenal",
+      "home": "Newcastle",
+      "market": "over25",
+      "marketLabel": "Over 2.5",
+      "modelProbability": 0.45245,
+      "odds": 1.74,
+      "outcome": "Win",
+      "positiveEdge": false,
+      "probabilityBand": "Under 50%",
+      "profitGbp": 7.4,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Arsenal",
+      "bookmaker": "Matchbook",
+      "date": "2026-11-21",
+      "edgePp": 12.02,
+      "finalScore": "2-2",
+      "fixtureId": "2026-11-21|E0|newcastle|arsenal",
+      "home": "Newcastle",
+      "market": "under25",
+      "marketLabel": "Under 2.5",
+      "modelProbability": 0.54755,
+      "odds": 2.34,
+      "outcome": "Loss",
+      "positiveEdge": true,
+      "probabilityBand": "50–59.9%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
+    },
+    {
       "away": "Ipswich",
       "bookmaker": "Betfair",
       "date": "2026-11-21",
@@ -18910,13 +19000,13 @@
   ],
   "summary": {
     "allQuotedMarkets": {
-      "hitRatePct": 41.85,
-      "losses": 610,
-      "profitGbp": -247.8,
-      "roiPct": -2.36,
-      "selections": 1049,
-      "stakeGbp": 10490.0,
-      "wins": 439
+      "hitRatePct": 41.84,
+      "losses": 613,
+      "profitGbp": -235.4,
+      "roiPct": -2.23,
+      "selections": 1054,
+      "stakeGbp": 10540.0,
+      "wins": 441
     },
     "byDay": {
       "2026-10-24": {
@@ -19055,13 +19145,13 @@
         "wins": 1
       },
       "2026-11-21": {
-        "hitRatePct": 44.21,
-        "losses": 53,
-        "profitGbp": 225.8,
-        "roiPct": 23.77,
-        "selections": 95,
-        "stakeGbp": 950.0,
-        "wins": 42
+        "hitRatePct": 43.88,
+        "losses": 55,
+        "profitGbp": 240.8,
+        "roiPct": 24.57,
+        "selections": 98,
+        "stakeGbp": 980.0,
+        "wins": 43
       },
       "2026-11-22": {
         "hitRatePct": 30.0,
@@ -19093,21 +19183,21 @@
         "wins": 7
       },
       "draw": {
-        "hitRatePct": 20.63,
+        "hitRatePct": 21.88,
         "losses": 50,
-        "profitGbp": -27.7,
-        "roiPct": -4.4,
-        "selections": 63,
-        "stakeGbp": 630.0,
-        "wins": 13
+        "profitGbp": 7.3,
+        "roiPct": 1.14,
+        "selections": 64,
+        "stakeGbp": 640.0,
+        "wins": 14
       },
       "home_win": {
-        "hitRatePct": 42.71,
-        "losses": 55,
-        "profitGbp": 263.2,
-        "roiPct": 27.42,
-        "selections": 96,
-        "stakeGbp": 960.0,
+        "hitRatePct": 42.27,
+        "losses": 56,
+        "profitGbp": 253.2,
+        "roiPct": 26.1,
+        "selections": 97,
+        "stakeGbp": 970.0,
         "wins": 41
       },
       "no_btts": {
@@ -19138,12 +19228,12 @@
         "wins": 0
       },
       "under25": {
-        "hitRatePct": 46.6,
-        "losses": 55,
-        "profitGbp": 71.5,
-        "roiPct": 6.94,
-        "selections": 103,
-        "stakeGbp": 1030.0,
+        "hitRatePct": 46.15,
+        "losses": 56,
+        "profitGbp": 61.5,
+        "roiPct": 5.91,
+        "selections": 104,
+        "stakeGbp": 1040.0,
         "wins": 48
       },
       "under35": {
@@ -19158,12 +19248,12 @@
     },
     "byProbabilityBand": {
       "50–59.9%": {
-        "hitRatePct": 56.63,
-        "losses": 36,
-        "profitGbp": 144.9,
-        "roiPct": 17.46,
-        "selections": 83,
-        "stakeGbp": 830.0,
+        "hitRatePct": 55.95,
+        "losses": 37,
+        "profitGbp": 134.9,
+        "roiPct": 16.06,
+        "selections": 84,
+        "stakeGbp": 840.0,
         "wins": 47
       },
       "60–69.9%": {
@@ -19194,23 +19284,23 @@
         "wins": 1
       },
       "Under 50%": {
-        "hitRatePct": 31.43,
-        "losses": 216,
-        "profitGbp": 102.6,
-        "roiPct": 3.26,
-        "selections": 315,
-        "stakeGbp": 3150.0,
-        "wins": 99
+        "hitRatePct": 31.55,
+        "losses": 217,
+        "profitGbp": 127.6,
+        "roiPct": 4.03,
+        "selections": 317,
+        "stakeGbp": 3170.0,
+        "wins": 100
       }
     },
     "positiveEdges": {
-      "hitRatePct": 40.99,
-      "losses": 275,
-      "profitGbp": 312.3,
-      "roiPct": 6.7,
-      "selections": 466,
-      "stakeGbp": 4660.0,
-      "wins": 191
+      "hitRatePct": 40.94,
+      "losses": 277,
+      "profitGbp": 327.3,
+      "roiPct": 6.98,
+      "selections": 469,
+      "stakeGbp": 4690.0,
+      "wins": 192
     },
     "positiveEdges60Plus": {
       "hitRatePct": 66.18,
@@ -19224,5 +19314,5 @@
     "primaryDefinition": "Recorded positive theoretical-edge selections only; £10 flat hypothetical stakes.",
     "stakePerPickGbp": 10.0
   },
-  "updatedAtUtc": "2026-11-23T01:59:52.336506+00:00"
+  "updatedAtUtc": "2026-11-23T18:16:40.179216+00:00"
 }

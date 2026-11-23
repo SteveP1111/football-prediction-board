@@ -7376,6 +7376,37 @@
     "resultVerifiedAtUtc": "2026-11-22T01:37:48.088608+00:00",
     "score": "1-1"
   },
+  "2026-11-21|E0|newcastle|arsenal": {
+    "away": "Arsenal",
+    "b31Outcomes": [],
+    "date": "2026-11-21",
+    "division": "E0",
+    "home": "Newcastle",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.36499,
+      "btts": 0.50609,
+      "draw": 0.27098,
+      "home_win": 0.36403,
+      "no_btts": 0.49391,
+      "over25": 0.45245,
+      "over35": 0.23932,
+      "under25": 0.54755,
+      "under35": 0.76068
+    },
+    "score": "2-2"
+  },
   "2026-11-21|E0|tottenham|ipswich town": {
     "away": "Ipswich",
     "b31Outcomes": [],
@@ -8818,6 +8849,37 @@
     "resultVerification": "Two independent full-time sources agreed",
     "resultVerifiedAtUtc": "2026-11-22T01:37:48.109786+00:00",
     "score": "1-2"
+  },
+  "2026-11-21|EC|kidderminster|fylde": {
+    "away": "Fylde",
+    "b31Outcomes": [],
+    "date": "2026-11-21",
+    "division": "EC",
+    "home": "Kidderminster",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.33638,
+      "btts": 0.57636,
+      "draw": 0.2488,
+      "home_win": 0.41482,
+      "no_btts": 0.42364,
+      "over25": 0.54413,
+      "over35": 0.32087,
+      "under25": 0.45587,
+      "under35": 0.67913
+    },
+    "score": "2-2"
   },
   "2026-11-21|EC|solihull|altrincham": {
     "away": "Altrincham",
