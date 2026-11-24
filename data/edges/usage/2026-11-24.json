@@ -1,0 +1,50 @@
+{
+  "completedAtUtc": "2026-11-24T05:34:57.229755+00:00",
+  "confidenceQualifyingRequests": 4,
+  "confidenceRequestsByMarket": {
+    "alternate_totals": 0,
+    "btts": 4
+  },
+  "confidenceRequestsExecuted": 4,
+  "confidenceSelectionPolicy": "Prioritise BTTS 55%+, use unused slots for Over/Under 3.5 55%+; standard 2.5 totals remain batch-priced; skip already-priced outcomes",
+  "date": "2026-11-24",
+  "endRemaining": 409,
+  "extraMarketRequestsCap": 4,
+  "forecastCapturedAt": "2026-11-24T05:34:27.555273+00:00",
+  "plannedMaxCredits": 10,
+  "requestedSports": [
+    "soccer_efl_champ",
+    "soccer_england_league1",
+    "soccer_england_league2"
+  ],
+  "reserveCredits": 100,
+  "selectionPolicy": "BTTS Yes/No 55%+, Over/Under 3.5 55%+; standard Over/Under 2.5 already fetched by league, skip already-priced outcomes",
+  "spentCredits": 10,
+  "startRemaining": 419,
+  "startedAtUtc": "2026-11-24T05:34:55.594916+00:00",
+  "status": "complete",
+  "summary": {
+    "bttsCoverage": {
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": 28.57,
+      "matchedForecastFixtures": 14,
+      "qualified55MatchedFixtures": 9,
+      "qualifiedCoveragePct": 44.44,
+      "quotedFixtures": 4,
+      "quotedOutcomes": 8,
+      "quotedQualifiedFixtures": 4,
+      "supportedForecastFixtures": 14,
+      "warning": null
+    },
+    "coverageWarnings": [],
+    "forecastFixtures": 14,
+    "marketsPriced": 88,
+    "matchedFixtures": 14,
+    "oddsEvents": 54,
+    "positiveEdges": 39,
+    "unmatchedForecasts": 0,
+    "unmatchedReasons": {
+      "unmatched_or_ambiguous_name": 40
+    }
+  }
+}

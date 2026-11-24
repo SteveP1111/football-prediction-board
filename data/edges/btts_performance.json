@@ -576,13 +576,13 @@
     },
     "2026-11-24": {
       "allLeagueForecasts": 14,
-      "bookmakerMatchedFixtures": null,
-      "bttsQuotedFixtures": null,
-      "bttsQuotedOutcomes": null,
-      "captureAvailable": false,
+      "bookmakerMatchedFixtures": 14,
+      "bttsQuotedFixtures": 4,
+      "bttsQuotedOutcomes": 8,
+      "captureAvailable": true,
       "lowCoverageWarning": false,
-      "matchedCoveragePct": null,
-      "qualified55MatchedFixtures": null,
+      "matchedCoveragePct": 28.57,
+      "qualified55MatchedFixtures": 9,
       "supportedLeagueForecasts": 14,
       "warning": null
     }
