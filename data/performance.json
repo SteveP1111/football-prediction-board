@@ -19,7 +19,7 @@
   "b31Note": "B3.1 records include only dated imported/frozen qualifiers; do not mix with independent model totals.",
   "byDivision": {
     "E0": {
-      "total": 46,
+      "total": 47,
       "wins": 0
     },
     "E1": {
@@ -41,62 +41,62 @@
   },
   "markets": {
     "away_win": {
-      "brier": 0.1933,
-      "hitRate": 0.2695,
+      "brier": 0.1928,
+      "hitRate": 0.2686,
       "hits": 76,
-      "predictions": 282
+      "predictions": 283
     },
     "btts": {
       "brier": 0.2511,
-      "hitRate": 0.5638,
+      "hitRate": 0.5618,
       "hits": 159,
-      "predictions": 282
+      "predictions": 283
     },
     "draw": {
-      "brier": 0.1734,
-      "hitRate": 0.2234,
+      "brier": 0.173,
+      "hitRate": 0.2226,
       "hits": 63,
-      "predictions": 282
+      "predictions": 283
     },
     "home_win": {
-      "brier": 0.2463,
-      "hitRate": 0.5071,
-      "hits": 143,
-      "predictions": 282
+      "brier": 0.2464,
+      "hitRate": 0.5088,
+      "hits": 144,
+      "predictions": 283
     },
     "no_btts": {
       "brier": 0.2511,
-      "hitRate": 0.4362,
-      "hits": 123,
-      "predictions": 282
+      "hitRate": 0.4382,
+      "hits": 124,
+      "predictions": 283
     },
     "over25": {
-      "brier": 0.2499,
-      "hitRate": 0.5496,
-      "hits": 155,
-      "predictions": 282
+      "brier": 0.2501,
+      "hitRate": 0.5512,
+      "hits": 156,
+      "predictions": 283
     },
     "over35": {
-      "brier": 0.2238,
-      "hitRate": 0.3227,
-      "hits": 91,
-      "predictions": 282
+      "brier": 0.225,
+      "hitRate": 0.3251,
+      "hits": 92,
+      "predictions": 283
     },
     "under25": {
-      "brier": 0.2499,
-      "hitRate": 0.4504,
+      "brier": 0.2501,
+      "hitRate": 0.4488,
       "hits": 127,
-      "predictions": 282
+      "predictions": 283
     },
     "under35": {
-      "brier": 0.2255,
-      "hitRate": 0.6754,
+      "brier": 0.2273,
+      "hitRate": 0.6719,
       "hits": 129,
-      "predictions": 191
+      "predictions": 192
     }
   },
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-  "totalSettledGames": 282,
-  "totalSnapshots": 25,
-  "updated": "2026-11-23T18:16:26.237594+00:00"
+  "totalSettledGames": 283,
+  "totalSnapshots": 26,
+  "updated": "2026-11-24T05:34:27.555273+00:00"
 }

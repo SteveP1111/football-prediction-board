@@ -9213,5 +9213,36 @@
     "resultVerification": "Two independent full-time sources agreed",
     "resultVerifiedAtUtc": "2026-11-23T01:59:38.958818+00:00",
     "score": "2-2"
+  },
+  "2026-11-23|E0|brentford|everton": {
+    "away": "Everton",
+    "b31Outcomes": [],
+    "date": "2026-11-23",
+    "division": "E0",
+    "home": "Brentford",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.2557,
+      "btts": 0.49198,
+      "draw": 0.2606,
+      "home_win": 0.48371,
+      "no_btts": 0.50802,
+      "over25": 0.45583,
+      "over35": 0.24213,
+      "under25": 0.54417,
+      "under35": 0.75787
+    },
+    "score": "4-0"
   }
 }

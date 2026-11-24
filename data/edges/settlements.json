@@ -1,7 +1,7 @@
 {
   "disclaimer": "Hypothetical £10 flat stakes; not actual bets. Exchange commission, limits and unavailable quoted prices are not deducted. Only settled records count.",
-  "gradedSelections": 1054,
-  "pendingSelections": 14,
+  "gradedSelections": 1061,
+  "pendingSelections": 7,
   "recordedSelections": 1068,
   "rows": [
     {
@@ -18975,6 +18975,132 @@
       "probabilityBand": "60–69.9%",
       "profitGbp": -10.0,
       "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Betfair",
+      "date": "2026-11-23",
+      "edgePp": -5.2,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "away_win",
+      "marketLabel": "Away win",
+      "modelProbability": 0.2557,
+      "odds": 3.25,
+      "outcome": "Loss",
+      "positiveEdge": false,
+      "probabilityBand": "Under 50%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Coral",
+      "date": "2026-11-23",
+      "edgePp": -1.72,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "draw",
+      "marketLabel": "Draw",
+      "modelProbability": 0.2606,
+      "odds": 3.6,
+      "outcome": "Loss",
+      "positiveEdge": false,
+      "probabilityBand": "Under 50%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Betfair",
+      "date": "2026-11-23",
+      "edgePp": 6.35,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "home_win",
+      "marketLabel": "Home win",
+      "modelProbability": 0.48371,
+      "odds": 2.38,
+      "outcome": "Win",
+      "positiveEdge": true,
+      "probabilityBand": "Under 50%",
+      "profitGbp": 13.8,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Matchbook",
+      "date": "2026-11-23",
+      "edgePp": -7.33,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "over25",
+      "marketLabel": "Over 2.5",
+      "modelProbability": 0.45583,
+      "odds": 1.89,
+      "outcome": "Win",
+      "positiveEdge": false,
+      "probabilityBand": "Under 50%",
+      "profitGbp": 8.9,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Betfair",
+      "date": "2026-11-23",
+      "edgePp": -6.56,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "over35",
+      "marketLabel": "Over 3.5",
+      "modelProbability": 0.24213,
+      "odds": 3.25,
+      "outcome": "Win",
+      "positiveEdge": false,
+      "probabilityBand": "Under 50%",
+      "profitGbp": 22.5,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Matchbook",
+      "date": "2026-11-23",
+      "edgePp": 6.8,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "under25",
+      "marketLabel": "Under 2.5",
+      "modelProbability": 0.54417,
+      "odds": 2.1,
+      "outcome": "Loss",
+      "positiveEdge": true,
+      "probabilityBand": "50–59.9%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
+    },
+    {
+      "away": "Everton",
+      "bookmaker": "Betfair",
+      "date": "2026-11-23",
+      "edgePp": 5.36,
+      "finalScore": "4-0",
+      "fixtureId": "2026-11-23|E0|brentford|everton",
+      "home": "Brentford",
+      "market": "under35",
+      "marketLabel": "Under 3.5",
+      "modelProbability": 0.75787,
+      "odds": 1.42,
+      "outcome": "Loss",
+      "positiveEdge": true,
+      "probabilityBand": "70–79.9%",
+      "profitGbp": -10.0,
+      "stakeGbp": 10.0
     }
   ],
   "schemaVersion": 1,
@@ -19000,13 +19126,13 @@
   ],
   "summary": {
     "allQuotedMarkets": {
-      "hitRatePct": 41.84,
-      "losses": 613,
-      "profitGbp": -235.4,
-      "roiPct": -2.23,
-      "selections": 1054,
-      "stakeGbp": 10540.0,
-      "wins": 441
+      "hitRatePct": 41.85,
+      "losses": 617,
+      "profitGbp": -230.2,
+      "roiPct": -2.17,
+      "selections": 1061,
+      "stakeGbp": 10610.0,
+      "wins": 444
     },
     "byDay": {
       "2026-10-24": {
@@ -19161,6 +19287,15 @@
         "selections": 10,
         "stakeGbp": 100.0,
         "wins": 3
+      },
+      "2026-11-23": {
+        "hitRatePct": 33.33,
+        "losses": 2,
+        "profitGbp": -6.2,
+        "roiPct": -20.67,
+        "selections": 3,
+        "stakeGbp": 30.0,
+        "wins": 1
       }
     },
     "byMarket": {
@@ -19192,13 +19327,13 @@
         "wins": 14
       },
       "home_win": {
-        "hitRatePct": 42.27,
+        "hitRatePct": 42.86,
         "losses": 56,
-        "profitGbp": 253.2,
-        "roiPct": 26.1,
-        "selections": 97,
-        "stakeGbp": 970.0,
-        "wins": 41
+        "profitGbp": 267.0,
+        "roiPct": 27.24,
+        "selections": 98,
+        "stakeGbp": 980.0,
+        "wins": 42
       },
       "no_btts": {
         "hitRatePct": 33.33,
@@ -19228,32 +19363,32 @@
         "wins": 0
       },
       "under25": {
-        "hitRatePct": 46.15,
-        "losses": 56,
-        "profitGbp": 61.5,
-        "roiPct": 5.91,
-        "selections": 104,
-        "stakeGbp": 1040.0,
+        "hitRatePct": 45.71,
+        "losses": 57,
+        "profitGbp": 51.5,
+        "roiPct": 4.9,
+        "selections": 105,
+        "stakeGbp": 1050.0,
         "wins": 48
       },
       "under35": {
-        "hitRatePct": 72.22,
-        "losses": 15,
-        "profitGbp": 101.1,
-        "roiPct": 18.72,
-        "selections": 54,
-        "stakeGbp": 540.0,
+        "hitRatePct": 70.91,
+        "losses": 16,
+        "profitGbp": 91.1,
+        "roiPct": 16.56,
+        "selections": 55,
+        "stakeGbp": 550.0,
         "wins": 39
       }
     },
     "byProbabilityBand": {
       "50–59.9%": {
-        "hitRatePct": 55.95,
-        "losses": 37,
-        "profitGbp": 134.9,
-        "roiPct": 16.06,
-        "selections": 84,
-        "stakeGbp": 840.0,
+        "hitRatePct": 55.29,
+        "losses": 38,
+        "profitGbp": 124.9,
+        "roiPct": 14.69,
+        "selections": 85,
+        "stakeGbp": 850.0,
         "wins": 47
       },
       "60–69.9%": {
@@ -19266,12 +19401,12 @@
         "wins": 31
       },
       "70–79.9%": {
-        "hitRatePct": 65.0,
-        "losses": 7,
-        "profitGbp": 6.3,
-        "roiPct": 3.15,
-        "selections": 20,
-        "stakeGbp": 200.0,
+        "hitRatePct": 61.9,
+        "losses": 8,
+        "profitGbp": -3.7,
+        "roiPct": -1.76,
+        "selections": 21,
+        "stakeGbp": 210.0,
         "wins": 13
       },
       "80%+": {
@@ -19284,35 +19419,35 @@
         "wins": 1
       },
       "Under 50%": {
-        "hitRatePct": 31.55,
+        "hitRatePct": 31.76,
         "losses": 217,
-        "profitGbp": 127.6,
-        "roiPct": 4.03,
-        "selections": 317,
-        "stakeGbp": 3170.0,
-        "wins": 100
+        "profitGbp": 141.4,
+        "roiPct": 4.45,
+        "selections": 318,
+        "stakeGbp": 3180.0,
+        "wins": 101
       }
     },
     "positiveEdges": {
-      "hitRatePct": 40.94,
-      "losses": 277,
-      "profitGbp": 327.3,
-      "roiPct": 6.98,
-      "selections": 469,
-      "stakeGbp": 4690.0,
-      "wins": 192
+      "hitRatePct": 40.89,
+      "losses": 279,
+      "profitGbp": 321.1,
+      "roiPct": 6.8,
+      "selections": 472,
+      "stakeGbp": 4720.0,
+      "wins": 193
     },
     "positiveEdges60Plus": {
-      "hitRatePct": 66.18,
-      "losses": 23,
-      "profitGbp": 64.8,
-      "roiPct": 9.53,
-      "selections": 68,
-      "stakeGbp": 680.0,
+      "hitRatePct": 65.22,
+      "losses": 24,
+      "profitGbp": 54.8,
+      "roiPct": 7.94,
+      "selections": 69,
+      "stakeGbp": 690.0,
       "wins": 45
     },
     "primaryDefinition": "Recorded positive theoretical-edge selections only; £10 flat hypothetical stakes.",
     "stakePerPickGbp": 10.0
   },
-  "updatedAtUtc": "2026-11-23T18:16:40.179216+00:00"
+  "updatedAtUtc": "2026-11-24T05:34:39.459517+00:00"
 }
