@@ -1,0 +1,93 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "West Brom",
+      "date": "2026-11-25",
+      "division": "E1",
+      "fixtureId": "2026-11-25|E1|bolton|west bromwich albion",
+      "home": "Bolton",
+      "kickoffLocal": "2026-11-25T19:45:00+00:00",
+      "originalUnder35": 0.65133,
+      "shadowUnder35": 0.62732128
+    },
+    {
+      "away": "Birmingham",
+      "date": "2026-11-25",
+      "division": "E1",
+      "fixtureId": "2026-11-25|E1|burnley|birmingham",
+      "home": "Burnley",
+      "kickoffLocal": "2026-11-25T19:45:00+00:00",
+      "originalUnder35": 0.73324,
+      "shadowUnder35": 0.69901317
+    },
+    {
+      "away": "Blackburn",
+      "date": "2026-11-25",
+      "division": "E1",
+      "fixtureId": "2026-11-25|E1|watford|blackburn rovers",
+      "home": "Watford",
+      "kickoffLocal": "2026-11-25T19:45:00+00:00",
+      "originalUnder35": 0.70545,
+      "shadowUnder35": 0.67432728
+    },
+    {
+      "away": "Millwall",
+      "date": "2026-11-25",
+      "division": "E1",
+      "fixtureId": "2026-11-25|E1|stoke|millwall",
+      "home": "Stoke",
+      "kickoffLocal": "2026-11-25T20:00:00+00:00",
+      "originalUnder35": 0.69451,
+      "shadowUnder35": 0.66472179
+    },
+    {
+      "away": "Aldershot",
+      "date": "2026-11-25",
+      "division": "EC",
+      "fixtureId": "2026-11-25|EC|boreham wood|aldershot",
+      "home": "Boreham Wood",
+      "kickoffLocal": "2026-11-25T19:00:00+00:00",
+      "originalUnder35": 0.57583,
+      "shadowUnder35": 0.56334081
+    },
+    {
+      "away": "Kidderminster",
+      "date": "2026-11-25",
+      "division": "EC",
+      "fixtureId": "2026-11-25|EC|harrogate|kidderminster",
+      "home": "Harrogate",
+      "kickoffLocal": "2026-11-25T19:45:00+00:00",
+      "originalUnder35": 0.63394,
+      "shadowUnder35": 0.61245201
+    },
+    {
+      "away": "Solihull",
+      "date": "2026-11-25",
+      "division": "EC",
+      "fixtureId": "2026-11-25|EC|hartlepool united|solihull",
+      "home": "Hartlepool",
+      "kickoffLocal": "2026-11-25T19:45:00+00:00",
+      "originalUnder35": 0.63547,
+      "shadowUnder35": 0.61375644
+    }
+  ],
+  "originalCapturedAt": "2026-11-25T04:36:25.234191+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-25T04:36:37.830395+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-25",
+  "sourceSnapshotSha256": "c5813d917473e29a66496c5e7d1c1267e7e40150002f46566acbae1bccd24e57",
+  "status": "frozen-prekickoff"
+}

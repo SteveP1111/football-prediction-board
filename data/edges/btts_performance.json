@@ -181,6 +181,13 @@
       "forecasts": 14,
       "graded": 0,
       "pending": 14
+    },
+    "2026-11-25": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 7,
+      "graded": 0,
+      "pending": 7
     }
   },
   "byLeague": {
@@ -194,9 +201,9 @@
     "E1": {
       "accuracyPct": 56.25,
       "correct": 36,
-      "forecasts": 80,
+      "forecasts": 84,
       "graded": 64,
-      "pending": 16
+      "pending": 20
     },
     "E2": {
       "accuracyPct": 58.33,
@@ -215,9 +222,9 @@
     "EC": {
       "accuracyPct": 60.87,
       "correct": 28,
-      "forecasts": 47,
+      "forecasts": 50,
       "graded": 46,
-      "pending": 1
+      "pending": 4
     }
   },
   "byOutcome": {
@@ -231,25 +238,25 @@
     "Yes": {
       "accuracyPct": 57.03,
       "correct": 142,
-      "forecasts": 287,
+      "forecasts": 294,
       "graded": 249,
-      "pending": 38
+      "pending": 45
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
       "accuracyPct": 58.93,
       "correct": 132,
-      "forecasts": 256,
+      "forecasts": 261,
       "graded": 224,
-      "pending": 32
+      "pending": 37
     },
     "60–69.9%": {
       "accuracyPct": 45.76,
       "correct": 27,
-      "forecasts": 71,
+      "forecasts": 73,
       "graded": 59,
-      "pending": 12
+      "pending": 14
     },
     "70–79.9%": {
       "accuracyPct": null,
@@ -585,19 +592,31 @@
       "qualified55MatchedFixtures": 9,
       "supportedLeagueForecasts": 14,
       "warning": null
+    },
+    "2026-11-25": {
+      "allLeagueForecasts": 7,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 4,
+      "warning": null
     }
   },
   "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
   "model": "original frozen experimental Scoreline Model",
-  "mostRecentDay": "2026-11-24",
+  "mostRecentDay": "2026-11-25",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
   "settledForecasts": 283,
   "summary": {
     "accuracyPct": 56.18,
     "correct": 159,
-    "forecasts": 327,
+    "forecasts": 334,
     "graded": 283,
-    "pending": 44
+    "pending": 51
   }
 }
