@@ -1,467 +1,71 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-11-25T04:36:25.234191+00:00",
-  "date": "2026-11-25",
+  "capturedAt": "2026-11-26T03:47:34.129632+00:00",
+  "date": "2026-11-26",
   "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
   "games": [
     {
-      "away": "West Brom",
-      "awayKey": "west bromwich albion",
+      "away": "Huddersfield",
+      "awayKey": "huddersfield town",
       "b31": {
         "qualifiers": [],
         "status": "not-calculated"
       },
-      "date": "2026-11-25",
-      "division": "E1",
-      "home": "Bolton",
-      "homeKey": "bolton",
-      "id": "2026-11-25|E1|bolton|west bromwich albion",
-      "kickoff": "19:45",
-      "league": "Championship",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.23916,
-        "expectedAway": 1.551,
-        "expectedHome": 1.431,
-        "expectedTotal": 2.982,
-        "goalBands": {
-          "0-1": 0.2019,
-          "2": 0.2254,
-          "3": 0.22403,
-          "4+": 0.34867
-        },
-        "markets": {
-          "away_win": 0.40487,
-          "btts": 0.59953,
-          "draw": 0.24337,
-          "home_win": 0.35176,
-          "no_btts": 0.40047,
-          "over25": 0.5727,
-          "over35": 0.34867,
-          "under25": 0.4273,
-          "under35": 0.65133
-        },
-        "modalProbability": 0.11252,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 8,
-        "sampleHome": 8,
-        "topScores": [
-          {
-            "p": 0.11252,
-            "score": "1-1"
-          },
-          {
-            "p": 0.08726,
-            "score": "1-2"
-          },
-          {
-            "p": 0.08048,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07865,
-            "score": "0-1"
-          },
-          {
-            "p": 0.07254,
-            "score": "1-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Birmingham",
-      "awayKey": "birmingham",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-25",
-      "division": "E1",
-      "home": "Burnley",
-      "homeKey": "burnley",
-      "id": "2026-11-25|E1|burnley|birmingham",
-      "kickoff": "19:45",
-      "league": "Championship",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.28197,
-        "expectedAway": 1.266,
-        "expectedHome": 1.347,
-        "expectedTotal": 2.613,
-        "goalBands": {
-          "0-1": 0.26494,
-          "2": 0.2503,
-          "3": 0.21799,
-          "4+": 0.26676
-        },
-        "markets": {
-          "away_win": 0.34967,
-          "btts": 0.53128,
-          "draw": 0.26291,
-          "home_win": 0.38742,
-          "no_btts": 0.46872,
-          "over25": 0.48475,
-          "over35": 0.26676,
-          "under25": 0.51525,
-          "under35": 0.73324
-        },
-        "modalProbability": 0.12503,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 8,
-        "sampleHome": 8,
-        "topScores": [
-          {
-            "p": 0.12503,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09876,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09284,
-            "score": "0-1"
-          },
-          {
-            "p": 0.08419,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07914,
-            "score": "1-2"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Blackburn",
-      "awayKey": "blackburn rovers",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-25",
-      "division": "E1",
-      "home": "Watford",
-      "homeKey": "watford",
-      "id": "2026-11-25|E1|watford|blackburn rovers",
-      "kickoff": "19:45",
-      "league": "Championship",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.29827,
-        "expectedAway": 1.21,
-        "expectedHome": 1.529,
-        "expectedTotal": 2.739,
-        "goalBands": {
-          "0-1": 0.24165,
-          "2": 0.24244,
-          "3": 0.22136,
-          "4+": 0.29455
-        },
-        "markets": {
-          "away_win": 0.30098,
-          "btts": 0.54969,
-          "draw": 0.25229,
-          "home_win": 0.44673,
-          "no_btts": 0.45031,
-          "over25": 0.51591,
-          "over35": 0.29455,
-          "under25": 0.48409,
-          "under35": 0.70545
-        },
-        "modalProbability": 0.11957,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 8,
-        "sampleHome": 8,
-        "topScores": [
-          {
-            "p": 0.11957,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09884,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09143,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07818,
-            "score": "0-1"
-          },
-          {
-            "p": 0.07558,
-            "score": "2-0"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Millwall",
-      "awayKey": "millwall",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-25",
-      "division": "E1",
-      "home": "Stoke",
-      "homeKey": "stoke",
-      "id": "2026-11-25|E1|stoke|millwall",
+      "date": "2026-11-26",
+      "division": "E2",
+      "home": "Doncaster",
+      "homeKey": "doncaster",
+      "id": "2026-11-26|E2|doncaster|huddersfield town",
       "kickoff": "20:00",
-      "league": "Championship",
+      "league": "League One",
       "scoreline": {
         "calibrated": false,
-        "cleanSheetRisk": 0.35023,
-        "expectedAway": 1.049,
-        "expectedHome": 1.739,
-        "expectedTotal": 2.788,
+        "cleanSheetRisk": 0.30257,
+        "expectedAway": 1.363,
+        "expectedHome": 1.195,
+        "expectedTotal": 2.558,
         "goalBands": {
-          "0-1": 0.23306,
-          "2": 0.23916,
-          "3": 0.22229,
-          "4+": 0.30549
+          "0-1": 0.27551,
+          "2": 0.2534,
+          "3": 0.2161,
+          "4+": 0.25499
         },
         "markets": {
-          "away_win": 0.22791,
-          "btts": 0.53564,
-          "draw": 0.23664,
-          "home_win": 0.53545,
-          "no_btts": 0.46436,
-          "over25": 0.52778,
-          "over35": 0.30549,
-          "under25": 0.47222,
-          "under35": 0.69451
+          "away_win": 0.40684,
+          "btts": 0.51896,
+          "draw": 0.26529,
+          "home_win": 0.32788,
+          "no_btts": 0.48104,
+          "over25": 0.47109,
+          "over35": 0.25499,
+          "under25": 0.52891,
+          "under35": 0.74501
         },
-        "modalProbability": 0.11226,
+        "modalProbability": 0.12616,
         "modalScore": "1-1",
         "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 8,
-        "sampleHome": 8,
+        "sampleAway": 7,
+        "sampleHome": 6,
         "topScores": [
           {
-            "p": 0.11226,
+            "p": 0.12616,
             "score": "1-1"
           },
           {
-            "p": 0.107,
-            "score": "1-0"
-          },
-          {
-            "p": 0.09762,
-            "score": "2-1"
-          },
-          {
-            "p": 0.09305,
-            "score": "2-0"
-          },
-          {
-            "p": 0.06454,
+            "p": 0.10553,
             "score": "0-1"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Aldershot",
-      "awayKey": "aldershot",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-25",
-      "division": "EC",
-      "home": "Boreham Wood",
-      "homeKey": "boreham wood",
-      "id": "2026-11-25|EC|boreham wood|aldershot",
-      "kickoff": "19:00",
-      "league": "National League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.28897,
-        "expectedAway": 1.241,
-        "expectedHome": 2.079,
-        "expectedTotal": 3.32,
-        "goalBands": {
-          "0-1": 0.15613,
-          "2": 0.19921,
-          "3": 0.22049,
-          "4+": 0.42417
-        },
-        "markets": {
-          "away_win": 0.2235,
-          "btts": 0.62211,
-          "draw": 0.20994,
-          "home_win": 0.56656,
-          "no_btts": 0.37789,
-          "over25": 0.64466,
-          "over35": 0.42417,
-          "under25": 0.35534,
-          "under35": 0.57583
-        },
-        "modalProbability": 0.09695,
-        "modalScore": "2-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 9,
-        "sampleHome": 8,
-        "topScores": [
-          {
-            "p": 0.09695,
-            "score": "2-1"
           },
           {
-            "p": 0.09327,
-            "score": "1-1"
-          },
-          {
-            "p": 0.0781,
-            "score": "2-0"
-          },
-          {
-            "p": 0.07513,
+            "p": 0.09256,
             "score": "1-0"
           },
           {
-            "p": 0.06719,
-            "score": "3-1"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Kidderminster",
-      "awayKey": "kidderminster",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-25",
-      "division": "EC",
-      "home": "Harrogate",
-      "homeKey": "harrogate",
-      "id": "2026-11-25|EC|harrogate|kidderminster",
-      "kickoff": "19:45",
-      "league": "National League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.30906,
-        "expectedAway": 1.174,
-        "expectedHome": 1.885,
-        "expectedTotal": 3.059,
-        "goalBands": {
-          "0-1": 0.19046,
-          "2": 0.21957,
-          "3": 0.22391,
-          "4+": 0.36606
-        },
-        "markets": {
-          "away_win": 0.23575,
-          "btts": 0.58605,
-          "draw": 0.22452,
-          "home_win": 0.53973,
-          "no_btts": 0.41395,
-          "over25": 0.58997,
-          "over35": 0.36606,
-          "under25": 0.41003,
-          "under35": 0.63394
-        },
-        "modalProbability": 0.10386,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 8,
-        "sampleHome": 9,
-        "topScores": [
-          {
-            "p": 0.10386,
-            "score": "1-1"
-          },
-          {
-            "p": 0.09789,
-            "score": "2-1"
-          },
-          {
-            "p": 0.08845,
-            "score": "1-0"
-          },
-          {
-            "p": 0.08337,
-            "score": "2-0"
-          },
-          {
-            "p": 0.06151,
-            "score": "3-1"
-          }
-        ]
-      }
-    },
-    {
-      "away": "Solihull",
-      "awayKey": "solihull",
-      "b31": {
-        "qualifiers": [],
-        "status": "not-calculated"
-      },
-      "date": "2026-11-25",
-      "division": "EC",
-      "home": "Hartlepool",
-      "homeKey": "hartlepool united",
-      "id": "2026-11-25|EC|hartlepool united|solihull",
-      "kickoff": "19:45",
-      "league": "National League",
-      "scoreline": {
-        "calibrated": false,
-        "cleanSheetRisk": 0.24334,
-        "expectedAway": 1.413,
-        "expectedHome": 1.639,
-        "expectedTotal": 3.053,
-        "goalBands": {
-          "0-1": 0.19144,
-          "2": 0.22009,
-          "3": 0.22394,
-          "4+": 0.36453
-        },
-        "markets": {
-          "away_win": 0.33131,
-          "btts": 0.60977,
-          "draw": 0.23898,
-          "home_win": 0.42971,
-          "no_btts": 0.39023,
-          "over25": 0.58847,
-          "over35": 0.36453,
-          "under25": 0.41153,
-          "under35": 0.63547
-        },
-        "modalProbability": 0.10944,
-        "modalScore": "1-1",
-        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 8,
-        "sampleHome": 8,
-        "topScores": [
-          {
-            "p": 0.10944,
-            "score": "1-1"
-          },
-          {
-            "p": 0.0897,
-            "score": "2-1"
-          },
-          {
-            "p": 0.07744,
-            "score": "1-0"
-          },
-          {
-            "p": 0.07734,
+            "p": 0.08597,
             "score": "1-2"
           },
           {
-            "p": 0.06676,
-            "score": "0-1"
+            "p": 0.07742,
+            "score": "0-0"
           }
         ]
       }

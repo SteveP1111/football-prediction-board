@@ -1,0 +1,33 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Huddersfield",
+      "date": "2026-11-26",
+      "division": "E2",
+      "fixtureId": "2026-11-26|E2|doncaster|huddersfield town",
+      "home": "Doncaster",
+      "kickoffLocal": "2026-11-26T20:00:00+00:00",
+      "originalUnder35": 0.74501,
+      "shadowUnder35": 0.70960734
+    }
+  ],
+  "originalCapturedAt": "2026-11-26T03:47:34.129632+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-26T03:47:51.789273+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-26",
+  "sourceSnapshotSha256": "02e0334ac3c338d14c24bda2ccc447d823f0f6aafbf2230f771d9bb3ced1e19f",
+  "status": "frozen-prekickoff"
+}

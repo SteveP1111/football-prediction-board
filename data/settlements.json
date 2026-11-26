@@ -9244,5 +9244,782 @@
       "under35": 0.75787
     },
     "score": "4-0"
+  },
+  "2026-11-24|E1|bristol city|wrexham": {
+    "away": "Wrexham",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Bristol City",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.36317,
+      "btts": 0.50936,
+      "draw": 0.26995,
+      "home_win": 0.36687,
+      "no_btts": 0.49064,
+      "over25": 0.45655,
+      "over35": 0.24272,
+      "under25": 0.54345,
+      "under35": 0.75728
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.723655+00:00",
+    "score": "1-1"
+  },
+  "2026-11-24|E1|cardiff|preston": {
+    "away": "Preston North End",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Cardiff",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.2208,
+      "btts": 0.63123,
+      "draw": 0.20644,
+      "home_win": 0.57276,
+      "no_btts": 0.36877,
+      "over25": 0.65822,
+      "over35": 0.43933,
+      "under25": 0.34178,
+      "under35": 0.56067
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.724243+00:00",
+    "score": "0-4"
+  },
+  "2026-11-24|E1|charlton|lincoln": {
+    "away": "Lincoln",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Charlton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.3015,
+      "btts": 0.49563,
+      "draw": 0.26966,
+      "home_win": 0.42885,
+      "no_btts": 0.50437,
+      "over25": 0.44584,
+      "over35": 0.23387,
+      "under25": 0.55416,
+      "under35": 0.76613
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.724796+00:00",
+    "score": "4-0"
+  },
+  "2026-11-24|E1|middlesbrough|swansea": {
+    "away": "Swansea",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Middlesbrough",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.2309,
+      "btts": 0.58574,
+      "draw": 0.22284,
+      "home_win": 0.54626,
+      "no_btts": 0.41426,
+      "over25": 0.59237,
+      "over35": 0.3685,
+      "under25": 0.40763,
+      "under35": 0.6315
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.725352+00:00",
+    "score": "2-1"
+  },
+  "2026-11-24|E1|norwich|queens park rangers": {
+    "away": "QPR",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Norwich",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.28912,
+      "btts": 0.57312,
+      "draw": 0.2431,
+      "home_win": 0.46777,
+      "no_btts": 0.42688,
+      "over25": 0.54993,
+      "over35": 0.32641,
+      "under25": 0.45007,
+      "under35": 0.67359
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.725905+00:00",
+    "score": "1-1"
+  },
+  "2026-11-24|E1|portsmouth|west ham": {
+    "away": "West Ham",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Portsmouth",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.37287,
+      "btts": 0.64444,
+      "draw": 0.23225,
+      "home_win": 0.39488,
+      "no_btts": 0.35556,
+      "over25": 0.62994,
+      "over35": 0.40806,
+      "under25": 0.37006,
+      "under35": 0.59194
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.726431+00:00",
+    "score": "1-0"
+  },
+  "2026-11-24|E1|sheffield united|southampton": {
+    "away": "Southampton",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Sheff Utd",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.28373,
+      "btts": 0.54402,
+      "draw": 0.25075,
+      "home_win": 0.46552,
+      "no_btts": 0.45598,
+      "over25": 0.51339,
+      "over35": 0.29225,
+      "under25": 0.48661,
+      "under35": 0.70775
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.726977+00:00",
+    "score": "1-1"
+  },
+  "2026-11-24|E1|wolverhampton wanderers|derby": {
+    "away": "Derby",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E1",
+    "home": "Wolves",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.21777,
+      "btts": 0.55477,
+      "draw": 0.22665,
+      "home_win": 0.55558,
+      "no_btts": 0.44523,
+      "over25": 0.55966,
+      "over35": 0.33584,
+      "under25": 0.44034,
+      "under35": 0.66416
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.727507+00:00",
+    "score": "3-0"
+  },
+  "2026-11-24|E2|blackpool|leicester city": {
+    "away": "Leicester",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E2",
+    "home": "Blackpool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.40273,
+      "btts": 0.59797,
+      "draw": 0.24388,
+      "home_win": 0.35339,
+      "no_btts": 0.40203,
+      "over25": 0.57054,
+      "over35": 0.34653,
+      "under25": 0.42946,
+      "under35": 0.65347
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.727738+00:00",
+    "score": "1-1"
+  },
+  "2026-11-24|E2|bradford city|barnsley": {
+    "away": "Barnsley",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E2",
+    "home": "Bradford City",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.28576,
+      "btts": 0.5646,
+      "draw": 0.24493,
+      "home_win": 0.4693,
+      "no_btts": 0.4354,
+      "over25": 0.53976,
+      "over35": 0.31672,
+      "under25": 0.46024,
+      "under35": 0.68328
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.727975+00:00",
+    "score": "3-0"
+  },
+  "2026-11-24|E2|bromley|wycombe": {
+    "away": "Wycombe",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E2",
+    "home": "Bromley",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.41969,
+      "btts": 0.62289,
+      "draw": 0.23652,
+      "home_win": 0.34379,
+      "no_btts": 0.37711,
+      "over25": 0.60397,
+      "over35": 0.38048,
+      "under25": 0.39603,
+      "under35": 0.61952
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.728188+00:00",
+    "score": "1-1"
+  },
+  "2026-11-24|E2|stevenage|sheffield wednesday": {
+    "away": "Sheff Wed",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E2",
+    "home": "Stevenage",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": true,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.29643,
+      "btts": 0.53251,
+      "draw": 0.25682,
+      "home_win": 0.44675,
+      "no_btts": 0.46749,
+      "over25": 0.49468,
+      "over35": 0.27547,
+      "under25": 0.50532,
+      "under35": 0.72453
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.728396+00:00",
+    "score": "0-0"
+  },
+  "2026-11-24|E3|crawley town|barnet": {
+    "away": "Barnet",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E3",
+    "home": "Crawley",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": true,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.40291,
+      "btts": 0.58795,
+      "draw": 0.24651,
+      "home_win": 0.35058,
+      "no_btts": 0.41205,
+      "over25": 0.55773,
+      "over35": 0.33396,
+      "under25": 0.44227,
+      "under35": 0.66604
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.4/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.728510+00:00",
+    "score": "0-0"
+  },
+  "2026-11-24|E3|port vale|northampton town": {
+    "away": "Northampton",
+    "b31Outcomes": [],
+    "date": "2026-11-24",
+    "division": "E3",
+    "home": "Port Vale",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": true,
+      "home_win": false,
+      "no_btts": false,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.25196,
+      "btts": 0.49636,
+      "draw": 0.25795,
+      "home_win": 0.49008,
+      "no_btts": 0.50364,
+      "over25": 0.46321,
+      "over35": 0.24831,
+      "under25": 0.53679,
+      "under35": 0.75169
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.4/scoreboard?dates=20261124&limit=100",
+      "https://www.footballwebpages.co.uk/20261124"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.728617+00:00",
+    "score": "1-1"
+  },
+  "2026-11-25|E1|bolton|west bromwich albion": {
+    "away": "West Brom",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "E1",
+    "home": "Bolton",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": true,
+      "draw": false,
+      "home_win": false,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.40487,
+      "btts": 0.59953,
+      "draw": 0.24337,
+      "home_win": 0.35176,
+      "no_btts": 0.40047,
+      "over25": 0.5727,
+      "over35": 0.34867,
+      "under25": 0.4273,
+      "under35": 0.65133
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.733337+00:00",
+    "score": "1-3"
+  },
+  "2026-11-25|E1|burnley|birmingham": {
+    "away": "Birmingham",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "E1",
+    "home": "Burnley",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.34967,
+      "btts": 0.53128,
+      "draw": 0.26291,
+      "home_win": 0.38742,
+      "no_btts": 0.46872,
+      "over25": 0.48475,
+      "over35": 0.26676,
+      "under25": 0.51525,
+      "under35": 0.73324
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.733597+00:00",
+    "score": "0-2"
+  },
+  "2026-11-25|E1|stoke|millwall": {
+    "away": "Millwall",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "E1",
+    "home": "Stoke",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": false,
+      "under25": false,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.22791,
+      "btts": 0.53564,
+      "draw": 0.23664,
+      "home_win": 0.53545,
+      "no_btts": 0.46436,
+      "over25": 0.52778,
+      "over35": 0.30549,
+      "under25": 0.47222,
+      "under35": 0.69451
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.733863+00:00",
+    "score": "2-1"
+  },
+  "2026-11-25|E1|watford|blackburn rovers": {
+    "away": "Blackburn",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "E1",
+    "home": "Watford",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": true,
+      "btts": false,
+      "draw": false,
+      "home_win": false,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.30098,
+      "btts": 0.54969,
+      "draw": 0.25229,
+      "home_win": 0.44673,
+      "no_btts": 0.45031,
+      "over25": 0.51591,
+      "over35": 0.29455,
+      "under25": 0.48409,
+      "under35": 0.70545
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.734114+00:00",
+    "score": "0-1"
+  },
+  "2026-11-25|EC|boreham wood|aldershot": {
+    "away": "Aldershot",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "EC",
+    "home": "Boreham Wood",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.2235,
+      "btts": 0.62211,
+      "draw": 0.20994,
+      "home_win": 0.56656,
+      "no_btts": 0.37789,
+      "over25": 0.64466,
+      "over35": 0.42417,
+      "under25": 0.35534,
+      "under35": 0.57583
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.734288+00:00",
+    "score": "4-1"
+  },
+  "2026-11-25|EC|harrogate|kidderminster": {
+    "away": "Kidderminster",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "EC",
+    "home": "Harrogate",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": true,
+      "draw": false,
+      "home_win": true,
+      "no_btts": false,
+      "over25": true,
+      "over35": true,
+      "under25": false,
+      "under35": false
+    },
+    "probs": {
+      "away_win": 0.23575,
+      "btts": 0.58605,
+      "draw": 0.22452,
+      "home_win": 0.53973,
+      "no_btts": 0.41395,
+      "over25": 0.58997,
+      "over35": 0.36606,
+      "under25": 0.41003,
+      "under35": 0.63394
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.734449+00:00",
+    "score": "3-1"
+  },
+  "2026-11-25|EC|hartlepool united|solihull": {
+    "away": "Solihull",
+    "b31Outcomes": [],
+    "date": "2026-11-25",
+    "division": "EC",
+    "home": "Hartlepool",
+    "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "outcomes": {
+      "away_win": false,
+      "btts": false,
+      "draw": false,
+      "home_win": true,
+      "no_btts": true,
+      "over25": false,
+      "over35": false,
+      "under25": true,
+      "under35": true
+    },
+    "probs": {
+      "away_win": 0.33131,
+      "btts": 0.60977,
+      "draw": 0.23898,
+      "home_win": 0.42971,
+      "no_btts": 0.39023,
+      "over25": 0.58847,
+      "over35": 0.36453,
+      "under25": 0.41153,
+      "under35": 0.63547
+    },
+    "resultSourceUrls": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20261125&limit=100",
+      "https://www.footballwebpages.co.uk/20261125"
+    ],
+    "resultVerification": "Two independent full-time sources agreed",
+    "resultVerifiedAtUtc": "2026-11-26T03:47:51.734613+00:00",
+    "score": "2-0"
   }
 }
