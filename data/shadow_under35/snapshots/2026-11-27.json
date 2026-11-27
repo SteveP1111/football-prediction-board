@@ -1,0 +1,43 @@
+{
+  "calibration": {
+    "calibrationOutcome": "over35",
+    "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+    "fittedOn": "2026-02-01 to 2026-05-31 (2025/26 validation only)",
+    "liveModel": "INDEPENDENT_SCORELINE_V1_GITHUB",
+    "over35Temperature": 1.2,
+    "prospectiveStart": "2026-10-30",
+    "schemaVersion": 1,
+    "shadowModel": "V4_VALIDATION_TEMPERATURE_U35"
+  },
+  "disclaimer": "Prospective experimental model comparison; no bookmaker prices, bets or model promotion.",
+  "experiment": "UNDER35_PROSPECTIVE_V1_V4_TEMP_20261029",
+  "games": [
+    {
+      "away": "Chelsea",
+      "date": "2026-11-27",
+      "division": "E0",
+      "fixtureId": "2026-11-27|E0|nottingham forest|chelsea",
+      "home": "Nottm Forest",
+      "kickoffLocal": "2026-11-27T20:00:00+00:00",
+      "originalUnder35": 0.70607,
+      "shadowUnder35": 0.67487343
+    },
+    {
+      "away": "Middlesbrough",
+      "date": "2026-11-27",
+      "division": "E1",
+      "fixtureId": "2026-11-27|E1|southampton|middlesbrough",
+      "home": "Southampton",
+      "kickoffLocal": "2026-11-27T20:00:00+00:00",
+      "originalUnder35": 0.67585,
+      "shadowUnder35": 0.64846619
+    }
+  ],
+  "originalCapturedAt": "2026-11-27T03:48:18.579975+00:00",
+  "schemaVersion": 1,
+  "shadowCapturedAt": "2026-11-27T03:48:30.195501+00:00",
+  "skippedFixtures": {},
+  "sourceSnapshotDate": "2026-11-27",
+  "sourceSnapshotSha256": "aaed42edfe6c2680549e4bb7a2beb6f68ba867d765a5a640159083c0d5949400",
+  "status": "frozen-prekickoff"
+}

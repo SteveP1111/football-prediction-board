@@ -1,71 +1,137 @@
 {
   "b31Available": false,
-  "capturedAt": "2026-11-26T03:47:34.129632+00:00",
-  "date": "2026-11-26",
+  "capturedAt": "2026-11-27T03:48:18.579975+00:00",
+  "date": "2026-11-27",
   "fixtureSource": "https://www.football-data.co.uk/fixtures.csv",
   "games": [
     {
-      "away": "Huddersfield",
-      "awayKey": "huddersfield town",
+      "away": "Chelsea",
+      "awayKey": "chelsea",
       "b31": {
         "qualifiers": [],
         "status": "not-calculated"
       },
-      "date": "2026-11-26",
-      "division": "E2",
-      "home": "Doncaster",
-      "homeKey": "doncaster",
-      "id": "2026-11-26|E2|doncaster|huddersfield town",
+      "date": "2026-11-27",
+      "division": "E0",
+      "home": "Nottm Forest",
+      "homeKey": "nottingham forest",
+      "id": "2026-11-27|E0|nottingham forest|chelsea",
       "kickoff": "20:00",
-      "league": "League One",
+      "league": "Premier League",
       "scoreline": {
         "calibrated": false,
-        "cleanSheetRisk": 0.30257,
-        "expectedAway": 1.363,
-        "expectedHome": 1.195,
-        "expectedTotal": 2.558,
+        "cleanSheetRisk": 0.31218,
+        "expectedAway": 1.164,
+        "expectedHome": 1.572,
+        "expectedTotal": 2.736,
         "goalBands": {
-          "0-1": 0.27551,
-          "2": 0.2534,
-          "3": 0.2161,
-          "4+": 0.25499
+          "0-1": 0.24215,
+          "2": 0.24263,
+          "3": 0.2213,
+          "4+": 0.29393
         },
         "markets": {
-          "away_win": 0.40684,
-          "btts": 0.51896,
-          "draw": 0.26529,
-          "home_win": 0.32788,
-          "no_btts": 0.48104,
-          "over25": 0.47109,
-          "over35": 0.25499,
-          "under25": 0.52891,
-          "under35": 0.74501
+          "away_win": 0.28213,
+          "btts": 0.54503,
+          "draw": 0.2501,
+          "home_win": 0.46777,
+          "no_btts": 0.45497,
+          "over25": 0.51523,
+          "over35": 0.29393,
+          "under25": 0.48477,
+          "under35": 0.70607
         },
-        "modalProbability": 0.12616,
+        "modalProbability": 0.11862,
         "modalScore": "1-1",
         "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
-        "sampleAway": 7,
-        "sampleHome": 6,
+        "sampleAway": 5,
+        "sampleHome": 0,
         "topScores": [
           {
-            "p": 0.12616,
+            "p": 0.11862,
             "score": "1-1"
           },
           {
-            "p": 0.10553,
-            "score": "0-1"
-          },
-          {
-            "p": 0.09256,
+            "p": 0.10189,
             "score": "1-0"
           },
           {
-            "p": 0.08597,
-            "score": "1-2"
+            "p": 0.09324,
+            "score": "2-1"
           },
           {
-            "p": 0.07742,
-            "score": "0-0"
+            "p": 0.08009,
+            "score": "2-0"
+          },
+          {
+            "p": 0.07545,
+            "score": "0-1"
+          }
+        ]
+      }
+    },
+    {
+      "away": "Middlesbrough",
+      "awayKey": "middlesbrough",
+      "b31": {
+        "qualifiers": [],
+        "status": "not-calculated"
+      },
+      "date": "2026-11-27",
+      "division": "E1",
+      "home": "Southampton",
+      "homeKey": "southampton",
+      "id": "2026-11-27|E1|southampton|middlesbrough",
+      "kickoff": "20:00",
+      "league": "Championship",
+      "scoreline": {
+        "calibrated": false,
+        "cleanSheetRisk": 0.31814,
+        "expectedAway": 1.145,
+        "expectedHome": 1.727,
+        "expectedTotal": 2.872,
+        "goalBands": {
+          "0-1": 0.21908,
+          "2": 0.23336,
+          "3": 0.22341,
+          "4+": 0.32415
+        },
+        "markets": {
+          "away_win": 0.25255,
+          "btts": 0.5606,
+          "draw": 0.23758,
+          "home_win": 0.50987,
+          "no_btts": 0.4394,
+          "over25": 0.54756,
+          "over35": 0.32415,
+          "under25": 0.45244,
+          "under35": 0.67585
+        },
+        "modalProbability": 0.1119,
+        "modalScore": "1-1",
+        "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
+        "sampleAway": 8,
+        "sampleHome": 8,
+        "topScores": [
+          {
+            "p": 0.1119,
+            "score": "1-1"
+          },
+          {
+            "p": 0.0977,
+            "score": "1-0"
+          },
+          {
+            "p": 0.09661,
+            "score": "2-1"
+          },
+          {
+            "p": 0.08436,
+            "score": "2-0"
+          },
+          {
+            "p": 0.0648,
+            "score": "0-1"
           }
         ]
       }
@@ -73,5 +139,5 @@
   ],
   "model": "INDEPENDENT_SCORELINE_V1_GITHUB",
   "status": "frozen-prekickoff",
-  "trainingCurrentCount": 875
+  "trainingCurrentCount": 905
 }

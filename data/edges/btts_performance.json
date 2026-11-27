@@ -195,22 +195,29 @@
       "forecasts": 1,
       "graded": 0,
       "pending": 1
+    },
+    "2026-11-27": {
+      "accuracyPct": null,
+      "correct": 0,
+      "forecasts": 2,
+      "graded": 0,
+      "pending": 2
     }
   },
   "byLeague": {
     "E0": {
       "accuracyPct": 48.94,
       "correct": 23,
-      "forecasts": 50,
+      "forecasts": 51,
       "graded": 47,
-      "pending": 3
+      "pending": 4
     },
     "E1": {
       "accuracyPct": 56.58,
       "correct": 43,
-      "forecasts": 84,
+      "forecasts": 85,
       "graded": 76,
-      "pending": 8
+      "pending": 9
     },
     "E2": {
       "accuracyPct": 57.81,
@@ -245,18 +252,18 @@
     "Yes": {
       "accuracyPct": 56.72,
       "correct": 152,
-      "forecasts": 295,
+      "forecasts": 297,
       "graded": 268,
-      "pending": 27
+      "pending": 29
     }
   },
   "byProbabilityBand": {
     "50–59.9%": {
       "accuracyPct": 58.75,
       "correct": 141,
-      "forecasts": 262,
+      "forecasts": 264,
       "graded": 240,
-      "pending": 22
+      "pending": 24
     },
     "60–69.9%": {
       "accuracyPct": 45.31,
@@ -623,19 +630,31 @@
       "qualified55MatchedFixtures": 0,
       "supportedLeagueForecasts": 1,
       "warning": null
+    },
+    "2026-11-27": {
+      "allLeagueForecasts": 2,
+      "bookmakerMatchedFixtures": null,
+      "bttsQuotedFixtures": null,
+      "bttsQuotedOutcomes": null,
+      "captureAvailable": false,
+      "lowCoverageWarning": false,
+      "matchedCoveragePct": null,
+      "qualified55MatchedFixtures": null,
+      "supportedLeagueForecasts": 2,
+      "warning": null
     }
   },
   "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
   "model": "original frozen experimental Scoreline Model",
-  "mostRecentDay": "2026-11-26",
+  "mostRecentDay": "2026-11-27",
   "note": "Forecast accuracy uses verified final scores even without bookmaker prices. No odds, stakes, ROI or profitable-edge conclusions are inferred.",
   "schemaVersion": 1,
   "settledForecasts": 304,
   "summary": {
     "accuracyPct": 55.92,
     "correct": 170,
-    "forecasts": 335,
+    "forecasts": 337,
     "graded": 304,
-    "pending": 31
+    "pending": 33
   }
 }
