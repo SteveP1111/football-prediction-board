@@ -1,0 +1,53 @@
+{
+  "completedAtUtc": "2026-11-28T03:33:54.018511+00:00",
+  "confidenceQualifyingRequests": 4,
+  "confidenceRequestsByMarket": {
+    "alternate_totals": 0,
+    "btts": 4
+  },
+  "confidenceRequestsExecuted": 4,
+  "confidenceSelectionPolicy": "Prioritise BTTS 55%+, use unused slots for Over/Under 3.5 55%+; standard 2.5 totals remain batch-priced; skip already-priced outcomes",
+  "date": "2026-11-28",
+  "endRemaining": 382,
+  "extraMarketRequestsCap": 4,
+  "forecastCapturedAt": "2026-11-28T03:33:28.615609+00:00",
+  "plannedMaxCredits": 12,
+  "requestedSports": [
+    "soccer_epl",
+    "soccer_efl_champ",
+    "soccer_england_league1",
+    "soccer_england_league2"
+  ],
+  "reserveCredits": 100,
+  "selectionPolicy": "BTTS Yes/No 55%+, Over/Under 3.5 55%+; standard Over/Under 2.5 already fetched by league, skip already-priced outcomes",
+  "spentCredits": 12,
+  "startRemaining": 394,
+  "startedAtUtc": "2026-11-28T03:33:52.883639+00:00",
+  "status": "complete",
+  "summary": {
+    "bttsCoverage": {
+      "lowCoverageWarning": true,
+      "matchedCoveragePct": 11.43,
+      "matchedForecastFixtures": 35,
+      "qualified55MatchedFixtures": 21,
+      "qualifiedCoveragePct": 19.05,
+      "quotedFixtures": 4,
+      "quotedOutcomes": 8,
+      "quotedQualifiedFixtures": 4,
+      "supportedForecastFixtures": 36,
+      "warning": "BTTS quoted for only 4/21 qualifying matched fixtures; the extra-market request limit restricts coverage."
+    },
+    "coverageWarnings": [
+      "BTTS quoted for only 4/21 qualifying matched fixtures; the extra-market request limit restricts coverage."
+    ],
+    "forecastFixtures": 47,
+    "marketsPriced": 197,
+    "matchedFixtures": 35,
+    "oddsEvents": 77,
+    "positiveEdges": 89,
+    "unmatchedForecasts": 12,
+    "unmatchedReasons": {
+      "unmatched_or_ambiguous_name": 42
+    }
+  }
+}

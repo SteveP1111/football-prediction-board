@@ -652,15 +652,15 @@
     },
     "2026-11-28": {
       "allLeagueForecasts": 47,
-      "bookmakerMatchedFixtures": null,
-      "bttsQuotedFixtures": null,
-      "bttsQuotedOutcomes": null,
-      "captureAvailable": false,
-      "lowCoverageWarning": false,
-      "matchedCoveragePct": null,
-      "qualified55MatchedFixtures": null,
+      "bookmakerMatchedFixtures": 35,
+      "bttsQuotedFixtures": 4,
+      "bttsQuotedOutcomes": 8,
+      "captureAvailable": true,
+      "lowCoverageWarning": true,
+      "matchedCoveragePct": 11.43,
+      "qualified55MatchedFixtures": 21,
       "supportedLeagueForecasts": 36,
-      "warning": null
+      "warning": "BTTS quotes cover fewer than 25% of bookmaker-matched fixtures."
     }
   },
   "definition": "Highest original BTTS Yes/No probability per fixture; ties favour Yes.",
